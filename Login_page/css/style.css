@@ -1,4 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+html {
+  height: 100%;
+}
 * {
   box-sizing: border-box;
   margin: 0;

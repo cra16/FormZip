@@ -13,6 +13,11 @@
 -moz-box-sizing: border-box;    /* Firefox, other Gecko */
 box-sizing: border-box;         /* Opera/IE 8+ */
 }
+html {
+	height: 100%;
+	
+}
+
 a{color:#7D99E0;outline:0;}
 a:active{color:inherit;}
 a:visited{}
