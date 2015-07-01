@@ -9,9 +9,7 @@ jQuery(document).ready(function($){
 		MENU Dropdowns
 	-----------------------------------*/
 	$('ul.menu').each(function(){
-		// add the menu toggle
-		$(this).prepend('<li class="menu-toggle"><a href="#"><span class="icon" data-icon="Y"></span> Menu</a></li>');
-
+		
 		// find menu items with children.
 		$(this).find('li').has('ul').addClass('has-menu')
 		.find('a:first').append('<span class="arrow">&nbsp;</span>');

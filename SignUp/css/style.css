@@ -5,34 +5,45 @@
 * {margin: 0; padding: 0;}
 
 html {
+	font-size: 62.5%;
 	height: 100%;
 	background: #efefef url(img/gray_jean.png); 
 
 }
 
 body {
+	font-size: 1.4rem; 
 	font-family: montserrat, arial, verdana;
 }
 
+h1 { font-size: 2.4rem; } /* =24px */
+
+.small_h{
+	text-align:center;
+	color:#999;
+	margin-top:1.0rem;
+	font-size: 2.0rem;
+}
+
+/*grid*/
 .grid{
 max-width:1220px;
 margin:0 auto;
-padding:0 2em;
 }
+
 .grid a{
 letter-spacing: 1rem;
 text-transform:uppercase;
-font-size:4.0em;
+font-size: 5.0rem;
 font-family: 'Source Sans Pro', sans-serif;
 color:black;
 margin:10px 0 10px 0;
 text-decoration:none;
 text-align:center;
+
 }
 
-h4{
-	font-size:40px;
-}
+
 .logo{
 	text-align: center;
 	margin-top:100px;
@@ -45,7 +56,7 @@ h4{
   top: 300px;
   left: 0;
   width: 100%;
-  height: 600px;
+  height: 60%;
   margin-top: -100px;
   overflow: hidden;
 }
@@ -53,10 +64,10 @@ h4{
 .container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 40px 0;
   height: 400px;
   text-align: center;
 }
+
 /*form styles*/
 #msform {
 	width: 400px;
@@ -119,7 +130,6 @@ h4{
 	color: #666;
 	margin-bottom: 20px;
 }
-/*progressbar*/
 
 
 

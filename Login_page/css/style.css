@@ -1,47 +1,28 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+/*custom font*/
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
 html {
+  font-size: 62.5%;
   height: 100%;
-}
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-weight: 300;
-}
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  font-weight: 300;
-}
-body ::-webkit-input-placeholder {
-  /* WebKit browsers */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  font-weight: 300;
-}
-body :-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  opacity: 1;
-  font-weight: 300;
-}
-body ::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  opacity: 1;
-  font-weight: 300;
-}
-body :-ms-input-placeholder {
-  /* Internet Explorer 10+ */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  font-weight: 300;
+  background: #efefef url(img/gray_jean.png); 
+
 }
 
-h4{
-  font-size:40px;
+body {
+  font-size: 1.4rem; 
+  font-family: montserrat, arial, verdana;
+}
+
+h1 { font-size: 2.4rem; } /* =24px */
+
+.small_h{
+  text-align:center;
+  color:#999;
+  margin-top:0.5rem;
+  font-size: 1.5rem;
 }
 
 
@@ -69,12 +50,15 @@ h4{
   text-align: center;
 }
 .container h1 {
-  font-size: 50px;
+  font-size: 2.5rem;
   -webkit-transition-duration: 1s;
           transition-duration: 1s;
   -webkit-transition-timing-function: ease-in-put;
           transition-timing-function: ease-in-put;
-  font-weight: 200;
+  font-weight: 100;
+  margin-bottom:3.0rem;
+  margin-top:-1.0rem;
+
 }
 form {
   padding: 20px 0;
@@ -88,7 +72,7 @@ form input {
   outline: 0;
   border: 1px solid rgba(255, 255, 255, 0.4);
   background-color: rgba(255, 255, 255, 0.2);
-  width: 400px;
+  width: 25.0rem;
   border-radius: 3px;
   padding: 10px 15px;
   margin: 0 auto 10px auto;
@@ -118,7 +102,7 @@ form button {
   padding: 10px 15px;
   color: #53e3a6;
   border-radius: 3px;
-  width: 400px;
+   width: 27.0rem;
   cursor: pointer;
   font-size: 18px;
   -webkit-transition-duration: 0.25s;
