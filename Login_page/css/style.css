@@ -36,6 +36,12 @@ body :-ms-input-placeholder {
   color: white;
   font-weight: 300;
 }
+
+h4{
+  font-size:40px;
+}
+
+
 .wrapper {
   background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
   background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
