@@ -1,6 +1,13 @@
 <?php
-$connect=mysqli_connect('localhost', 'root', 'helloworld206') 
-         or die('Error connecting to MySQL server')
+$connect=mysqli_connect('localhost', 'root', 'helloworld206');
+
+if(!$connect){
+   print("연결실패".$mydb);
+   die("종료됩니다.");
+  }else{
+   print("성공");
+}
+
 
 mysqli_select_db($connect,'formzip');
 switch($_GET['mode']){
