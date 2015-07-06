@@ -8,7 +8,7 @@
 </html>
 <?php
 $connect=mysqli_connect('localhost', 'root', 'helloworld206');
-mysqli("SET NAMES utf8");
+mysqli_query("SET NAMES utf8")
 if(!$connect){
    print("연결실패".$mydb);
    die("종료됩니다.");
