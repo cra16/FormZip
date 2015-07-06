@@ -1,7 +1,7 @@
 <?php
 $connect=mysqli_connect('52.69.55.228', 'root', 'helloworld206');
 
-mysqli_select_db($connect,'test');
+mysqli_select_db($connect,'formzip');
 switch($_GET['mode']){
     case 'insert':
         $info = "INSERT INTO member (id, password, name, s_number, p_number)
