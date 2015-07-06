@@ -16,9 +16,9 @@ switch($_GET['mode']){
          VALUES ('".mysqli_real_escape_string($connect,$_POST['id'])."', '".mysqli_real_escape_string($connect,$_POST['pass'])."'
                    ,'".mysqli_real_escape_string($connect,$_POST['name'])."','".mysqli_real_escape_string($connect,$_POST['stunum'])."'
                    ,'".mysqli_real_escape_string($connect,$_POST['phone'])."' )" ; 
-                header("Location: www.naver.com");
+        echo ".mysqli_real_escape_string($connect,$_POST['id']).";
         $result = mysqli_query($connect,$info);
-         //header("Location: list.php");
+        // header("Location: ../First_Page/FirstPage.html");
         break;
    /* case 'delete':
         mysql_query('DELETE FROM topic WHERE id = '.mysql_real_escape_string($_POST['id']));
