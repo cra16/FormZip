@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8">
-  </head> 
-  <body>
-  </body>
-</html>
+
 <?php
+
+mysqli_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_client=utf8;");
+
 $connect=mysqli_connect('localhost', 'root', 'helloworld206');
-mysqli_query("SET NAMES utf8");
+
 if(!$connect){
    print("연결실패".$mydb);
    die("종료됩니다.");
