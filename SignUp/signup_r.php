@@ -1,5 +1,6 @@
 <?php
-$connect=mysqli_connect('52.69.55.228', 'root', 'helloworld206');
+$connect=mysqli_connect('52.69.55.228', 'root', 'helloworld206') 
+         or die('Error connecting to MySQL server')
 
 mysqli_select_db($connect,'formzip');
 switch($_GET['mode']){
