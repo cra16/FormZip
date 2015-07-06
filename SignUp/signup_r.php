@@ -16,9 +16,10 @@ switch($_GET['mode']){
          VALUES ('".mysqli_real_escape_string($connect,$_POST['id'])."', '".mysqli_real_escape_string($connect,$_POST['pass'])."'
                    ,'".mysqli_real_escape_string($connect,$_POST['name'])."','".mysqli_real_escape_string($connect,$_POST['stunum'])."'
                    ,'".mysqli_real_escape_string($connect,$_POST['phone'])."' )" ; 
-        echo ".mysqli_real_escape_string($connect,$_POST['id']).";
+        echo $info;
+
         $result = mysqli_query($connect,$info);
-        // header("Location: ../First_Page/FirstPage.html");
+         header("Location: ../First_Page/FirstPage.html");
         break;
    /* case 'delete':
         mysql_query('DELETE FROM topic WHERE id = '.mysql_real_escape_string($_POST['id']));
