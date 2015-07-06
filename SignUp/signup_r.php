@@ -1,5 +1,5 @@
 <?php
-$connect=mysqli_connect('52.69.55.228', 'root', 'helloworld206') 
+$connect=mysqli_connect('localhost', 'root', 'helloworld206') 
          or die('Error connecting to MySQL server')
 
 mysqli_select_db($connect,'formzip');
@@ -9,7 +9,7 @@ switch($_GET['mode']){
          VALUES ('".mysqli_real_escape_string($connect,$_POST['id'])."', '".mysqli_real_escape_string($connect,$_POST['pass'])."'
                    ,'".mysqli_real_escape_string($connect,$_POST['name'])."','".mysqli_real_escape_string($connect,$_POST['stunum'])."'
                    ,'".mysqli_real_escape_string($connect,$_POST['phone'])."' )" ; 
-         
+                header("Location: www.naver.com");
         $result = mysqli_query($connect,$info);
          //header("Location: list.php");
         break;
