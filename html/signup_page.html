@@ -24,18 +24,19 @@
     
     <div id="containbox">
       <div class="join_content">
-        <form>
+        <form >
             <div class="form-group">
                 <h2>기본정보 입력</h2>
-                <input class="form-control" id="name" type="text" placeholder="Name" maxlength="20" onblur="NameCheck()">
+
+                <input class="form-control" id="name" name="name" type="text" placeholder="Name" maxlength="20" onblur="NameCheck()">
                 
                 <div id="idMsg" class="error" style="display:none"></div>
                 
-                <input class="form-control" id="stuId" type="text" placeholder="Student ID" maxlength="8"  onblur="StuIdCheck()">
+                <input class="form-control" id="stuId" name="stuId" type="text" placeholder="Student ID" maxlength="8"  onblur="StuIdCheck()">
                 
                 <div id="stuIdMsg" class="error" style="display:none"></div>
                 
-                <input class="form-control" id="phone_num" type="text" placeholder="Phone number  ex)01012345678" maxlength="11" onblur="PhoneCheck()">
+                <input class="form-control" id="phone_num" name="phone_num" type="text" placeholder="Phone number  ex)01012345678" maxlength="11" onblur="PhoneCheck()">
 
                 <div id="phoneMsg" class="error" style="display:none"></div>
             </div> 
@@ -47,17 +48,17 @@
 
     <div id="containbox">
       <div class="join_content">
-        <form>
+        <form action="./signup_r.php?mode=insert"  method="POST">
             <div class="form-group">
-              <input class="form-control" id="userid" type="text" placeholder="User ID" maxlength="20" onblur="UserIdCheck()">
+              <input class="form-control" id="userid" name="userid" type="text" placeholder="User ID" maxlength="20" onblur="UserIdCheck()">
               
               <div id="userIdMsg" class="error" style="display:none"></div>
               
-              <input class="form-control" id="pw" type="password" placeholder="Password" maxlength="15" onblur="PWCheck()">
+              <input class="form-control" id="pw" name="pw" type="password" placeholder="Password" maxlength="15" onblur="PWCheck()">
               
               <div id="pwMsg" class="error" style="display:none"></div>
               
-              <input class="form-control" id="confirm" type="password" placeholder="Password Confirm" maxlength="15" onblur="PsCfCheck()">
+              <input class="form-control" id="confirm" name="condfirm" type="password" placeholder="Password Confirm" maxlength="15" onblur="PsCfCheck()">
             
               <div id="pscfMsg" class="error" style="display:none"></div>
             </div> 
