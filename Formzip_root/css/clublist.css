@@ -64,7 +64,11 @@
 
 
 table{
+<<<<<<< HEAD
   padding-top: 40px;
+=======
+  padding-top: 20px;
+>>>>>>> origin/master
   position: relative;
   margin-top: 100px;
   margin: 0 auto;
