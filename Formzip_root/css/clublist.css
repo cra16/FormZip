@@ -4,17 +4,17 @@
   .search-text{
     border: 5px solid white;
     height:40px;
-    width: 50%;
+    width: 48%;
   }
   .search-category{
     height: 40px;
     border: 5px solid white;
-    width: 30%;
+    width: 35%;
   }
   .search-button{
     float:right;
     height: 40px;
-    width: 15%;
+    width: 12%;
     background-color: #4EA689;
     text-decoration: 
     border: 10px solid #4EA689;
