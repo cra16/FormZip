@@ -6804,7 +6804,7 @@ button.close {
   font-weight: 700;
 }
 .navbar-default .badge {
-  background-color: #000;
+  background-color: none;
   color: #fff;
 }
 .navbar-inverse .badge {

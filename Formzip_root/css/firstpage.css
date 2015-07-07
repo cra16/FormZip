@@ -1,18 +1,23 @@
+html { 
+  background: url(../img/background.jpg) no-repeat center center fixed; 
+  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
 .container{
 	width:100%;
 	height:100%;
+	padding:0 !important;
 }
 
-.container img{
-	position:relative;
-	width:100%;
-	height:600px;
-	opacity:0.55;
-}
 
 .headbox{
 	position:absolute;
-	top:130px;
+	top:100px;
     height:300px;
  	margin:0;
 }
@@ -41,7 +46,7 @@
 #first_icon{
 	text-align:right;
 	font-size:3rem;
-	padding-right:130px;
+	padding-right:16%;
 }
 
 #first_icon a{
@@ -56,7 +61,7 @@
 #second_icon{
 	text-align:left;
 	font-size:3rem;
-	padding-left:130px;
+	padding-left:15%;
 }
 
 #second_icon a{
@@ -66,4 +71,12 @@
 
 #second_icon a:hover{
 	color:#4582ec;
+}
+
+.navbar{
+	margin-bottom:0 !important;
+}
+
+.navbar-default{
+	background-color:#E6E6E6 !important;
 }

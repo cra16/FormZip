@@ -1,5 +1,14 @@
+
 <?php
-$connect=mysqli_connect('52.69.55.228', 'root', 'helloworld206');
+header('Content-Type: text/html; charset=utf-8');
+
+mysqli_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_client=utf8;");
+
+$connect=mysqli_connect('localhost', 'root', 'helloworld206');
+mysqli_set_charset($connect, "utf8");
+
 
 mysqli_select_db($connect,'formzip');
 switch($_GET['mode']){
@@ -8,9 +17,10 @@ switch($_GET['mode']){
          VALUES ('".mysqli_real_escape_string($connect,$_POST['id'])."', '".mysqli_real_escape_string($connect,$_POST['pass'])."'
                    ,'".mysqli_real_escape_string($connect,$_POST['name'])."','".mysqli_real_escape_string($connect,$_POST['stunum'])."'
                    ,'".mysqli_real_escape_string($connect,$_POST['phone'])."' )" ; 
-         
+        echo $info;
+
         $result = mysqli_query($connect,$info);
-         //header("Location: list.php");
+       header("Location: ../First_Page/FirstPage.html");
         break;
    /* case 'delete':
         mysql_query('DELETE FROM topic WHERE id = '.mysql_real_escape_string($_POST['id']));
