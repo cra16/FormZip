@@ -1101,7 +1101,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #4582ec;
+  color: #347729;
   text-decoration: none;
 }
 a:hover,
@@ -4554,18 +4554,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #000000;
-  background-color: #eeeeee;
+  background-color: black;
 }
 .navbar-default .navbar-text {
   color: #000000;
 }
 .navbar-default .navbar-nav > li > a {        /* menubar 색깔  */
-  color: #4582ec;
+  color: #214300;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #000000;
-  background-color: #eeeeee;
+  color: #D6D665;
+  background:transparent;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
