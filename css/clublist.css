@@ -1,0 +1,87 @@
+
+ @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+* { font-family:"Nanum Gothic" !important }
+
+  body{
+    background-color: #EBEBEB
+  }
+
+
+
+  .search-text{
+    border: 5px solid white;
+    height:40px;
+    width: 47%;
+  }
+  .search-category{
+    height: 40px;
+    border: 5px solid white;
+    width: 35%;
+  }
+  .search-button{
+    float:right;
+    height: 40px;
+    width: 12%;
+    background-color: #4EA689;
+    text-decoration: 
+    border: 10px solid #4EA689;
+    border-style: none;
+    font-size: 20px;
+    color:white;
+  }
+  .search{
+    position:relative;
+    margin-right: 31%;
+    margin-left: 31%;
+    clear: both;
+    margin-bottom: 20px;
+    border-radius:5px;
+    }
+
+  fieldset { 
+    background-color: white;
+    position: relative;
+    margin-right: 35%;
+    margin-left: 35%;
+    border: 5px solid #4EA689;
+    -moz-border-radius:7px;  
+    border-radius: 7px;  
+    -webkit-border-radius: 7px; 
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+.club-element{
+  background-color: white;
+  width: 25rem;  
+  height: 20rem;
+  color: #947B2B;
+  border-radius: 20px;
+  border-style: outset;
+  font-size: 20px;
+  font-weight: bold;
+  font-color
+}
+
+
+table{
+<<<<<<< HEAD
+  padding-top: 40px;
+=======
+  padding-top: 20px;
+>>>>>>> origin/master
+  position: relative;
+  margin-top: 100px;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 25px 55px;
+}
+
+h2{
+  position: relative;
+  text-align: center;
+  color: #947B2B;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
