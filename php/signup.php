@@ -13,13 +13,13 @@ mysqli_set_charset($connect, "utf8");
 mysqli_select_db($connect,DB_NAME);
 switch($_GET['mode']){
     case 'insert':
-        $info = "INSERT INTO student (id, password, name)
+        $info = "INSERT INTO student (id, password, student_name)
          VALUES ('".mysqli_real_escape_string($connect,$_POST['userid'])."', '".mysqli_real_escape_string($connect,$_POST['pw'])."'
                    ,'".mysqli_real_escape_string($connect,$_POST['name'])."')" ; 
         echo $info;
 
         $result = mysqli_query($connect,$info);
-       //header("Location: ../html/firstpage.html");
+       header("Location: ../html/firstpage.html");
         break;
    /* case 'delete':
         mysql_query('DELETE FROM topic WHERE id = '.mysql_real_escape_string($_POST['id']));
