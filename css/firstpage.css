@@ -1,0 +1,69 @@
+.container{
+	width:100%;
+	height:100%;
+}
+
+.container img{
+	position:relative;
+	width:100%;
+	height:600px;
+	opacity:0.55;
+}
+
+.headbox{
+	position:absolute;
+	top:130px;
+    height:300px;
+ 	margin:0;
+}
+
+.headbox h1{
+	font-size:10.0rem;
+	font-family:'Hanna';
+	font-weight:lighter;
+	margin-left:13.333%;
+	margin-top:2%;
+	width:800px;				/*text 줄바꿈 막기*/
+	min-width:700px;			/*text 줄바꿈 막기*/
+	color:black;
+}
+
+.iconblock{
+	position:absolute;
+	top:500px;
+	width:100%;
+	height:5em;
+	
+	padding-left:15px;
+	padding-right:15px;
+}
+
+#first_icon{
+	text-align:right;
+	font-size:3rem;
+	padding-right:130px;
+}
+
+#first_icon a{
+	color:black;
+	text-decoration:none;
+}
+
+#first_icon a:hover{
+	color:#4582ec;
+}
+
+#second_icon{
+	text-align:left;
+	font-size:3rem;
+	padding-left:130px;
+}
+
+#second_icon a{
+	color:black;
+	text-decoration:none;
+}
+
+#second_icon a:hover{
+	color:#4582ec;
+}
