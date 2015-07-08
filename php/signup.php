@@ -19,7 +19,7 @@ switch($_GET['mode']){
         echo $info;
 
         $result = mysqli_query($connect,$info);
-       header("Location: ../html/firstpage.html");
+       //header("Location: ../html/firstpage.html");
         break;
    /* case 'delete':
         mysql_query('DELETE FROM topic WHERE id = '.mysql_real_escape_string($_POST['id']));
