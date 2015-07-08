@@ -2,9 +2,9 @@
 	//Start session
 	session_start();
  
-	$mysql_hostname = "localhost";
+	$mysql_hostname = "localhost";	//수정할 부분
 	$mysql_user = "root";
-	$mysql_password = "78910";
+	$mysql_password = "78910";		//수정할 부분
 	$mysql_database = "formzip";
 	$prefix = "";
 	$bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");

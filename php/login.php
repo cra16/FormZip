@@ -16,9 +16,9 @@
     <title>Loginpage</title>
 
     <!-- Bootstrap -->
-    <link href="../css/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/css/bootstrap.css" rel="stylesheet">
-    <link href="../css/css/loginpage.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/loginpage.css" rel="stylesheet">
 
   </head>
   <body>
@@ -27,7 +27,7 @@
       <h1>  <a href="firstpage.html" class="h_logo">F O R M &nbsp;&nbsp;Z I P</a> </h1>
     </div>
 
-    <img src="../css/img/keyboard.jpg">
+    <img src="../img/keyboard.jpg">
     <div class="loginbox">
       <form name="loginform" action="login_exec.php" method="POST">
        <div class="form-group">
