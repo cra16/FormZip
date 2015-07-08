@@ -1,4 +1,4 @@
-var check_arr = [0,0,0,0,0,0,0];
+var check_arr = [0,0,0,0];
 
 
 function NameCheck(){
@@ -18,39 +18,6 @@ function NameCheck(){
 }
 
 
-function StuIdCheck(){
-	var stuId = document.getElementById("stuId");
-
-	if(stuId.value == "")
-	{
-		document.getElementById("stuIdMsg").style.display="block";
-		document.getElementById("stuIdMsg").innerHTML="필수정보입니다";
-		check_arr[1]=0;
-	}
-		
-	else{
-		document.getElementById("stuIdMsg").style.display="none";
-		check_arr[1]=1;
-		}		
-}
-
-
-function PhoneCheck(){
-	var phone_num = document.getElementById("phone_num");
-
-	if(phone_num.value == "")
-	{
-		document.getElementById("phoneMsg").style.display="block";
-		document.getElementById("phoneMsg").innerHTML="필수정보입니다";
-		check_arr[2]=0;
-	}
-		
-	else{
-		document.getElementById("phoneMsg").style.display="none";	
-		check_arr[2]=1;
-		}	
-}
-
 function UserIdCheck(){
 	var userid = document.getElementById("userid");
 
@@ -58,28 +25,75 @@ function UserIdCheck(){
 	{
 		document.getElementById("userIdMsg").style.display="block";
 		document.getElementById("userIdMsg").innerHTML="필수정보입니다";
-		check_arr[3]=0;
+		check_arr[1]=0;
 	}
-		
+	
+	else if(userid.value.length <5)
+	{
+		document.getElementById("userIdMsg").style.display="block";
+		document.getElementById("userIdMsg").innerHTML="5~20자만 사용 가능합니다";
+		check_arr[1]=0;
+	}
+
 	else{
 		document.getElementById("userIdMsg").style.display="none";		
-		check_arr[3]=1;
+		check_arr[1]=1;
 	}
 }
 
 function PWCheck(){
 	var pw = document.getElementById("pw");
+	var confirm = document.getElementById("confirm");
 
-	if(pw.value == "")
+	if(confirm.value == "")
 	{
-		document.getElementById("pwMsg").style.display="block";
-		document.getElementById("pwMsg").innerHTML="필수정보입니다";
-		check_arr[4]=0;
+		if(pw.value =="")
+		{
+			document.getElementById("pwMsg").style.display="block";
+			document.getElementById("pwMsg").innerHTML="필수정보입니다";
+			check_arr[2]=0;
+		}
+
+		else
+		{
+			document.getElementById("pwMsg").style.display="none";		
+		    check_arr[2]=1;
+		}		
 	}
-		
-	else{
-		document.getElementById("pwMsg").style.display="none";		
-		check_arr[4]=1;
+
+	else
+	{  
+		if(pw.value =="")
+		{
+			document.getElementById("pwMsg").style.display="block";
+			document.getElementById("pwMsg").innerHTML="필수정보입니다";
+			check_arr[2]=0;
+		}
+
+		else
+		{
+			if(pw.value != confirm.value)
+			{
+				document.getElementById("pwMsg").style.display="none";		
+		   		check_arr[2]=1;
+
+		   		document.getElementById("pscfMsg").style.display="block";
+				document.getElementById("pscfMsg").innerHTML="비밀번호가 일치하지 않습니다";
+				document.getElementById("pscfMsg").style.color="#FF8080";
+				check_arr[3]=0;
+			}
+
+			else
+			{
+				document.getElementById("pwMsg").style.display="none";		
+		   		check_arr[2]=1;
+
+		   		document.getElementById("pscfMsg").style.display="block";
+				document.getElementById("pscfMsg").style.color="#66FF66";
+				document.getElementById("pscfMsg").innerHTML="비밀번호가 일치합니다";
+				check_arr[3]=1;
+			}
+		}		
 	}
 }
 
@@ -89,36 +103,58 @@ function PsCfCheck(){
 
 	if(pw.value == "")
 	{
-		document.getElementById("pscfMsg").style.display="block";
-		document.getElementById("pscfMsg").innerHTML="필수정보입니다";
-		check_arr[5]=0;
+		if(confirm.value=="")
+		{
+			document.getElementById("pscfMsg").style.display="block";
+			document.getElementById("pscfMsg").innerHTML="필수정보입니다";
+			document.getElementById("pscfMsg").style.color="#FF8080";
+			check_arr[3]=0;
+		}
+
+		else
+		{
+			document.getElementById("pscfMsg").style.display="block";
+			document.getElementById("pscfMsg").innerHTML="비밀번호가 일치하지 않습니다";
+			check_arr[3]=0;
+		}
 	}
 
-	else if(confirm.value != pw.value)
-	{
-		document.getElementById("pscfMsg").style.display="block";
-		document.getElementById("pscfMsg").innerHTML="비밀번호가 일치하지 않습니다";
-		check_arr[5]=0;
-	}
-		
-	else if(confirm.value == pw.value)
-	{
-		document.getElementById("pscfMsg").style.display="block";
-		document.getElementById("pscfMsg").style.color="#66FF66";
-		document.getElementById("pscfMsg").innerHTML="비밀번호가 일치합니다";
-		check_arr[5]=1;
-	}
 
-	else{
-		document.getElementById("pscfMsg").style.display="none";		
-		check_arr[5]=0;
+	else
+	{
+		if(confirm.value=="")
+		{
+			document.getElementById("pscfMsg").style.display="block";
+			document.getElementById("pscfMsg").innerHTML="필수정보입니다";
+			document.getElementById("pscfMsg").style.color="#FF8080";
+			check_arr[3]=0;
+		}
+
+		else
+		{
+			if(confirm.value != pw.value)
+			{
+				document.getElementById("pscfMsg").style.display="block";
+				document.getElementById("pscfMsg").innerHTML="비밀번호가 일치하지 않습니다";
+				document.getElementById("pscfMsg").style.color="#FF8080";
+				check_arr[3]=0;
+			}
+
+			else
+			{
+				document.getElementById("pscfMsg").style.display="block";
+				document.getElementById("pscfMsg").style.color="#66FF66";
+				document.getElementById("pscfMsg").innerHTML="비밀번호가 일치합니다";
+				check_arr[3]=1;
+			}
+		}
 	}
 }
 
 function IsFilled(){
 	var i=0;
 
-	for(i=0; i<6; i++){
+	for(i=0; i<4; i++){
 		if(check_arr[i]==0){
 			document.getElementById("sbMsg").style.display="block";
 			
