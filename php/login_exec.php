@@ -57,10 +57,10 @@
 			//Login Successful
 			session_regenerate_id();
 			$member = mysql_fetch_assoc($result);
-			$_SESSION['USER_NAME'] = $member['username'];
+			$_SESSION['USER_NAME'] = $member['id'];		//db에 있는게 id면 id, username이면 username
 			$_SESSION['USER_PASSWORD'] = $member['password'];
 			session_write_close();
-			header("location: ../html/firstpage.html");
+			header("location: firstpage.php");
 			exit();
 		}else {
 			//Login failed
