@@ -1,3 +1,126 @@
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+* { font-family:"Nanum Gothic" !important }
+
 html{
 	background-color: #EBEBEB;
+}
+
+body{
+	width: 1100px;
+	
+	background-color: #EBEBEB;	
+}
+#section{
+	width: 550px;
+	float: left;
+	background-color: white;
+	border-radius: 10px 10px 2px 2px;
+	margin-right: 5%; 
+	margin-left: 12%;
+	border-width: 1px 1px 0px 0px;
+	  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+#aside{
+	border-radius: 10px 10px 2px 2px;
+	width: 300px;
+	height: 700px;
+	float: left;
+	background-color: transparent;
+}
+
+#navigation{
+	margin-left: 13%;
+	margin-bottom: 3%;
+	color: grey;
+	font-size: 30px;
+	font-style: underlined;
+
+}
+
+#wrap{
+	border-style: none;
+	border-color: #ebebeb;
+	background-color: #EBEBEB;
+	width: 1300px;
+	height: 910px;
+}
+
+.container{
+	background-color: #ebebeb;
+}
+
+.content{
+	margin: 5%;
+	width: 550px;
+	height: 600px;
+	border-radius: 10px;
+
+}
+
+.picture{
+	width: 90%;
+	border-radius: 10px;
+}
+
+.club-logo{
+	border-radius: 10px 10px 2px 2px;
+	width: 300px;
+	height: 150px;
+	float: left;
+	background-color: white;
+	border: transparent;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	color: #947B2B;
+	font-size: 40px;
+	text-align: center;
+}
+
+.profile_pic{
+	background-image: url(../img/club_page.jpg);
+	position: static;
+	border-radius: 10px 10px 2px 2px;
+	width: 300px;
+	height: 150px;
+	float: left;
+	background-color: white;
+	border: transparent;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	font-size: 40px;
+
+}
+
+.club-apply-bt{
+	display: block;
+	border-radius: 6px;
+	border-style: none;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	background-color: #C4AA5E;
+	width: 40%;
+	color: #fff;
+	width: 150px;
+	height: 30px;
+	border-radius: 0px 0px 0px  4px;
+	font-size: 20px;
+}
+
+.club-result-bt{
+	display: block;
+	border-radius: 6px;
+	border-style: none;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	background-color: #C4AA5E;
+	color: #fff;
+	width: 150px;
+	height: 30px;
+	border-radius: 0px 0px 4px  0px;
+	font-size: 20px;
+}
+.title{
+	color: #4EA689;
+}
+
+.intro{
+	width: 90%;
+	color: #2D4D42;
+	font-size: 12px;
 }
