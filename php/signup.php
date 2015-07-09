@@ -6,21 +6,20 @@ mysqli_query("set session character_set_connection=utf8;");
 mysqli_query("set session character_set_results=utf8;");
 mysqli_query("set session character_set_client=utf8;");
 
-$connect=mysqli_connect('DB_HOST', 'DB_USER', 'DB_PASSWORD');
+$connect=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD);
 mysqli_set_charset($connect, "utf8");
 
 
-mysqli_select_db($connect,'formzip');
+mysqli_select_db($connect,DB_NAME);
 switch($_GET['mode']){
     case 'insert':
-        $info = "INSERT INTO student (id, password, name, s_number)
+        $info = "INSERT INTO student (id, password, student_name)
          VALUES ('".mysqli_real_escape_string($connect,$_POST['userid'])."', '".mysqli_real_escape_string($connect,$_POST['pw'])."'
-                   ,'".mysqli_real_escape_string($connect,$_POST['name'])."','".mysqli_real_escape_string($connect,$_POST['stuId'])."'
-                   )" ; 
+                   ,'".mysqli_real_escape_string($connect,$_POST['name'])."')" ; 
         echo $info;
 
         $result = mysqli_query($connect,$info);
-       header("Location: ../First_Page/FirstPage.html");
+       header("Location: ../html/firstpage.html");
         break;
    /* case 'delete':
         mysql_query('DELETE FROM topic WHERE id = '.mysql_real_escape_string($_POST['id']));
