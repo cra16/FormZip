@@ -5,6 +5,11 @@ html{
 	background-color: #EBEBEB;
 }
 
-.edit-content{
-	border-style: dotted;
+#navigator{
+
+
+}
+
+div.section.tool-box{
+	border-top: 1px solid #CCC;
 }
