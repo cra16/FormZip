@@ -1,14 +1,11 @@
 <?php
 	//Start session
 	session_start();
- 
-	$mysql_hostname = "localhost";	//수정할 부분
-	$mysql_user = "root";
-	$mysql_password = "78910";		//수정할 부분
-	$mysql_database = "formzip";
+    require_once('DB_INFO.php');
+	
 	$prefix = "";
-	$bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-		mysql_select_db($mysql_database, $bd) or die("Could not select database");
+	$bd = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
+	   	mysqli_select_db($bd,DB_NAME) or die("Could not select database");
  
 	//Array to store validation errors
 	$errmsg_arr = array();
@@ -26,8 +23,8 @@
 	}
  
 	//Sanitize the POST values
-	$username = clean($_POST['username']);
-	$password = clean($_POST['password']);
+	$username = $_POST['username'];    
+	$password = $_POST['password'];  //  <--- 일단 mysql_real_escape_string 하면 에러가 나서 뺐는데 나중에 고쳐야함
  
 	//Input Validations
 	if($username == '') {
@@ -49,11 +46,11 @@
 
 	//Create query
 	$qry="SELECT * FROM student WHERE id='$username' AND password='$password'";
-	$result=mysql_query($qry);
+	$result=mysqli_query($bd,$qry);
  
 	//Check whether the query was successful or not
 	if($result) {
-		if(mysql_num_rows($result) > 0) {
+		if(mysqli_num_rows($result) > 0) {
 			//Login Successful
 			session_regenerate_id();
 			$member = mysql_fetch_assoc($result);
