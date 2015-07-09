@@ -7,12 +7,14 @@
   Header("Pragma: no-cache");
   Header("Expires: 0");
 
- 
+ mysqli_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_client=utf8;");
 
   $connect=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD);
   mysqli_select_db($connect,DB_NAME);
   $result = mysqli_query($connect,'SELECT * FROM student'); 
-   
+   mysqli_set_charset($connect, "utf8");
 
 ?>
 <!DOCTYPE html>
