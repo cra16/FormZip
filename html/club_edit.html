@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=EUC_KR">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>:: 페이지 수정 ::</title>
@@ -14,7 +15,6 @@
 
   </head>
   <body>
-  <div class="container">
 
   <!-- Menubar start-->  
   <nav class="navbar navbar-default">
@@ -45,76 +45,54 @@
 
 <!--Name Title Start-->
 <div id = "navigator">
-<h2></h2>
+<h4>동아리 정보 수정 </h4>
 </div>
 <!--Name Title End-->
 
-
-<div class = "section">
-<table>
-  <tbody>
-    <tr class = "post-title">
-      <th scope = "row"> TITLE </th>
-      <td> 
-        <input class="title" type="text" maxlength="50">
+<!-- Post Editing Start -->
+<div id = "wrap">
+<form class = "write-post" action = "js.html" method = "post" onsubmit = "return formCheck();">
+  <table class = "write">
+    <tr>
+      <td class = "post-title" > 
+        <h5> 제목 : </h5> 
       </td>
-    </tr>     <!--제목 End-->
-
-    <tr class = "tool-box">      <!--Tool Box Start-->
       <td>
-        <div>
-          <ul class = "tool">
-            <li class = "divide"></li>
-            <li class = "font-type"></li>
-            <li class = "font-size"></li>
-          </ul>
-          <ul class = "tool">
-            <li class = "divide"></li>            
-            <li class = "go-back"></li>
-            <li class = "re-do"></li>
-          </ul>
-          <ul class = "tool">
-            <li class = "divide"></li>            
-            <li class = "font-color"></li>
-            <li class = "font-highlight"></li>
-          </ul>
-          <ul class = "tool">
-            <li class = "divide"></li>            
-            <li class = "font-bold"></li>
-            <li class = "font-underline"></li>
-            <li class = "font-italic"></li>
-            <li class = "font-strike"></li>
-          </ul>
-          <ul class = "tool">
-            <li class = "divide"></li>            
-            <li class = "justify-left"></li>
-            <li class = "justify-center"></li>
-            <li class = "justify-right"></li>
-          </ul>
-          <ul class = "tool">
-            <li class = "divide"></li>            
-            <li class = "order-number"></li>
-            <li class = "order-bullet"></li>
-          </ul>
-        </div>
+        <input class = "post-subject" type = "text" name = "title">
       </td>
-    </tr>     <!--Tool Box Start-->
-    <tr>      <!--Text 입력 Start-->
-      <td>
-        <iframe src=""></iframe>
+    </tr>
+    <tr>
+      <td colspan="2"> <textarea class = "post-content" rows = "30" name = "content" value = "동아리를 소개해주세요.">
+      </textarea>
       </td>
-    </tr>     <!--Text 입력 End-->
-  </tbody>
-</table>
+    </tr>
+    <tr>
+      <td  colspan="2">
+        <input class = "post-submit" type = "submit">
+      </td>
+    </tr>
+  </table>
+</form>
 </div>
 
 
 
 
+<!-- Post Editing End -->
 
 
 
 
+
+<script>
+
+function formCheck() {
+
+alert(document.forms[0].post-title.value);    // title에 입력된 값을 출력합니다.
+
+}
+
+</script>
 
 
 

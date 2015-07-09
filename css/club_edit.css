@@ -5,11 +5,71 @@ html{
 	background-color: #EBEBEB;
 }
 
-#navigator{
-
-
+body{
+	background-color: #EBEBEB;
 }
 
 div.section.tool-box{
 	border-top: 1px solid #CCC;
 }
+
+.tool{
+	float: left;
+}
+#navigator{
+	position: relative;
+	background-color: #EBEBEB;
+	left: 15%;
+	color: grey;
+}
+
+#wrap{
+	width: 100%;
+	background-color: #EBEBEB;
+}
+
+
+table{
+	position: relative;
+	left: 15%;
+	right: 25%;
+	width: 70%;
+	
+}
+
+td.post-title{
+	width: 100px
+}
+
+.post-title{
+	width: 15%;
+	left: 3px;
+	margin-right: 3px;
+	text-align: center;
+
+}
+
+
+.post-subject{
+	width: 80%;
+	margin: 10px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+
+
+.post-content{
+	width: 90%;
+	margin: 10px;
+	height: 300px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+
+.post-submit{
+	float: right;
+	margin-right: 10%;
+}
+
+
+
