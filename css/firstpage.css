@@ -4,3 +4,31 @@ html {
   background-size:100% 100%;
 
 }
+
+
+
+
+
+.text{
+	background-color: transparent;
+	color
+}
+
+.club-button{
+    position: absolute;
+    top: 64%;
+    left: 30%;    
+    height: 12%;
+    width: 13%;
+}
+
+.academy-button{
+    position: absolute;
+    top: 64%;
+    left: 58%;    
+    height: 12%;
+    width: 15%;
+}
+
+
+

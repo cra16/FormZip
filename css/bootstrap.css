@@ -1101,7 +1101,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #4582ec;
+  color: #347729;
   text-decoration: none;
 }
 a:hover,
@@ -1612,6 +1612,16 @@ pre code {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  background-image: -webkit-gradient(
+  linear,
+  left top,
+  right bottom,
+  color-stop(0, #EBEBEB),
+  color-stop(0.35, #EBEBEB),
+  color-stop(0.53, #F2F2F2),
+  color-stop(0.71, #E8E8E8),
+  color-stop(1, #E2E2E2)
+);
 }
 .row {
   margin-left: -15px;
@@ -4560,11 +4570,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #000000;
 }
 .navbar-default .navbar-nav > li > a {        /* menubar 색깔  */
-  color: #4582ec;
+  color: #214300;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #000000;
+  color: #D6D665;
   background-color: #eeeeee;
 }
 .navbar-default .navbar-nav > .active > a,
