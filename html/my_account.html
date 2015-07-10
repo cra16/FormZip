@@ -49,14 +49,14 @@
 
 <!-- 비밀번호 수정 Start -->
 <div id = "wrap">
-<form action="./signup_r.php?mode=insert" method="POST" ,="" id="msform" name="msform">
+<form action="../php/data_change.php?mode=modify" method="POST" ,="" id="msform" name="msform">
       <!-- fieldsets -->
       <fieldset style="transform: scale(1); opacity: 1;">
         <h2 class="title"> -- PROFILE -- </h2>
         <h3 class="subtitle"> 비밀번호 변경 </h3>
-        <input type="password" id="pass" name="pass" placeholder="기존 비밀번호" maxlength="15">
-        <input type="password" id="npass" name="npass" placeholder="새로운 비밀번호" maxlength="15">
-        <input type="password" id="cpass" name="cpass" placeholder="비밀번호 확인" maxlength="15">
+        <input type="password" id="post_pw" name="post_pw" placeholder="기존 비밀번호" maxlength="15">
+        <input type="password" id="pw" name="pw" placeholder="새로운 비밀번호" maxlength="15">
+        <input type="password" id="pw_check" name="ps_check" placeholder="비밀번호 확인" maxlength="15">
         <input type="submit" name="submit" class="submit action-button" value="가입">
       </fieldset>
 
