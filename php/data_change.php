@@ -26,6 +26,7 @@ switch($_GET['mode']){
         break;*/
     case 'modify':
         $qry = 'UPDATE student SET password = "'.mysqli_real_escape_string($connect,$_POST['pw']).'"WHERE id = "'.mysqli_real_escape_string($connect,$_SESSION["USER_NAME"]).'"';
+        echo $qry;
         mysqli_query($connect,$qry);
         header("Location: ../html/firstpage.html");
         break;
