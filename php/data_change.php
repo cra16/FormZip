@@ -1,4 +1,5 @@
 <?php
+ session_start();
 require_once('DB_INFO.php');
 header('Content-Type: text/html; charset=utf-8');
 
@@ -26,7 +27,7 @@ switch($_GET['mode']){
         header("Location: list.php"); 
         break;*/
     case 'modify':
-        mysql_query('UPDATE topic SET password = "'.mysql_real_escape_string($_POST['pw']).'");
+        mysql_query('UPDATE topic SET password = "'.mysql_real_escape_string($_POST['pw']).'"WHERE id = '.mysql_real_escape_string($_SESSION["USER_NAME"]));
         header("Location: ../html/firstpage.html");
         break;
 }  mysqli_close($connect);
