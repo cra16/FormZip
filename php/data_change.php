@@ -17,17 +17,16 @@ switch($_GET['mode']){
         $info = "INSERT INTO student (id, password, student_name)
          VALUES ('".mysqli_real_escape_string($connect,$_POST['userid'])."', '".mysqli_real_escape_string($connect,$_POST['pw'])."'
                    ,'".mysqli_real_escape_string($connect,$_POST['name'])."')" ; 
-
-
-        $result = mysqli_query($connect,$info);
-       header("Location: ../html/firstpage.html");
+        mysqli_query($connect,$info);
+        header("Location: ../html/firstpage.html");
         break;
    /* case 'delete':
         mysql_query('DELETE FROM topic WHERE id = '.mysql_real_escape_string($_POST['id']));
         header("Location: list.php"); 
         break;*/
     case 'modify':
-        mysql_query('UPDATE topic SET password = "'.mysql_real_escape_string($_POST['pw']).'"WHERE id = '.mysql_real_escape_string($_SESSION["USER_NAME"]));
+        $qry = 'UPDATE student SET password = "'.mysqli_real_escape_string($connect,$_POST['pw']).'"WHERE id = "'.mysqli_real_escape_string($connect,$_SESSION["USER_NAME"]).'"';
+        mysqli_query($connect,$qry);
         header("Location: ../html/firstpage.html");
         break;
 }  mysqli_close($connect);

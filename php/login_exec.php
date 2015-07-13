@@ -13,18 +13,9 @@
 	//Validation error flag
 	$errflag = false;
  
-	//Function to sanitize values received from the form. Prevents SQL injection
-	function clean($str) {
-		$str = @trim($str);
-		if(get_magic_quotes_gpc()) {
-			$str = stripslashes($str);
-		}
-		return mysql_real_escape_string($str);
-	}
- 
 	//Sanitize the POST values
-	$username = $_POST['username'];    
-	$password = $_POST['password'];  //  <--- 일단 mysql_real_escape_string 하면 에러가 나서 뺐는데 나중에 고쳐야함
+	$username = mysqli_real_escape_string($bd,$_POST['username']);    
+	$password = mysqli_real_escape_string($bd,$_POST['password']);   //  <--- 일단 mysql_real_escape_string 하면 에러가 나서 뺐는데 나중에 고쳐야함
  
 	//Input Validations
 	if($username == '') {
