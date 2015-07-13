@@ -15,7 +15,7 @@
  
 	//Sanitize the POST values
 	$username = mysqli_real_escape_string($bd,$_POST['username']);    
-	$password = mysqli_real_escape_string($bd,$_POST['password']);   //  <--- 일단 mysql_real_escape_string 하면 에러가 나서 뺐는데 나중에 고쳐야함
+	$password = mysqli_real_escape_string($bd,$_POST['password']);  
  
 	//Input Validations
 	if($username == '') {
