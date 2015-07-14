@@ -1,0 +1,36 @@
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+* { font-family:"Nanum Gothic" !important }
+
+html, body{
+	background-color: #ebebeb;
+	width: 100%;
+}
+
+
+  table {
+  	width: 600px;
+  	float: center;
+    background-color: white;
+    border-radius: 2px;
+    border-width: 1px 1px 1px 1px;
+	  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+
+  td, th{
+  	text-align: center;
+  	table-layout: fixed;
+  	width: 150px;
+  }
+
+#wrap{
+	position: absolute;
+	width: 50%;
+	margin-right: 200px;	
+	left: 25%;
+}
+
+.title-name{
+	margin-left: 5%;
+	margin-bottom: 2%;
+}
+
