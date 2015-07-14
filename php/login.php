@@ -24,7 +24,7 @@
   <body>
   <div class="container">
     <div id="header">
-      <h1>  <a href="firstpage.html" class="h_logo">F O R M &nbsp;&nbsp;Z I P</a> </h1>
+      <h1>  <a href="firstpage.php" class="h_logo">F O R M &nbsp;&nbsp;Z I P</a> </h1>
     </div>
 
     <img src="../img/keyboard.jpg">
