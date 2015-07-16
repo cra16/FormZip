@@ -22,16 +22,18 @@
 
   </head>
   <body>
-  <div class="container">
-    <div id="header">
-      <h1>  <a href="firstpage.php" class="h_logo">F O R M &nbsp;&nbsp;Z I P</a> </h1>
+    <div class="container">
+      <div id="header">
+          <a href="firstpage.php" class="h_logo">
+          <img src="../img/title.png" class = "h_logo">
+          </a>
+      </div>
     </div>
-
-    <img src="../img/keyboard.jpg">
     <div class="loginbox">
+     <div class="join_content">
       <form name="loginform" action="login_exec.php" method="POST">
-       <div class="form-group">
-          <h2>Apply &amp; Recruit by FormZip</h2>
+        <div class="form-group">
+          <h2>Apply &amp; Recruit!</h2>
             <input class="form-control" id="username" name="username" type="text" placeholder="UserId" maxlength="20">
                   
             <div id="form-margin"></div>
@@ -50,15 +52,15 @@
           unset($_SESSION['ERRMSG_ARR']);
           }
         ?>
-        
-        <div class="submit_content">
-          <button type="submit">Log in</button>
-        </div>
+      </div>
+      <div id="divmargin"></div>
+      <div class="submit_content">
+        <button type="submit">Log in</button>
+      </div>
       </form>
     </div>
 
   </div>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
