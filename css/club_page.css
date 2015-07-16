@@ -1,26 +1,48 @@
 @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 * { font-family:"Nanum Gothic" !important }
 
-html{
-	background-color: #EBEBEB;
-}
+
 
 body{
 	width: 100%;
 	
-	background-color: #EBEBEB;	
+	background-color: white;	
 }
+
+#wrap{
+	border-style: none;
+	border-color: #ebebeb;
+	
+	width: 1300px;
+	height: 910px;
+	margin:0 auto;
+}
+
 #section{
 	width: 550px;
-	height: auto;
 	float: left;
 	background-color: white;
 	border-radius: 10px 10px 2px 2px;
 	margin-right: 5%; 
-	margin-left: 10%;
+	margin-left: 12%;
 	border-width: 1px 1px 0px 0px;
 	  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
+
+
+.content{
+	margin: 0 auto;
+	padding:3%;
+	
+	border-radius: 10px;
+
+}
+
+.picture{
+	width: 100%;
+	border-radius: 10px;
+}
+
 #aside{
 	border-radius: 10px 10px 2px 2px;
 	width: 300px;
@@ -30,38 +52,15 @@ body{
 }
 
 #navigation{
-	margin-left: 13%;
+	margin-left: 12%;
 	margin-bottom: 1%;
-	color: grey;
+	color: white;
 	font-size: 20px;
-	font-style: underlined;
+	font-style: underline;
 
 }
 
-#wrap{
-	border-style: none;
-	border-color: #ebebeb;
-	background-color: #EBEBEB;
-	width: 1300px;
-	height: 910px;
-}
 
-.container{
-	background-color: #ebebeb;
-}
-
-.content{
-	margin: 5%;
-	width: 550px;
-	height: auto;
-	border-radius: 10px;
-
-}
-
-.picture{
-	width: 90%;
-	border-radius: 10px;
-}
 
 .club-logo{
 	border-radius: 10px 10px 2px 2px;
@@ -126,7 +125,40 @@ body{
 
 .intro{
 	width: 90%;
-	height: auto;
 	color: #2D4D42;
 	font-size: 12px;
+}
+
+
+
+.submit_content{
+  height:61px;
+  width:300px;
+  margin:0 auto;
+  text-align:center;
+}
+
+
+
+.submit_content button{
+	 margin-top:10px;
+  width:100%;
+  height:100%;
+  background-color:#4582ec;
+  border-radius: 7px;
+  color:white;
+  letter-spacing: 0.6rem;
+  font-size:2rem;
+  padding:0 !important;
+}
+
+.submit_content button:hover{
+  background-color:white;
+  color:black;
+  padding-left:10%;
+  }
+
+.containerbox{
+	margin:0 auto;
+
 }
