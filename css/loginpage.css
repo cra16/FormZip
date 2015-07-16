@@ -1,3 +1,15 @@
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+* { font-family:"Nanum Gothic" !important }
+html { 
+  background: url(../img/1.jpg) no-repeat center center fixed; 
+  background-size: 100% auto;
+}
+
+body{
+  background-color: transparent;
+}
+
+
 .container{
 	width:100%;
 	height:100%;
@@ -8,53 +20,62 @@
   height: 168px;
   padding: 62px 0 0;
   width: 900px;
-  margin: 0 auto;
+  margin: -10px auto;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
 
 #header .h_logo{
+  position: relative;
   display: block;
   overflow: hidden;
-  width: 500px;
-  height: 60px;
-  margin: 0 auto;
+  width: 400px;
+  margin: -10px auto;
   text-decoration:none;
-  color:black;
-
-}
-
-#header h1{
-    letter-spacing: 0.6rem;
-	margin-top:0 !important;
-    margin-bottom: 10.5px;
-    text-align:center;
-    font-size:5.0rem;
-    font-family:'Source Sans Pro', sans-serif;
-}
-
-.container img{
-  width:100%;
-  height:450px;
-  opacity:0.55;
 }
 
 .loginbox{
-  margin:0 auto;
-  width:460px;
-  margin-top:-330px;
-  background-color:#ffffff;
-  opacity: 0.6;
-  padding:4px 10px 10px 10px;
-  border-radius:4px;
+  max-width: 800px;
+  min-width: 460px;
+  margin: 20px auto;
+  background-color: transparent;
+  opacity: 0.9;
+  filter: alpha(opacity=20);
 }
+
+
+.join_content{
+  width:390px;
+  margin:0 auto;
+  padding:10px 50px;
+  border-radius: 3px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  background-color: white;
+  
+
+}
+
+.join_content fieldset{
+  border: 0 none;
+  border-radius: 3px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 400px;
+  margin: 0 10%;
+  background-color: white;
+
+}
+
 
 .form-group h2{
   text-align:center;
   font-size:2.0rem;
-  color: #4582ec;
+  color: #486E68;
+  margin-bottom: 14px;
 }
+
 
 #form-margin{
   margin-top:20px;
@@ -62,9 +83,11 @@
 
 .submit_content{
   height:61px;
-  width:400px;
+  width:396px;
   margin:0 auto;
+  padding:10px auto;
   text-align:center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
 
@@ -72,17 +95,26 @@
 .submit_content button{
   width:100%;
   height:100%;
-  background-color:#4582ec;
+  background-color:#C4CA6E;
   border-radius: 7px;
   color:white;
   letter-spacing: 0.6rem;
   font-size:2rem;
-  padding:0 !important;
 }
 
 .submit_content button:hover{
-  background-color:white;
+  background-color:#FCFFC9;
   color:black;
   padding-left:10%;
-  }
+  padding-right:10%;
+  
+}
+.submit_content button:active{
+  background-color:white;
+  color:black;
+}
 
+
+#divmargin{
+  margin-top:8px;
+}

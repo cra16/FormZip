@@ -12,11 +12,12 @@ body{
 }
 #section{
 	width: 550px;
+	height: auto;
 	float: left;
 	background-color: white;
 	border-radius: 10px 10px 2px 2px;
 	margin-right: 5%; 
-	margin-left: 12%;
+	margin-left: 10%;
 	border-width: 1px 1px 0px 0px;
 	  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
@@ -52,7 +53,7 @@ body{
 .content{
 	margin: 5%;
 	width: 550px;
-	height: 600px;
+	height: auto;
 	border-radius: 10px;
 
 }
@@ -125,6 +126,7 @@ body{
 
 .intro{
 	width: 90%;
+	height: auto;
 	color: #2D4D42;
 	font-size: 12px;
 }
