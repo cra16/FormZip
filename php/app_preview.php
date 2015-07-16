@@ -13,7 +13,7 @@
   $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
   mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
-  $user_id= '$_SESSION["USER_NAME"]'; 
+  $user_id= $_SESSION["USER_NAME"]; 
 
   $qry="SELECT * FROM application WHERE id='$user_id'";   
   $result=mysqli_query($bd,$qry);
