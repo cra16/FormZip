@@ -1,5 +1,5 @@
 <?php
- session_start();
+session_start();
 require_once('DB_INFO.php');
 header('Content-Type: text/html; charset=utf-8');
 
