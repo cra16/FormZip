@@ -1,11 +1,12 @@
 <?php
-  $mysql_hostname = "localhost";
+  $mysql_hostname = "localhost";      
   $mysql_user = "root";
-  $mysql_password = "78910";
+  $mysql_password = "gksehdeo357";    
   $mysql_database = "formzip";
-  $con = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-  $db = mysql_select_db($mysql_database, $con) or die("Could not select database");
-  ?>
+  $prefix = "";
+  $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
+        mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,11 +18,12 @@
     <title>Club List</title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap.css" rel="stylesheet">
-    <link href="clublist.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/clublist.css" rel="stylesheet">
 
   </head>
+<body>
 
   <!-- Menubar start-->  
   <nav class="navbar navbar-default">
@@ -35,7 +37,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="firstpage.php">Form_Zip</a>
-    </div>  
+    </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      
@@ -46,215 +48,76 @@
       </ul>
     </div>
   </div>
-</nav>
+  </nav>
    <!-- Menubar end-->  
 
    <h2>동아리 검색</h2>
 
    <!-- Club Search Bar-->
    <div>
-    <form>
+    <form action='temp.php' method='GET'>
       <fieldset>
-        <input type = 'submit' class = "search-button" value ='whole' action='js.php' method='GET'>
-        <input type = 'submit' class = "search-button" value ='perform' action='clublist.php' method='GET'>
-        <input type = 'submit' class = "search-button" value ='sport' action='clublist.php' method='GET'>
-        <input type = 'submit' class = "search-button" value ='academic' action='clublist.php' method='GET'>
-        <input type = 'submit' class = "search-button" value ='computer' action='clublist.php' method='GET'>
-        <input type = 'submit' class = "search-button" value ='religion' action='clublist.php' method='GET'>
-        <input type = 'submit' class = "search-button" value ='volunteer' action='clublist.php' method='GET'>
+        <input type = 'submit' class = "search-button" name ='whole' value ='전체' >
+        <input type = 'submit' class = "search-button" name = 'perform' value ='공연/음악' >
+        <input type = 'submit' class = "search-button" name = 'sport' value ='스포츠'>
+        <input type = 'submit' class = "search-button" name = 'academic' value ='학술' >
+        <input type = 'submit' class = "search-button" name = 'computer' value ='전산' >
+        <input type = 'submit' class = "search-button" name = 'religion' value ='종교' >
+        <input type = 'submit' class = "search-button" name = 'volunteer' value ='봉사' >
     </form>
      </fieldset>
-
    </div>
-  <!-- Club Search Bar End-->
-  <!-- Club List Buttons Start-->
+
+<?php
+$name_arr=array("whole","perform","sport","academic","computer","religion","volunteer");
+
+for($i=0; $i<7;$i++){
+  if($_GET[$name_arr[$i]]){
+  $condition = $_GET[$name_arr[$i]];
+   break;
+  }
+}
+
+if($condition == NULL){
+  $condition = "whole";
+}
+
+if( $condition != "whole" ){
+  $sql="SELECT c_name FROM club WHERE field='$condition'";  
+}else{
+  $sql = "SELECT c_name FROM club";
+} 
+$result=mysql_query($sql);
+
+$i=0;
+$j=0;
+$clubname[$i] = "dd";
+?>
+
+
+<form action="demoexec.php">
   <?php
-  $whole = $_GET['whole'];
-  $perform = $_GET['perform'];
-  $sport = $_GET['sport'];
-  $academic = $_GET['academic'];
-  $computer = $_GET['computer'];
-  $religion = $_GET['religion'];
-  $volunteer = $_GET['volunteer'];
+while($clubname[$i] != NULL){
+  echo "<tr>";
+  for($j=0 ; $j<4 ; $j++){
+    echo "<td>";
+    $clubname = mysql_fetch_array($result);
+    if($clubname[$i] == NULL){
+      break;
+    }
+    echo "<input class = 'club-element' type = 'submit' value ='$clubname[$i]' name = 'name'/>";
+    echo "</td>";
+    }
+    echo "<br/>";
+    echo "</tr>";
+    }
 
-  if( $perform != NULL ){
-    $qry1 = "SELECT c_name FROM club WHERE field = '$perform'";
-        $name_result = mysql_query($qry1);
-      
-        $i=0;
-        $j=0;
-        $clubname = "c";
+    //$condition = NULL;
+  
 
-        while($clubname[$i] != NULL){
-          echo "<tr>";
-          for($j=0 ; $j<4 ; $j++){
-            echo "<td>";
-            $clubname = mysql_fetch_array($name_result);
-            $field = mysql_fetch_array($field_result);
-            if($clubname[$i] == NULL){
-              break;
-            }
-          echo "<input class = 'club-element' type = 'button' value ='$clubname[$i]' name = '$field' id = '$clubname'/>";
-          echo "</td>";
-          }
-          echo "<br/>";
-          echo "</tr>";
-        }
-        break;
-        $perform = NULL;
-  }else if( $sport != NULL ){
-        $qry1 = "SELECT c_name FROM club WHERE field = '$sport'";
-        $name_result = mysql_query($qry1);
-      
-        $i=0;
-        $j=0;
-        $clubname = "c";
+?>
+</form>
 
-        while($clubname[$i] != NULL){
-          echo "<tr>";
-          for($j=0 ; $j<4 ; $j++){
-            echo "<td>";
-            $clubname = mysql_fetch_array($name_result);
-            $field = mysql_fetch_array($field_result);
-            if($clubname[$i] == NULL){
-              break;
-            }
-          echo "<input class = 'club-element' type = 'button' value ='$clubname[$i]' name = '$field' id = '$clubname'/>";
-          echo "</td>";
-          }
-          echo "<br/>";
-          echo "</tr>";
-        }
-        break;
-        $sport = NULL;
-  }else if($academic != NULL){
-
-        $qry1 = "SELECT c_name FROM club WHERE field = '$academic' ";
-        $name_result = mysql_query($qry1);
-      
-        $i=0;
-        $j=0;
-        $clubname = "c";
-
-        while($clubname[$i] != NULL){
-          echo "<tr>";
-          for($j=0 ; $j<4 ; $j++){
-            echo "<td>";
-            $clubname = mysql_fetch_array($name_result);
-            $field = mysql_fetch_array($field_result);
-            if($clubname[$i] == NULL){
-              break;
-            }
-          echo "<input class = 'club-element' type = 'button' value ='$clubname[$i]' name = '$field' id = '$clubname'/>";
-          echo "</td>";
-          }
-          echo "<br/>";
-          echo "</tr>";
-        }
-        break;
-        $academic = NULL;
-      }else if( $computer != NULL){
-        $qry1 = "SELECT c_name FROM club WHERE field = '$computer'";
-        $name_result = mysql_query($qry1);
-      
-        $i=0;
-        $j=0;
-        $clubname = "c";
-
-        while($clubname[$i] != NULL){
-          echo "<tr>";
-          for($j=0 ; $j<4 ; $j++){
-            echo "<td>";
-            $clubname = mysql_fetch_array($name_result);
-            $field = mysql_fetch_array($field_result);
-            if($clubname[$i] == NULL){
-              break;
-            }
-          echo "<input class = 'club-element' type = 'button' value ='$clubname[$i]' name = '$field' id = '$clubname'/>";
-          echo "</td>";
-          }
-          echo "<br/>";
-          echo "</tr>";
-        }
-        break;
-        $computer = NULL;
-      }else if( $religion != NULL){
-        $qry1 = "SELECT c_name FROM club WHERE field = '$religion' ";
-        $name_result = mysql_query($qry1);
-      
-        $i=0;
-        $j=0;
-        $clubname = "c";
-
-        while($clubname[$i] != NULL){
-          echo "<tr>";
-          for($j=0 ; $j<4 ; $j++){
-            echo "<td>";
-            $clubname = mysql_fetch_array($name_result);
-            $field = mysql_fetch_array($field_result);
-            if($clubname[$i] == NULL){
-              break;
-            }
-          echo "<input class = 'club-element' type = 'button' value ='$clubname[$i]' name = '$field' id = '$clubname'/>";
-          echo "</td>";
-          }
-          echo "<br/>";
-          echo "</tr>";
-        }
-        break;
-        $religion = NULL;
-      
-      }else if( $volunteer != NULL ){
-        $qry1 = "SELECT c_name FROM club WHERE field = '$volunteer' ";
-        $name_result = mysql_query($qry1);
-      
-        $i=0;
-        $j=0;
-        $clubname = "c";
-
-        while($clubname[$i] != NULL){
-          echo "<tr>";
-          for($j=0 ; $j<4 ; $j++){
-            echo "<td>";
-            $clubname = mysql_fetch_array($name_result);
-            $field = mysql_fetch_array($field_result);
-            if($clubname[$i] == NULL){
-              break;
-            }
-          echo "<input class = 'club-element' type = 'button' value ='$clubname[$i]' name = '$field' id = '$clubname'/>";
-          echo "</td>";
-          }
-          echo "<br/>";
-          echo "</tr>";
-        }
-        break;
-        $volunteer = NULL;
-      }else{
-        $qry1 = "SELECT c_name FROM club";
-        $name_result = mysql_query($qry1);
-      
-        $i=0;
-        $j=0;
-        $clubname = "c";
-
-        while($clubname[$i] != NULL){
-          echo "<tr>";
-          for($j=0 ; $j<4 ; $j++){
-            echo "<td>";
-            $clubname = mysql_fetch_array($name_result);
-            $field = mysql_fetch_array($field_result);
-            if($clubname[$i] == NULL){
-              break;
-            }
-          echo "<input class = 'club-element' type = 'button' value ='$clubname[$i]' name = '$field' id = '$clubname'/>";
-          echo "</td>";
-          }
-          echo "<br/>";
-          echo "</tr>";
-        }
-        break;
-      }
-        ?>
 
 
   
