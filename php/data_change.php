@@ -18,7 +18,7 @@ switch($_GET['mode']){
          VALUES ('".mysqli_real_escape_string($connect,$_POST['userid'])."', '".mysqli_real_escape_string($connect,$_POST['pw'])."'
                    ,'".mysqli_real_escape_string($connect,$_POST['name'])."')" ; 
         mysqli_query($connect,$info);
-        header("Location: ../html/firstpage.html");
+        header("Location: ../php/firstpage.php");
         break;
    /* case 'delete':
         mysql_query('DELETE FROM topic WHERE id = '.mysql_real_escape_string($_POST['id']));
@@ -27,7 +27,7 @@ switch($_GET['mode']){
     case 'modify':
         $qry = 'UPDATE student SET password = "'.mysqli_real_escape_string($connect,$_POST['pw']).'"WHERE id = "'.mysqli_real_escape_string($connect,$_SESSION["USER_NAME"]).'"';
         mysqli_query($connect,$qry);
-        header("Location: ../html/firstpage.html");
+        header("Location: ../php/firstpage.php");
         break;
 }  mysqli_close($connect);
 ?>

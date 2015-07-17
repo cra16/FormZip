@@ -52,7 +52,7 @@
 			exit();
 		}else {
 			//Login failed
-			$errmsg_arr[] = 'user name and password not found';
+			$errmsg_arr[] = 'user name or password not found';
 			$errflag = true;
 			if($errflag) {
 				$_SESSION['ERRMSG_ARR'] = $errmsg_arr;

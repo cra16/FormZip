@@ -96,7 +96,7 @@
     <div id = "section">
       <form class = "content" method = "POST" >
         <div class="form-group">
-          <img class = "picture" src = "../img/<?php echo $member['img_name']; ?>">   <!-- *그림 가져오기 -->
+          <img class = "picture" src = "../clubimg/<?php echo $member['img_name']; ?>">   <!-- *그림 가져오기 -->
         </div>
         <div >
           <h3 class = "title"><?php echo $member['title']; ?></h3>

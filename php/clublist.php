@@ -1,4 +1,5 @@
 <?php
+session_start();
   $mysql_hostname = "localhost";      
   $mysql_user = "root";
   $mysql_password = "gksehdeo357";    
@@ -42,7 +43,15 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.php">Login</a></li>
+        <li>
+          <?php
+            if($_SESSION['USER_NAME'])
+              echo '<a href="logout.php">Logout</a>';
+            else
+              echo '<a href="login.php">Login</a>';
+          ?>
+
+        </li>       
         <li><a href="signup.php">Signup</a></li>
         <li><a href="#">Help</a></li>
       </ul>
@@ -55,7 +64,7 @@
 
    <!-- Club Search Bar-->
    <div>
-    <form action='temp.php' method='GET'>
+    <form action='clublist.php' method='GET'>
       <fieldset>
         <input type = 'submit' class = "search-button" name ='whole' value ='전체' >
         <input type = 'submit' class = "search-button" name = 'perform' value ='공연/음악' >
@@ -95,7 +104,7 @@ $clubname[$i] = "dd";
 ?>
 
 
-<form action="demoexec.php">
+<form action="clubpage.php">
   <?php
 while($clubname[$i] != NULL){
   echo "<tr>";
