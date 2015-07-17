@@ -30,12 +30,13 @@ $r = move_uploaded_file($tmp_file, $file_path);
 // title, text 정보 불러오기
 $title= $_POST['title'];
 $text= $_POST['text'];
+$club_name= $_POST['name'];
 
 if ($r == true) 
 {
     $sql = "UPDATE clubstorage
     SET img_name='$file_name'
-    WHERE id='자유학교'";
+    WHERE id='$club_name'";
     if ($conn->query($sql) === TRUE) 
     {
         echo "New record created successfully";
@@ -55,7 +56,7 @@ if ($title != "")
 {
     $sql = "UPDATE clubstorage
     SET title='$title'
-    WHERE id='자유학교'";
+    WHERE id='$club_name'";
     if ($conn->query($sql) === TRUE) 
     {
         echo "New record created successfully";
@@ -75,7 +76,7 @@ if ($text !=    "")
 {
     $sql = "UPDATE clubstorage
     SET text ='$text'
-    WHERE id='자유학교'";
+    WHERE id='$club_name'";
     if ($conn->query($sql) === TRUE) 
     {
         echo "New record created successfully";

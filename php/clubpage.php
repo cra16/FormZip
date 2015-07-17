@@ -11,8 +11,8 @@
   $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
     mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
   $club_name= $_POST['name'];
- 
-  $qry="SELECT * FROM clubstorage WHERE id='$club_name'";   //대체 가능한 부분
+
+  $qry="SELECT * FROM clubstorage WHERE id='$club_name'";   //clubstorage : 각 동아리의 title, 설명, 사진정보 저장 DB
   $result=mysql_query($qry);
 
   //Check whether the query was successful or not
@@ -33,6 +33,7 @@
   {
     die("Query failed");
   }
+
 
 
 ?>
@@ -87,14 +88,27 @@
   </div>
 </nav>
    <!-- Menubar end-->  
-   
+  
+
+<!--관리자 여부에 따른 action 위치 변경  -->
+<?php
+//관리자여부 확인
+  if($_SESSION['USER_NAME']==$club_name){
+    $IsManager="true";
+  }
+
+  else{
+    $IsManager="false";
+  }
+
+?>
   
   
   <div id = "wrap">
     <div id = "navigation">동아리 소개:: </div>
     <!-- 동아리 소개 Start-->
     <div id = "section">
-      <form class = "content" method = "POST" >
+      <div class = "content">
         <div class="form-group">
           <img class = "picture" src = "../clubimg/<?php echo $member['img_name']; ?>">   <!-- *그림 가져오기 -->
         </div>
@@ -106,28 +120,55 @@
             <?php echo $member['text']; ?>
           </p>
         </div>    
-      </form>
+     </div>
     </div>
 
     <!-- 동아리 소개 End-->
-
+  
     <!-- 동아리 프로필 Start-->
+ 
     <div id = "aside">
-     <table class = "profile">
-      <tr>
-   
-          <input class = "club-logo" type ="text" value = "<?php echo $club_name; ?>">  <!-- *동아리 이름 (로고)-->
-       
-      </tr>
-      <tr>
-        <td><input class = "club-apply-bt" type ="submit" value = "지원하기"></td>
-      </tr>
-      <tr>
-         <td><input class = "club-result-bt" type ="submit" value = "관리하기"></td>
-        </td>   
-      </tr>
-     </table>
+      <table class = "profile">
+        <tr>
+         <input class = "club-logo" type ="text" value = "<?php echo $club_name; ?>">  <!-- *동아리 이름 (로고)-->
+        </tr>
+        <?php
+        if($IsManager=="true")  //현재 로그인 한 사람이 관리자인 경우 실행
+        {
+        ?>
+        <tr>
+          <form action="clubmodify.php" method="POST">
+           <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">페이지 수정</button>
+          </form>
+        </tr>
+        <tr>
+          <form action="app_make.php" method="POST">
+            <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원서 만들기</button>
+          </form>
+        </tr>
+        <tr>
+          <form action="login.php" method="POST">
+            <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원자 현황</button>
+          </form>
+        </tr>
+        <?php
+        }
+        else if($IsManager=="false")  //현재 로그인 개정이 관리자가 아닐경우 실행
+        {    
+        ?>  
+        <tr>
+          <td><input class = "club-apply-bt" type ="submit" value = "지원하기"></td>
+        </tr>
+        <?php
+        }
+        ?>
+      </table>
     </div>
+
+
+
+
+
     <!-- 동아리 프로필 End-->
   </div>
 
