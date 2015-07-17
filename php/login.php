@@ -58,7 +58,7 @@
         <button type="submit">Log in</button>
       </div>
       <div class="submit_content">
-        <a href = 'signup.php><button type ="submit">회원가입</button></a>
+        <a href = 'signup.php'><button type ="submit">회원가입</button></a>
       </div>
       </form>
     </div>
