@@ -73,14 +73,16 @@ session_start();
         <input type = 'submit' class = "search-button" name = 'computer' value ='전산' >
         <input type = 'submit' class = "search-button" name = 'religion' value ='종교' >
         <input type = 'submit' class = "search-button" name = 'volunteer' value ='봉사' >
+        <input type = 'submit' class = "search-button" name = 'display' value ='전시' >
+
     </form>
      </fieldset>
    </div>
 
 <?php
-$name_arr=array("whole","perform","sport","academic","computer","religion","volunteer");
+$name_arr=array("whole","perform","sport","academic","computer","religion","volunteer","display");
 
-for($i=0; $i<7;$i++){
+for($i=0; $i<8;$i++){
   if($_GET[$name_arr[$i]]){
     $condition = $_GET[$name_arr[$i]];
     break;
