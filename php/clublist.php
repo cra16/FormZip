@@ -1,12 +1,17 @@
 <?php
-  $mysql_hostname = "localhost";      
-  $mysql_user = "root";
-  $mysql_password = "gksehdeo357";    
-  $mysql_database = "formzip";
-  $prefix = "";
-  $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-        mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
- ?>
+session_start();
+require_once('DB_INFO.php');
+header('Content-Type: text/html; charset=utf-8');
+
+mysqli_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_client=utf8;");
+
+$bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
+mysqli_set_charset($bd, "utf8");
+
+mysqli_select_db($bd,DB_NAME) or die("Could not select database");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +47,15 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.php">Login</a></li>
+        <li>
+          <?php
+            if($_SESSION['USER_NAME'])
+              echo '<a href="logout.php">Logout</a>';
+            else
+              echo '<a href="login.php">Login</a>';
+          ?>
+
+        </li>       
         <li><a href="signup.php">Signup</a></li>
         <li><a href="#">Help</a></li>
       </ul>
@@ -55,7 +68,7 @@
 
    <!-- Club Search Bar-->
    <div>
-    <form action='temp.php' method='GET'>
+    <form action='clublist.php' method='GET'>
       <fieldset>
         <input type = 'submit' class = "search-button" name ='whole' value ='전체' >
         <input type = 'submit' class = "search-button" name = 'perform' value ='공연/음악' >
@@ -64,30 +77,32 @@
         <input type = 'submit' class = "search-button" name = 'computer' value ='전산' >
         <input type = 'submit' class = "search-button" name = 'religion' value ='종교' >
         <input type = 'submit' class = "search-button" name = 'volunteer' value ='봉사' >
+        <input type = 'submit' class = "search-button" name = 'display' value ='전시' >
+
     </form>
      </fieldset>
    </div>
 
 <?php
-$name_arr=array("whole","perform","sport","academic","computer","religion","volunteer");
+$name_arr=array("whole","perform","sport","academic","computer","religion","volunteer","display");
 
-for($i=0; $i<7;$i++){
+for($i=0; $i<8;$i++){
   if($_GET[$name_arr[$i]]){
-  $condition = $_GET[$name_arr[$i]];
-   break;
+    $condition = $_GET[$name_arr[$i]];
+    break;
   }
 }
 
 if($condition == NULL){
-  $condition = "whole";
+  $condition = "전체";
 }
 
-if( $condition != "whole" ){
+if( $condition != "전체" ){
   $sql="SELECT c_name FROM club WHERE field='$condition'";  
 }else{
   $sql = "SELECT c_name FROM club";
 } 
-$result=mysql_query($sql);
+$result=mysqli_query($bd,$sql);
 
 $i=0;
 $j=0;
@@ -95,13 +110,13 @@ $clubname[$i] = "dd";
 ?>
 
 
-<form action="demoexec.php">
+<form action="clubpage.php" method="POST">
   <?php
 while($clubname[$i] != NULL){
   echo "<tr>";
   for($j=0 ; $j<4 ; $j++){
     echo "<td>";
-    $clubname = mysql_fetch_array($result);
+    $clubname = mysqli_fetch_array($result);
     if($clubname[$i] == NULL){
       break;
     }

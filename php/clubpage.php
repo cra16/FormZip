@@ -10,9 +10,9 @@
   $prefix = "";
   $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
     mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
-
-  $club_id="자유학교"; //각 동아리의 KEY값
-  $qry="SELECT * FROM clubstorage WHERE id='$club_id'";   //대체 가능한 부분
+  $club_name= $_POST['name'];
+ 
+  $qry="SELECT * FROM clubstorage WHERE id='$club_name'";   //대체 가능한 부분
   $result=mysql_query($qry);
 
   //Check whether the query was successful or not
@@ -96,7 +96,7 @@
     <div id = "section">
       <form class = "content" method = "POST" >
         <div class="form-group">
-          <img class = "picture" src = "../img/<?php echo $member['img_name']; ?>">   <!-- *그림 가져오기 -->
+          <img class = "picture" src = "../clubimg/<?php echo $member['img_name']; ?>">   <!-- *그림 가져오기 -->
         </div>
         <div >
           <h3 class = "title"><?php echo $member['title']; ?></h3>
@@ -116,7 +116,7 @@
      <table class = "profile">
       <tr>
    
-          <input class = "club-logo" type ="text" value = "<?php echo $club_id; ?>">  <!-- *동아리 이름 (로고)-->
+          <input class = "club-logo" type ="text" value = "<?php echo $club_name; ?>">  <!-- *동아리 이름 (로고)-->
        
       </tr>
       <tr>

@@ -45,14 +45,21 @@ session_start();
           ?>
 
         </li>
-        <li><a href="#">Signup</a></li>
+        <li><a href="signup.php">Signup</a></li>
         <li><a href="#">Help</a></li>
       </ul>
     </div>
   </div>
 </nav>
    <!-- Menubar end-->  
-  
+
+  <div class = "club-button"></div>
+  <a class="club-button" href="../php/clublist.php"></a> 
+
+
+  <div class = "academy-button"></div>
+  <a class="academy-button" href="../php/clublist.php"></a>   
+   
  
 
 

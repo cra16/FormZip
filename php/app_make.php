@@ -1,10 +1,11 @@
 <?php
-
+require_once('auth.php');
 $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
 $question_placeholder= array("Name","Student ID","Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)formzip@naver.com","ex)3학기");
 $text_name=array("t_name","t_stuid","t_major","t_phonenum","t_gender","t_served","t_mail","t_activity");
 $radio_name=array("r_served","r_mail","r_activity");
 $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
+
 ?>
 
 
@@ -49,13 +50,13 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
       <div class="form-group">
         <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
         <div class="col-lg-8">
-          <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>" style="display:block" id="<?php echo $text_name[$i]; ?>">
+          <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>" style="display:block" id="<?php echo $text_name[$i]; ?>" name="<?php echo $text_name[$i]; ?>">
           <?php
           if($i >=5)
           {
           ?>
-          <input type="radio" name="<?php echo $radio_name[$i-5]; ?>" value="use" onclick="Show<?php echo $i-4;?>()" checked>Use
-          <input type="radio" name="<?php echo $radio_name[$i-5]; ?>" value="notuse" onclick="Blind<?php echo $i-4;?>()">not Use
+          <input type="radio" id="<?php echo $radio_name[$i-5]; ?>" name="<?php echo $radio_name[$i-5]; ?>" value="use" onclick="Show<?php echo $i-4;?>()" checked>Use
+          <input type="radio" id="<?php echo $radio_name[$i-5]; ?>" name="<?php echo $radio_name[$i-5]; ?>" value="notuse" onclick="Blind<?php echo $i-4;?>()">not Use
           <?php
           }
           ?>
@@ -77,8 +78,8 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
         <div class="col-lg-9">
           <input type="text" class="form-control"  placeholder="항목 제목-제목을 입력해주세요" style="display:none" name="title<?php echo $i+1;?>" id="title<?php echo $i+1;?>">
           <input type="text" class="form-control"  placeholder="항목 설명-항목에 대한 설명을 입력해주세요" style="display:none" name="explain<?php echo $i+1;?>" id="explain<?php echo $i+1;?>">
-          <input type="radio" name="<?php echo $sub_radio_name[$i]; ?>" value="use"  onclick="Sub_Show<?php echo $i+1;?>()">Use
-          <input type="radio" name="<?php echo $sub_radio_name[$i]; ?>" value="notuse" onclick="Sub_Blind<?php echo $i+1;?>()" checked>not Use
+          <input type="radio" id="<?php echo $sub_radio_name[$i]; ?>" name="<?php echo $sub_radio_name[$i]; ?>" value="use"  onclick="Sub_Show<?php echo $i+1;?>()">Use
+          <input type="radio" id="<?php echo $sub_radio_name[$i]; ?>" name="<?php echo $sub_radio_name[$i]; ?>" value="notuse" onclick="Sub_Blind<?php echo $i+1;?>()" checked>not Use
         </div>
       </div>  
     
