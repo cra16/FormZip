@@ -3,25 +3,29 @@
   session_start();
 
   // DB connection
-  $mysql_hostname = "localhost";      
-  $mysql_user = "root";
-  $mysql_password = "gksehdeo357";    //수정할 부분->비밀번호입력
-  $mysql_database = "formzip";
-  $prefix = "";
-  $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-    mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
+  require_once('DB_INFO.php');
+  header('Content-Type: text/html; charset=utf-8');
 
-  $user_id=19; //session['id']에 1을 대체해야
-  $member;
-  $qry="SELECT * FROM application WHERE id='$user_id'";   //대체 가능한 부분
-  $result=mysql_query($qry);
+  mysqli_query("set session character_set_connection=utf8;");
+  mysqli_query("set session character_set_results=utf8;");
+  mysqli_query("set session character_set_client=utf8;");
+
+  $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
+  mysqli_set_charset($bd, "utf8");
+
+  mysqli_select_db($bd,DB_NAME) or die("Could not select database");
+
+  $user_id= $_SESSION["USER_NAME"]; 
+
+  $qry="SELECT * FROM application WHERE id='$user_id'";   
+  $result=mysqli_query($bd,$qry);
 
   //Check whether the query was successful or not
   if($result) {
 
-      if(mysql_num_rows($result) > 0) 
+      if(mysqli_num_rows($result) > 0) 
       {
-        $member = mysql_fetch_assoc($result);
+        $member = mysqli_fetch_assoc($result);
         
       }
 
