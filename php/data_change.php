@@ -14,9 +14,9 @@ mysqli_set_charset($connect, "utf8");
 mysqli_select_db($connect,DB_NAME);
 switch($_GET['mode']){
     case 'insert':
-        $info = "INSERT INTO student (id, password, student_name)
+        $info = "INSERT INTO student (id, password, student_name,stuid,birth)
          VALUES ('".mysqli_real_escape_string($connect,$_POST['userid'])."', '".mysqli_real_escape_string($connect,$_POST['pw'])."'
-                   ,'".mysqli_real_escape_string($connect,$_POST['name'])."')" ; 
+                   ,'".mysqli_real_escape_string($connect,$_POST['name'])."', '".mysqli_real_escape_string($connect,$_POST['stuid'])."', '".mysqli_real_escape_string($connect,$_POST['birth'])."')" ; 
         mysqli_query($connect,$info);
         header("Location: ../php/firstpage.php");
         break;
