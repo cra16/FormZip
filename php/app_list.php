@@ -1,13 +1,5 @@
 <?php
-  $mysql_hostname = "localhost";      
-  $mysql_user = "root";
-  $mysql_password = "helloworld206";    
-  $mysql_database = "formzip";
-  $prefix = "";
-  $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-        mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
- 
-  session_start();
+session_start();
 require_once('DB_INFO.php');
 header('Content-Type: text/html; charset=utf-8');
 
@@ -15,13 +7,11 @@ mysqli_query("set session character_set_connection=utf8;");
 mysqli_query("set session character_set_results=utf8;");
 mysqli_query("set session character_set_client=utf8;");
 
-$connect=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD);
-mysqli_set_charset($connect, "utf8");
+$bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
+mysqli_set_charset($bd, "utf8");
 
-
-mysqli_select_db($connect,DB_NAME);
-
- ?>
+mysqli_select_db($bd,DB_NAME) or die("Could not select database");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,18 +73,22 @@ mysqli_select_db($connect,DB_NAME);
       $qry1 = "SELECT name FROM result WHERE club_name = '$club' ";
       $qry2 = "SELECT stu_id FROM result WHERE club_name = '$club' ";
       $qry3 = "SELECT gender FROM result WHERE club_name = '$club' ";
-      $name_result = mysql_query($qry1);
-      $id_result = mysql_query($qry2);
-      $gender_result = mysql_query($qry3);
+      $name_result = mysqli_query($qry1);
+      $id_result = mysqli_query($qry2);
+      $gender_result = mysqli_query($qry3);
 
       $i=0;
       $j=1;
       $name = 'dd';
       while($name[$i]!=NULL){
-        $name = mysql_fetch_array($name_result);
-        $id = mysql_fetch_array($id_result);
-        $gender = mysql_fetch_array($gender_result);      
+        $name = mysqli_fetch_array($name_result);
+        if($name[$i] == NULL){
+          break;
+        }
+        $id = mysqli_fetch_array($id_result);
+        $gender = mysqli_fetch_array($gender_result);      
 ?>
+
        <tr id = '$j' class = 'clickable-row' data-href='firstpage.html'>
        <td class = 'studnet-number' scope='row'>
         <?php echo"$id[$i]"; ?> 
@@ -108,7 +102,7 @@ mysqli_select_db($connect,DB_NAME);
        </tr>
 
       <?php
-        $i++;
+       // $i++;
         $j++;
       }
 
@@ -129,6 +123,9 @@ mysqli_select_db($connect,DB_NAME);
     });
 
     </script>
+
+
+
   </body>
 </html>
 
