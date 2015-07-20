@@ -1,10 +1,4 @@
 <?php
-Header("Content-type: charset=utf-8");
-mysqli_query("set session character_set_connection=utf8;");
-mysqli_query("set session character_set_results=utf8;");
-mysqli_query("set session character_set_client=utf8;");
-mysqli_set_charset($connect, "utf8");
-
   $mysql_hostname = "localhost";      
   $mysql_user = "root";
   $mysql_password = "helloworld206";    
@@ -12,6 +6,21 @@ mysqli_set_charset($connect, "utf8");
   $prefix = "";
   $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
         mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
+ 
+  session_start();
+require_once('DB_INFO.php');
+header('Content-Type: text/html; charset=utf-8');
+
+mysqli_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_client=utf8;");
+
+$connect=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD);
+mysqli_set_charset($connect, "utf8");
+
+
+mysqli_select_db($connect,DB_NAME);
+
  ?>
 
 <!DOCTYPE html>
