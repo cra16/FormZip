@@ -73,9 +73,9 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
       $qry1 = "SELECT name FROM result WHERE club_name = '$club' ";
       $qry2 = "SELECT stu_id FROM result WHERE club_name = '$club' ";
       $qry3 = "SELECT gender FROM result WHERE club_name = '$club' ";
-      $name_result = mysqli_query($qry1);
-      $id_result = mysqli_query($qry2);
-      $gender_result = mysqli_query($qry3);
+      $name_result = mysqli_query($bd,$qry1);
+      $id_result = mysqli_query($bd,$qry2);
+      $gender_result = mysqli_query($bd,$qry3);
 
       $i=0;
       $j=1;
