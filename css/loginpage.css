@@ -76,6 +76,13 @@ body{
   margin-bottom: 14px;
 }
 
+.subtitle{
+  text-align:center;
+  font-size:1.6rem;
+  color: #486E68;
+  margin-bottom: 14px;
+}
+
 
 #form-margin{
   margin-top:20px;
