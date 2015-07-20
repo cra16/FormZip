@@ -24,35 +24,46 @@
     
     <div id="containbox">
       <div class="join_content">
-        <form action="../php/data_change.php?mode=insert"  method="POST">
+        <form action="../php/data_change.php?mode=insert" method="POST" name="myForm" onsubmit="return validateForm()">
             <div class="form-group">
                 <h2>회원가입</h2>
                 
           <div id="divmargin"></div>
-                <input class="form-control" id="name" name="name" type="text" placeholder="Name" maxlength="20" onblur="NameCheck()">
+                <input class="form-control" id="name" name="name" type="text" placeholder="Name" maxlength="20" onblur="NameCheck()" >
                 <div id="divmargin"></div>
                 <div id="idMsg" class="error" style="display:none"></div>
                 
-                <input class="form-control" id="userid" name="userid" type="text" placeholder="User ID" maxlength="20" onblur="UserIdCheck()">
+                <input class="form-control" id="userid" name="userid" type="text" placeholder="User ID" maxlength="15" onblur="UserIdCheck()" >
                 <div id="divmargin"></div>
                 <div id="userIdMsg" class="error" style="display:none"></div>
                 
-                <input class="form-control" id="pw" name="pw" type="password" placeholder="Password" maxlength="15" onblur="PWCheck()">
+                <input class="form-control" id="pw" name="pw" type="password" placeholder="Password" maxlength="15" onblur="PWCheck()" >
                 <div id="divmargin"></div>
                 <div id="pwMsg" class="error" style="display:none"></div>
               
-                <input class="form-control" id="confirm" name="condfirm" type="password" placeholder="Password Confirm" maxlength="15" onblur="PsCfCheck()">
+                <input class="form-control" id="confirm" name="condfirm" type="password" placeholder="Password Confirm" maxlength="15" onblur="PsCfCheck()" >
                 <div id="divmargin"></div>
                 <div id="pscfMsg" class="error" style="display:none"></div>
-        
+
+                <input class="form-control" id="stuid" name="stuid" type="text" placeholder="학번 ex)21500000" maxlength="8" onblur="StuidCheck()" >
+                <div id="divmargin"></div>
+                <div id="stuidMsg" class="error" style="display:none"></div>
+               
+
+                <input class="form-control" id="birth" name="birth" type="text" placeholder="생년월일 6자리" maxlength="6" onblur="BirthCheck()" >
+                <div id="divmargin"></div>
+                <div id="birthMsg" class="error" style="display:none"></div>
+
+                 <div id="sbMsg" class="error2" style="display:none" ></div>
+
             </div>
           </div>
 
           <div id="divmargin"></div>
 
           <div class="submit_content">
-                     <div id="sbMsg" class="error" style="display:none" ></div>
-                     <button type="submit" onclick="IsFilled()">Submit</button>
+            
+            <button type="submit"  onclick="IsFilled()" id="sb";>Submit</button>
           </div>
           
         </form>
