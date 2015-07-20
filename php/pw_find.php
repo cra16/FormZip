@@ -26,7 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> ID 찾기</title>
+    <title> 비밀번호  찾기</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -74,8 +74,15 @@
   </div>  
  
   <div class="formContentsLayout">
-    <form method="POST" action="id_find.php" class="form-horizontal"> 
-    <div id="title"> <h2> 아이디 찾기 </h2> </div>
+    <form method="POST" action="pw_find.php" class="form-horizontal"> 
+    <div id="title"> <h2> 비밀번호 찾기 </h2> </div>
+      <div class="form-group">
+        <label class="col-lg-4 control-label">아이디</label>
+        <div class="col-lg-8">
+        <input type="text" class="form-control short-length" name="userid"  placeholder="User ID">     
+        </div>
+      </div>  
+
       <div class="form-group">
         <label class="col-lg-4 control-label">이름</label>
         <div class="col-lg-8">
@@ -113,24 +120,25 @@
 
 
 <?php
+$user_id=$_POST['userid'];
 $name= $_POST['name'];
 $stuid=$_POST['stuid'];
 $birth=$_POST['birth'];
-$qry="SELECT * FROM student WHERE student_name='$name'";
+$qry="SELECT * FROM student WHERE id='$user_id'";
 $result=mysqli_query($bd,$qry);
 
-//student table이 존재하고 POST값이 != NULL(값이 입력 받을때)
-if($result && $name!="") {
+//student table이 존재할때
+if($result) {
   if(mysqli_num_rows($result) > 0) {
     $member = mysqli_fetch_assoc($result);
 
 // DB에 입력한 값이 존재하면 display
-    if($member['stuid']==$stuid && $member['birth']==$birth){
+    if($name==$member['student_name'] && $member['stuid']==$stuid && $member['birth']==$birth){
 ?>
     <div class="formContentsLayout">
       <div class="form-group">
-      <label class="col-lg-4 control-label" id="id_result">아이디:</label>   
-       <label class="col-lg-4 control-label" id="id_result2">  <?php echo $member['id'] ?></label>   
+      <label class="col-lg-4 control-label" id="id_result">비밀번호:</label>   
+       <label class="col-lg-4 control-label" id="id_result2">  <?php echo $member['password'] ?></label>   
       </div>  
     </div>
 

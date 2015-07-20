@@ -44,7 +44,7 @@
 
             <div class="find_info"> 
             <a href="signup.php">회원가입</a> 
-            <a href="signup.php">아이디 찾기</a>
+            <a href="id_find.php">아이디 찾기</a>
             <a href="signup.php">비밀번호 찾기 </a>
             </div>
         </div> 
