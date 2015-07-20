@@ -10,9 +10,9 @@
   $prefix = "";
   $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
     mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
-
-  $club_id="자유학교"; //각 동아리의 KEY값
-  $qry="SELECT * FROM clubstorage WHERE id='$club_id'";   //대체 가능한 부분
+  $club_name= $_POST['name'];
+  echo $club_name;
+  $qry="SELECT * FROM clubstorage WHERE id='$club_name'";   //대체 가능한 부분
   $result=mysql_query($qry);
 
   //Check whether the query was successful or not
@@ -33,8 +33,9 @@
   {
     die("Query failed");
   }
-
-
+echo $member['id'];
+echo $member['title'];
+echo $member['img_name'];
 ?>
 
 
@@ -95,7 +96,7 @@
     <!-- 동아리 수정 Start-->
     <div id = "section">
       <form class = "content" method = "POST" action="clubexec.php" enctype="multipart/form-data">
-        <img class = "picture" src = "../img/<?php echo $member['img_name']; ?>">   <!-- *그림 가져오기 -->
+        <img class = "picture" src = "../clubimg/<?php echo $member['img_name']; ?>">   <!-- *그림 가져오기 -->
         
       <div class="containerbox">
         <div class="form-group">
@@ -126,10 +127,10 @@
     <div id = "aside">
       <table class = "profile">
         <tr>
-          <input class = "club-logo" type ="text" value = "C.R.A">  <!-- *동아리 이름 (로고)-->
+          <input class = "club-logo" type ="text" value = "<?php echo $club_name; ?>">  <!-- *동아리 이름 (로고)-->
         </tr>
         <tr>
-          <input class = "club-apply-bt" type ="submit" value = "수정하기"></td>
+          <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">수정하기</button>
         </tr>
       </table>
     </div>

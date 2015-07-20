@@ -1,9 +1,9 @@
 <?php
-	//Start session
-	session_start();	
-	//Unset the variables stored in session
-	unset($_SESSION['USER_NAME']);
-	unset($_SESSION['USER_PASSWORD']);
+  //Start session
+  session_start();  
+  //Unset the variables stored in session
+  unset($_SESSION['USER_NAME']);
+  unset($_SESSION['USER_PASSWORD']);
 ?>
 
 <!DOCTYPE html>
@@ -16,16 +16,16 @@
     <title>Loginpage</title>
 
     <!-- Bootstrap -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/loginpage.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="loginpage.css" rel="stylesheet">
 
   </head>
   <body>
     <div class="container">
       <div id="header">
           <a href="firstpage.php" class="h_logo">
-          <img src="../img/title.png" class = "h_logo">
+          <img src="title.png" class = "h_logo">
           </a>
       </div>
     </div>
@@ -56,6 +56,9 @@
       <div id="divmargin"></div>
       <div class="submit_content">
         <button type="submit">Log in</button>
+      </div>
+      <div><--!sumbitsignup-->
+        <a href = 'signup.php'><button type ="submit">회원가입</button></a>
       </div>
       </form>
     </div>

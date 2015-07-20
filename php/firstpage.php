@@ -58,7 +58,7 @@ session_start();
 
 
   <div class = "academy-button"></div>
-  <a class="academy-button" href="../php/clublist.php"></a>   
+  <a class="academy-button" href="../php/academylist.php"></a>   
    
  
 

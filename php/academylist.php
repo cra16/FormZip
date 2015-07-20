@@ -1,11 +1,16 @@
 <?php
-  $mysql_hostname = "localhost";      
-  $mysql_user = "root";
-  $mysql_password = "78910";    
-  $mysql_database = "meeting";
-  $prefix = "";
-  $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-        mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
+session_start();
+require_once('DB_INFO.php');
+header('Content-Type: text/html; charset=utf-8');
+
+mysqli_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_client=utf8;");
+
+$bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
+mysqli_set_charset($bd, "utf8");
+
+mysqli_select_db($bd,DB_NAME) or die("Could not select database");
  ?>
 
 <!DOCTYPE html>
@@ -18,9 +23,9 @@
     <title>Academy List</title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap.css" rel="stylesheet">
-    <link href="clublist.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/clublist.css" rel="stylesheet">
 
   </head>
 <body>
@@ -42,7 +47,15 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.php">Login</a></li>
+        <li>
+          <?php
+            if($_SESSION['USER_NAME'])
+              echo '<a href="logout.php">Logout</a>';
+            else
+              echo '<a href="login.php">Login</a>';
+          ?>
+
+        </li>       
         <li><a href="signup.php">Signup</a></li>
         <li><a href="#">Help</a></li>
       </ul>
@@ -89,11 +102,11 @@ if($condition == NULL){
 }
 
 if( $condition != "전체" ){
-  $sql="SELECT academy_name FROM academy WHERE dept='$condition'";  
+  $sql="SELECT a_name FROM academy WHERE dept='$condition'";  
 }else{
-  $sql = "SELECT academy_name FROM academy";
+  $sql = "SELECT a_name FROM academy";
 } 
-$result=mysql_query($sql);
+$result=mysqli_query($bd,$sql);
 
 $i=0;
 $j=0;
@@ -106,7 +119,7 @@ while($academy[$i] != NULL){
   echo "<tr>";
   for($j=0 ; $j<4 ; $j++){
     echo "<td>";
-    $academy = mysql_fetch_array($result);
+    $academy = mysqli_fetch_array($result);
     if($academy[$i] == NULL){
       break;
     }
