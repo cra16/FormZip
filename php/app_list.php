@@ -1,4 +1,10 @@
 <?php
+Header("Content-type: charset=utf-8");
+mysqli_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_client=utf8;");
+mysqli_set_charset($connect, "utf8");
+
   $mysql_hostname = "localhost";      
   $mysql_user = "root";
   $mysql_password = "helloworld206";    
