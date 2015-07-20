@@ -33,14 +33,12 @@
      <div class="join_content">
       <form name="loginform" action="login_exec.php" method="POST">
         <div class="form-group">
-          <h2>Apply &amp; Recruit!</h2>
-            <input class="form-control" id="username" name="username" type="text" placeholder="UserId" maxlength="20">
-                  
-            <div id="form-margin"></div>
-                  
-            <input class="form-control" id="password" name="password" type="password" placeholder="Password" maxlength="15">
-                  
-            <div id="form-margin"></div>
+          <h2>LOGIN</h2>
+          <p class = "subtitle">Apply &amp; Recruit!</p>
+          <input class="form-control" id="username" name="username" type="text" placeholder="UserId" maxlength="20">
+          <div id="form-margin"></div>
+          <input class="form-control" id="password" name="password" type="password" placeholder="Password" maxlength="15">
+          <div id="form-margin"></div>
         </div> 
         <?php
           if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
