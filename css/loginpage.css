@@ -2,7 +2,7 @@
 * { font-family:"Nanum Gothic" !important }
 html { 
   background: url(../img/1.jpg) no-repeat center center fixed; 
-  background-size: 100% auto;
+  background-size: 100% 100%;
 }
 
 body{
@@ -11,8 +11,8 @@ body{
 
 
 .container{
-	width:100%;
-	height:100%;
+  width:100%;
+  height:100%;
 }
 
 #header {
@@ -117,4 +117,23 @@ body{
 
 #divmargin{
   margin-top:8px;
+}
+
+.find_info{
+  height:31px;
+ 
+  margin:0 auto;
+  padding:10px auto;
+  text-align:center;
+}
+
+.find_info a{
+  text-decoration:none;
+  color:black;
+  margin:0 5px;
+}
+
+.find_info a:hover{
+   color:black;
+
 }
