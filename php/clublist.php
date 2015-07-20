@@ -67,7 +67,7 @@ session_start();
 <div class="row">
   <div class="col-xs-6 col-md-2"></div>
   <div class="col-xs-6 col-md-8 searchbox">
-    <form action='demo.php' method='GET'>
+    <form action='clublist.php' method='GET'>
       <input type = 'submit' class="searchbutton" name ='whole' value ='전체' >
       <img src="../img/bar.png">
       <input type = 'submit' class="searchbutton" name = 'perform' value ='공연/음악' >
