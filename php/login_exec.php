@@ -25,7 +25,7 @@ mysqli_select_db($connect,DB_NAME);
  
 	//Input Validations
 	if($username == '') {
-		$errmsg_arr[] = 'id missing'.$username;
+		$errmsg_arr[] = 'id missing'.$username.$_POST['username'];
 		$errflag = true;
 	}
 	if($password == '') {
