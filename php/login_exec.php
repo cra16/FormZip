@@ -1,12 +1,18 @@
 <?php
 	//Start session
-	session_start();
-    require_once('DB_INFO.php');
-	
-	$prefix = "";
-	$bd = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
-	   	mysqli_select_db($bd,DB_NAME) or die("Could not select database");
- 
+session_start();
+require_once('DB_INFO.php');
+header('Content-Type: text/html; charset=utf-8');
+
+mysqli_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_client=utf8;");
+
+$connect=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");;
+mysqli_set_charset($connect, "utf8") or die("Could not select database");
+
+
+mysqli_select_db($connect,DB_NAME);
 	//Array to store validation errors
 	$errmsg_arr = array();
  
