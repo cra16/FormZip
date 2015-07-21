@@ -33,12 +33,20 @@
      <div class="join_content">
       <form name="loginform" action="login_exec.php" method="POST">
         <div class="form-group">
-          <h2>LOGIN</h2>
-          <p class = "subtitle">Apply &amp; Recruit!</p>
-          <input class="form-control" id="username" name="username" type="text" placeholder="UserId" maxlength="20">
-          <div id="form-margin"></div>
-          <input class="form-control" id="password" name="password" type="password" placeholder="Password" maxlength="15">
-          <div id="form-margin"></div>
+          <h2>Apply &amp; Recruit!</h2>
+            <input class="form-control" id="username" name="username" type="text" placeholder="UserId" maxlength="20">
+                  
+            <div id="form-margin"></div>
+                  
+            <input class="form-control" id="password" name="password" type="password" placeholder="Password" maxlength="15">
+                  
+            <div id="form-margin"></div>
+
+            <div class="find_info"> 
+            <a href="signup.php">회원가입</a> 
+            <a href="id_find.php">아이디 찾기</a>
+            <a href="pw_find.php">비밀번호 찾기 </a>
+            </div>
         </div> 
         <?php
           if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
@@ -50,6 +58,7 @@
           unset($_SESSION['ERRMSG_ARR']);
           }
         ?>
+
       </div>
       <div id="divmargin"></div>
 
@@ -58,11 +67,7 @@
       </div>
 
       <div id="divmargin"></div>
-     <div class="submit_content"> <!--sumbitsignup-->
-       <a href="signup.php">
-        <button type="submit">회원가입</button>
-        </a>
-      </div>
+
 
 
       </form>
