@@ -88,8 +88,10 @@ VALUES ('$club','$name','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$ma
 
 if ($bd->query($sql) === TRUE) {
     echo "New record created successfully";
+    header("Location: ../php/firstpage.php");
 } else {
     echo "Error: " . $sql . "<br>" . $bd->error;
+    header("Location: ../php/firstpage.php");
 }
 
 $bd->close();
