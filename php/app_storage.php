@@ -82,20 +82,40 @@ mysqli_select_db($bd,DB_NAME);
    echo $content7;
 
 
+$sql = "SELECT * FROM appstorage WHERE id = '$club' AND stuid = '$stuid'";
+$result = mysqli_query($connect,$qry);
 
+if(!$result){
 $sql = "INSERT INTO appstorage (id,name,stuid,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7)
 VALUES ('$club','$name','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7')";
 
 if ($bd->query($sql) === TRUE) {
     echo "New record created successfully";
-    header("Location: ../php/firstpage.php");
+    //header("Location: ../php/firstpage.php");
 } else {
     echo "Error: " . $sql . "<br>" . $bd->error;
-    header("Location: ../php/firstpage.php");
+    //header("Location: ../php/firstpage.php");
+}
+
+$bd->close();
+}
+else{
+$sql = "UPDATE appstorage 
+SET name = '$name',major = '$major',p_num = '$p_num',gender = '$gender',served = '$served',mail = '$mail',
+activity = '$activity',content1 = '$content1',content2 = '$content2',content3 = '$content3',
+content4 = '$content4',content5 = '$content5',content6 = '$content6',content7 = '$content7'";
+
+if ($bd->query($sql) === TRUE) {
+    echo "New record inserted successfully";
+    //header("Location: ../php/firstpage.php");
+} else {
+    echo "Error: " . $sql . "<br>" . $bd->error;
+   // header("Location: ../php/firstpage.php");
 }
 
 $bd->close();
 
+}
 ?>
  
 	
