@@ -1,12 +1,20 @@
 <?php
-session_start();
-  $mysql_hostname = "localhost";      
-  $mysql_user = "root";
-  $mysql_password = "gksehdeo357";    
-  $mysql_database = "formzip";
-  $prefix = "";
-  $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-        mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
+  // Session start 
+  session_start();
+
+  // DB connection
+  require_once('DB_INFO.php');
+  header('Content-Type: text/html; charset=utf-8');
+
+  mysqli_query("set session character_set_connection=utf8;");
+  mysqli_query("set session character_set_results=utf8;");
+  mysqli_query("set session character_set_client=utf8;");
+
+  $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
+  mysqli_set_charset($bd, "utf8");
+
+  mysqli_select_db($bd,DB_NAME) or die("Could not select database");
+
  ?>
 
 <!DOCTYPE html>
@@ -108,7 +116,7 @@ if( $condition != "전체" ){
 }else{
   $sql = "SELECT c_name FROM club";
 } 
-$result=mysql_query($sql);
+  $result=mysqli_query($bd,$sql);
 
 $i=0;
 $j=0;
@@ -117,16 +125,16 @@ $clubname[$i] = "dd";
 
  <div class="container">
   <div class="row">
-    <form action="clubpage.php" method="POST">
+    <form action="clubpage.php" method="GET">
       <?php
       while($clubname[$i] != NULL){
         for($j=0 ; $j<4 ; $j++){
-          $clubname = mysql_fetch_array($result);
+          $clubname = mysqli_fetch_array($result);
           if($clubname[$i] == NULL){
             break;
           }
           echo " <div class='col-xs-6 col-md-3'>";
-          echo "<input class = 'club-element' type = 'submit' value ='$clubname[$i]' name = 'name' src='../clubimg/3.jpg'>";
+          echo "<input class = 'club-element' type = 'submit' value ='$clubname[$i]' name = 'name'>";
           echo "</div>";
           } 
       }

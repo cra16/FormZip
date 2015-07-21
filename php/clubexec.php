@@ -1,19 +1,28 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "gksehdeo357";
-$dbname = "formzip";
+// Session start 
+session_start();
+
+ // Manager judge
+require_once('auth.php');
+
+// DB connection
+require_once('DB_INFO.php');
+header('Content-Type: text/html; charset=utf-8');
+
+mysqli_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_client=utf8;");
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-//POST values
 
-//  이미지 저장 start
+
+//  이미지 저장 
 $file_name = $_FILES['upload_file']['name'];
 $tmp_file = $_FILES['upload_file']['tmp_name'];
 
@@ -24,9 +33,6 @@ $file_path = '../img/'.$s_file_name;
 $r = move_uploaded_file($tmp_file, $file_path);
 
 
-
-//  이미지 저장 끝
-
 // title, text 정보 불러오기
 $title= $_POST['title'];
 $text= $_POST['text'];
@@ -34,9 +40,9 @@ $club_name= $_POST['name'];
 
 if ($r == true) 
 {
-    $sql = "UPDATE clubstorage
+    $sql = "UPDATE club
     SET img_name='$file_name'
-    WHERE id='$club_name'";
+    WHERE c_name='$club_name'";
     if ($conn->query($sql) === TRUE) 
     {
         echo "New record created successfully";
@@ -54,9 +60,9 @@ else
 
 if ($title != "") 
 {
-    $sql = "UPDATE clubstorage
+    $sql = "UPDATE club
     SET title='$title'
-    WHERE id='$club_name'";
+    WHERE c_name='$club_name'";
     if ($conn->query($sql) === TRUE) 
     {
         echo "New record created successfully";
@@ -72,11 +78,11 @@ else
     echo "ERROR: File not moved correctly";
 }
 
-if ($text !=    "") 
+if ($text !="") 
 {
-    $sql = "UPDATE clubstorage
+    $sql = "UPDATE club
     SET text ='$text'
-    WHERE id='$club_name'";
+    WHERE c_name='$club_name'";
     if ($conn->query($sql) === TRUE) 
     {
         echo "New record created successfully";
@@ -95,6 +101,5 @@ else
 
 
 $conn->close();
-
-?>
+header("Location: ../php/clubpage.php");    
  

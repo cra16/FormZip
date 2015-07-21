@@ -1,8 +1,34 @@
-<?php
+<?php 
   // Session start 
   session_start();
 
   // DB connection
+<<<<<<< HEAD
+  require_once('DB_INFO.php');
+  header('Content-Type: text/html; charset=utf-8');
+
+  mysqli_query("set session character_set_connection=utf8;");
+  mysqli_query("set session character_set_results=utf8;");
+  mysqli_query("set session character_set_client=utf8;");
+
+  $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
+  mysqli_set_charset($bd, "utf8");
+
+  mysqli_select_db($bd,DB_NAME) or die("Could not select database");
+
+
+  if($_GET['name']!=""){
+   $club_name= $_GET['name'];
+   $_SESSION["GROUP"] = $club_name;
+  }
+
+  else{
+    $club_name=$_SESSION['GROUP'];
+  }
+  
+  $qry="SELECT * FROM club WHERE c_name='$club_name'";   
+  $result=mysqli_query($bd,$qry);
+=======
   $mysql_hostname = "localhost";      
   $mysql_user = "root";
   $mysql_password = "gksehdeo357";    //수정할 부분->비밀번호입력
@@ -14,13 +40,14 @@
 
   $qry="SELECT * FROM clubstorage WHERE id='$club_name'";   //clubstorage : 각 동아리의 title, 설명, 사진정보 저장 DB
   $result=mysql_query($qry);
+>>>>>>> d63fa2fb34b8a42214dc0cf258878d0800102fa3
 
   //Check whether the query was successful or not
   if($result) {
 
-      if(mysql_num_rows($result) > 0) 
+      if(mysqli_num_rows($result) > 0) 
       {
-        $member = mysql_fetch_assoc($result);
+        $member = mysqli_fetch_assoc($result);
         
       }
 
@@ -33,10 +60,8 @@
   {
     die("Query failed");
   }
-
-
-
 ?>
+
 
 
 <!DOCTYPE html>
@@ -81,7 +106,7 @@
               echo '<a href="login.php">Login</a>';
           ?>
         </li>
-        <li><a href="#">Signup</a></li>
+        <li><a href="signup.php">Signup</a></li>
         <li><a href="#">Help</a></li>
       </ul>
     </div>
@@ -137,17 +162,17 @@
         {
         ?>
         <tr>
-          <form action="clubmodify.php" method="POST">
+          <form action="clubmodify.php" method="GET">
            <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">페이지 수정</button>
           </form>
         </tr>
         <tr>
-          <form action="app_make.php" method="POST">
+          <form action="app_make.php" method="GET">
             <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원서 만들기</button>
           </form>
         </tr>
         <tr>
-          <form action="login.php" method="POST">
+          <form action="login.php" method="GET">
             <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원자 현황</button>
           </form>
         </tr>
