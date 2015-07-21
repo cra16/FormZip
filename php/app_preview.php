@@ -1,7 +1,8 @@
 <?php
   // Session start 
   session_start();
-
+  // Manager judge
+  require_once('auth.php');
   // DB connection
   require_once('DB_INFO.php');
   header('Content-Type: text/html; charset=utf-8');

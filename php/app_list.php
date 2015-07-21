@@ -1,5 +1,7 @@
 <?php
 session_start();
+  // Manager judge
+  require_once('auth.php');
 require_once('DB_INFO.php');
 header('Content-Type: text/html; charset=utf-8');
 
@@ -46,8 +48,15 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Signup</a></li>
+        <li>
+          <?php
+            if($_SESSION['USER_NAME'])
+              echo '<a href="logout.php">Logout</a>';
+            else
+              echo '<a href="login.php">Login</a>';
+          ?>
+        </li>        
+        <li><a href="signup.php">Signup</a></li>
         <li><a href="#">Help</a></li>
       </ul>
     </div>
@@ -69,10 +78,11 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
   <tbody>
     <?php
     //CLUB get하기
-      $club = 'CRA';
-      $qry1 = "SELECT name FROM result WHERE club_name = '$club' ";
-      $qry2 = "SELECT stu_id FROM result WHERE club_name = '$club' ";
-      $qry3 = "SELECT gender FROM result WHERE club_name = '$club' ";
+      $club_name= $_GET['name'];
+     
+      $qry1 = "SELECT name FROM result WHERE club_name = '$club_name' ";
+      $qry2 = "SELECT stu_id FROM result WHERE club_name = '$club_name' ";
+      $qry3 = "SELECT gender FROM result WHERE club_name = '$club_name' ";
       $name_result = mysqli_query($bd,$qry1);
       $id_result = mysqli_query($bd,$qry2);
       $gender_result = mysqli_query($bd,$qry3);
