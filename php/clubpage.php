@@ -3,6 +3,7 @@
   session_start();
 
   // DB connection
+<<<<<<< HEAD
   require_once('DB_INFO.php');
   header('Content-Type: text/html; charset=utf-8');
 
@@ -27,6 +28,19 @@
   
   $qry="SELECT * FROM club WHERE c_name='$club_name'";   
   $result=mysqli_query($bd,$qry);
+=======
+  $mysql_hostname = "localhost";      
+  $mysql_user = "root";
+  $mysql_password = "gksehdeo357";    //수정할 부분->비밀번호입력
+  $mysql_database = "formzip";
+  $prefix = "";
+  $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
+    mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
+  $club_name= $_POST['name'];
+
+  $qry="SELECT * FROM clubstorage WHERE id='$club_name'";   //clubstorage : 각 동아리의 title, 설명, 사진정보 저장 DB
+  $result=mysql_query($qry);
+>>>>>>> d63fa2fb34b8a42214dc0cf258878d0800102fa3
 
   //Check whether the query was successful or not
   if($result) {

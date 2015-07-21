@@ -75,7 +75,7 @@
 
  
 <div class="formContentsLayout">
-  <form method="POST" action="app_exec.php" class="form-horizontal"> 
+  <form method="POST" action="clubpage.php" class="form-horizontal"> 
     
     <!-- short text -->
     <?php
@@ -133,7 +133,7 @@
     </div>
 
     <div class="submit_content">
-      <button type="submit">제출</button>
+      <button type="submit">확인</button>
     </div>
   </form>
 </div>

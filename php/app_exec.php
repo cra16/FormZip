@@ -99,6 +99,7 @@ SET served = '$served' ,mail = '$mail' ,activity = '$activity' ,sr1 = '$sr1' ,sr
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
+    header("Location: ../php/app_preview.php");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
