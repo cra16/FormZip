@@ -1,26 +1,28 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "gksehdeo357";
-$dbname = "formzip";
+  // DB connection
+require_once('DB_INFO.php');
+header('Content-Type: text/html; charset=utf-8');
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+mysqli_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_client=utf8;");
+
+$bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
+mysqli_set_charset($bd, "utf8") or die("Could not select database");
+
+
+mysqli_select_db($bd,DB_NAME);
 
 //POST values
-    
-    $name=test_input($_POST['name']);
-    $stuid=test_input($_POST['stuid']);
-    $major=test_input($_POST['major']);
-    $p_num=test_input($_POST['p_num']);
-    $gender=test_input($_POST['gender']);
-    $served=test_input($_POST['served']);
+    $club=mysqli_real_escape_string($bd,test_input($_POST['club']));
+    $name=mysqli_real_escape_string($bd,test_input($_POST['name']));
+    $stuid=mysqli_real_escape_string($bd,test_input($_POST['stuid']));
+    $major=mysqli_real_escape_string($bd,test_input($_POST['major']));
+    $p_num=mysqli_real_escape_string($bd,test_input($_POST['p_num']));
+    $gender=mysqli_real_escape_string($bd,test_input($_POST['gender']));
+    $served=mysqli_real_escape_string($bd,test_input($_POST['served']));
     $mail=$_POST['mail'];
-    $activity=test_input($_POST['activity']);
+    $activity=mysqli_real_escape_string($bd,test_input($_POST['activity']));
 
     $content1= $_POST['content1'];
     $content2= $_POST['content2'];
@@ -41,6 +43,7 @@ if ($conn->connect_error) {
 
 
 
+  echo "<br>";
   echo $name;
   echo "<br>";
     echo $stuid;
@@ -80,16 +83,16 @@ if ($conn->connect_error) {
 
 
 
-$sql = "INSERT INTO appstorage
-VALUES ('$name','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7')";
+$sql = "INSERT INTO appstorage (id,name,stuid,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7)
+VALUES ('$club','$name','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7')";
 
-if ($conn->query($sql) === TRUE) {
+if ($bd->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $bd->error;
 }
 
-$conn->close();
+$bd->close();
 
 ?>
  
