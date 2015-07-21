@@ -1,26 +1,32 @@
-<?php
+<?php 
   // Session start 
   session_start();
-
+  // Manager judge
+  require_once('auth.php');
   // DB connection
-  $mysql_hostname = "localhost";      
-  $mysql_user = "root";
-  $mysql_password = "gksehdeo357";    //수정할 부분->비밀번호입력
-  $mysql_database = "formzip";
-  $prefix = "";
-  $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-    mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
-  $club_name= $_POST['name'];
-  echo $club_name;
-  $qry="SELECT * FROM clubstorage WHERE id='$club_name'";   //대체 가능한 부분
-  $result=mysql_query($qry);
+  require_once('DB_INFO.php');
+  header('Content-Type: text/html; charset=utf-8');
+
+  mysqli_query("set session character_set_connection=utf8;");
+  mysqli_query("set session character_set_results=utf8;");
+  mysqli_query("set session character_set_client=utf8;");
+
+  $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
+  mysqli_set_charset($bd, "utf8");
+
+  mysqli_select_db($bd,DB_NAME) or die("Could not select database");
+
+  $club_name= $_GET['name'];
+
+  $qry="SELECT * FROM club WHERE c_name='$club_name'";   
+  $result=mysqli_query($bd,$qry);
 
   //Check whether the query was successful or not
   if($result) {
 
-      if(mysql_num_rows($result) > 0) 
+      if(mysqli_num_rows($result) > 0) 
       {
-        $member = mysql_fetch_assoc($result);
+        $member = mysqli_fetch_assoc($result);
         
       }
 
@@ -33,9 +39,6 @@
   {
     die("Query failed");
   }
-echo $member['id'];
-echo $member['title'];
-echo $member['img_name'];
 ?>
 
 
@@ -81,7 +84,7 @@ echo $member['img_name'];
               echo '<a href="login.php">Login</a>';
           ?>
         </li>
-        <li><a href="#">Signup</a></li>
+        <li><a href="signup.php">Signup</a></li>
         <li><a href="#">Help</a></li>
       </ul>
     </div>
@@ -98,27 +101,27 @@ echo $member['img_name'];
       <form class = "content" method = "POST" action="clubexec.php" enctype="multipart/form-data">
         <img class = "picture" src = "../clubimg/<?php echo $member['img_name']; ?>">   <!-- *그림 가져오기 -->
         
-      <div class="containerbox">
-        <div class="form-group">
-          <label for="inputEmail" class="col-lg-3 control-label">파일 업로드</label>
-          <div class="col-lg-10">
-          <input type="file" class="form-control" name="upload_file">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Title</label>
-          <div class="col-lg-10">
-            <input type="text" class="form-control" name="title" placeholder="동아리 제목을 입력해주세요">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-lg-3 control-label">동아리 설명</label>
-            <div class="col-lg-10">
-            <textarea class="form-control" rows="3" name="text"></textarea>   
+          <div class="containerbox">
+            <div class="form-group">
+              <label for="inputEmail" class="col-lg-3 control-label">파일 업로드</label>
+              <div class="col-lg-10">
+              <input type="file" class="form-control" name="upload_file">
+              </div>
             </div>
-        </div>  
-      </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label">Title</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" name="title" placeholder="동아리 제목을 입력해주세요">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-lg-3 control-label">동아리 설명</label>
+                <div class="col-lg-10">
+                <textarea class="form-control" rows="3" name="text"></textarea>   
+                </div>
+            </div>  
+          </div>
     </div>
    
     <!-- 동아리 소개 End-->
