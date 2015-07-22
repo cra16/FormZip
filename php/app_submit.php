@@ -15,8 +15,9 @@ mysqli_set_charset($bd, "utf8") or die("Could not select database");
 
 
 mysqli_select_db($bd,DB_NAME);
-
-  $club='CRA';//mysqli_real_escape_string($bd,$_POST['club']);
+  
+  
+  $club= $_SESSION["GROUP"];
   $member;
   $qry="SELECT * FROM application WHERE id='$club'";
   $result=mysqli_query($bd,$qry);
@@ -79,8 +80,7 @@ mysqli_select_db($bd,DB_NAME);
  
 <div class="formContentsLayout">
   <form method="POST" action="app_storage.php" class="form-horizontal"> 
-      <input type="hidden" id="club" name="club" value="<?php echo $club; ?>"> 
-     <!-- short text -->
+      <!-- short text -->
     <?php
       for($i = 0; $i<8; $i++)
       {

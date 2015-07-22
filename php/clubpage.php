@@ -3,7 +3,7 @@
   session_start();
 
   // DB connection
-<<<<<<< HEAD
+
   require_once('DB_INFO.php');
   header('Content-Type: text/html; charset=utf-8');
 
@@ -28,19 +28,6 @@
   
   $qry="SELECT * FROM club WHERE c_name='$club_name'";   
   $result=mysqli_query($bd,$qry);
-=======
-  $mysql_hostname = "localhost";      
-  $mysql_user = "root";
-  $mysql_password = "gksehdeo357";    //수정할 부분->비밀번호입력
-  $mysql_database = "formzip";
-  $prefix = "";
-  $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-    mysql_select_db($mysql_database, $bd) or die("Could not select database"); 
-  $club_name= $_POST['name'];
-
-  $qry="SELECT * FROM clubstorage WHERE id='$club_name'";   //clubstorage : 각 동아리의 title, 설명, 사진정보 저장 DB
-  $result=mysql_query($qry);
->>>>>>> d63fa2fb34b8a42214dc0cf258878d0800102fa3
 
   //Check whether the query was successful or not
   if($result) {
@@ -118,7 +105,13 @@
 <!--관리자 여부에 따른 action 위치 변경  -->
 <?php
 //관리자여부 확인
-  if($_SESSION['USER_NAME']==$club_name){
+$id = $_SESSION['USER_NAME'];
+$sql = "SELECT * FROM student WHERE id = '$id'";
+$check_result = mysqli_query($bd,$sql);
+$check = mysqli_fetch_array($check_result);
+$cname = $check['c_name'];
+
+  if($cname==$club_name){
     $IsManager="true";
   }
 
@@ -172,7 +165,12 @@
           </form>
         </tr>
         <tr>
-          <form action="login.php" method="GET">
+          <form action="app_preview.php" method="GET">
+           <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원서 미리보기</button>
+          </form>
+        </tr>
+        <tr>
+          <form action="app_list.php" method="GET">
             <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원자 현황</button>
           </form>
         </tr>
@@ -181,9 +179,11 @@
         else if($IsManager=="false")  //현재 로그인 개정이 관리자가 아닐경우 실행
         {    
         ?>  
+        <form action="app_submit.php" method="POST">
         <tr>
           <td><input class = "club-apply-bt" type ="submit" value = "지원하기"></td>
         </tr>
+      </from>
         <?php
         }
         ?>
@@ -206,5 +206,3 @@
     <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
