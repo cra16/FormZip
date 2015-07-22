@@ -12,6 +12,17 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/signup.css" rel="stylesheet">
 
+        <script>
+      function check_id(){
+        window.open("check_id.php?id="+document.getElementById('userid').value,
+        "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
+      }
+      function check_stuid(){
+        window.open("check_stuid.php?stuid="+document.getElementById('stuid').value,
+        "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
+      }
+    </script>
+
   </head>
   <body>
     <div class="container">
