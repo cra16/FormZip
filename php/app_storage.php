@@ -86,14 +86,14 @@ $stuid_array = mysqli_fetch_array($stuid_result);
 $stuid = $stuid_array['stuid'];
 $name = $stuid_array['student_name'];
 
-$sql = "SELECT * FROM appstorage WHERE cname = '$club' AND stuid = '$stuid'";
+$sql = "SELECT * FROM result WHERE club_name = '$club' AND stuid = '$stuid'";
 $result = mysqli_query($bd,$sql);
 
 if(mysqli_num_rows($result) > 0){
-$sql = "UPDATE appstorage 
+$sql = "UPDATE result 
 SET name = '$name',major = '$major',p_num = '$p_num',gender = '$gender',served = '$served',mail = '$mail',
 activity = '$activity',text1 = '$content1',text2 = '$content2',text3 = '$content3',text4 = '$content4',
-text5 = '$content5',text6 = '$content6',text7 = '$content7' WHERE cname = '$club' AND stuid = '$stuid'";
+text5 = '$content5',text6 = '$content6',text7 = '$content7' WHERE club_name = '$club' AND stuid = '$stuid'";
 
 if ($bd->query($sql) === TRUE) {
     echo "New record inserted successfully";
@@ -107,7 +107,7 @@ $bd->close();
 
 }
 else{
-$sql = "INSERT INTO appstorage (cname,name,stuid,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7)
+$sql = "INSERT INTO result (club_name,name,stuid,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7)
 VALUES ('$club','$name','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7')";
 
 if ($bd->query($sql) === TRUE) {
