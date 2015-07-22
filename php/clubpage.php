@@ -105,7 +105,12 @@
 <!--관리자 여부에 따른 action 위치 변경  -->
 <?php
 //관리자여부 확인
-  if($_SESSION['USER_NAME']==$club_name){
+$sql = "SELECT * FROM student WHERE id = '$id'";
+$check_result = mysqli_query($bd,$sql);
+$check = mysqli_fetch_array($check_result);
+$cname = $check['c_name'];
+
+  if($cname==$club_name){
     $IsManager="true";
   }
 
@@ -173,9 +178,11 @@
         else if($IsManager=="false")  //현재 로그인 개정이 관리자가 아닐경우 실행
         {    
         ?>  
+        <form action="app_submit.php" method="POST">
         <tr>
           <td><input class = "club-apply-bt" type ="submit" value = "지원하기"></td>
         </tr>
+      </from>
         <?php
         }
         ?>
