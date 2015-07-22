@@ -97,7 +97,7 @@ text5 = '$content5',text6 = '$content6',text7 = '$content7' WHERE cname = '$club
 
 if ($bd->query($sql) === TRUE) {
     echo "New record inserted successfully";
-    //header("Location: ../php/firstpage.php");
+    header("Location: ../php/clubpage.php");
 } else {
     echo "Error: " . $sql . "<br>" . $bd->error;
     //header("Location: ../php/firstpage.php");
@@ -112,7 +112,7 @@ VALUES ('$club','$name','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$ma
 
 if ($bd->query($sql) === TRUE) {
     echo "New record created successfully";
-    //header("Location: ../php/firstpage.php");
+    header("Location: ../php/clubpage.php");
 } else {
     echo "Error: " . $sql . "<br>" . $bd->error;
     //header("Location: ../php/firstpage.php");

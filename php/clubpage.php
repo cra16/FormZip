@@ -105,6 +105,7 @@
 <!--관리자 여부에 따른 action 위치 변경  -->
 <?php
 //관리자여부 확인
+$id = $SESSION['USER_NAME'];
 $sql = "SELECT * FROM student WHERE id = '$id'";
 $check_result = mysqli_query($bd,$sql);
 $check = mysqli_fetch_array($check_result);
