@@ -26,8 +26,7 @@
 
       if(mysqli_num_rows($result) > 0) 
       {
-        $member = mysqli_fetch_assoc($result);
-        
+        $member = mysqli_fetch_assoc($result); 
       }
 
       else 
@@ -71,6 +70,7 @@
   <div class="container">
     <div id="header">
       <h1> <a href="firstpage.php" class="h_logo">F O R M &nbsp;&nbsp;Z I P</a> </h1>
+      <h2>  PREVIEW </h2>
     </div>
   </div>
 

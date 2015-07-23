@@ -1,10 +1,13 @@
 // 군필여부
 function Show1(){
-	document.getElementById("t_served").style.display="block";
+	document.getElementById("showbox").style.display="block";
+	document.getElementById("showbox").style.display="block";
+
 }
 
 function Blind1(){
-	document.getElementById("t_served").style.display="none";
+	document.getElementById("showbox").style.display="none";
+	document.getElementById("showbox").style.display="none";
 }
 
 //이메일 여부

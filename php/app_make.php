@@ -43,31 +43,67 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
 
 
     <!-- short text -->
+    <!-- 이름 / 학번 / 학과 / 전화번호 -->
     <?php
-      for($i = 0; $i<8; $i++)
+      for($i = 0; $i<4; $i++)
       {
     ?>
       <div class="form-group">
         <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-        <div class="col-lg-8">
-          <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>" style="display:block" id="<?php echo $text_name[$i]; ?>" name="<?php echo $text_name[$i]; ?>">
-          <?php
-          if($i >=5)
-          {
-          ?>
-          <input type="radio" id="<?php echo $radio_name[$i-5]; ?>" name="<?php echo $radio_name[$i-5]; ?>" value="use" onclick="Show<?php echo $i-4;?>()" checked>Use
-          <input type="radio" id="<?php echo $radio_name[$i-5]; ?>" name="<?php echo $radio_name[$i-5]; ?>" value="notuse" onclick="Blind<?php echo $i-4;?>()">not Use
-          <?php
-          }
-          ?>
+        <div class="col-lg-8" title="기본 항목입니다.">
+          <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>"
+                 style="display:block" id="<?php echo $text_name[$i]; ?>" name="<?php echo $text_name[$i]; ?>" disabled>
         </div>
       </div>  
     
     <?php
       }
     ?>
-
-
+    <!-- 성별 -->
+      <div class="form-group">
+        <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8" title="기본 항목입니다.">
+            <input type="radio" id="man" name="gender" value="man" checked  style=margin:"10px" display:"none">
+            <label for="man">남자</label>
+            <input type="radio" id="woman" name="gender"value="woman" style=margin:"10px" display:"none">
+            <label for="woman">여자</label>
+        </div>
+      </div>  
+    <!-- 군필여부 -->
+    <?php
+     $i = 5;
+    ?>
+      <div class="form-group">
+        <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8" id="showbox">
+            <input type="radio" id="served" name="served" checked  style=margin:"10px" display:"none">
+            <label for="served" id="<?php echo $text_name[$i]; ?>1" >&nbsp;&nbsp;예&nbsp;&nbsp;</label>
+            <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none">
+            <label for="nonserved" id="t_served2">아니오</label>
+        </div>
+        <div class="col-lg-8">
+          <input type="radio" id="<?php echo $radio_name[$i-5]; ?>" name="<?php echo $radio_name[$i-5]; ?>" value="use" onclick="Show<?php echo $i-4;?>()" checked>Use
+          <input type="radio" id="<?php echo $radio_name[$i-5]; ?>" name="<?php echo $radio_name[$i-5]; ?>" value="notuse" onclick="Blind<?php echo $i-4;?>()">not Use
+        </div>
+      </div>  
+    <!-- 이메일 / 활동가능학기 -->
+    <?php
+       for($i = 6; $i<8; $i++)
+      {
+    ?>
+      <div class="form-group">
+        <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8" title="기본 항목입니다.">
+          <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>"
+                 style="display:block" id="<?php echo $text_name[$i]; ?>" name="<?php echo $text_name[$i]; ?>" disabled>
+           <input type="radio" id="<?php echo $radio_name[$i-5]; ?>" name="<?php echo $radio_name[$i-5]; ?>" value="use" onclick="Show<?php echo $i-4;?>()" checked>Use
+          <input type="radio" id="<?php echo $radio_name[$i-5]; ?>" name="<?php echo $radio_name[$i-5]; ?>" value="notuse" onclick="Blind<?php echo $i-4;?>()">not Use
+        </div>
+      </div>  
+    
+    <?php
+      }
+    ?>
     <!-- long text  -->
     <?php
       for($i = 0; $i<7; $i++)
@@ -122,6 +158,8 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     </div>
   </form>
 </div>
+
+
 
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
