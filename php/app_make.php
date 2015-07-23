@@ -93,7 +93,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     ?>
       <div class="form-group">
         <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-        <div class="col-lg-8" title="기본 항목입니다.">
+        <div class="col-lg-8" title="선택 항목입니다. 사용을 원하실 경우 Use 아닌경우 not Use를 선택해 주세요">
           <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>"
                  style="display:block" id="<?php echo $text_name[$i]; ?>" name="<?php echo $text_name[$i]; ?>" disabled>
            <input type="radio" id="<?php echo $radio_name[$i-5]; ?>" name="<?php echo $radio_name[$i-5]; ?>" value="use" onclick="Show<?php echo $i-4;?>()" checked>Use
@@ -110,7 +110,8 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
       {
     ?>
       <div class="form-group">
-        <label class="col-lg-3 control-label">단락 텍스트<?php echo $i+1;?></label>
+        <label class="col-lg-3 control-label" title="선택 항목입니다. 사용을 원하실 경우 Use 아닌경우 not Use를 선택해 주세요">
+        단락 텍스트<?php echo $i+1;?></label>
         <div class="col-lg-9">
           <input type="text" class="form-control"  placeholder="항목 제목-제목을 입력해주세요" style="display:none" name="title<?php echo $i+1;?>" id="title<?php echo $i+1;?>">
           <input type="text" class="form-control"  placeholder="항목 설명-항목에 대한 설명을 입력해주세요" style="display:none" name="explain<?php echo $i+1;?>" id="explain<?php echo $i+1;?>">
