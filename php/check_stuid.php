@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('DB_INFO.php');
 header('Content-Type: text/html; charset=utf-8');
 
@@ -17,11 +18,9 @@ if(!$stuid){
   echo"학번을 입력하세요";
 }
 else{
-
   $sql = "SELECT * FROM student WHERE stuid ='$stuid'";
   $result = mysqli_query($bd,$sql);
   $num_record = mysqli_num_rows($bd,$result);
-  echo "$num_record";
 
   if($num_record>0){
     echo"학번이 중복됩니다<br>";
