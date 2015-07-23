@@ -84,8 +84,8 @@
 
    <!-- Club Search Bar-->
 <div class="row">
-  <div class="col-xs-6 col-md-1"></div>
-  <div class="col-xs-8 col-md-8 searchbox">
+  <div class="col-xs-1 col-md-1"></div>
+  <div class="col-xs-10 col-md-10 searchbox">
     <form action='clublist.php' method='GET' class = "menu-list">
       <input type = 'submit' class="searchbutton" name ='whole' value ='전체' >
       <img src="../img/bar.png">
@@ -104,7 +104,7 @@
       <input type = 'submit' class="searchbutton" name = 'display' value ='전시' >
     </form>
   </div>
-  <div class="col-xs-6 col-md-1"></div>
+  <div class="col-xs-1 col-md-1"></div>
 </div> 
 
  

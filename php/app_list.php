@@ -42,7 +42,7 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="firstpage.html">Form_Zip</a>
+      <a class="navbar-brand" href="firstpage.php">Form_Zip</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -111,7 +111,7 @@ if ($currentpage < 1) {
 $offset = ($currentpage - 1) * $per_page;
 
 // get the info from the db 
-$sql = "SELECT * FROM result LIMIT $offset, $per_page";
+$sql = "SELECT * FROM result WHERE club_name='$club_name' LIMIT $offset, $per_page";
 $result=mysqli_query($bd,$sql);
 
 while ($list = mysqli_fetch_assoc($result)) {
@@ -120,85 +120,109 @@ while ($list = mysqli_fetch_assoc($result)) {
   $gender=$list['gender']; 
 
 ?>
-       <tr id = '$j' class = 'clickable-row' data-href='firstpage.html'>
-       <td class = 'studnet-number' scope='row'>
-        <?php echo "$stu_id"; ?> 
-       </td>
-       <td class = 'Name'>
-        <?php echo "$name"; ?>
-       </td>
-       <td class = 'sex'>
-        <?php echo "$gender"; ?>
-       </td>
-       </tr>
-
-      <?php
-      }
+  <tr id = '$j' class = 'clickable-row' data-href='firstpage.html'>
+    <td class = 'studnet-number' scope='row'>
+    <?php echo "$stu_id"; ?> 
+    </td>
+    <td class = 'Name'>
+    <?php echo "$name"; ?>
+    </td>
+    <td class = 'sex'>
+    <?php echo "$gender"; ?>
+    </td>
+  </tr>
+<?php
+  }
          
-      ?> 
+?> 
   </tbody>
 </table>
 
 
+  <div id="pagingbox">
+    <ul class="pagination">
+    <?php
+    $page_list=5;
+    // get the current page or set a default
+    if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
+      $currentpage = (int) $_GET['currentpage'];
+    
+      if($currentpage > 0 && $currentpage <= $total_pages)
+      {
+        $start=floor(($currentpage-1)/$page_list)*$page_list+1;
+        $end= $start+$page_list;
+      }
 
-<ul class="pagination">
-<?php
-// get the current page or set a default
-if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
-  $currentpage = (int) $_GET['currentpage'];
-
-  if($currentpage > 0 && $currentpage <= $total_pages)
-  {
-    $start=floor(($currentpage-1)/4)*4+1;
-    $end= $start+4;
-  }
-
-  else
-  {
-    $start=1;
-    $end=$start+4;
-  }
-}
-
-else{
-  $start=1;
-  $end=$start+4;
-}
-
-if($start>1){
-?>
-  <li><a href="app_list.php?currentpage=<?php echo $start-4;?>">«</a></li>
-<?php
-}
-
-?>
-
-
-  
-
-<?php
-
-  for($i=$start; $i<=$end;$i++)
-  {
-    if($i > $total_pages)
-    {
-      break;
+      else
+      {
+        $start=1;
+        $end=$start+$page_list;
+      }
     }
-?>
-    <li><a href="app_list.php?currentpage=<?php echo $i;?>"><?php echo $i;?></a></li>
-<?php
-  }
 
-  if($end<$total_pages){
-?>
-  <li><a href="app_list.php?currentpage=<?php echo $start+$per_page;?>">»</a></li>
-<?php
-}
+    else{
+      $start=1;
+      $end=$start+$page_list;
+    }
 
-?>
+    // pagination: << 표시
+    if($start>1){
+    ?>
+      <li><a href="app_list.php?currentpage=<?php echo $start-$page_list;?>">«</a></li>
+    <?php
+    }
 
-</ul>
+    
+    else{
+    ?>
+      <li><a disabled>«</a></li>
+    <?php
+    }
+    // pagination: 숫자 표시
+    ?>
+    <?php
 
+      for($i=$start; $i<$end;$i++)
+      {
+        if($i > $total_pages)
+        {
+          break;
+        }
+
+        if($i==$currentpage)
+        {
+    ?>
+        <li><a href="app_list.php?currentpage=<?php echo $i;?>" id="distinguish"><?php echo $i;?></a></li>          
+   <?php
+        }
+
+        else
+        {
+    ?>
+        <li><a href="app_list.php?currentpage=<?php echo $i;?>"><?php echo $i;?></a></li>
+    <?php
+        }
+    ?>
+      
+    <?php
+      }
+    // pagination: >> 표시  
+      if($end<$total_pages){
+    ?>
+      <li><a href="app_list.php?currentpage=<?php echo $start+$page_list;?>">»</a></li>
+    <?php
+    }
+
+   
+     else{
+    ?>
+      <li><a >»</a></li>
+    <?php
+    }
+
+    ?>
+    </ul>
+  </div>
 </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
