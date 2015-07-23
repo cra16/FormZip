@@ -19,8 +19,8 @@ if(!$id){
 else{
 
   $sql = "SELECT * FROM student WHERE id = '$id'";
-  $result = mysql_query($sql);
-  $num_record = mysql_num_rows($result);
+  $result = mysqli_query($bd,$sql);
+  $num_record = mysqli_num_rows($bd,$result);
 
   if($num_record){
     echo"아이디가 중복됩니다<br>";
@@ -29,6 +29,6 @@ else{
     echo"사용가능한 아이디 입니다.";
   }
 
-  mysql_close();
+  mysqli_close($bd);
 }
 ?>

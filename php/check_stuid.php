@@ -18,8 +18,8 @@ if(!$stuid){
 else{
 
   $sql = "SELECT * FROM student WHERE stuid = '$stuid'";
-  $result = mysql_query($sql);
-  $num_record = mysql_num_rows($result);
+  $result = mysqli_query($bd,$sql);
+  $num_record = mysqli_num_rows($bd,$result);
 
   if($num_record){
     echo"학번이 중복됩니다<br>";
@@ -28,6 +28,6 @@ else{
     echo"사용가능한 학번입니다.";
   }
 
-  mysql_close();
+  mysqli_close($bd);
 }
 ?>
