@@ -18,7 +18,7 @@ if(!$id){
 }
 else{
 
-  $sql = "SELECT * FROM student WHERE id = '$id'";
+  $sql = "SELECT * FROM student WHERE id = 'lim'";
   $result = mysqli_query($bd,$sql);
   $num_record = mysqli_num_rows($bd,$result);
   echo "$num_record"."$id";
