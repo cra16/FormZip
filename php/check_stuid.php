@@ -10,6 +10,7 @@ $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect data
 mysqli_set_charset($bd, "utf8");
 
 mysqli_select_db($bd,DB_NAME) or die("Could not select database");
+
 $stuid = $_GET['stuid'];
 
 if(!$stuid){
@@ -21,7 +22,7 @@ else{
   $result = mysqli_query($bd,$sql);
   $num_record = mysqli_num_rows($bd,$result);
 
-  if($num_record){
+  if($num_record>0){
     echo"학번이 중복됩니다<br>";
     echo"학번을 다시 입력하세요.<br>";
   }else{
