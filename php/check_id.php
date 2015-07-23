@@ -18,10 +18,10 @@ if(!$id){
 }
 else{
 
-  $sql = "SELECT * FROM student WHERE id = 'lim'";
+  $sql = "SELECT * FROM student WHERE id ='$id'";
   $result = mysqli_query($bd,$sql);
   $num_record = mysqli_num_rows($bd,$result);
-  echo "$num_record"."$id";
+  echo "$num_record.";
   if($num_record){
     echo"아이디가 중복됩니다<br>";
     echo"다른 아이디를 사용하세요.<br>";

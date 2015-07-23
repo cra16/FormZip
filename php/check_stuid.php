@@ -18,7 +18,7 @@ if(!$stuid){
 }
 else{
 
-  $sql = "SELECT * FROM student WHERE stuid = 21400365";
+  $sql = "SELECT * FROM student WHERE password ='1234'";
   $result = mysqli_query($bd,$sql);
   $num_record = mysqli_num_rows($bd,$result);
 
