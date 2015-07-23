@@ -24,12 +24,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Club List</title>
+    <title>:: 동아리 목록 ::</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/clublist.css" rel="stylesheet">
+    <link href="../css/club_list.css" rel="stylesheet">
+
+
+
 
   </head>
 <body>
@@ -68,14 +71,22 @@
   </nav>
    <!-- Menubar end-->  
 
-  <h2>FORM ZIP</h2>
-  <h3>apply  recruit</h3>
+    <!-- Logo Start -->
+  <div class="container">
+    <div id="header-logo">
+        <a href="firstpage.php" class="h_logo">
+        <img src="../img/title_black.png" class = "h_logo">
+      </a>
+    </div>
+  </div>
+  <!-- Logo End -->
+
 
    <!-- Club Search Bar-->
 <div class="row">
-  <div class="col-xs-6 col-md-2"></div>
-  <div class="col-xs-6 col-md-8 searchbox">
-    <form action='clublist.php' method='GET'>
+  <div class="col-xs-6 col-md-1"></div>
+  <div class="col-xs-8 col-md-8 searchbox">
+    <form action='clublist.php' method='GET' class = "menu-list">
       <input type = 'submit' class="searchbutton" name ='whole' value ='전체' >
       <img src="../img/bar.png">
       <input type = 'submit' class="searchbutton" name = 'perform' value ='공연/음악' >
@@ -93,7 +104,7 @@
       <input type = 'submit' class="searchbutton" name = 'display' value ='전시' >
     </form>
   </div>
-  <div class="col-xs-6 col-md-2"></div>
+  <div class="col-xs-6 col-md-1"></div>
 </div> 
 
  
@@ -125,15 +136,15 @@ $clubname[$i] = "dd";
 
  <div class="container">
   <div class="row">
-    <form action="clubpage.php" method="GET">
+    <form action="clubpage.php" method="GET" class = "club-list" >
       <?php
       while($clubname[$i] != NULL){
-        for($j=0 ; $j<4 ; $j++){
+        for($j=0 ; $j<3 ; $j++){
           $clubname = mysqli_fetch_array($result);
           if($clubname[$i] == NULL){
             break;
           }
-          echo " <div class='col-xs-6 col-md-3'>";
+          echo " <div class='col-xs-6 col-md-3' >";
           echo "<input class = 'club-element' type = 'submit' value ='$clubname[$i]' name = 'name'>";
           echo "</div>";
           } 
@@ -142,8 +153,6 @@ $clubname[$i] = "dd";
     </form>
   </div>
 </div>
-
-  
 
   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
