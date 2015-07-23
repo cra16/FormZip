@@ -26,7 +26,7 @@ else{
     echo"학번이 중복됩니다<br>";
     echo"학번을 다시 입력하세요.<br>";
   }else{
-    echo"사용가능한 학번입니다."."$stuid";
+    echo"사용가능한 학번입니다."."$stuid"."$num_record";
   }
 
   mysqli_close($bd);
