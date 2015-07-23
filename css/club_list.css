@@ -1,0 +1,122 @@
+    <style type="text/css"> @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+* { font-family:"Nanum Gothic" !important }
+
+ body { 
+  background: url(../img/2.png) no-repeat center center fixed; 
+  background-size:100% auto;
+}
+
+h2{
+  position: relative;
+  font-weight:800;
+  text-align: center;
+  color: black;
+  font-size:62px;
+  margin-bottom: 30px;s
+  margin-top: 30px;
+  letter-spacing:5px;
+}
+
+h3{
+  position: relative;
+  text-align: center;
+  color: black;
+  letter-spacing:2px;
+  font-size: 135%;
+  font-weight: normal;
+  margin-top: -5px;
+  margin-bottom: 60px;
+  padding: 0 15px;
+
+}
+
+
+.searchbox{
+  text-align:center;
+  margin: 8px auto 50px;
+  padding:0 3px;
+}
+
+.searchbutton{
+  width:100px !important;
+  height: 40px;
+  width: 12%;
+  background-color:transparent;
+  text-decoration: none;
+  border: 10px solid #4EA689;
+  border-style: none;
+  font-size: 20px;
+  color: black;
+  padding:1 0;
+  
+}
+
+
+.club-element{
+  background-color: white;
+  width: 27rem;  
+  height: 20rem;
+  color: #6f941c;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom:15px;
+
+
+  float:center;
+  opacity: 0.9;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+}
+
+
+.club-element: hover{
+  background-color: #637c2a;
+  width: 23rem;  
+  height: 20rem;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom:15px;
+  float:center;
+  opacity: 0.9;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+}
+
+
+.menu-list, .container,{
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#header-logo {
+  position: relative;
+  height: 168px;
+  padding: 62px 0 0;
+  width: 900px;
+  margin: -10px auto;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+#header-logo .h_logo{
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 400px;
+  margin: -10px auto;
+  text-decoration:none;
+}
+
+.col-xs-8 {
+  white-space: nowrap;
+  width: 
+}
+
+
+</style>
