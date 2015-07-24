@@ -22,11 +22,11 @@ $result=mysqli_query($connect,$qry);
 		if(mysqli_num_rows($result) > 0 ) {
 			$member = mysqli_fetch_assoc($result);
 			if($member['index']!=1){
-		      header("location: login.php");
+		      header("location: firstpage.php");
 		      exit();}
 		 }else {
 			//Login failed
-			header("location: login.php");
+			header("location: firstpage.php");
 							exit();
 			  
 		}
