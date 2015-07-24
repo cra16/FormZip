@@ -16,6 +16,20 @@ mysqli_set_charset($bd, "utf8") or die("Could not select database");
 
 mysqli_select_db($bd,DB_NAME);
 
+//로그인 여부 판단
+$username = $_SESSION['USER_NAME'];
+if(!$username){
+  header("location: firstpage.php");
+  exit();
+}
+
+
+if(!$_GET['name'])
+{
+  header("location: firstpage.php");
+  exit();
+}
+
 //POST values
     $club= $_SESSION["GROUP"];
     $major=mysqli_real_escape_string($bd,test_input($_POST['major']));
@@ -35,12 +49,12 @@ mysqli_select_db($bd,DB_NAME);
 
    
 
-	function test_input($data) {
-	   $data = trim($data);
-	   $data = stripslashes($data);
-	   $data = htmlspecialchars($data);
-	   return $data;
-	}
+  function test_input($data) {
+     $data = trim($data);
+     $data = stripslashes($data);
+     $data = htmlspecialchars($data);
+     return $data;
+  }
 
 
     echo $club;
@@ -123,4 +137,4 @@ $bd->close();
 
 ?>
  
-	
+  
