@@ -12,10 +12,21 @@ mysqli_set_charset($connect, "utf8") or die("Could not select database");
 
 
 mysqli_select_db($connect,DB_NAME);
+
+
+$key = KEY;
+$s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
+
+$password = mysqli_real_escape_string($connect,$_POST['pw']);
+
+### 암호화 ####
+$en_str = mcrypt_encrypt(MCRYPT_3DES, $key, $password, MCRYPT_MODE_ECB, $s_vector_iv);
+$encryption = bin2hex($en_str);  
+
 switch($_GET['mode']){
     case 'insert':
         $info = "INSERT INTO student (id, password, student_name,stuid,birth)
-         VALUES ('".mysqli_real_escape_string($connect,$_POST['userid'])."', '".mysqli_real_escape_string($connect,$_POST['pw'])."'
+         VALUES ('".mysqli_real_escape_string($connect,$_POST['userid'])."', '".$encryption."'
                    ,'".mysqli_real_escape_string($connect,$_POST['name'])."', '".mysqli_real_escape_string($connect,$_POST['stuid'])."', '".mysqli_real_escape_string($connect,$_POST['birth'])."')" ; 
         mysqli_query($connect,$info);
         header("Location: ../php/firstpage.php");

@@ -13,6 +13,7 @@ mysqli_set_charset($bd, "utf8") or die("Could not select database");
 
 
 mysqli_select_db($bd,DB_NAME);
+
 	//Array to store validation errors
 	$errmsg_arr = array();
  
@@ -21,7 +22,18 @@ mysqli_select_db($bd,DB_NAME);
  
 	//Sanitize the POST values
 	$username = mysqli_real_escape_string($bd,$_POST['username']);    
-	$password = mysqli_real_escape_string($bd,$_POST['password']);  
+
+
+     ### 비밀번호 처리 ###
+     $key = KEY;
+     $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
+
+     $password = mysqli_real_escape_string($bd,$_POST['password']);
+
+     ### 암호화 ###
+     $en_str = mcrypt_encrypt(MCRYPT_3DES, $key, $password, MCRYPT_MODE_ECB, $s_vector_iv);
+     $encryption = bin2hex($en_str);  
+
  
 	//Input Validations
 	if($username == '') {
@@ -42,7 +54,7 @@ mysqli_select_db($bd,DB_NAME);
 	}
 
 	//Create query
-	$qry="SELECT * FROM student WHERE id='$username' AND password='$password'";
+	$qry="SELECT * FROM student WHERE id='$username' AND password='$encryption'";
 	$result=mysqli_query($bd,$qry);
  
 	//Check whether the query was successful or not
@@ -52,8 +64,7 @@ mysqli_select_db($bd,DB_NAME);
 			session_regenerate_id();
 			$member = mysqli_fetch_assoc($result);
 			$_SESSION['USER_NAME'] = $member['id'];
-			$_SESSION['USER_PASSWORD'] = $member['password'];
-			session_write_close();
+		    session_write_close();
 			header("location: firstpage.php");
 			exit();
 		}else {
