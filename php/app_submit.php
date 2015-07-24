@@ -1,8 +1,8 @@
 <?php
-  // Session start 
+// Session start 
 session_start();
 
-  // DB connection
+// DB connection
 require_once('DB_INFO.php');
 header('Content-Type: text/html; charset=utf-8');
 
@@ -12,34 +12,47 @@ mysqli_query("set session character_set_client=utf8;");
 
 $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
 mysqli_set_charset($bd, "utf8") or die("Could not select database");
-
-
 mysqli_select_db($bd,DB_NAME);
-  
-  
-  $club= $_SESSION["GROUP"];
-  $member;
-  $qry="SELECT * FROM application WHERE id='$club'";
-  $result=mysqli_query($bd,$qry);
 
-  //Check whether the query was successful or not
-  if($result) {
 
-      if(mysqli_num_rows($result) > 0) 
-      {
-        $member = mysqli_fetch_assoc($result);
-        
-      }
+//로그인 여부 판단
+$username = $_SESSION['USER_NAME'];
+if(!$username){
+  header("location: firstpage.php");
+  exit();
+}
 
-      else 
-      {
-       echo "Data call failed";
-      }
-  }
-  else 
-  {
-    die("Query failed");
-  }
+
+if(!$_GET['name'])
+{
+  header("location: firstpage.php");
+  exit();
+}
+
+
+$club= $_SESSION["GROUP"];
+$member;
+$qry="SELECT * FROM application WHERE id='$club'";
+$result=mysqli_query($bd,$qry);
+
+//Check whether the query was successful or not
+if($result) {
+
+    if(mysqli_num_rows($result) > 0) 
+    {
+      $member = mysqli_fetch_assoc($result);
+      
+    }
+
+    else 
+    {
+     echo "Data call failed";
+    }
+}
+else 
+{
+  die("Query failed");
+}
 
 
 //Sanitize the POST values

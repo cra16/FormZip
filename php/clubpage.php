@@ -182,9 +182,9 @@ $cname = $check['c_name'];
           if($id) // 로그인을 한 경우 지원하기 가능
           {    
         ?>  
-          <form action="app_submit.php" method="POST">
+          <form action="app_submit.php" method="GET">
           <tr>
-            <td><input class = "club-apply-bt" type ="submit" value = "지원하기"></td>
+            <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원하기</button>
           </tr>
         </from>
           <?php
