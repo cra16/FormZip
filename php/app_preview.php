@@ -79,23 +79,70 @@
   <form method="POST" action="clubpage.php" class="form-horizontal"> 
     
     <!-- short text -->
+    <!-- short text -->
+    <!-- 이름 / 학번 / 학과 / 전화번호 -->
     <?php
-      for($i = 0; $i<8; $i++)
+    for($i = 0; $i<4; $i++)
+    {
+    ?>
+    <div class="form-group">
+      <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>"
+               style="display:block" id="<?php echo $text_name[$i]; ?>" name="<?php echo $text_name[$i]; ?>" disabled>
+      </div>
+    </div>  
+
+    <?php
+    }
+    ?>
+    <!-- 성별 -->
+    <div class="form-group">
+      <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
+      <div class="col-lg-8">
+          <input type="radio" id="man" name="gender" value="man" checked  style=margin:"10px" display:"none">
+          <label for="man">남자</label>
+          <input type="radio" id="woman" name="gender"value="woman" style=margin:"10px" display:"none">
+          <label for="woman">여자</label>
+      </div>
+    </div>  
+    <!-- 군필여부 -->
+    <?php
+    $i = 5;
+    if($short_info[$i]=="use"){
+    ?>
+      <div class="form-group">
+        <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8" id="showbox">
+            <input type="radio" id="served" name="served" checked  style=margin:"10px" display:"none">
+            <label for="served" id="t_served1" >&nbsp;&nbsp;예&nbsp;&nbsp;</label>
+            <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none">
+            <label for="nonserved" id="t_served2">아니오</label>
+        </div>
+      </div>
+    <?php
+    }
+
+    // 이메일 / 활동가능학기
+       for($i = 6; $i<8; $i++)
       {
         if($short_info[$i]=="use"){
+        
     ?>
-        <div class="form-group">
-          <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-          <div class="col-lg-8">
-            <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>">     
-          </div>
-        </div>  
-    <?php
-        }
-    ?>
+      <div class="form-group">
+        <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>"
+                 style="display:block" id="<?php echo $text_name[$i]; ?>" name="<?php echo $text_name[$i]; ?>" disabled>
+           </div>
+      </div>  
+    
     <?php
       }
+      }
     ?>
+
+
 
     <!-- long text -->
     <?php
@@ -110,7 +157,7 @@
         <div class="form-group">
           <label class="col-lg-3 control-label"><?php echo $title[$i]; ?></label>
           <div class="col-lg-8">
-          <textarea class="form-control" rows="3" id="textArea"></textarea>
+          <textarea class="form-control" rows="3" id="textArea" disabled></textarea>
           <span class="help-block"><?php echo $explain[$i]; ?></span>    
           </div>
         </div>  

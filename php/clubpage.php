@@ -24,6 +24,7 @@
 
   else{
     $club_name=$_SESSION['GROUP'];
+    $_GET['name']=$club_name;
   }
   
   $qry="SELECT * FROM club WHERE c_name='$club_name'";   
