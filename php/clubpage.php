@@ -23,7 +23,14 @@
   }
 
   else{
+    if($_SESSION['GROUP']){
     $club_name=$_SESSION['GROUP'];
+    $_GET['name']=$club_name;
+     }
+    else{
+      header("location: firstpage.php");
+              exit();
+    }
   }
   
   $qry="SELECT * FROM club WHERE c_name='$club_name'";   
@@ -148,7 +155,7 @@ $cname = $check['c_name'];
     <div id = "aside">
       <table class = "profile">
         <tr>
-         <input class = "club-logo" type ="text" value = "<?php echo $club_name; ?>">  <!-- *동아리 이름 (로고)-->
+         <p class = "club-logo"><?php echo $club_name; ?></p> <!-- *동아리 이름 (로고)-->
         </tr>
         <?php
         if($IsManager=="true")  //현재 로그인 한 사람이 관리자인 경우 실행
@@ -177,15 +184,28 @@ $cname = $check['c_name'];
         <?php
         }
         else if($IsManager=="false")  //현재 로그인 개정이 관리자가 아닐경우 실행
-        {    
+        {
+          if($id) // 로그인을 한 경우 지원하기 가능
+          {    
         ?>  
-        <form action="app_submit.php" method="POST">
-        <tr>
-          <td><input class = "club-apply-bt" type ="submit" value = "지원하기"></td>
-        </tr>
-      </from>
-        <?php
-        }
+          <form action="app_submit.php" method="GET">
+          <tr>
+            <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원하기</button>
+          </tr>
+        </from>
+          <?php
+          }
+          else // 로그인을 하지 않은경우 지원하기 불가능
+          {    
+          ?>  
+          <form action="app_submit.php" method="POST">
+          <tr>
+            <td><input class = "club-apply-bt" type ="submit" value = "지원하기" disabled title="지원을 원하실 경우 로그인을 해 주세요"></td>
+          </tr>
+        </from>
+          <?php
+          }
+       }
         ?>
       </table>
     </div>

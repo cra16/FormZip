@@ -15,7 +15,6 @@
 
   mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
-
 ?>
 
 
@@ -134,11 +133,24 @@ if($result) {
 
 // DB에 입력한 값이 존재하면 display
     if($name==$member['student_name'] && $member['stuid']==$stuid && $member['birth']==$birth){
+      
+      $key = KEY;
+      $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
+
+      $password = mysqli_real_escape_string($bd,$member['password']);
+
+      ### 복호화 ####
+      $de_str = pack("H*", $password); //hex로 변환한 ascii를 binary로 변환
+      $decoding = mcrypt_decrypt(MCRYPT_3DES, $key, $de_str, MCRYPT_MODE_ECB, $s_vector_iv);
+
+
+
+
 ?>
     <div class="formContentsLayout">
       <div class="form-group">
       <label class="col-lg-4 control-label" id="id_result">비밀번호:</label>   
-       <label class="col-lg-4 control-label" id="id_result2">  <?php echo $member['password'] ?></label>   
+       <label class="col-lg-4 control-label" id="id_result2">  <?php echo $decoding ?></label>   
       </div>  
     </div>
 
