@@ -3,7 +3,6 @@
   session_start();
 
   // DB connection
-
   require_once('DB_INFO.php');
   header('Content-Type: text/html; charset=utf-8');
 
@@ -51,7 +50,6 @@
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,6 +68,9 @@
     function help(){
         window.open("help.php","도움말", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
       }
+    function warning(){
+      alert('로그인을 하셔야 지원하기가 가능합니다.');
+    }
     </script>
 
   </head>
@@ -199,9 +200,9 @@ $cname = $check['c_name'];
           else // 로그인을 하지 않은경우 지원하기 불가능
           {    
           ?>  
-          <form action="app_submit.php" method="POST">
+          <form action="login.php" method="POST">
           <tr>
-            <td><input class = "club-apply-bt" type ="submit" value = "지원하기" disabled title="지원을 원하실 경우 로그인을 해 주세요"></td>
+            <td><input class = "club-apply-bt" type ="submit" onclick = "warning()" value = "지원하기" disabled title="지원을 원하실 경우 로그인을 해 주세요"></td>
           </tr>
         </from>
           <?php
