@@ -54,7 +54,7 @@ body{
   min-width: 460px;
   margin: 20px auto;
   background-color: transparent;
-  opacity: 0.9;
+  opacity: 0.86;
   filter: alpha(opacity=20);
 }
 
@@ -93,7 +93,7 @@ body{
 }
 
 #divmargin{
-  margin-top:8px;
+  margin-top:15px;
 }
 
 .submit_content{
