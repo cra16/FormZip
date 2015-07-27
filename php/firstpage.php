@@ -1,3 +1,9 @@
+<?php
+//Start the session
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,93 +11,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Signup</title>
-
-    <script>
-      function check_id(){
-        window.open("check_id.php?id="+document.getElementById('userid').value,
-        "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
-      }
-      function check_stuid(){
-        window.open("check_stuid.php?stuid="+document.getElementById('stuid').value,
-        "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
-      }
-    </script>
-
+    <title>Firstpage</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/signup.css" rel="stylesheet">
+    <link href="../css/firstpage.css" rel="stylesheet">
+
+    <script type="text/javascript">
+    function help(){
+        window.open("help.php","도움말", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
+      }
+    </script>
+
 
   </head>
   <body>
-    <div class="container">
-      <div id="header">
-          <a href="firstpage.php" class="h_logo">
-          <img src="../img/title.png" class = "h_logo">
-        </a>
-      </div>
+ <!-- Menubar start-->  
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="firstpage.php">Form_Zip</a>
     </div>
-    
-    <div id="containbox">
-      <div class="join_content">
-        <form action="../php/data_change.php?mode=insert" method="POST" name="myForm" onsubmit="return validateForm()">
-            <div class="form-group">
-                <h2>회원가입</h2>
-                
-          <div id="divmargin"></div>
 
-                <input class="form-control" id="name" name="name" type="text" placeholder="Name" maxlength="20" onblur="NameCheck()" >
-                <div id="divmargin"></div>
-                <div id="idMsg" class="error" style="display:none"></div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <?php
+            if($_SESSION['USER_NAME'])
+              echo '<a href="logout.php">Logout</a>';
+            else
+              echo '<a href="login.php">Login</a>';
+          ?>
 
-                <input class="form-control" id="userid" name=id type="text" placeholder="User ID" maxlength="15" onblur="UserIdCheck()" >
-                <input type='button' value='중복확인' onclick="check_id()" >
-                <div id="divmargin"></div>
-                <div id="userIdMsg" class="error" style="display:none"></div>
-
-                <div id="divmargin"></div>
-                <div id="userIdMsg" class="error" style="display:none"></div>
-                
-                <input class="form-control" id="pw" name="pw" type="password" placeholder="Password" maxlength="15" onblur="PWCheck()" >
-                <div id="divmargin"></div>
-                <div id="pwMsg" class="error" style="display:none"></div>
-              
-                <input class="form-control" id="confirm" name="condfirm" type="password" placeholder="Password Confirm" maxlength="15" onblur="PsCfCheck()" >
-                <div id="divmargin"></div>
-                <div id="pscfMsg" class="error" style="display:none"></div>
-
-                <input class="form-control" id="stuid" name="stuid" type="text" placeholder="학번 ex)21500000" maxlength="8" onblur="StuidCheck()" >
-                <input type='button' value='중복확인' onclick="check_stuid()" >
-                <div id="divmargin"></div>
-                <div id="stuidMsg" class="error" style="display:none"></div>
-               
-
-                <input class="form-control" id="birth" name="birth" type="text" placeholder="생년월일 6자리" maxlength="6" onblur="BirthCheck()" >
-                <div id="divmargin"></div>
-                <div id="birthMsg" class="error" style="display:none"></div>
-
-                 <div id="sbMsg" class="error2" style="display:none" ></div>
-
-            </div>
-          </div>
-
-          <div id="divmargin"></div>
-
-          <div class="submit_content">
-            
-            <button type="submit"  onclick="IsFilled()" id="sb";>Submit</button>
-          </div>
-          
-        </form>
+        </li>
+        <li><a href="signup.php">Signup</a></li>
+        <li><a href="#" onclick = "help()">Help</a></li>
+      </ul>
     </div>
+  </div>
+</nav>
+   <!-- Menubar end-->  
+
+  <div class = "club-button"></div>
+  <a class="club-button" href="../php/clublist.php"></a> 
+
+
+  <div class = "academy-button"></div>
+  <a class="academy-button" href="../php/academylist.php"></a>   
+   
+ 
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- 자체제작 js -->
-    <script src="../js/signup.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
