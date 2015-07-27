@@ -15,12 +15,10 @@
 
   mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
-
   if($_GET['name']!=""){
    $club_name= $_GET['name'];
    $_SESSION["GROUP"] = $club_name;
   }
-
   else {
     $club_name=$_SESSION['GROUP'];
     $_GET['name']=$club_name;
@@ -37,7 +35,6 @@
         $member = mysqli_fetch_assoc($result);
         
       }
-
       else 
       {
        echo "Data call failed";
@@ -73,6 +70,7 @@
     }
     function notexist(){
       alert("지원기간이 아닙니다");
+      return false;
     }
     </script>
 
@@ -191,27 +189,27 @@ $cname = $check['c_name'];
         {
           $qry_e = "SELECT * FROM application WHERE id='$club_name'";
           $exist = mysqli_query($bd,$qry_e);
-          if ($exist != ""){
-            if($id != "") // 로그인을 한 경우 지원하기 가능
-            {    
-          ?>  
-            <form action="app_submit.php" method="GET">
-            <tr>
-              <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원하기</button>
-            </tr>
-          </from>
-            <?php
-            }
-            else // 로그인을 하지 않은경우 지원하기 불가능
-            {    
+          if ($exist != NULL){
+              if($id != "") // 로그인을 한 경우 지원하기 가능
+              {    
             ?>  
-            <form action="login.php" method="POST">
-            <tr>
-              <td><input class = "club-apply-bt" type ="submit" onclick = "warning()" value = "지원하기" ></td>
-            </tr>
-          </from>
-            <?php
-            }
+              <form action="app_submit.php" method="GET">
+              <tr>
+                <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원하기</button>
+              </tr>
+            </from>
+              <?php
+              }
+              else // 로그인을 하지 않은경우 지원하기 불가능
+              {    
+              ?>  
+              <form action="login.php" method="POST">
+              <tr>
+                <td><input class = "club-apply-bt" type ="submit" onclick = "warning()" value = "지원하기" ></td>
+              </tr>
+            </from>
+              <?php
+              }
          }else{
           ?>
           <form>
