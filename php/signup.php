@@ -40,29 +40,35 @@
                 <h2>회원가입</h2>
                 
           <div id="divmargin"></div>
+           <div id="divmargin"></div>
+                <label for="inputName" class="col-xs-4 col-md-3 control-label">이름</label>
                 <input class="form-control" id="name" name="name" type="text" placeholder="Name" maxlength="20" onblur="NameCheck()" >
                 <div id="divmargin"></div>
                 <div id="idMsg" class="error" style="display:none"></div>
                 
-                <input class="form-control" id="userid" name="userid" type="text" placeholder="User ID" maxlength="15" onblur="UserIdCheck()" >
-                <input type='button' value='중복확인' onclick="check_id()" >
-                <div id="divmargin"></div>
+                <label for="inputName" class="col-xs-4 col-md-3 control-label">ID</label>
+                <input class="form-control" id="userid" name="userid" type="text" placeholder="Choose your username" maxlength="15" onblur="UserIdCheck()" >
+                <div id="divmargin"></div>               
                 <div id="userIdMsg" class="error" style="display:none"></div>
                 
-                <input class="form-control" id="pw" name="pw" type="password" placeholder="Password" maxlength="15" onblur="PWCheck()" >
-                <div id="divmargin"></div>
+                <label for="inputName" class="col-xs-7 col-md-8 control-label">비밀번호 입력</label>
+                <input class="form-control" id="pw" name="pw" type="password" placeholder="Create a password." maxlength="15" onblur="PWCheck()" >
+                <div id="divmargin"></div>            
                 <div id="pwMsg" class="error" style="display:none"></div>
               
-                <input class="form-control" id="confirm" name="condfirm" type="password" placeholder="Password Confirm" maxlength="15" onblur="PsCfCheck()" >
+                 <label for="inputName" class="col-xs-11 col-md-8 control-label">비밀번호 재입력</label>
+                <input class="form-control" id="confirm" name="condfirm" type="password" placeholder="Confirm your password." maxlength="15" onblur="PsCfCheck()" >
                 <div id="divmargin"></div>
+
                 <div id="pscfMsg" class="error" style="display:none"></div>
 
+                <label for="inputName" class="col-xs-7 col-md-5 control-label">학번</label>
                 <input class="form-control" id="stuid" name="stuid" type="text" placeholder="학번 ex)21500000" maxlength="8" onblur="StuidCheck()" >
-                <input type='button' value='중복확인' onclick="check_stuid()" >
                 <div id="divmargin"></div>
+                
                 <div id="stuidMsg" class="error" style="display:none"></div>
                
-
+                <label for="inputName" class="col-xs-7 col-md-5 control-label">생년월일</label>
                 <input class="form-control" id="birth" name="birth" type="text" placeholder="생년월일 6자리" maxlength="6" onblur="BirthCheck()" >
                 <div id="divmargin"></div>
                 <div id="birthMsg" class="error" style="display:none"></div>
