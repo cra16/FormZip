@@ -189,7 +189,6 @@ $cname = $check['c_name'];
         {
           $qry_e = "SELECT * FROM application WHERE id='$club_name'";
           $exist = mysqli_query($bd,$qry_e);
-          echo"$exist";
           if ($exist != NULL){ //지원서가 있을 경우
               if($id != "") // 로그인을 한 경우 지원하기 가능
               {    
@@ -211,11 +210,11 @@ $cname = $check['c_name'];
             </from>
               <?php
               }
-         }else{ //지원서가 없을 경우
+         }else{ //지원서가 없을경우
           ?>
           <form>
             <tr>
-              <td><input class = "club-apply-bt" type = "submit" onclick = "notexist()" value = "지원하기"></td>
+              <td><input class = "club-apply-bt" type = "button" onclick = "notexist()" value = "지원하기"></td>
             </tr>
           </form>
         <?php
