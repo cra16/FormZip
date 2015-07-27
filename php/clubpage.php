@@ -23,14 +23,8 @@
   }
 
   else{
-    if($_SESSION['GROUP']){
     $club_name=$_SESSION['GROUP'];
     $_GET['name']=$club_name;
-     }
-    else{
-      header("location: firstpage.php");
-              exit();
-    }
   }
   
   $qry="SELECT * FROM club WHERE c_name='$club_name'";   

@@ -25,7 +25,7 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/clublist.css" rel="stylesheet">
+    <link href="../css/club_list.css" rel="stylesheet">
 
   </head>
 <body>
@@ -64,28 +64,50 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
   </nav>
    <!-- Menubar end-->  
 
-   <h2>학회 검색</h2>
+    <!-- Logo Start -->
+  <div class="container">
+    <div id="header-logo">
+        <a href="firstpage.php" class="h_logo">
+        <img src="../img/title_black.png" class = "h_logo">
+      </a>
+    </div>
+  </div>
+  <!-- Logo End -->
 
    <!-- Club Search Bar-->
-   <div>
-    <form action='aa.php' method='GET'>
-      <fieldset>
-        <input type = 'submit' class = "search-button" name ='whole' value ='전체' >
-        <input type = 'submit' class = "search-button" name ='GLS' value ='글로벌리더쉽' >
-        <input type = 'submit' class = "search-button" name ='international' value ='국제어문' >
-        <input type = 'submit' class = "search-button" name = 'management' value ='경영경제' >
-        <input type = 'submit' class = "search-button" name = 'law' value ='법' >
-        <input type = 'submit' class = "search-button" name = 'communication_study' value ='언론정보'>
-        <input type = 'submit' class = "search-button" name = 'partial_environment' value ='상담복지' >
-        <input type = 'submit' class = "search-button" name = 'life_sci' value ='생명과학' >
-        <input type = 'submit' class = "search-button" name = 'im_design' value ='공간시스템' >
-        <input type = 'submit' class = "search-button" name = 'computer_science' value ='전산전자' >
-        <input type = 'submit' class = "search-button" name ='industrial_edu' value ='산업디자인' >
-        <input type = 'submit' class = "search-button" name ='GEA' value ='글로벌에디슨아카데미' >
-        <input type = 'submit' class = "search-button" name ='ICT' value ='창의융합교육원' >
+   <div class="row">
+    <div class="col-xs-1 col-md-1"></div>
+     <div class="col-xs-10 col-md-10 searchbox">
+      <form action='academylist.php' method='GET' class = "menu-list">
+        <input type = 'submit' class = "searchbutton" name ='whole' value ='전체' >
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name ='GLS' value ='글로벌리더쉽' >
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name ='international' value ='국제어문' >
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name = 'management' value ='경영경제' >
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name = 'law' value ='법' >
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name = 'communication_study' value ='언론정보'>
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name = 'partial_environment' value ='상담복지' >
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name = 'life_sci' value ='생명과학' >
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name = 'im_design' value ='공간시스템' >
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name = 'computer_science' value ='전산전자' >
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name ='industrial_edu' value ='산업디자인' >
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name ='GEA' value ='글로벌에디슨아카데미' >
+        <img src="../img/bar.png">
+        <input type = 'submit' class = "searchbutton" name ='ICT' value ='창의융합교육원' >
     </form>
-     </fieldset>
-   </div>
+     </div>
+   <div class="col-xs-1 col-md-1"></div>
+   </div> 
 
 <?php
 $name_arr=array("whole","GLS","international","management","law","communication_study","partial_environment","life_sci","im_design","computer_science","industrial_edu","GEA","ICT");
@@ -101,7 +123,7 @@ if($condition == NULL){
   $condition = "전체";
 }
 
-if( $condition != "전체" ){
+if($condition != "전체" ){
   $sql="SELECT a_name FROM academy WHERE dept='$condition'";  
 }else{
   $sql = "SELECT a_name FROM academy";
@@ -113,25 +135,25 @@ $j=0;
 $academy[$i] = "dd";
 ?>
 
-<form action = "dd.php">
+<div class="container">
+  <div class="row">
+    <form action="academypage.php" method="GET"  >
 <?php
 while($academy[$i] != NULL){
-  echo "<tr>";
-  for($j=0 ; $j<4 ; $j++){
-    echo "<td>";
+   for($j=0 ; $j<4 ; $j++){
     $academy = mysqli_fetch_array($result);
     if($academy[$i] == NULL){
       break;
     }
-    echo "<input class = 'club-element' type = 'submit' value ='$academy[$i]' name='name'/>";
-    echo "</td>";
+    echo " <div class='col-xs-6 col-md-3' >";
+    echo "<input class = 'club-element' type = 'submit' value ='$academy[$i]' name='name'>";
+    echo "</div>";
     }
-    echo "<br/>";
-    echo "</tr>";
-    }
-
+  }  
 ?>
 </form>
+</div>
+</div>
 
 
 
