@@ -71,6 +71,9 @@
     function warning(){
       alert("지원을 원하실 경우 로그인을 해 주세요");
     }
+    function notexist(){
+      alert("지원기간이 아닙니다");
+    }
     </script>
 
   </head>
@@ -130,7 +133,6 @@ $cname = $check['c_name'];
 
 ?>
   
-  
   <div id = "wrap">
     <div id = "navigation">동아리 소개:: </div>
     <!-- 동아리 소개 Start-->
@@ -187,27 +189,39 @@ $cname = $check['c_name'];
         }
         else if($IsManager=="false")  //현재 로그인 개정이 관리자가 아닐경우 실행
         {
-          if($id != "") // 로그인을 한 경우 지원하기 가능
-          {    
-        ?>  
-          <form action="app_submit.php" method="GET">
-          <tr>
-            <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원하기</button>
-          </tr>
-        </from>
-          <?php
-          }
-          else // 로그인을 하지 않은경우 지원하기 불가능
-          {    
+          $qry_e = "SELECT * FROM application WHERE id='$club_name'";
+          $exist = mysqli_query($bd,$qry_e);
+          if ($exist != ""){
+            if($id != "") // 로그인을 한 경우 지원하기 가능
+            {    
           ?>  
-          <form action="login.php" method="POST">
-          <tr>
-            <td><input class = "club-apply-bt" type ="submit" onclick = "warning()" value = "지원하기" ></td>
-          </tr>
-        </from>
-          <?php
-          }
-       }
+            <form action="app_submit.php" method="GET">
+            <tr>
+              <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원하기</button>
+            </tr>
+          </from>
+            <?php
+            }
+            else // 로그인을 하지 않은경우 지원하기 불가능
+            {    
+            ?>  
+            <form action="login.php" method="POST">
+            <tr>
+              <td><input class = "club-apply-bt" type ="submit" onclick = "warning()" value = "지원하기" ></td>
+            </tr>
+          </from>
+            <?php
+            }
+         }else{
+          ?>
+          <form>
+            <tr>
+              <td><input class = "club-apply-bt" type = "submit" onclick = "notexist()" value = "지원하기"></td>
+            </tr>
+          </form>
+        <?php
+         }
+        }
         ?>
       </table>
     </div>
