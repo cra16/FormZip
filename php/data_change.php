@@ -25,6 +25,17 @@ $encryption = bin2hex($en_str);
 
 switch($_GET['mode']){
     case 'insert':
+        //중복확인 안하고 접근 막기
+        $id= $_POST['userid'];
+        $sql = "SELECT * FROM student WHERE id ='$id'";
+        $result = mysqli_query($connect,$sql);
+        $num_record = mysqli_num_rows($result);
+        if($num_record>0){
+        header("Location: ../php/signup.php");
+        break;
+        }
+
+
         $info = "INSERT INTO student (id, password, student_name,stuid,birth)
          VALUES ('".mysqli_real_escape_string($connect,$_POST['userid'])."', '".$encryption."'
                    ,'".mysqli_real_escape_string($connect,$_POST['name'])."', '".mysqli_real_escape_string($connect,$_POST['stuid'])."', '".mysqli_real_escape_string($connect,$_POST['birth'])."')" ; 
