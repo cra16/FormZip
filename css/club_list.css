@@ -1,8 +1,9 @@
-    <style type="text/css"> @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 * { font-family:"Nanum Gothic" !important }
 
  body { 
   background: url(../img/2.png) no-repeat center center fixed; 
+  background-repeat: repeat;
   background-size:100% auto;
 }
 
@@ -45,8 +46,8 @@ h3{
   text-decoration: none;
   border: 10px solid #4EA689;
   border-style: none;
-  font-size: 20px;
-  color: black;
+  font-size: 17px;
+  color: #515151;
   padding:1 0;
   
 }
@@ -54,69 +55,73 @@ h3{
 
 .club-element{
   background-color: white;
-  width: 27rem;  
-  height: 20rem;
-  color: #6f941c;
+  width: 100%;  
+  height: 18rem;
+  color: #3b2987;
   border-radius: 10px;
   border: none;
-  box-shadow: 
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom:15px;
-
-
+  margin-bottom:25px;
   float:center;
   opacity: 0.9;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+  word-wrap: break-word;
+
 }
 
 
 .club-element: hover{
+  white-space: normal;
   background-color: #637c2a;
   width: 23rem;  
   height: 20rem;
   color: white;
   border-radius: 10px;
   border: none;
-  box-shadow: 
   font-size: 30px;
   font-weight: bold;
   margin-bottom:15px;
   float:center;
   opacity: 0.9;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+  word-wrap: break-word;
 }
 
 
-.menu-list, .container,{
+.menu-list,{
   white-space: nowrap;
   overflow: hidden;
 }
 
-#header-logo {
+.container{
   position: relative;
-  height: 168px;
-  padding: 62px 0 0;
-  width: 900px;
-  margin: -10px auto;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+  text-align: center;
+  background-color: transparent;
+  width:100% auto;
+
 }
 
-#header-logo .h_logo{
+
+
+
+#header .h_logo{
   position: relative;
   display: block;
   overflow: hidden;
-  width: 400px;
   margin: -10px auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
   text-decoration:none;
-}
+  }
+
 
 .col-xs-8 {
   white-space: nowrap;
   width: 
 }
 
-
-</style>
+.club_list{
+  font-size: 40px;
+}

@@ -37,12 +37,11 @@
   </head>
 <body>
 
-  <!-- Menubar start-->  
+   <!-- Menubar start-->  
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
-      data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -62,29 +61,40 @@
               echo '<a href="login.php">Login</a>';
           ?>
 
-        </li>       
-        <li><a href="signup.php">Signup</a></li>
+        </li>
+        <li>
+          <?php
+            if($_SESSION['USER_NAME'])
+              echo '<a href="mypage.php">My Page</a>';
+            else
+              echo '<a href="signup.php">Sign Up</a>';
+
+          ?>
+        </li>
         <li><a href="#">Help</a></li>
       </ul>
     </div>
   </div>
-  </nav>
+</nav>
    <!-- Menubar end-->  
 
+
     <!-- Logo Start -->
-  <div class="container">
-    <div id="header-logo">
-        <a href="firstpage.php" class="h_logo">
-        <img src="../img/title_black.png" class = "h_logo">
-      </a>
-    </div>
+  <div class="container" class = "col-lg-4 col-xs-4">
+       <div class="col-lg-4 col-xs-4 col-md-4"></div>
+      <div id="header" class = "col-xs-4 col-lg-4">
+          <a href="firstpage.php" class="h_logo">
+          <img src="../img/title.png" class = "h_logo">
+        </a>
+      </div>
+      <div class="col-lg-4 col-xs-4 col-md-4"></div>
   </div>
   <!-- Logo End -->
 
 
    <!-- Club Search Bar-->
-<div class="row">
-  <div class="col-xs-1 col-md-1"></div>
+<div class="row" class = "col-lg-12 col-xs-12 col-md-12">
+  <div class="col-lg-1 col-xs-1 col-md-1"></div>
   <div class="col-xs-10 col-md-10 searchbox">
     <form action='clublist.php' method='GET' class = "menu-list">
       <input type = 'submit' class="searchbutton" name ='whole' value ='전체' >
@@ -104,7 +114,7 @@
       <input type = 'submit' class="searchbutton" name = 'display' value ='전시' >
     </form>
   </div>
-  <div class="col-xs-1 col-md-1"></div>
+  <div class="col-lg-1 col-xs-1 col-md-1"></div>
 </div> 
 
  
@@ -134,9 +144,11 @@ $j=0;
 $clubname[$i] = "dd";
 ?>
 
- <div class="container">
+ <div class="container col-xs-12 col-md-12 col-lg-12">
   <div class="row">
-    <form action="clubpage.php" method="GET" class = "club-list" >
+   <div class="col-lg-1 col-xs-1 col-md-1"></div>
+   <div class="col-lg-10 col-xs-10 col-md-10">
+    <form action="clubpage.php" method="GET">
       <?php
       while($clubname[$i] != NULL){
         for($j=0 ; $j<3 ; $j++){
@@ -144,13 +156,16 @@ $clubname[$i] = "dd";
           if($clubname[$i] == NULL){
             break;
           }
-          echo " <div class='col-xs-6 col-md-3' >";
+          echo " <div class='col-lg-3 col-xs-4 col-md-4'>";
           echo "<input class = 'club-element' type = 'submit' value ='$clubname[$i]' name = 'name'>";
           echo "</div>";
           } 
       }
       ?>
+      <div class="col-lg-1 col-xs-1 col-md-1"></div>
     </form>
+   </div>
+   <div class="col-lg-1 col-xs-1 col-md-1"></div>
   </div>
 </div>
 
