@@ -45,7 +45,15 @@ session_start();
           ?>
 
         </li>
-        <li><a href="signup.php">Signup</a></li>
+        <li>
+          <?php
+            if($_SESSION['USER_NAME'])
+              echo '<a href="mypage.php">My Page</a>';
+            else
+              echo '<a href="signup.php">Sign Up</a>';
+
+          ?>
+        </li>
         <li><a href="#">Help</a></li>
       </ul>
     </div>
