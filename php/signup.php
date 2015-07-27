@@ -37,6 +37,8 @@
                 
                 <label for="inputName" class="col-xs-4 col-md-3 control-label">ID</label>
                 <input class="form-control" id="userid" name="userid" type="text" placeholder="Choose your username" maxlength="15" onblur="UserIdCheck()" >
+                <input type='button' value='중복확인' onclick="check_id()" >
+                
                 <input type="hidden" name="checkid" value=0>
                 <div id="divmargin"></div>               
                 <div id="userIdMsg" class="error" style="display:none"></div>
