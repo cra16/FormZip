@@ -190,11 +190,10 @@ $cname = $check['c_name'];
         {
           if($id) // 로그인을 한 경우 지원하기 가능
           {   
-            $qry_e = "SELECT month,date FROM application WHERE id = '$club_name'";
-            $result_e = mysqli_query($db,$qry_e);
-            $exist = mysqli_fetch_array($result_e);
+            $qry_e = "SELECT month FROM application WHERE id = '$club_name'";
+            $exist = mysqli_query($db,$qry_e);
 
-            if( $exist['month'] != NULL && $exist['date']!=NULL ){ // 지원서가 있을 경우 
+            if( $exist != NULL ){ // 지원서가 있을 경우 
         ?>  
               <form action="app_submit.php" method="GET">
               <tr>
