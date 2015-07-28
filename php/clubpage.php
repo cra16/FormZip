@@ -191,7 +191,7 @@ $cname = $check['c_name'];
           if($id) // 로그인을 한 경우 지원하기 가능
           {   
             $qry_e = "SELECT month FROM application WHERE id = '$club_name'";
-            $exist = mysqli_query($bd,$qry_e);
+            $exist = mysqli_query($qry_e);
 
             if( $exist != NULL ){ // 지원서가 있을 경우 
         ?>  
