@@ -208,13 +208,13 @@ $aname = $check['c_name'];
 
 
 
-          
+
           else // 로그인을 하지 않은경우 지원하기 불가능
           {    
           ?>  
           <form action="login.php" method="POST">
           <tr>
-            <td><input class = "club-apply-bt" type ="button" value = "지원하기" onclick="warning()"></td>
+            <td><input class = "club-apply-bt" type ="submit" value = "지원하기" onclick="warning()"></td>
           </tr>
         </from>
           <?php
