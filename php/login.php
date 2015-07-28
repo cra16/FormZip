@@ -22,18 +22,27 @@
 
   </head>
   <body>
-    <div class="container">
-      <div id="header">
+ <!-- Logo Start -->
+  <div class="container" class = "col-lg-12 col-xs-12">
+      <div class="col-lg-4 col-xs-4 col-md-4"></div>
+      
+      <div id="header" class = "col-xs-4 col-lg-4">
           <a href="firstpage.php" class="h_logo">
           <img src="../img/title.png" class = "h_logo">
         </a>
       </div>
-    </div>
+      
+      <div class="col-lg-4 col-xs-4 col-md-4"></div>
+  </div>
+  <!-- Logo End -->
+
+
     <div class="loginbox">
      <div class="join_content">
       <form name="loginform" action="login_exec.php" method="POST">
         <div class="form-group">
-          <h2>Apply &amp; Recruit!</h2>
+          <h2>로그인</h2>
+          <h4>Apply &amp; Recruit!</h4>
             <input class="form-control" id="username" name="username" type="text" placeholder="UserId" maxlength="20">
                   
             <div id="form-margin"></div>
@@ -44,7 +53,9 @@
 
             <div class="find_info"> 
             <a href="signup.php">회원가입</a> 
+            <img src="../img/bar.png">
             <a href="id_find.php">아이디 찾기</a>
+            <img src="../img/bar.png">
             <a href="pw_find.php">비밀번호 찾기 </a>
             </div>
         </div> 

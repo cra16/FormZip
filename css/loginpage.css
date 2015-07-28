@@ -1,8 +1,8 @@
 @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 * { font-family:"Nanum Gothic" !important }
 html { 
-  background: url(../img/1.jpg) no-repeat center center fixed; 
-  background-size: 100% 100%;
+  background: url(../img/2.png) no-repeat center center fixed; 
+  background-size: 100% auto;
 }
 
 body{
@@ -10,29 +10,28 @@ body{
 }
 
 
+
 .container{
-  width:100%;
-  height:100%;
+  position: relative;
+  text-align: center;
+  background-color: transparent;
+  width:100% auto;
+  margin-top: 3%;
+  margin-bottom: 1.5%;
 }
 
-#header {
-  position: relative;
-  height: 168px;
-  padding: 62px 0 0;
-  width: 900px;
-  margin: -10px auto;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
+
 
 #header .h_logo{
   position: relative;
   display: block;
   overflow: hidden;
-  width: 400px;
   margin: -10px auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
   text-decoration:none;
+  }
 }
 
 .loginbox{
@@ -41,7 +40,6 @@ body{
   margin: 20px auto;
   background-color: transparent;
   opacity: 0.9;
-  filter: alpha(opacity=20);
 }
 
 
@@ -52,8 +50,7 @@ body{
   border-radius: 3px;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
   background-color: white;
-  
-
+  opacity: 0.85;
 }
 
 .join_content fieldset{
@@ -72,6 +69,22 @@ body{
 .form-group h2{
   text-align:center;
   font-size:2.0rem;
+  color: #486E68;
+  margin-bottom: 14px;
+}
+
+
+.form-group h4{
+  text-align:center;
+  font-size:1.5rem;
+  color: #545454;
+  margin-bottom: 14px;
+}
+
+
+.subtitle{
+  text-align:center;
+  font-size:1.6rem;
   color: #486E68;
   margin-bottom: 14px;
 }
@@ -117,23 +130,4 @@ body{
 
 #divmargin{
   margin-top:8px;
-}
-
-.find_info{
-  height:31px;
- 
-  margin:0 auto;
-  padding:10px auto;
-  text-align:center;
-}
-
-.find_info a{
-  text-decoration:none;
-  color:black;
-  margin:0 5px;
-}
-
-.find_info a:hover{
-   color:black;
-
 }
