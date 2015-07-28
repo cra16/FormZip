@@ -73,6 +73,7 @@
       }
     function warning(){
         alert("지원을 원하실 경우 로그인을 해 주세요");
+      }
   </script>
   
 <body>
