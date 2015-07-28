@@ -12,17 +12,6 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/signup.css" rel="stylesheet">
 
-        <script>
-      function check_id(){
-        window.open("check_id.php?id="+document.getElementById('userid').value,
-        "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
-      }
-      function check_stuid(){
-        window.open("check_stuid.php?stuid="+document.getElementById('stuid').value,
-        "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
-      }
-    </script>
-
   </head>
   <body>
     <div class="container">
@@ -48,6 +37,9 @@
                 
                 <label for="inputName" class="col-xs-4 col-md-3 control-label">ID</label>
                 <input class="form-control" id="userid" name="userid" type="text" placeholder="Choose your username" maxlength="15" onblur="UserIdCheck()" >
+                <input type='button' value='중복확인' onclick="check_id()" >
+                
+                <input type="hidden" name="checkid" value=0>
                 <div id="divmargin"></div>               
                 <div id="userIdMsg" class="error" style="display:none"></div>
                 
@@ -56,7 +48,7 @@
                 <div id="divmargin"></div>            
                 <div id="pwMsg" class="error" style="display:none"></div>
               
-                 <label for="inputName" class="col-xs-11 col-md-8 control-label">비밀번호 재입력</label>
+                <label for="inputName" class="col-xs-11 col-md-8 control-label">비밀번호 재입력</label>
                 <input class="form-control" id="confirm" name="condfirm" type="password" placeholder="Confirm your password." maxlength="15" onblur="PsCfCheck()" >
                 <div id="divmargin"></div>
 
@@ -73,7 +65,7 @@
                 <div id="divmargin"></div>
                 <div id="birthMsg" class="error" style="display:none"></div>
 
-                 <div id="sbMsg" class="error2" style="display:none" ></div>
+                 
 
             </div>
           </div>
@@ -82,7 +74,7 @@
 
           <div class="submit_content">
             
-            <button type="submit"  onclick="IsFilled()" id="sb";>Submit</button>
+            <button type="submit" >Submit</button>
           </div>
           
         </form>

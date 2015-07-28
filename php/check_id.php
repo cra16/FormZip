@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <script src="../js/signup.js"></script>
 <?php
 session_start();
 require_once('DB_INFO.php');
@@ -14,22 +19,40 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
 $id = $_GET['id'];
 
-if(!$id){
-  echo"아이디를 입력하세요";
+if(!$id)
+{
+  echo"학번을 입력하세요";
 }
-else{
 
+else{
   $sql = "SELECT * FROM student WHERE id ='$id'";
   $result = mysqli_query($bd,$sql);
-  $num_record = mysqli_num_rows($bd,$result);
-  echo "$num_record.";
-  if($num_record){
-    echo"아이디가 중복됩니다<br>";
-    echo"다른 아이디를 사용하세요.<br>";
-  }else{
-    echo"사용가능한 아이디 입니다.";
+  $num_record = mysqli_num_rows($result);
+  if($num_record>0){
+    echo "이미 사용중인 아이디입니다.";
+    echo " <script> opener.document.all.checkid.value=0; </script>";
+    echo " <script>  opener.document.all.userIdMsg.style.display='block';</script>";
+    echo " <script>  opener.document.all.userIdMsg.innerHTML='이미 사용중인 아이디 입니다.';</script>";
+    echo " <script>  opener.document.all.userIdMsg.style.color='#FF8080';</script>";
+  
+  }
+
+  else{
+    echo "사용 가능한 아이디입니다.";
+    echo " <script> opener.document.all.checkid.value=1; </script>";
+    echo " <script>  opener.document.all.userIdMsg.style.display='block';</script>";
+    echo " <script>  opener.document.all.userIdMsg.innerHTML='확인되었습니다.';</script>";
+    echo " <script>  opener.document.all.userIdMsg.style.color='#66FF66';</script>";
+
+
   }
 
   mysqli_close($bd);
 }
 ?>
+</head>
+
+<body>
+  
+</body>
+</html>
