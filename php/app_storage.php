@@ -24,7 +24,7 @@ if(!$username){
 }
 
 
-if(!$_GET['name'])
+if(!$_POST['name'])
 {
   header("location: firstpage.php");
   exit();
