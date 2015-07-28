@@ -3,7 +3,6 @@
   session_start();
 
   // DB connection
-
   require_once('DB_INFO.php');
   header('Content-Type: text/html; charset=utf-8');
 
@@ -50,8 +49,6 @@
   }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -74,6 +71,9 @@
     function warning(){
         alert("지원을 원하실 경우 로그인을 해 주세요");
       }
+    function nonexist(){
+      alert('해당기간이 아닙니다');
+    }
   </script>
   
 <body>
@@ -188,34 +188,42 @@ $cname = $check['c_name'];
         }
         else if($IsManager=="false")  //현재 로그인 개정이 관리자가 아닐경우 실행
         {
-          if($id) // 로그인을 한 경우 지원하기 가능
-          {    
-        ?>  
-          <form action="app_submit.php" method="GET">
-          <tr>
-            <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원하기</button>
-          </tr>
-        </from>
-          <?php
-          }
-          else // 로그인을 하지 않은경우 지원하기 불가능
-          {    
+          $qry_e = "SELECT * FROM application WHERE id = '$club_name'";
+          $exist = mysqli_query($db,$qry_e);
+          if( $exist != NULL ){ // 지원서가 있을 경우
+            if($id) // 로그인을 한 경우 지원하기 가능
+            {    
           ?>  
-          <form action="login.php" method="POST">
-          <tr>
-            <td><input class = "club-apply-bt" type ="submit" value = "지원하기" onclick="warning()"></td>
-          </tr>
-        </from>
+            <form action="app_submit.php" method="GET">
+            <tr>
+              <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원하기</button>
+            </tr>
+          </from>
+            <?php
+            }
+            else // 로그인을 하지 않은경우 지원하기 불가능
+            {    
+            ?>  
+            <form action="login.php" method="POST">
+            <tr>
+              <td><input class = "club-apply-bt" type ="submit" value = "지원하기" onclick="warning()"></td>
+            </tr>
+          </from>
+            <?php
+            }
+          }else{ //지원서가 없을 경우
+            ?>
+            <form>
+            <tr>
+              <td><input class = "club-apply-bt" type ="button" value = "지원하기" onclick="nonexist()"></td>
+            </tr>
+            </from>
           <?php
           }
        }
         ?>
       </table>
     </div>
-
-
-
-
 
     <!-- 동아리 프로필 End-->
   </div>
