@@ -193,8 +193,7 @@ $aname = $check['c_name'];
         else if($IsManager=="false")  //현재 로그인 개정이 관리자가 아닐경우 실행
         {
           if($id) // 로그인을 한 경우 지원하기 가능
-          {  
-          $qry_e =   
+          {    
         ?>  
           <form action="app_submit.php" method="GET">
           <tr>
@@ -209,7 +208,7 @@ $aname = $check['c_name'];
 
 
 
-
+          
           else // 로그인을 하지 않은경우 지원하기 불가능
           {    
           ?>  
