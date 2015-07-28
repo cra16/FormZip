@@ -11,8 +11,72 @@ mysqli_query("set session character_set_client=utf8;");
 
 $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
 mysqli_set_charset($bd, "utf8");
-
 mysqli_select_db($bd,DB_NAME) or die("Could not select database");
+
+$club_name=$_SESSION['USER_NAME'];
+$qry="SELECT * FROM result WHERE club_name='$club_name'";   
+$result=mysqli_query($bd,$qry);
+
+$per_page=5;  //page당 display할 목록의 수
+$total_results=mysqli_num_rows($result);  //해당 동아리의 지원자 수
+$total_pages=ceil($total_results/$per_page); 
+$result=$_GET['currentpage'];
+
+// get the current page or set a default
+if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
+   // cast var as int
+   $currentpage = (int) $_GET['currentpage'];
+} else {
+   // default page num
+   $currentpage = 1;
+} // end if
+
+// if current page is greater than total pages...
+if ($currentpage > $total_pages) {
+   // set current page to last page
+   $currentpage = $total_pages;
+} // end if
+// if current page is less than first page...
+if ($currentpage < 1) {
+   // set current page to first page
+   $currentpage = 1;
+} // end if
+
+// the offset of the list, based on current page 
+$offset = ($currentpage - 1) * $per_page;
+
+// get the info from the db 
+$sql = "SELECT * FROM result WHERE club_name='$club_name' LIMIT $offset, $per_page";
+$result=mysqli_query($bd,$sql);
+$count=0;
+$label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
+
+  $user_id= $_SESSION["USER_NAME"]; 
+
+  $qry="SELECT * FROM application WHERE id='$user_id'";   
+  $temp=mysqli_query($bd,$qry);
+
+  //Check whether the query was successful or not
+  if($temp) {
+
+      if(mysqli_num_rows($temp) > 0) 
+      {
+        $user = mysqli_fetch_assoc($temp); 
+      }
+
+   
+  }
+
+
+//Sanitize the POST values
+    $sub_info=array($user['sr1'],$user['sr2'],$user['sr3'],$user['sr4'],$user['sr5'],$user['sr6'],$user['sr7']);
+
+  $user_info=array("use","use","use","use","use",$user['served'],$user['mail'],$user['activity']);
+ $title=array($user['title1'],$user['title2'],$user['title3'],$user['title4'],$user['title5'],$user['title6'],$user['title7']);
+  $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['explain4'],$user['explain5'],$user['explain6'],$user['explain7']);
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -78,41 +142,6 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
     <tbody>
 
   <?php
-  $club_name=$_SESSION['USER_NAME'];
-  $qry="SELECT * FROM result WHERE club_name='$club_name'";   
-  $result=mysqli_query($bd,$qry);
-
-  $per_page=10;  //page당 display할 목록의 수
-  $total_results=mysqli_num_rows($result);  //해당 동아리의 지원자 수
-  $total_pages=ceil($total_results/$per_page); 
-  $result=$_GET['currentpage'];
-
-  // get the current page or set a default
-  if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
-     // cast var as int
-     $currentpage = (int) $_GET['currentpage'];
-  } else {
-     // default page num
-     $currentpage = 1;
-  } // end if
-
-  // if current page is greater than total pages...
-  if ($currentpage > $total_pages) {
-     // set current page to last page
-     $currentpage = $total_pages;
-  } // end if
-  // if current page is less than first page...
-  if ($currentpage < 1) {
-     // set current page to first page
-     $currentpage = 1;
-  } // end if
-
-  // the offset of the list, based on current page 
-  $offset = ($currentpage - 1) * $per_page;
-
-  // get the info from the db 
-  $sql = "SELECT * FROM result WHERE club_name='$club_name' LIMIT $offset, $per_page";
-  $result=mysqli_query($bd,$sql);
 
   while ($list = mysqli_fetch_assoc($result)) {
     $stu_id = $list['stu_id'];
@@ -122,18 +151,21 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
   ?>
     <tr id = '$j'>
       <td class = 'studnet-number' scope='row'>
-      <a href="#" class="btn-example" onclick="layer_open('layer2');return false;"><?php echo "$stu_id"; ?></a> 
+      <a href="#" class="btn-example" onclick="layer_open('layer<?php echo $count;?>');return false;"><?php echo "$stu_id"; ?></a> 
       </td>
       <td class = 'Name'>
-      <a href="#" class="btn-example" onclick="layer_open('layer2');return false;"><?php echo "$name"; ?></a> 
+      <a href="#" class="btn-example" onclick="layer_open('layer<?php echo $count;?>');return false;"><?php echo "$name"; ?></a> 
       </td>
       <td class = 'sex'>
-      <a href="#" class="btn-example" onclick="layer_open('layer2');return false;"><?php echo "$gender"; ?></a> 
+      <a href="#" class="btn-example" onclick="layer_open('layer<?php echo $count++;?>');return false;"><?php echo "$gender"; ?></a> 
       </td>
     </tr>
+
   <?php
+
+
     }
-           
+         
   ?> 
     </tbody>
   </table>
@@ -225,26 +257,124 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
   </div>
 </div>
 
-<div class="layer">
-  <div class="bg"></div>
-  <div id="layer2" class="pop-layer">
-    <div class="pop-container">
-      <div class="pop-conts">
-        <!--content //-->
-        <p class="ctxt mb20">Thank you.<br>
-          Your registration was submitted successfully.<br>
-          Selected invitees will be notified by e-mail on JANUARY 24th.<br><br>
-          Hope to see you soon!
-        </p>
 
-        <div class="btn-r">
-          <a href="#" class="cbtn">Close</a>
+<?php
+// get the info from the db 
+$sql = "SELECT * FROM result WHERE club_name='$club_name' LIMIT $offset, $per_page";
+$result=mysqli_query($bd,$sql);
+
+for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
+{
+  $short_info=array($list['name'],$list['stu_id'],$list['major'],$list['p_num'],$list['gender'],$list['served'],$list['mail'],$list['activity']);
+
+?>
+  <div id="layer<?php echo $i;?>" class="pop-layer">
+  <div class="formContentsLayout form-horizontal">
+
+  <!-- 이름 / 학번 / 학과 / 전화번호 -->
+    <?php
+    for($j = 0; $j<4; $j++)
+    {
+      ?>
+      <div class="form-group">
+        <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control short-length" placeholder="<?php echo $short_info[$j]; ?>" style="display:block" id="<?php echo $text_name[$j]; ?>" name="<?php echo $text_name[$j]; ?>" disabled>
         </div>
-        <!--// content-->
+      </div>  
+      
+    <?php
+    }
+    ?> 
+   <!-- 성별 -->
+    <div class="form-group">
+      <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
+      <div class="col-lg-8">
+          <input type="radio" id="man" name="gender" value="man" checked  style=margin:"10px" display:"none">
+          <label for="man">남자</label>
+          <input type="radio" id="woman" name="gender"value="woman" style=margin:"10px" display:"none">
+          <label for="woman">여자</label>
       </div>
-    </div>
+    </div>  
+
+    <!-- 군필여부 -->
+    <?php
+    $j = 5;
+    if($user_info[$j]=="use"){
+    ?>
+      <div class="form-group">
+        <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
+        <div class="col-lg-8" id="showbox">
+            <input type="radio" id="served" name="served" checked  style=margin:"10px" display:"none">
+            <label for="served" id="t_served1" >&nbsp;&nbsp;예&nbsp;&nbsp;</label>
+            <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none">
+            <label for="nonserved" id="t_served2">아니오</label>
+        </div>
+      </div>
+    <?php
+    }
+ 
+
+    // 이메일 / 활동가능학기
+       for($j = 6; $j<8; $j++)
+      {
+        if($user_info[$j]=="use"){
+        
+    ?>
+      <div class="form-group">
+        <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control short-length"  placeholder="<?php echo $short_info[$j]; ?>"
+                 style="display:block" id="<?php echo $text_name[$i]; ?>" name="<?php echo $text_name[$i]; ?>" disabled>
+           </div>
+      </div>  
+    
+    <?php
+        }
+      }
+    ?>
+
+    <!-- long text -->
+    <?php
+      for($j = 0; $j<8; $j++)
+      {
+        if($sub_info[$j]=="notuse")
+        {
+          break;
+        }
+        if($sub_info[$j]=="use"){
+    ?>
+        <div class="form-group">
+          <label class="col-lg-3 control-label"><?php echo $title[$j]; ?></label>
+          <div class="col-lg-8">
+          <textarea class="form-control" rows="3" id="textArea" disabled></textarea>
+          <span class="help-block"><?php echo $explain[$j]; ?></span>    
+          </div>
+        </div>  
+    <?php
+        }
+    ?>
+    <?php
+      }
+    ?>
+
+
+
+
+
+    <div class="btn-r">
+      <a href="#" class="cbtn">Close</a>
+    </div>       
   </div>
-</div>
+  </div>
+  
+<?php
+}
+?>
+
+    
+
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
