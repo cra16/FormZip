@@ -66,6 +66,14 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/club_page.css" rel="stylesheet">
   </head>
+
+  <script type="text/javascript">
+    function help(){
+        window.open("help.php","도움말", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
+      }
+    function warning(){
+        alert("지원을 원하실 경우 로그인을 해 주세요");
+  </script>
   
 <body>
 
@@ -95,7 +103,7 @@
           ?>
         </li>
         <li><a href="signup.php">Signup</a></li>
-        <li><a href="#">Help</a></li>
+        <li><a href="#" onclick="help()">Help</a></li>
       </ul>
     </div>
   </div>
@@ -192,9 +200,9 @@ $cname = $check['c_name'];
           else // 로그인을 하지 않은경우 지원하기 불가능
           {    
           ?>  
-          <form action="app_submit.php" method="POST">
+          <form action="login.php" method="POST">
           <tr>
-            <td><input class = "club-apply-bt" type ="submit" value = "지원하기" disabled title="지원을 원하실 경우 로그인을 해 주세요"></td>
+            <td><input class = "club-apply-bt" type ="submit" value = "지원하기" onclick="warning()"></td>
           </tr>
         </from>
           <?php
