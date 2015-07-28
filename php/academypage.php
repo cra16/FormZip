@@ -194,21 +194,29 @@ $aname = $check['c_name'];
         {
           if($id) // 로그인을 한 경우 지원하기 가능
           {    
+            $qry_e = "SELECT month FROM application WHERE id = '$academy_name'";
+            $result_e = mysqli_query($bd,$qry_e);
+            $exist = mysqli_fetch_array($result_e);
+
+            if( $exist[0] != NULL){ //지원서가 있는 경우
         ?>  
-          <form action="app_submit.php" method="GET">
-          <tr>
-            <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $academy_name; ?>">지원하기</button>
-          </tr>
-        </from>
+              <form action="app_submit.php" method="GET">
+              <tr>
+                <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $academy_name; ?>">지원하기</button>
+              </tr>
+            </from>
           <?php
+            }else { //지원서가 없는 경우
+              ?>
+                <form>
+                <tr>
+                  <button class = "club-apply-bt" type="button" name="name" onclick="nonexist()" value="지원하기">지원하기</button>
+                </tr>
+                </from>
+
+          <?php
+            }
           }
-
-
-
-
-
-
-
           else // 로그인을 하지 않은경우 지원하기 불가능
           {    
           ?>  
