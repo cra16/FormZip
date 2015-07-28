@@ -3,7 +3,6 @@
   session_start();
 
   // DB connection
-
   require_once('DB_INFO.php');
   header('Content-Type: text/html; charset=utf-8');
 
@@ -21,7 +20,6 @@
    $academy_name= $_GET['name'];
    $_SESSION["GROUP"] = $academy_name;
   }
-
   else{
     $academy_name=$_SESSION['GROUP'];
     $_GET['name']=$academy_name;
@@ -36,11 +34,7 @@
       if(mysqli_num_rows($result) > 0) 
       {
         $member = mysqli_fetch_assoc($result);
-        
-      }
-
-      else 
-      {
+      }else{
        echo "Data call failed";
       }
   }
@@ -50,8 +44,6 @@
   }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -59,14 +51,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> 학회 페이지 </title>
+    <title> 동아리 페이지 </title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/club_page.css" rel="stylesheet">
+  </head>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
     function help(){
         window.open("help.php","도움말", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
       }
@@ -77,8 +70,6 @@
       alert('해당기간이 아닙니다');
     }
   </script>
-
-  </head>
   
 <body>
 
@@ -123,21 +114,19 @@ $id = $_SESSION['USER_NAME'];
 $sql = "SELECT * FROM student WHERE id = '$id'";
 $check_result = mysqli_query($bd,$sql);
 $check = mysqli_fetch_array($check_result);
-$aname = $check['c_name'];
+$aname = $check['a_name'];
 
   if($aname==$academy_name){
     $IsManager="true";
   }
-
   else{
     $IsManager="false";
   }
 
 ?>
   
-  
   <div id = "wrap">
-    <div id = "navigation">동아리 소개:: </div>
+    <div id = "navigation">학회 소개:: </div>
     <!-- 동아리 소개 Start-->
     <div id = "section">
       <div class = "content">
@@ -155,14 +144,14 @@ $aname = $check['c_name'];
      </div>
     </div>
 
-    <!-- 동아리 소개 End-->
+    <!-- 학회 소개 End-->
   
-    <!-- 동아리 프로필 Start-->
+    <!-- 학회 프로필 Start-->
  
     <div id = "aside">
       <table class = "profile">
         <tr>
-         <p class = "club-logo"><?php echo $academy_name; ?></p> <!-- *동아리 이름 (로고)-->
+         <p class = "club-logo"><?php echo $academy_name; ?></p> <!-- *학회 이름 (로고)-->
         </tr>
         <?php
         if($IsManager=="true")  //현재 로그인 한 사람이 관리자인 경우 실행
@@ -193,29 +182,29 @@ $aname = $check['c_name'];
         else if($IsManager=="false")  //현재 로그인 개정이 관리자가 아닐경우 실행
         {
           if($id) // 로그인을 한 경우 지원하기 가능
-          {    
+          {   
             $qry_e = "SELECT month FROM application WHERE id = '$academy_name'";
             $result_e = mysqli_query($bd,$qry_e);
             $exist = mysqli_fetch_array($result_e);
-
-            if( $exist[0] != NULL){ //지원서가 있는 경우
+            
+            if( $exist[0] != NULL ){ // 지원서가 있을 경우 
         ?>  
               <form action="app_submit.php" method="GET">
               <tr>
                 <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $academy_name; ?>">지원하기</button>
               </tr>
-            </from>
-          <?php
-            }else { //지원서가 없는 경우
-              ?>
-                <form>
-                <tr>
-                  <button class = "club-apply-bt" type="button" name="name" onclick="nonexist()" value="지원하기">지원하기</button>
-                </tr>
-                </from>
-
-          <?php
+              </from>
+              <?php
             }
+            else{ //지원서가 없을 경우 ?>
+              <form >
+              <tr>
+                <button class = "club-apply-bt" type="button" name="name" onclick = "nonexist()" value="지원하기">지원하기</button>
+              </tr>
+              </from>
+              <?php
+           }
+
           }
           else // 로그인을 하지 않은경우 지원하기 불가능
           {    
@@ -225,21 +214,15 @@ $aname = $check['c_name'];
             <td><input class = "club-apply-bt" type ="submit" value = "지원하기" onclick="warning()"></td>
           </tr>
         </from>
-          <?php
+           <?php
           }
        }
         ?>
       </table>
     </div>
 
-
-
-
-
     <!-- 동아리 프로필 End-->
   </div>
-
-
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

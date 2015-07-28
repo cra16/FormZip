@@ -100,6 +100,17 @@ else
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/app_make.css" rel="stylesheet">
 
+    <script type="text/javascript">
+      function ok(){
+        var message = "정말 제출하시겠습니까?";
+        var result = confirm(message);
+
+        if(result == true){
+          location.href = "clubpage.php";
+        }
+      }
+    </script>
+
   </head>
 
 <body> 
@@ -217,7 +228,11 @@ else
     </div>
 
     <div class="submit_content">
-      <button type="submit" name="name" value="<?php echo $club; ?>">제출</button>
+      <button type="submit" name="name" value="<?php echo $club; ?>">임시저장</button>
+    </div>
+
+    <div class="submit_content">
+      <button type="button" name="name" onclick="ok()" value="<?php echo $club; ?>">제출</button>
     </div>
   </form>
 </div>
