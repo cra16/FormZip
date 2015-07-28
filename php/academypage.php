@@ -186,6 +186,7 @@ $aname = $check['a_name'];
             $qry_e = "SELECT month FROM application WHERE id = '$academy_name'";
             $result_e = mysqli_query($bd,$qry_e);
             $exist = mysqli_fetch_array($result_e);
+            echo"dddddddddddd =$exist[0]= ddddddddddd";
 
             if( $exist[0] != NULL ){ // 지원서가 있을 경우 
         ?>  
