@@ -29,7 +29,7 @@
   <!-- Logo Start -->
   <div class="container" class = "col-lg-12 col-xs-12">
       
-      <div id="header" class = "col-xs-8 col-xs-offset-1 col-lg-3 col-lg-offset-3 col-md-4 col-md-offset-4">
+      <div id="header" class = "col-xs-8 col-xs-offset-1 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
           <a href="firstpage.php" class="h_logo">
           <img src="../img/title.png" class = "h_logo">
         </a>
@@ -349,7 +349,7 @@
       </div>
     </section>
 
-<div class="col-xs-12  col-md-4 col-md-offset-4 "> 
+  <div class="col-xs-12  col-md-4 col-md-offset-4 "> 
     <p><label><input type="checkbox" name="agree" id="agree" value="agree" checked="checked"> 약관을 모두 읽었으며 동의합니다.</label></p>
   </div>
 
