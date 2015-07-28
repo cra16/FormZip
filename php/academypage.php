@@ -65,6 +65,19 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/club_page.css" rel="stylesheet">
+
+    <script type="text/javascript">
+    function help(){
+        window.open("help.php","도움말", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
+      }
+    function warning(){
+        alert("지원을 원하실 경우 로그인을 해 주세요");
+      }
+    function nonexist(){
+      alert('해당기간이 아닙니다');
+    }
+  </script>
+
   </head>
   
 <body>
@@ -95,7 +108,7 @@
           ?>
         </li>
         <li><a href="signup.php">Signup</a></li>
-        <li><a href="#">Help</a></li>
+        <li><a href="#" onclick="help()">Help</a></li>
       </ul>
     </div>
   </div>
@@ -180,7 +193,8 @@ $aname = $check['c_name'];
         else if($IsManager=="false")  //현재 로그인 개정이 관리자가 아닐경우 실행
         {
           if($id) // 로그인을 한 경우 지원하기 가능
-          {    
+          {  
+          $qry_e =   
         ?>  
           <form action="app_submit.php" method="GET">
           <tr>
@@ -189,12 +203,19 @@ $aname = $check['c_name'];
         </from>
           <?php
           }
+
+
+
+
+
+
+
           else // 로그인을 하지 않은경우 지원하기 불가능
           {    
           ?>  
-          <form action="app_submit.php" method="POST">
+          <form action="login.php" method="POST">
           <tr>
-            <td><input class = "club-apply-bt" type ="submit" value = "지원하기" disabled title="지원을 원하실 경우 로그인을 해 주세요"></td>
+            <td><input class = "club-apply-bt" type ="button" value = "지원하기" onclick="warning()"></td>
           </tr>
         </from>
           <?php
