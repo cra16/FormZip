@@ -102,7 +102,12 @@ else
 
     <script type="text/javascript">
       function ok(){
-        window.open("ok.php","도움말", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
+        var message = "정말 제출하시겠습니까?";
+        var result = confirm(message);
+
+        if(result == true){
+          location.href = "clubpage.php";
+        }
       }
     </script>
 
