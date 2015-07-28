@@ -19,8 +19,8 @@
   if($_GET['name']!=""){
    $club_name= $_GET['name'];
    $_SESSION["GROUP"] = $club_name;
-  }
 
+  }
   else{
     $club_name=$_SESSION['GROUP'];
     $_GET['name']=$club_name;
@@ -35,11 +35,7 @@
       if(mysqli_num_rows($result) > 0) 
       {
         $member = mysqli_fetch_assoc($result);
-        
-      }
-
-      else 
-      {
+      }else{
        echo "Data call failed";
       }
   }
@@ -124,13 +120,11 @@ $cname = $check['c_name'];
   if($cname==$club_name){
     $IsManager="true";
   }
-
   else{
     $IsManager="false";
   }
 
 ?>
-  
   
   <div id = "wrap">
     <div id = "navigation">동아리 소개:: </div>
@@ -191,9 +185,10 @@ $cname = $check['c_name'];
           if($id) // 로그인을 한 경우 지원하기 가능
           {   
             $qry_e = "SELECT month FROM application WHERE id = '$club_name'";
-            $exist = mysqli_query($qry_e);
+            $result_e = mysqli_query($qry_e);
+            $exist = mysqli_fetch_array($result_e);
 
-            if( $exist != NULL ){ // 지원서가 있을 경우 
+            if( $exist[0] != NULL ){ // 지원서가 있을 경우 
         ?>  
               <form action="app_submit.php" method="GET">
               <tr>
@@ -229,8 +224,6 @@ $cname = $check['c_name'];
 
     <!-- 동아리 프로필 End-->
   </div>
-
-
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
