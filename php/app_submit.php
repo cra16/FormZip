@@ -160,7 +160,7 @@ else
         <div class="col-lg-8" id="showbox">
             <input type="radio" id="served" name="served" checked  style=margin:"10px" display:"none" value="YES">
             <label for="served" id="t_served1" >&nbsp;&nbsp;예&nbsp;&nbsp;</label>
-            <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none" value"NO">
+            <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none" value="NO">
             <label for="nonserved" id="t_served2">아니오</label>
         </div>
       </div>
