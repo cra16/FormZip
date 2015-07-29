@@ -122,7 +122,7 @@ else
 
  
 <div class="formContentsLayout">
-  <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit =" return ok() "> 
+  <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit =" return ok()"> 
       <!-- short text -->
     <?php
     for($i = 0; $i<4; $i++)
@@ -221,11 +221,11 @@ else
     </div>
 
     <div class="submit_content">
-      <button type="submit" name="temp_store" value="<?php echo $club; ?>">임시저장</button>
+      <button type="submit" name="name" value="<?php echo $club; ?>">임시저장</button>
     </div>
 
     <div class="submit_content">
-      <button type="submit" name="store" value="<?php echo $club; ?>">제출</button>
+      <button type="submit" name="name" value="<?php echo $club; ?>">제출</button>
     </div>
   </form>
 </div>
