@@ -99,18 +99,18 @@
     <input type="hidden" id="now" name = "now" value ="<?php echo $decoding; ?>" >
     
       <label class="header">기존 비밀번호</label>
-      <input class = "content" type="password" id="current" name="current" class="password" onblur"passWord()">    
+      <input class = "content" type="password" id="current" name="current" class="password" onblur="passWord()">    
       <div id="divmargin"></div>            
       <div id="pw_cur" class="error" style="display:none"></div> 
   
       <label class="header">새 비밀번호</label>
-      <input class = "content" type="password" id="newp" name="newp" class="new-password" onblur"PWCheck()">
+      <input class = "content" type="password" id="newp" name="newp" class="new-password" onblur="PWCheck()">
     
       <div id="divmargin"></div>
       <div id="pw_new" class="error" style="display:none"></div>
     
       <label class="header">비밀번호 재입력</label>
-      <input class = "content" type="password" id="pw" name="pw" class="new-password" onblur"PsCfCheck()">
+      <input class = "content" type="password" id="pw" name="pw" class="new-password" onblur="PsCfCheck()">
     
       <div id="divmargin"></div>
       <div id="ps_ck" class="error" style="display:none"></div>
@@ -150,16 +150,28 @@
 
 <?php
 
-  $i = 0;
   $j = 1;
-  $id = "21300739";
-  $qry2 = "SELECT * FROM result WHERE stu_id = '$id'";
+  $id = $id;
+  $qry = "SELECT * FROM student WHERE id = '$id'";
+  $stuid_result = mysqli_query($bd,$qry);
+  $stuid_array = mysqli_fetch_array($stuid_result);
+  $stuid = $stuid_array['stuid'];
+
+  $qry2 = "SELECT * FROM result WHERE stu_id = '$stuid'";
   $result=mysqli_query($bd,$qry2);
 
   while($list = mysqli_fetch_array($result)){
     $clubname = $list['club_name'];
-  ?>
-        <tr id = '$j' class = "clickable-row" data-href='firstpage.html'>
+    $storagee = $list['storage'];
+
+    if($storage == NULL){
+      $storage = "제출완료";
+    }
+    else{
+      $storage = "임시저장";
+    }
+  ?>    
+        <tr id = "<?php echo $j; ?>" class = "clickable-row" onclick="location.href='app_submit.php?name=<?php echo "$clubname"; ?>'">
         <th class = "app-number" scope="row">
           <?php echo "$j";?>
         </th>
@@ -167,9 +179,10 @@
           <?php echo "$clubname"; ?>
          </td>
         <td class = "app-status">
-          <?php echo "제출중"; ?>
+          <?php echo "$storage"; ?>
         </td>
         </tr>
+      
 <?php
 }
 
