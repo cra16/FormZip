@@ -14,6 +14,7 @@ $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect data
 mysqli_set_charset($bd, "utf8") or die("Could not select database");
 mysqli_select_db($bd,DB_NAME);
 
+
 //로그인 여부 판단
 $userid = $_SESSION['USER_NAME'];
 if(!$userid){
@@ -104,8 +105,8 @@ else
         var message = "정말 제출하시겠습니까?";
         var result = confirm(message);
 
-        if(result == false){
-          location.href = "app_submit.php";
+        if(result == true){
+          location.href = "clubpage.php";
         }
       }
     </script>
@@ -185,6 +186,10 @@ else
       }
     ?>
 
+
+
+
+
     <!-- long text -->
 
     <?php
@@ -227,7 +232,7 @@ else
     </div>
 
     <div class="submit_content">
-      <button type="submit" name="name" onclick="ok()" value="<?php echo $club; ?>">제출</button>
+      <button type="button" name="name" onclick="ok()" value="<?php echo $club; ?>">제출</button>
     </div>
   </form>
 </div>
