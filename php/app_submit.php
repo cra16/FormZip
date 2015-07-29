@@ -229,11 +229,11 @@ else
     </div>
 
     <div class="submit_content">
-      <button type="submit" name="name" onclick = "ok_storage()" value="<?php echo $club; ?>">임시저장</button>
+      <button type="submit" name="name" onsubmit = "ok_storage()" value="<?php echo $club; ?>">임시저장</button>
     </div>
 
     <div class="submit_content">
-      <button type="submit" name="name" onclick="ok()" value="<?php echo $club; ?>">제출</button>
+      <button type="submit" name="name" onsubmit="ok()" value="<?php echo $club; ?>">제출</button>
     </div>
   </form>
 </div>
