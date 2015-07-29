@@ -250,9 +250,13 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
 
 
 <?php
+// get the info from the db 
+$sql = "SELECT * FROM result WHERE club_name='$club_name' LIMIT $offset, $per_page";
+$result=mysqli_query($bd,$sql);
 
 for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
 {
+ 
   $short_info=array($list['name'],$list['stu_id'],$list['major'],$list['p_num'],$list['gender'],$list['served'],$list['mail'],$list['activity']);
   $text_name=array($list['text1'],$list['text2'],$list['text3'],$list['text4'],$list['text5'],$list['text6'],$list['text7'],);
 
