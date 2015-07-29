@@ -28,7 +28,7 @@
         alert('use');
         alert('info');
 
-        if( use != '' && info != '' ){
+        if( use != NULL && info != NULL ){
           return true;
         }else{
           return false;
