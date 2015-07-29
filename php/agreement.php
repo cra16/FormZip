@@ -22,10 +22,13 @@
         "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
       }
       function checkbox(){
-        $use = document.getElementById("agree").value;
-        $info = document.getElementById("agree2").value;
+        var use = document.getElementById('agree');
+        var info = document.getElementById('agree2');
 
-        if( $use != '' && $info != '' ){
+        alert('use');
+        alert('info');
+
+        if( use != '' && info != '' ){
           return true;
         }else{
           return false;
