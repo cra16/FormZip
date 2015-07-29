@@ -70,7 +70,7 @@
             if($_SESSION['USER_NAME'])
               echo '<a href="mypage.php">My Page</a>';
             else
-              echo '<a href="signup.php">Sign Up</a>';
+              echo '<a href="agreement.php">Sign Up</a>';
 
           ?>
         </li>

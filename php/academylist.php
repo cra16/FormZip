@@ -62,7 +62,7 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
           ?>
 
         </li>       
-        <li><a href="signup.php">Signup</a></li>
+        <li><a href="agreement.php">Signup</a></li>
         <li><a href="#" onclick = "help()">Help</a></li>
       </ul>
     </div>
