@@ -21,13 +21,11 @@ if(!$userid){
   exit();
 }
 
-
 if(!$_GET['name'])
 {
   header("location: firstpage.php");
   exit();
 }
-
 
 $club= $_SESSION["GROUP"];
 $member;
@@ -53,7 +51,7 @@ else
 }
 $qry="SELECT * FROM student WHERE id='$userid'";
 $result=mysqli_query($bd,$qry);
-$user;
+
 //Check whether the query was successful or not
 if($result) {
 
@@ -82,6 +80,9 @@ else
   $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7']);
   $pass_name=array("name","stuid","major","p_num","gender","served","mail","activity");
   $text_name=array("content1","content2","content3","content4","content5","content6","content7");
+
+  //$storage = $_GET['storage']; //1일 경우, 임시저장
+  $storage = 1;
 ?>
 
 <!DOCTYPE HTML> 
@@ -102,6 +103,14 @@ else
     <script type="text/javascript">
       function ok(){
         var message = "정말 제출하시겠습니까?";
+        var result = confirm(message);
+
+        if(result == false){
+            return false;
+        }
+      }
+      function ok_storage(){
+        var message = "임시저장 하시겠습니까?";
         var result = confirm(message);
 
         if(result == false){
@@ -159,7 +168,7 @@ else
         <div class="col-lg-8" id="showbox">
             <input type="radio" id="served" name="served" checked  style=margin:"10px" display:"none" value="YES">
             <label for="served" id="t_served1" >&nbsp;&nbsp;예&nbsp;&nbsp;</label>
-            <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none" value="NO">
+            <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none" value"NO">
             <label for="nonserved" id="t_served2">아니오</label>
         </div>
       </div>
@@ -210,9 +219,6 @@ else
       }
     ?>
 
-
-
-
     <div class="form-group">
       <label class="col-lg-2 control-label">제출기한</label>
     </div>
@@ -223,7 +229,7 @@ else
     </div>
 
     <div class="submit_content">
-      <button type="submit" name="name" value="<?php echo $club; ?>">임시저장</button>
+      <button type="submit" name="name" onclick = "ok_storage()" value="<?php echo $club; ?>">임시저장</button>
     </div>
 
     <div class="submit_content">
