@@ -12,17 +12,8 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/signup.css" rel="stylesheet">
 
-        <script>
-      function check_id(){
-        window.open("check_id.php?id="+document.getElementById('userid').value,
-        "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
-      }
-      function check_stuid(){
-        window.open("check_stuid.php?stuid="+document.getElementById('stuid').value,
-        "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
-      }
-    </script>
-
+ 
+ 
   </head>
   <body>
   <!-- Logo Start -->
@@ -53,11 +44,13 @@
                 <div id="divmargin"></div>
                 <div id="idMsg" class="error" style="display:none"></div>
                 
-                <label for="inputName" class="col-xs-4 col-md-3 control-label">ID</label>
+                <label for="inputName" class="col-xs-4 col-md-2 control-label">ID</label>
+                <button class="col-md-5" id="check_button" type="button" onclick="check_id()" >중복확인</button>
                 <input class="form-control" id="userid" name="userid" type="text" placeholder="Choose your username" maxlength="15" onblur="UserIdCheck()" >
+                <input type="hidden" name="checkid" value=0>
                 <div id="divmargin"></div>               
                 <div id="userIdMsg" class="error" style="display:none"></div>
-                
+
                 <label for="inputName" class="col-xs-7 col-md-8 control-label">비밀번호 입력</label>
                 <input class="form-control" id="pw" name="pw" type="password" placeholder="Create a password." maxlength="15" onblur="PWCheck()" >
                 <div id="divmargin"></div>            
