@@ -22,6 +22,14 @@
     width: 150px;
   }
 
+.table_row{
+    background-color:white !important;
+}
+
+.table_row a{
+   color:black !important;
+}
+
 #wrap{
   position: absolute;
   width: 50%;
@@ -35,13 +43,14 @@
 }
 
 
-#pagingbox{
-  position: absolute;
-  width: 50%;
-  margin-right: 200px;  
-  left: 25%;  
-  padding:0 auto;
+.pagingbox{
+ position: relative;
+  display: inline-block;
+margin:0 auto;
+
+  
 }
+
 
 #distinguish{
   text-decoration:underline;
