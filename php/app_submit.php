@@ -105,7 +105,7 @@ else
         var result = confirm(message);
 
         if(result == false){
-          location.href = "app_submit.php";
+          location.href = "app_submit.php?name='$club_name'";
         }
       }
     </script>
