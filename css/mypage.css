@@ -27,24 +27,27 @@ body {
   opacity:0.8;
 }
 
-#header-logo {
-  position: relative;
-  height: 168px;
-  padding: 62px 0 0;
-  width: 900px;
-  margin: -10px auto;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
 
-#header-logo .h_logo{
+
+#header .h_logo{
   position: relative;
   display: block;
   overflow: hidden;
-  width: 400px;
   margin: -10px auto;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  width: 100%;
   text-decoration:none;
+  }
+
+#header h1{
+    letter-spacing: 0.6rem;
+    margin-top:0 !important;
+    margin-bottom: 10.5px;
+    text-align:center;
+    font-size:5.0rem;
+    font-family:'Source Sans Pro', sans-serif;
+    background-color: transparent;
 }
 
 .helpbox{

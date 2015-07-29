@@ -33,7 +33,7 @@
 
     <script type="text/javascript">
     function help(){
-        window.open("help.php","도움말", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
+        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
       }
     </script>
 
@@ -82,15 +82,13 @@
    <!-- Menubar end-->  
 
 
-    <!-- Logo Start -->
-  <div class="container" class = "col-lg-4 col-xs-4">
-       <div class="col-lg-4 col-xs-4 col-md-4"></div>
-      <div id="header" class = "col-xs-4 col-lg-4">
+  <!-- Logo Start -->
+  <div class="container" class = "col-lg-12 col-xs-12">
+      <div id="header" class = "col-xs-8 col-xs-offset-1 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
           <a href="firstpage.php" class="h_logo">
           <img src="../img/title.png" class = "h_logo">
         </a>
       </div>
-      <div class="col-lg-4 col-xs-4 col-md-4"></div>
   </div>
   <!-- Logo End -->
 

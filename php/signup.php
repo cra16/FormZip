@@ -25,17 +25,16 @@
 
   </head>
   <body>
+
   <!-- Logo Start -->
   <div class="container" class = "col-lg-12 col-xs-12">
-      <div class="col-lg-4 col-xs-4 col-md-4"></div>
       
-      <div id="header" class = "col-xs-4 col-lg-4">
+      <div id="header" class = "col-xs-8 col-xs-offset-1 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
           <a href="firstpage.php" class="h_logo">
           <img src="../img/title.png" class = "h_logo">
         </a>
       </div>
       
-      <div class="col-lg-4 col-xs-4 col-md-4"></div>
   </div>
   <!-- Logo End -->
 
@@ -43,9 +42,9 @@
     <div id="containbox">
       <div class="join_content">
         <form action="../php/data_change.php?mode=insert" method="POST" name="myForm" onsubmit="return validateForm()">
-            <div class="form-group">
-                <h2>회원가입</h2>
-                
+         <div class="form-group">
+          <h2>회원가입</h2>
+          
           <div id="divmargin"></div>
            <div id="divmargin"></div>
                 <label for="inputName" class="col-xs-4 col-md-3 control-label">이름</label>
