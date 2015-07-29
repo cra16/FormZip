@@ -56,6 +56,10 @@ if(!$_POST['name'])
      return $data;
   }
 
+  function check(){
+    alert('임시저장no');
+  }
+
 
     echo $club;
   echo "<br>";
@@ -102,6 +106,12 @@ $name = $stuid_array['student_name'];
 
 $sql = "SELECT * FROM result WHERE club_name = '$club' AND stu_id = '$stuid'";
 $result = mysqli_query($bd,$sql);
+
+$check = $_GET['temp'];
+
+if( temp == NULL){
+  check();
+}
 
 if(mysqli_num_rows($result) > 0){
 $sql = "UPDATE result 

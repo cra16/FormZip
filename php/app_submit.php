@@ -221,11 +221,11 @@ else
     </div>
 
     <div class="submit_content">
-      <button type="submit" name="name" value="<?php echo $club; ?>">임시저장</button>
+      <button type="submit" name="name" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
     </div>
 
     <div class="submit_content">
-      <button type="submit" name="name" value="<?php echo $club; ?>">제출</button>
+      <button type="submit" name="name" id ='real' value="<?php echo $club; ?>">제출</button>
     </div>
   </form>
 </div>
