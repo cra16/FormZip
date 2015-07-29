@@ -25,7 +25,7 @@
         $use = document.getElementById("myForm").value;
         $info = document.getElementById("agree").value;
 
-        if( $use != NULL && $info !=NULL ){
+        if( $use != '' && $info != '' ){
           return true;
         }else{
           return false;
