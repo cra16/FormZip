@@ -2,7 +2,7 @@
 // Session start 
 session_start();
 
- // DB connection
+// DB connection
 require_once('DB_INFO.php');
 header('Content-Type: text/html; charset=utf-8');
 
@@ -12,129 +12,229 @@ mysqli_query("set session character_set_client=utf8;");
 
 $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
 mysqli_set_charset($bd, "utf8") or die("Could not select database");
-
-
 mysqli_select_db($bd,DB_NAME);
 
 //로그인 여부 판단
-$username = $_SESSION['USER_NAME'];
-if(!$username){
+$userid = $_SESSION['USER_NAME'];
+if(!$userid){
   header("location: firstpage.php");
   exit();
 }
 
-
-if(!$_POST['name'])
+if(!$_GET['name'])
 {
   header("location: firstpage.php");
   exit();
 }
 
-//POST values
-    $club= $_SESSION["GROUP"];
-    $major=mysqli_real_escape_string($bd,test_input($_POST['major']));
-    $p_num=mysqli_real_escape_string($bd,test_input($_POST['p_num']));
-    $gender=mysqli_real_escape_string($bd,test_input($_POST['gender']));
-    $served=mysqli_real_escape_string($bd,test_input($_POST['served']));
-    $mail=$_POST['mail'];
-    $activity=mysqli_real_escape_string($bd,test_input($_POST['activity']));
+$club= $_SESSION["GROUP"];
+$member;
+$qry="SELECT * FROM application WHERE id='$club'";
+$result=mysqli_query($bd,$qry);
 
-    $content1= $_POST['content1'];
-    $content2= $_POST['content2'];
-    $content3= $_POST['content3'];
-    $content4= $_POST['content4'];
-    $content5= $_POST['content5'];
-    $content6= $_POST['content6'];
-    $content7= $_POST['content7'];
+//Check whether the query was successful or not
+if($result) {
 
-   
+    if(mysqli_num_rows($result) > 0) 
+    {
+      $member = mysqli_fetch_assoc($result);  
+    }
 
-  function test_input($data) {
-     $data = trim($data);
-     $data = stripslashes($data);
-     $data = htmlspecialchars($data);
-     return $data;
-  }
+    else 
+    {
+     echo "Data call failed";
+    }
+}
+else 
+{
+  die("Query failed");
+}
+$qry="SELECT * FROM student WHERE id='$userid'";
+$result=mysqli_query($bd,$qry);
 
+//Check whether the query was successful or not
+if($result) {
 
-    echo $club;
-  echo "<br>";
-   echo $major;
-  echo "<br>";
+    if(mysqli_num_rows($result) > 0) 
+    {
+      $user = mysqli_fetch_assoc($result);  
+    }
 
-   echo $p_num;
-  echo "<br>";
-
-   echo $gender;
-  echo "<br>";
-
-   echo $served;
-     echo "<br>";
-
-   echo $mail;
-     echo "<br>";
-
-   echo $activity;
-     echo "<br>";
- echo "<br>";
-   echo $content1;
-     echo "<br>";
- echo "<br>";
-   echo $content2;
-     echo "<br>";
- echo "<br>";
-   echo $content3;
-     echo "<br>";
-
-   echo $content4;
-   echo $content5;
-   echo $content6;
-   echo $content7;
-
-
-
-$id = $_SESSION['USER_NAME'];
-$qry = "SELECT * FROM student WHERE id = '$id'";
-$stuid_result = mysqli_query($bd,$qry);
-$stuid_array = mysqli_fetch_array($stuid_result);
-$stuid = $stuid_array['stuid'];
-$name = $stuid_array['student_name'];
-
-$sql = "SELECT * FROM result WHERE club_name = '$club' AND stu_id = '$stuid'";
-$result = mysqli_query($bd,$sql);
-
-if(mysqli_num_rows($result) > 0){
-$sql = "UPDATE result 
-SET name = '$name',major = '$major',p_num = '$p_num',gender = '$gender',served = '$served',mail = '$mail',
-activity = '$activity',text1 = '$content1',text2 = '$content2',text3 = '$content3',text4 = '$content4',
-text5 = '$content5',text6 = '$content6',text7 = '$content7' WHERE club_name = '$club' AND stu_id = '$stuid'";
-
-if ($bd->query($sql) === TRUE) {
-    echo "New record inserted successfully";
-    header("Location: ../php/clubpage.php");
-} else {
-    echo "Error: " . $sql . "<br>" . $bd->error;
-    //header("Location: ../php/firstpage.php");
+    else 
+    {
+     echo "Data call failed";
+    }
+}
+else 
+{
+  die("Query failed");
 }
 
-$bd->close();
 
-}
-else{
-$sql = "INSERT INTO result (club_name,name,stu_id,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7)
-VALUES ('$club','$name','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7')";
+//Sanitize the POST values
+  $short_info=array("use","use","use","use","use",$member['served'],$member['mail'],$member['activity']);
+  $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$member['sr5'],$member['sr6'],$member['sr7']);
+  $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
+  $question_placeholder= array($user['student_name'],$user['stuid'],"Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)formzip@naver.com","ex)3학기");
+  $title=array($member['title1'],$member['title2'],$member['title3'],$member['title4'],$member['title5'],$member['title6'],$member['title7']);
+  $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7']);
+  $pass_name=array("name","stuid","major","p_num","gender","served","mail","activity");
+  $text_name=array("content1","content2","content3","content4","content5","content6","content7");
 
-if ($bd->query($sql) === TRUE) {
-    echo "New record created successfully";
-    header("Location: ../php/clubpage.php");
-} else {
-    echo "Error: " . $sql . "<br>" . $bd->error;
-    //header("Location: ../php/firstpage.php");
-}
-
-$bd->close();
-}
-
+  //$storage = $_GET['storage']; //1일 경우, 임시저장
+  $storage = 1;
 ?>
+
+<!DOCTYPE HTML> 
+<html>
+
+   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>application making page</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/app_make.css" rel="stylesheet">
+
+    <script type="text/javascript">
+      function ok(){
+        var message = "정말 제출하시겠습니까?";
+        var result = confirm(message);
+
+        if(result == false){
+            return false;
+        }
+      }
+    </script>
+
+  </head>
+
+<body> 
+  <div class="container">
+    <div id="header">
+      <h1> <a href="firstpage.php" class="h_logo">F O R M &nbsp;&nbsp;Z I P</a> </h1>
+    </div>
+  </div>
+
  
-  
+<div class="formContentsLayout">
+  <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() "> 
+      <!-- short text -->
+    <?php
+    for($i = 0; $i<4; $i++)
+    {
+    ?>
+    <div class="form-group">
+      <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>"
+               style="display:block" id="<?php echo $pass_name[$i]; ?>" 
+    <?php if($i < 2){?> disabled title="변경 불가한 항목입니다." <?php } ?> name="<?php echo $pass_name[$i]; ?>"> 
+      </div>
+    </div>  
+
+    <?php
+    }
+    ?>
+    <!-- 성별 -->
+    <div class="form-group">
+      <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
+      <div class="col-lg-8">
+          <input type="radio" id="man" name="gender" value="man" checked  style=margin:"10px" display:"none">
+          <label for="man">남자</label>
+          <input type="radio" id="woman" name="gender"value="woman" style=margin:"10px" display:"none">
+          <label for="woman">여자</label>
+      </div>
+    </div>  
+    <!-- 군필여부 -->
+    <?php
+    $i = 5;
+    if($short_info[$i]=="use"){
+    ?>
+      <div class="form-group">
+        <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8" id="showbox">
+            <input type="radio" id="served" name="served" checked  style=margin:"10px" display:"none" value="YES">
+            <label for="served" id="t_served1" >&nbsp;&nbsp;예&nbsp;&nbsp;</label>
+            <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none" value"NO">
+            <label for="nonserved" id="t_served2">아니오</label>
+        </div>
+      </div>
+    <?php
+    }
+
+    // 이메일 / 활동가능학기
+       for($i = 6; $i<8; $i++)
+      {
+        if($short_info[$i]=="use"){
+        
+    ?>
+      <div class="form-group">
+        <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8">
+          <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>"
+                 style="display:block" id="<?php echo $pass_name[$i]; ?>" name="<?php echo $pass_name[$i]; ?>">
+           </div>
+      </div>  
+    
+    <?php
+        }
+      }
+    ?>
+
+    <!-- long text -->
+
+    <?php
+      for($i = 0; $i<8; $i++)
+      {
+        if($sub_info[$i]=="notuse")
+        {
+          break;
+        }
+        if($sub_info[$i]=="use"){
+    ?>
+        <div class="form-group">
+          <label class="col-lg-3 control-label"><?php echo $title[$i]; ?></label>
+          <div class="col-lg-8">
+          <textarea class="form-control" rows="3" name="<?php echo $text_name[$i]; ?>"></textarea>
+          <span class="help-block"><?php echo $explain[$i]; ?></span>    
+          </div>
+        </div>  
+    <?php
+        }
+    ?>
+    <?php
+      }
+    ?>
+
+    <div class="form-group">
+      <label class="col-lg-2 control-label">제출기한</label>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <?php echo $member['month'];?>월 <?php echo $member['date'];?>까지
+      </div>
+    </div>
+
+    <div class="submit_content">
+      <button type="submit" name="name" value="<?php echo $club; ?>">임시저장</button>
+    </div>
+
+    <div class="submit_content">
+      <button type="submit" name="name" value="<?php echo $club; ?>">제출</button>
+    </div>
+  </form>
+</div>
+
+
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
