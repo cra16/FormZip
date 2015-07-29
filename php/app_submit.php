@@ -233,7 +233,7 @@ else
     </div>
 
     <div class="submit_content">
-      <button type="submti" name="name" onclick="ok()" value="<?php echo $club; ?>">제출</button>
+      <button type="submit" name="name" onclick="ok()" value="<?php echo $club; ?>">제출</button>
     </div>
   </form>
 </div>
