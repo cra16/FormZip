@@ -22,8 +22,8 @@
         "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
       }
       function checkbox(){
-        $use = document.getElementById("myForm").value;
-        $info = document.getElementById("agree").value;
+        $use = document.getElementById("agree").value;
+        $info = document.getElementById("agree2").value;
 
         if( $use != '' && $info != '' ){
           return true;
@@ -376,7 +376,7 @@
     </section>
 
   <div class="col-xs-12  col-md-4 col-md-offset-4 "> 
-    <p><label><input type="checkbox" name="agree" id="agree" value="agree" checked="checked"> 약관을 모두 읽었으며 동의합니다.</label></p>
+    <p><label><input type="checkbox" name="agree" id="agree2" value="agree" checked="checked"> 약관을 모두 읽었으며 동의합니다.</label></p>
   </div>
 
    <div class="div_yg col-xs-4 col-xs-offset-4  col-md-4 col-md-offset-7 " > 
