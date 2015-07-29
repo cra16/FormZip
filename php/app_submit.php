@@ -104,8 +104,8 @@ else
         var message = "정말 제출하시겠습니까?";
         var result = confirm(message);
 
-        if(result == false){
-          location.href = "app_submit.php?name='$club_name'";
+        if(result == true){
+            document.forms['myform'].submit();
         }
       }
     </script>
@@ -226,8 +226,8 @@ else
       <button type="submit" name="name" value="<?php echo $club; ?>">임시저장</button>
     </div>
 
-    <div class="submit_content">
-      <button type="submit" name="name" onclick="ok()" value="<?php echo $club; ?>">제출</button>
+    <div class="submit_content" id='myform'>
+      <button type="button" name="name" onclick="ok()" value="<?php echo $club; ?>">제출</button>
     </div>
   </form>
 </div>
