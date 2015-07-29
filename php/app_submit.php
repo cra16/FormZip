@@ -109,14 +109,6 @@ else
             return false;
         }
       }
-      function ok_storage(){
-        var message = "임시저장 하시겠습니까?";
-        var result = confirm(message);
-
-        if(result == false){
-            return false;
-        }
-      }
     </script>
 
   </head>
@@ -130,7 +122,7 @@ else
 
  
 <div class="formContentsLayout">
-  <form method="POST" action="app_storage.php" class="form-horizontal"> 
+  <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit =" return ok() "> 
       <!-- short text -->
     <?php
     for($i = 0; $i<4; $i++)
@@ -229,11 +221,11 @@ else
     </div>
 
     <div class="submit_content">
-      <button type="submit" name="name" onsubmit = " return ok_storage()" value="<?php echo $club; ?>">임시저장</button>
+      <button type="submit" name="name" value="<?php echo $club; ?>">임시저장</button>
     </div>
 
     <div class="submit_content">
-      <button type="submit" name="name" onsubmit="return ok()" value="<?php echo $club; ?>">제출</button>
+      <button type="submit" name="name" value="<?php echo $club; ?>">제출</button>
     </div>
   </form>
 </div>
