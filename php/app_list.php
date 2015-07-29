@@ -17,7 +17,7 @@ $club_name=$_SESSION['USER_NAME'];
 $qry="SELECT * FROM result WHERE club_name='$club_name'";   
 $result=mysqli_query($bd,$qry);
 
-$per_page=5;  //page당 display할 목록의 수
+$per_page=1;  //page당 display할 목록의 수
 $total_results=mysqli_num_rows($result);  //해당 동아리의 지원자 수
 $total_pages=ceil($total_results/$per_page); 
 $result=$_GET['currentpage'];
@@ -51,29 +51,28 @@ $result=mysqli_query($bd,$sql);
 $count=0;
 $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
 
-  $user_id= $_SESSION["USER_NAME"]; 
+$user_id= $_SESSION["USER_NAME"]; 
 
-  $qry="SELECT * FROM application WHERE id='$user_id'";   
-  $temp=mysqli_query($bd,$qry);
+$qry="SELECT * FROM application WHERE id='$user_id'";   
+$temp=mysqli_query($bd,$qry);
 
-  //Check whether the query was successful or not
-  if($temp) {
+//Check whether the query was successful or not
+if($temp) {
 
-      if(mysqli_num_rows($temp) > 0) 
-      {
-        $user = mysqli_fetch_assoc($temp); 
-      }
+    if(mysqli_num_rows($temp) > 0) 
+    {
+      $user = mysqli_fetch_assoc($temp); 
+    }
 
-   
-  }
+ 
+}
 
 
 //Sanitize the POST values
-    $sub_info=array($user['sr1'],$user['sr2'],$user['sr3'],$user['sr4'],$user['sr5'],$user['sr6'],$user['sr7']);
-
-  $user_info=array("use","use","use","use","use",$user['served'],$user['mail'],$user['activity']);
- $title=array($user['title1'],$user['title2'],$user['title3'],$user['title4'],$user['title5'],$user['title6'],$user['title7']);
-  $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['explain4'],$user['explain5'],$user['explain6'],$user['explain7']);
+$sub_info=array($user['sr1'],$user['sr2'],$user['sr3'],$user['sr4'],$user['sr5'],$user['sr6'],$user['sr7']);
+$user_info=array("use","use","use","use","use",$user['served'],$user['mail'],$user['activity']);
+$title=array($user['title1'],$user['title2'],$user['title3'],$user['title4'],$user['title5'],$user['title6'],$user['title7']);
+$explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['explain4'],$user['explain5'],$user['explain6'],$user['explain7']);
 
 
 
@@ -149,7 +148,7 @@ $label_name = array("이름","학번","학과","전화번호","성별","군필�
     $gender=$list['gender']; 
 
   ?>
-    <tr id = '$j'>
+    <tr class = 'table_row'>
       <td class = 'studnet-number' scope='row'>
       <a href="#" class="btn-example" onclick="layer_open('layer<?php echo $count;?>');return false;"><?php echo "$stu_id"; ?></a> 
       </td>
@@ -162,16 +161,14 @@ $label_name = array("이름","학번","학과","전화번호","성별","군필�
     </tr>
 
   <?php
-
-
-    }
-         
+  }
   ?> 
     </tbody>
   </table>
 
 
-  <div id="pagingbox">
+  <div class="pagingbox" >
+    
     <ul class="pagination">
     <?php
     $page_list=5;
@@ -179,22 +176,20 @@ $label_name = array("이름","학번","학과","전화번호","성별","군필�
     if (isset($_GET['currentpage']) && is_numeric($_GET['currentpage'])) {
       $currentpage = (int) $_GET['currentpage'];
     
-      if($currentpage > 0 && $currentpage <= $total_pages)
-      {
+      if($currentpage > 0 && $currentpage <= $total_pages){
         $start=floor(($currentpage-1)/$page_list)*$page_list+1;
-        $end= $start+$page_list;
+        $end= $start+$page_list-1;
       }
 
-      else
-      {
+      else{
         $start=1;
-        $end=$start+$page_list;
+        $end=$start+$page_list-1;
       }
     }
 
     else{
       $start=1;
-      $end=$start+$page_list;
+      $end=$start+$page_list-1;
     }
 
     // pagination: << 표시
@@ -211,25 +206,21 @@ $label_name = array("이름","학번","학과","전화번호","성별","군필�
     <?php
     }
     // pagination: 숫자 표시
-    ?>
-    <?php
 
-      for($i=$start; $i<$end;$i++)
+
+      for($i=$start; $i<=$end;$i++)
       {
-        if($i > $total_pages)
-        {
+        if($i > $total_pages){
           break;
         }
 
-        if($i==$currentpage)
-        {
+        if($i==$currentpage){
     ?>
         <li><a href="app_list.php?currentpage=<?php echo $i;?>" id="distinguish"><?php echo $i;?></a></li>          
    <?php
         }
 
-        else
-        {
+        else{
     ?>
         <li><a href="app_list.php?currentpage=<?php echo $i;?>"><?php echo $i;?></a></li>
     <?php
@@ -244,7 +235,6 @@ $label_name = array("이름","학번","학과","전화번호","성별","군필�
       <li><a href="app_list.php?currentpage=<?php echo $start+$page_list;?>">»</a></li>
     <?php
     }
-
    
      else{
     ?>
@@ -254,18 +244,17 @@ $label_name = array("이름","학번","학과","전화번호","성별","군필�
 
     ?>
     </ul>
+ 
   </div>
 </div>
 
 
 <?php
-// get the info from the db 
-$sql = "SELECT * FROM result WHERE club_name='$club_name' LIMIT $offset, $per_page";
-$result=mysqli_query($bd,$sql);
 
 for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
 {
   $short_info=array($list['name'],$list['stu_id'],$list['major'],$list['p_num'],$list['gender'],$list['served'],$list['mail'],$list['activity']);
+  $text_name=array($list['text1'],$list['text2'],$list['text3'],$list['text4'],$list['text5'],$list['text6'],$list['text7'],);
 
 ?>
   <div id="layer<?php echo $i;?>" class="pop-layer">
@@ -290,25 +279,41 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
     <div class="form-group">
       <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
       <div class="col-lg-8">
-          <input type="radio" id="man" name="gender" value="man" checked  style=margin:"10px" display:"none">
+        <?php
+        if($list['gender']=='man'){
+        ?>
+          <input type="radio" id="man" name="gender" value="man" style=margin:"10px" display:"none">
           <label for="man">남자</label>
+        <?php
+        }
+        else{
+        ?>
           <input type="radio" id="woman" name="gender"value="woman" style=margin:"10px" display:"none">
           <label for="woman">여자</label>
+        <?php } ?>        
       </div>
     </div>  
 
     <!-- 군필여부 -->
     <?php
     $j = 5;
-    if($user_info[$j]=="use"){
+    if($user_info[$j]=="use" && $list['gender']=='man'){
     ?>
       <div class="form-group">
         <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
         <div class="col-lg-8" id="showbox">
-            <input type="radio" id="served" name="served" checked  style=margin:"10px" display:"none">
+        <?php
+        if($list['served']=='YES'){
+        ?>
+            <input type="radio" id="served" name="served"   style=margin:"10px" display:"none">
             <label for="served" id="t_served1" >&nbsp;&nbsp;예&nbsp;&nbsp;</label>
-            <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none">
+        <?php
+        }
+        else{
+        ?>
+             <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none">
             <label for="nonserved" id="t_served2">아니오</label>
+        <?php } ?>  
         </div>
       </div>
     <?php
@@ -347,7 +352,7 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
         <div class="form-group">
           <label class="col-lg-3 control-label"><?php echo $title[$j]; ?></label>
           <div class="col-lg-8">
-          <textarea class="form-control" rows="3" id="textArea" disabled></textarea>
+          <textarea class="form-control" rows="3" id="textArea" placeholder="<?php echo $text_name[$j]; ?>" disabled></textarea>
           <span class="help-block"><?php echo $explain[$j]; ?></span>    
           </div>
         </div>  
