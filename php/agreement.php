@@ -21,6 +21,16 @@
         window.open("check_stuid.php?stuid="+document.getElementById('stuid').value,
         "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
       }
+      function checkbox(){
+        $use = document.getElementById("myForm").value;
+        $info = document.getElementById("agree").value;
+
+        if( $use != NULL && $info !=NULL ){
+          return true;
+        }else{
+          return false;
+        }
+      }
     </script>
 
   </head>
@@ -40,7 +50,7 @@
 
   <section id = "middle">
     <div class="wrapper5 col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4">   
-      <form action="signup.php" method="POST" name="myForm" onsubmit="return validateForm()" class = "col-lg-">
+      <form action="signup.php" method="POST" name="myForm" onsubmit ="return checkbox()" class = "col-lg-">
 
       <h3>FORMZIP 이용약관</h3>
     
@@ -49,6 +59,7 @@
       제 1 장 총   칙<br>
       제 2 장 권리 및 의무 <br>
       제 3 장 서비스 이용<br>
+
       제 4 장 계약 해지<br>
       <br><br>
       제 1 장 총 칙 <br>
@@ -368,7 +379,7 @@
     <p><label><input type="checkbox" name="agree" id="agree" value="agree" checked="checked"> 약관을 모두 읽었으며 동의합니다.</label></p>
   </div>
 
-   <div class="div_yg col-xs-4 col-xs-offset-4  col-md-4 col-md-offset-7 "> 
+   <div class="div_yg col-xs-4 col-xs-offset-4  col-md-4 col-md-offset-7 " > 
     <input type="submit" value="다음 단계" class = "save">
   </div>
     

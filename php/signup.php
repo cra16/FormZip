@@ -89,7 +89,7 @@
 
           <div class="submit_content">
             
-            <a href='signup.php'><button type="submit"  onclick="IsFilled()" id="sb";>Submit</button></a>
+            <button type="submit"  onclick="IsFilled()" id="sb";>Submit</button>
           </div>
           
         </form>
