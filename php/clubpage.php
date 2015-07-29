@@ -98,7 +98,7 @@
               echo '<a href="login.php">Login</a>';
           ?>
         </li>
-        <li><a href="signup.php">Signup</a></li>
+        <li><a href="agreement.php">Signup</a></li>
         <li><a href="#" onclick="help()">Help</a></li>
       </ul>
     </div>
