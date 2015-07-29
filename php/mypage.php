@@ -53,12 +53,6 @@
     
     <!-- 기본정보 Start -->
 
-   <div class = "title">
-    <h4> 기본 정보</h4>
-   </div>
-
-
-    <label class="header">이름</label>
 
 <?php
   $id = $_SESSION['USER_NAME']; // session 
@@ -69,7 +63,12 @@
   $bday = $list['birth'];
  ?> 
      
+   <div class = "title">
+    <h4> 기본 정보</h4>
+   </div>
 
+      
+      <label class="header">이름</label>
       <input class = "content" type='text' value = "<?php echo $name; ?>" disabled>
       <div id="divmargin"></div> 
       <label class="header">ID</label>
@@ -100,21 +99,18 @@
     
       <label class="header">기존 비밀번호</label>
       <input class = "content" type="password" id="current" name="current" class="password" onblur="passWord()">    
-      <div id="divmargin"></div>            
       <div id="pw_cur" class="error" style="display:none"></div> 
-  
+      <div id="divmargin"></div>
+
       <label class="header">새 비밀번호</label>
       <input class = "content" type="password" id="newp" name="newp" class="new-password" onblur="PWCheck()">
-    
-      <div id="divmargin"></div>
       <div id="pw_new" class="error" style="display:none"></div>
-    
+      <div id="divmargin"></div>
+
       <label class="header">비밀번호 재입력</label>
       <input class = "content" type="password" id="pw" name="pw" class="new-password" onblur="PsCfCheck()">
-    
-      <div id="divmargin"></div>
       <div id="ps_ck" class="error" style="display:none"></div>
-   
+      <div id="divmargin"></div>
    
 
    <div class = "submit">
@@ -171,7 +167,7 @@
       $storage = "임시저장";
     }
   ?>    
-        <tr id = "<?php echo $j; ?>" class = "clickable-row" onclick="location.href='app_submit.php?name=<?php echo "$clubname"; ?>'">
+        <tr id = "<?php echo $j; ?>" onclick="location.href='app_submit.php?name=<?php echo "$clubname"; ?>'">
         <th class = "app-number" scope="row">
           <?php echo "$j";?>
         </th>
