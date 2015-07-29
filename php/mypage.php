@@ -49,7 +49,7 @@
   <!-- Logo End -->
  
   <div class="formContentsLayout">
-   <form method="POST" action="app_exec.php" class="form-horizontal"> 
+ 
     
     <!-- 기본정보 Start -->
 
@@ -58,62 +58,69 @@
    </div>
 
 
-   <table class = "personal">
-    <tr>
-      <td class="header"><label>이름</label></td>
-      <td class = "content"> 
+    <label class="header">이름</label>
 
 <?php
-  $id="haein722"; // session 
+  $id = $_SESSION['USER_NAME']; // session 
   $qry="SELECT * FROM student WHERE id='$id'";   
   $result=mysqli_query($bd,$qry);
   $list = mysqli_fetch_array($result);
   $name = $list['student_name'];
   $bday = $list['birth'];
-  echo "<input type='text' value = '$name' disabled >";
-?>
-      </td>
-    </tr>
-    <tr>
-      <td class="header"><label>ID</label></td>
-      <td class = "content"> 
-<?php
-  echo "<input type='text' value = '$id' disabled >";
-?>
-      </td>
-    </tr>
-    <tr>
-      <td class="header"><label>생년월일</label></td>
-      <td class = "bday"> 
-<?php
-  $year = 1900 + $bday/10000;
-  $month = ($bday/100)%100;
-  $day = $bday%10000;
-  echo "<input type='text' value = '1994' class='fixed-bday'>";
-  echo "<input type='text' value = '07' class='fixed-bday'>";
-  echo "<input type='text' value = '22' class='fixed-bday'>";
+ ?> 
+     
+
+      <input class = "content" type='text' value = "<?php echo $name; ?>" disabled>
+      <div id="divmargin"></div> 
+      <label class="header">ID</label>
+      <input class = "content" type='text' value = "<?php echo $id; ?>" disabled>
+      <div id="divmargin"></div> 
+    
+      <label class="header">생년월일</label>
+      <input class = "bday" type='text' value = "<?php echo $bday; ?>" disabled>
+      <div id="divmargin"></div>  
+
+   <?php 
+    //비밀번호 체크
+    $key = KEY;
+      $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
+
+      $password = mysqli_real_escape_string($bd,$list['password']);
+
+      ### 복호화 ####
+      $de_str = pack("H*", $password); //hex로 변환한 ascii를 binary로 변환
+      $decoding = mcrypt_decrypt(MCRYPT_3DES, $key, $de_str, MCRYPT_MODE_ECB, $s_vector_iv); 
+   ?>
+
+
+
+
+   <form action="data_change.php?mode=modify" method="POST" onsubmit="return validateForm()">
+    <input type="hidden" id="now" name = "now" value ="<?php echo $decoding; ?>" >
+    
+      <label class="header">기존 비밀번호</label>
+      <input class = "content" type="password" id="current" name="current" class="password" onblur"passWord()">    
+      <div id="divmargin"></div>            
+      <div id="pw_cur" class="error" style="display:none"></div> 
   
-?>
-      </td>
-    </tr>
-    <tr>
-      <td class="header"><label>기존 비밀번호</label></td>
-      <td class = "content"> <input type="text" value = "<?php      ?>" class="password"  placeholder="<?php echo $question_placeholder[$i]; ?>"> </td>
-    </tr>
-    <tr>
-      <td class="header"><label>새 비밀번호</label></td>
-      <td class = "content"> <input type="text" value = "<?php      ?>" class="new-password"  placeholder="<?php echo $question_placeholder[$i]; ?>"> </td>
-    </tr>
-    <tr>
-      <td class="header"><label>비밀번호 재입력</label></td>
-      <td class = "content"> <input type="text" value = "<?php      ?>" class="new-password"  placeholder="<?php echo $question_placeholder[$i]; ?>"> </td>
-    </tr>
-   </table>
+      <label class="header">새 비밀번호</label>
+      <input class = "content" type="password" id="newp" name="newp" class="new-password" onblur"PWCheck()">
+    
+      <div id="divmargin"></div>
+      <div id="pw_new" class="error" style="display:none"></div>
+    
+      <label class="header">비밀번호 재입력</label>
+      <input class = "content" type="password" id="pw" name="pw" class="new-password" onblur"PsCfCheck()">
+    
+      <div id="divmargin"></div>
+      <div id="ps_ck" class="error" style="display:none"></div>
+   
+   
 
    <div class = "submit">
       <input type = "submit" value = "저장" class = "save">
    </div>
-      
+   </form>    
 
 
 
@@ -178,5 +185,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/mypage.js"></script>
 </body>
 </html>
