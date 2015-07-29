@@ -1,0 +1,31 @@
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+* { font-family:"Nanum Gothic" !important }
+
+
+html { 
+  background: url(../img/help.png) no-repeat center center fixed;   
+  background-size:100% 100%;
+}
+
+body{
+	background-color: transparent;
+}
+
+.content-text{
+	background-color: transparent;
+	font-size:1.0em;
+	margin: 7%;
+}
+
+
+.title {
+	color: #737816;
+}
+
+
+.explanation{
+	font-size: 1.1em;
+	color: #659680;
+	font-style: italic;
+	font-style: line
+}
