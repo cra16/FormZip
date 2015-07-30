@@ -133,3 +133,18 @@ body{
   color: #FF8080;
   text-align:center;
 }
+
+
+#check_button{
+    display: block;
+    height: 30px;
+    width:90px;
+    padding: 3px 8px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #777777;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;
+    margin-bottom:9px;
+}

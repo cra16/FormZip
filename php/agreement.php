@@ -12,29 +12,23 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/agreement.css" rel="stylesheet">
 
-        <script>
-      function check_id(){
-        window.open("check_id.php?id="+document.getElementById('userid').value,
-        "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
-      }
-      function check_stuid(){
-        window.open("check_stuid.php?stuid="+document.getElementById('stuid').value,
-        "IDcheck", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
-      }
-      function checkbox(){
-        var use = document.getElementById('agree');
-        var info = document.getElementById('agree2');
+<script>
 
-        alert('use');
-        alert('info');
+function checkbox(){
+  var use = document.getElementById("agree").checked;
+  var info = document.getElementById("agree2").checked;
+  if(use==true && info==true){
+    return true;
+  }
 
-        if( use != NULL && info != NULL ){
-          return true;
-        }else{
-          return false;
-        }
-      }
-    </script>
+  else{
+    alert("약관을 확인해주세요!!!");
+    return false;
+  }
+
+}
+
+</script>
 
   </head>
   <body>
@@ -229,12 +223,12 @@
       <br>
       이 　　　름　:　이세계<br>
       소속 / 직위　:　한동대학교 CRA / FORMZIP 팀장<br>
-      E - M A I L　:　hguformzip@gmail.com    </form></div>
+      E - M A I L　:　hguformzip@gmail.com    </div>
    
   </section>
   
   <div class="col-xs-12  col-md-4 col-md-offset-4 "> 
-    <p><label><input type="checkbox" name="agree" id="agree" value="agree" checked="checked"> 약관을 모두 읽었으며 동의합니다.</label></p>
+    <p><label><input type="checkbox" name="agree" id="agree" value="agree" checked> 약관을 모두 읽었으며 동의합니다.</label></p>
   </div>
   <br>
 
@@ -379,17 +373,18 @@
     </section>
 
   <div class="col-xs-12  col-md-4 col-md-offset-4 "> 
-    <p><label><input type="checkbox" name="agree" id="agree2" value="agree" checked="checked"> 약관을 모두 읽었으며 동의합니다.</label></p>
+    <p><label><input type="checkbox" name="agree" id="agree2" value="agree" checked> 약관을 모두 읽었으며 동의합니다.</label></p>
   </div>
 
    <div class="div_yg col-xs-4 col-xs-offset-4  col-md-4 col-md-offset-7 " > 
-    <input type="submit" value="다음 단계" class = "save">
+    <button type="submit" value="다음 단계" class = "save">다음단계</button>
   </div>
     
     <div class="col-xs-12  col-md-4 col-md-offset-4 "> 
   &nbsp;
   </div>
   
+ 
 
 
 
