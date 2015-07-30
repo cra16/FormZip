@@ -161,7 +161,7 @@ else
         <div class="col-lg-8" id="showbox">
             <input type="radio" id="served" name="served" checked  style=margin:"10px" display:"none" value="YES">
             <label for="served" id="t_served1" >&nbsp;&nbsp;예&nbsp;&nbsp;</label>
-            <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none" value"NO">
+            <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none" value="NO">
             <label for="nonserved" id="t_served2">아니오</label>
         </div>
       </div>
@@ -222,7 +222,7 @@ else
     </div>
 
     <?php
-      $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='NULL'";
+      $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
       $re_query = mysqli_query($bd,$query);
       $fetch = mysqli_fetch_array($re_query);
 
