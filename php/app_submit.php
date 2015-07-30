@@ -82,7 +82,7 @@ else
   $text_name=array("content1","content2","content3","content4","content5","content6","content7");
   $stu_number = $user['stuid'];
 
-  $my_qry = "SELECT * FROM result,student WHERE AND id='$userid' AND club_name='$club' AND result.stu_id == student.stuid AND storage = '1' ";
+  $my_qry = "SELECT * FROM result WHERE club_name='$club' AND stu_id='$stu_number' AND storage = '1'";
   $my_result = mysqli_query($bd,$my_qry);
 
   //Check whether the query was successful or not
