@@ -261,8 +261,8 @@ if( $info == 1){ // 정보 존재
             <label class="col-lg-3 control-label"><?php echo $title[$i]; ?></label>
             <div class="col-lg-8">
             <textarea class="form-control" rows="3" name="<?php echo $text_name[$i]; ?>">
-              <?php echo $text_temp[$i] ?></textarea>
-            <span class="help-block"><?php echo $explain[$i]; ?></span>    
+              <?php if($text_temp[$i] != '0'){ echo $text_temp[$i]; } ?></textarea>
+            <span class="help-block"> echo $explain[$i]; ?></span>    
             </div>
           </div>  
       <?php
