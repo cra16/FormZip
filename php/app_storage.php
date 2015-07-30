@@ -114,7 +114,7 @@ if( $check ){ //제출
     $sql = "UPDATE result 
     SET name = '$name',major = '$major',p_num = '$p_num',gender = '$gender',served = '$served',mail = '$mail',
     activity = '$activity',text1 = '$content1',text2 = '$content2',text3 = '$content3',text4 = '$content4',
-    text5 = '$content5',text6 = '$content6',text7 = '$content7' storage = '0' WHERE club_name = '$club' AND stu_id = '$stuid'";
+    text5 = '$content5',text6 = '$content6',text7 = '$content7', storage = '0' WHERE club_name = '$club' AND stu_id = '$stuid'";
 
     if ($bd->query($sql) === TRUE) {
         echo "New record inserted successfully";
