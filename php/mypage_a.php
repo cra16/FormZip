@@ -58,33 +58,17 @@
      header("location: login.php");
      exit();
     }
-
-
-
-    //기본정보 Start
-
   $qry="SELECT * FROM student WHERE id='$id'";   
   $result=mysqli_query($bd,$qry);
   $list = mysqli_fetch_array($result);
-  $name = $list['student_name'];
-  $bday = $list['birth'];
+ 
  ?> 
-     
+
+
+    //기본정보 Start
    <div class = "title">
     <h4> 기본 정보</h4>
    </div>
-
-      
-      <label class="header">이름</label>
-      <input class = "content" type='text' value = "<?php echo $name; ?>" disabled>
-      <div id="divmargin"></div> 
-      <label class="header">ID</label>
-      <input class = "content" type='text' value = "<?php echo $id; ?>" disabled>
-      <div id="divmargin"></div> 
-    
-      <label class="header">생년월일</label>
-      <input class = "bday" type='text' value = "<?php echo $bday; ?>" disabled>
-      <div id="divmargin"></div>  
 
    <?php 
     //비밀번호 체크
@@ -133,67 +117,6 @@
 
 <!-- 기본 정보 End -->
 
-
-
-<!-- 지원서 리스트 Start -->
-<div>
-   <div class = "title" >
-    <h4 id = "line"> 내 지원서</h4>
-   </div>
-
-    <table align="center" class="table table-striped">
-      <thead>
-        <tr>
-          <th class = "number">번호</th>
-          <th class = "club">동아리</th>
-          <th class = "status">제출 현황</th>
-        </tr>
-      </thead>
-      <tbody>
-
-<?php
-
-  $j = 1;
-  $id = $id;
-  $qry = "SELECT * FROM student WHERE id = '$id'";
-  $stuid_result = mysqli_query($bd,$qry);
-  $stuid_array = mysqli_fetch_array($stuid_result);
-  $stuid = $stuid_array['stuid'];
-
-  $qry2 = "SELECT * FROM result WHERE stu_id = '$stuid'";
-  $result=mysqli_query($bd,$qry2);
-
-  while($list = mysqli_fetch_array($result)){
-    $clubname = $list['club_name'];
-    $storage = $list['storage'];
-
-    if($storage == '0'){
-      $storage = "제출완료";
-    }
-    else{
-      $storage = "임시저장";
-    }
-  ?>    
-        <tr id = "<?php echo $j; ?>" onclick="location.href='app_submit.php?name=<?php echo "$clubname"; ?>'">
-        <th class = "app-number" scope="row">
-          <?php echo "$j";?>
-        </th>
-         <td class = "app-club">
-          <?php echo "$clubname"; ?>
-         </td>
-        <td class = "app-status">
-          <?php echo "$storage"; ?>
-        </td>
-        </tr>
-      
-<?php
-}
-
-?> 
-      </tbody>
-    </table>
-</div>
-<!-- 지원서 리스트 Start -->
 
 
 

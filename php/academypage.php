@@ -21,6 +21,9 @@
    $_SESSION["GROUP"] = $academy_name;
   }
   else{
+     if($_SESSION['GROUP']==NULL)
+      header("location: login.php");
+
     $academy_name=$_SESSION['GROUP'];
     $_GET['name']=$academy_name;
   }
@@ -98,7 +101,28 @@
               echo '<a href="login.php">Login</a>';
           ?>
         </li>
-        <li><a href="agreement.php">Signup</a></li>
+        <li>
+          <?php
+            //로그인 여부 확인
+           if($_SESSION['USER_NAME']){
+            $id = $_SESSION['USER_NAME'];
+            $sql = "SELECT * FROM student WHERE id = '$id'";
+            $check_result = mysqli_query($bd,$sql);
+            $check = mysqli_fetch_array($check_result);
+            $cname = $check['c_name'];
+            //관리자 여부 확인
+              if($cname != NULL){
+               echo '<a href="clubpage.php">Club Page</a>';  
+              }
+              else{
+               echo '<a href="mypage.php">My Page</a>';
+              }
+            }
+            else
+              echo '<a href="agreement.php">Sign Up</a>';
+
+          ?>
+        </li>
         <li><a href="#" onclick="help()">Help</a></li>
       </ul>
     </div>
@@ -107,23 +131,6 @@
    <!-- Menubar end-->  
   
 
-<!--관리자 여부에 따른 action 위치 변경  -->
-<?php
-//관리자여부 확인
-$id = $_SESSION['USER_NAME'];
-$sql = "SELECT * FROM student WHERE id = '$id'";
-$check_result = mysqli_query($bd,$sql);
-$check = mysqli_fetch_array($check_result);
-$aname = $check['a_name'];
-
-  if($aname==$academy_name){
-    $IsManager="true";
-  }
-  else{
-    $IsManager="false";
-  }
-
-?>
   
   <div id = "wrap">
     <div id = "navigation">학회 소개:: </div>
@@ -154,6 +161,14 @@ $aname = $check['a_name'];
          <p class = "club-logo"><?php echo $academy_name; ?></p> <!-- *학회 이름 (로고)-->
         </tr>
         <?php
+         //관리자여부 확인
+           if($cname==$club_name){
+              $IsManager="true";
+            }
+            else{
+              $IsManager="false";
+            }  
+
         if($IsManager=="true")  //현재 로그인 한 사람이 관리자인 경우 실행
         {
         ?>

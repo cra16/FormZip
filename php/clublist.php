@@ -33,7 +33,7 @@
 
     <script type="text/javascript">
     function help(){
-        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
+        window.open("help.php","도움말", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
       }
     </script>
 
@@ -67,10 +67,23 @@
         </li>
         <li>
           <?php
-            if($_SESSION['USER_NAME'])
-              echo '<a href="mypage.php">My Page</a>';
+            //로그인 여부 확인
+           if($_SESSION['USER_NAME']){
+            $id = $_SESSION['USER_NAME'];
+            $sql = "SELECT * FROM student WHERE id = '$id'";
+            $check_result = mysqli_query($bd,$sql);
+            $check = mysqli_fetch_array($check_result);
+            $cname = $check['c_name'];
+            //관리자 여부 확인
+              if($cname != NULL){
+               echo '<a href="clubpage.php">Club Page</a>';  
+              }
+              else{
+               echo '<a href="mypage.php">My Page</a>';
+              }
+            }
             else
-              echo '<a href="signup.php">Sign Up</a>';
+              echo '<a href="agreement.php">Sign Up</a>';
 
           ?>
         </li>
@@ -82,13 +95,15 @@
    <!-- Menubar end-->  
 
 
-  <!-- Logo Start -->
-  <div class="container" class = "col-lg-12 col-xs-12">
-      <div id="header" class = "col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
+    <!-- Logo Start -->
+  <div class="container" class = "col-lg-4 col-xs-4">
+       <div class="col-lg-4 col-xs-4 col-md-4"></div>
+      <div id="header" class = "col-xs-4 col-lg-4">
           <a href="firstpage.php" class="h_logo">
           <img src="../img/title.png" class = "h_logo">
         </a>
       </div>
+      <div class="col-lg-4 col-xs-4 col-md-4"></div>
   </div>
   <!-- Logo End -->
 
