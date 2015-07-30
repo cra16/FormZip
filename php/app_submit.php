@@ -226,7 +226,7 @@ else
     </div>
 
     <?php
-      $query = "SELECT * FROM result WHERE stuid = 'stu_number' AND storage='NULL'";
+      $query = "SELECT * FROM result WHERE stuid = '$stu_number' AND storage='NULL'";
       $re_query = mysqli_query($bd,$query);
 
       if( $re_query != NULL ){
