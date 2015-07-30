@@ -95,7 +95,6 @@ else
       }
       else 
       {
-       echo "tmpData call failed";
        $info = 0;
       }
   }
