@@ -225,7 +225,7 @@ else
       $query = "SELECT * FROM result WHERE stuid = '$stu_number' AND storage='NULL'";
       $re_query = mysqli_query($bd,$query);
 
-      if( $re_query != NULL ){
+      if( $re_query == NULL ){
     ?>
       <div class="submit_content">
         <button type="submit" name="name" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
