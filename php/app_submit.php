@@ -224,8 +224,9 @@ else
     <?php
       $query = "SELECT * FROM result WHERE stuid = '$stu_number' AND storage='NULL'";
       $re_query = mysqli_query($bd,$query);
+      $fetch = mysqli_fetch_array($re_query);
 
-      if( $re_query == NULL ){
+      if( $fetch[0] == NULL ){
     ?>
       <div class="submit_content">
         <button type="submit" name="name" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
@@ -246,8 +247,6 @@ else
     <?php } ?>
   </form>
 </div>
-
-
 
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
