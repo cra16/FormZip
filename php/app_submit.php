@@ -95,7 +95,7 @@ else
 
       else 
       {
-       echo "Data call failed";
+       echo "tmpData call failed";
       }
   }
   else 
