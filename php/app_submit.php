@@ -226,9 +226,7 @@ else
       $re_query = mysqli_query($bd,$query);
       $fetch = mysqli_fetch_array($re_query);
 
-      echo"$fetch['stuid']";
-
-      if( $fetch[0] != NULL ){
+      if( $fetch[0] == NULL ){
     ?>
       <div class="submit_content">
         <button type="submit" name="name" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
