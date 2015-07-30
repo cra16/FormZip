@@ -221,10 +221,6 @@ else
       </div>
     </div>
 
-    <div class="submit_content">
-      <button type="submit" name="name" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
-    </div>
-
     <?php
       $query = "SELECT * FROM result WHERE stuid = '$stu_number' AND storage='NULL'";
       $re_query = mysqli_query($bd,$query);
@@ -232,10 +228,18 @@ else
       if( $re_query != NULL ){
     ?>
       <div class="submit_content">
+        <button type="submit" name="name" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
+      </div>
+
+      <div class="submit_content">
         <button type="submit" name="name" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
       </div>
     <?php
       }else{ ?>
+        <div class="submit_content">
+          <button type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>">임시저장</button>
+        </div>
+
         <div class="submit_content">
         <button type="button" name="name" id ='real' onclick="disable()" value="<?php echo $club; ?>">제출</button>
         </div>
