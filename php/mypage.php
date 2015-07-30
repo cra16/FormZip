@@ -110,12 +110,12 @@
       <div id="divmargin"></div>
 
       <label class="header">새 비밀번호</label>
-      <input class = "content" type="password" id="newp" name="newp" class="new-password" onblur="PWCheck()">
+      <input class = "content" type="password" id="newp" name="newp" class="new-password" onblur="PWCheck()" disabled>
       <div id="pw_new" class="error" style="display:none"></div>
       <div id="divmargin"></div>
 
       <label class="header">비밀번호 재입력</label>
-      <input class = "content" type="password" id="pw" name="pw" class="new-password" onblur="PsCfCheck()">
+      <input class = "content" type="password" id="pw" name="pw" class="new-password" onblur="PsCfCheck()" disabled>
       <div id="ps_ck" class="error" style="display:none"></div>
       <div id="divmargin"></div>
    

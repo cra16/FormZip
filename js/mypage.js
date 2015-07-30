@@ -11,6 +11,7 @@ function passWord(){
     {
 		document.getElementById("pw_cur").style.display="block";
 		document.getElementById("pw_cur").innerHTML="필수정보입니다";
+		document.getElementById("pw_cur").style.color="#FF8080";
 		check_arr[0]=0;
 		
 		return;
@@ -20,7 +21,7 @@ function passWord(){
 		if(now.value != current.value)
 		{
 			document.getElementById("pw_cur").style.display="block";
-			document.getElementById("pw_cur").innerHTML="비밀번호가 일치하지 않습니다";
+			document.getElementById("pw_cur").innerHTML="기존 비밀번호와 일치하지 않습니다";
 			document.getElementById("pw_cur").style.color="#FF8080";
 			check_arr[0]=0;
 		   return;
@@ -31,6 +32,9 @@ function passWord(){
 			document.getElementById("pw_cur").style.display="block";
 			document.getElementById("pw_cur").style.color="#66FF66";
 			document.getElementById("pw_cur").innerHTML="비밀번호가 일치합니다";
+			document.getElementById("newp").disabled=false;	//새 비밀번호 disabled 해제
+			document.getElementById("pw").disabled=false;	//비밀번호 재입력 disabled 해제
+
 		    check_arr[0]=1;
 		    return;
 		 
@@ -42,10 +46,13 @@ function PWCheck(){
 	var newp = document.getElementById("newp");
 	var nonchar = /^[a-z0-9]{5,15}$/g;
 
+
 	if(newp.value == "")
     {
 		document.getElementById("pw_new").style.display="block";
 		document.getElementById("pw_new").innerHTML="필수정보입니다";
+		document.getElementById("pw_new").style.color="#FF8080";
+
 		check_arr[1]=0;
 		
 		return;
@@ -54,6 +61,7 @@ function PWCheck(){
 	else if (!nonchar.test(newp.value)) {
 		document.getElementById("pw_new").style.display="block";
 		document.getElementById("pw_new").innerHTML="5~15자의 영문 소문자,숫자만 이용가능합니다.";
+		document.getElementById("pw_new").style.color="#FF8080";
      	check_arr[1]=0;
 		return;	
 	}
