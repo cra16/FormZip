@@ -222,11 +222,11 @@ else
     </div>
 
     <?php
-      $query = "SELECT * FROM result WHERE stuid = '$stu_number' AND storage='NULL'";
+      $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='NULL'";
       $re_query = mysqli_query($bd,$query);
       $fetch = mysqli_fetch_array($re_query);
 
-      if( $fetch[0] == NULL ){
+      if( $fetch[0] != NULL ){
     ?>
       <div class="submit_content">
         <button type="submit" name="name" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
