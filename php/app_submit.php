@@ -32,6 +32,10 @@ $member;
 $qry="SELECT * FROM application WHERE id='$club'";
 $result=mysqli_query($bd,$qry);
 
+$query = "SELECT storage FROM result WHERE stu_id = '$stu_number'club_name = '$club'";
+$re_query = mysqli_query($bd,$query);
+$fetch = mysqli_fetch_array($re_query);
+
 //Check whether the query was successful or not
 if($result) {
 
@@ -80,6 +84,7 @@ else
   $pass_name=array("name","stuid","major","p_num","gender","served","mail","activity");
   $text_name=array("content1","content2","content3","content4","content5","content6","content7");
   $stu_number = $user['stuid'];
+
 
 ?>
 
@@ -222,11 +227,7 @@ else
     </div>
 
     <?php
-      $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
-      $re_query = mysqli_query($bd,$query);
-      $fetch = mysqli_fetch_array($re_query);
-
-      if( $fetch[0] == NULL ){
+      if( $fetch[0] != '0' ){ 
     ?>
       <div class="submit_content">
         <button type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
@@ -236,7 +237,7 @@ else
         <button type="submit" name="real" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
       </div>
     <?php
-      }else{ ?>
+      }else{ ?> //이미 제출
         <div class="submit_content">
           <button type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>">임시저장</button>
         </div>
