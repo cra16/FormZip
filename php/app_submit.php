@@ -226,7 +226,7 @@ else
       $re_query = mysqli_query($bd,$query);
       $fetch = mysqli_fetch_array($re_query);
 
-      echo"fetch['stuid']";
+      echo"$fetch['stuid']";
 
       if( $fetch[0] != NULL ){
     ?>
