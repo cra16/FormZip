@@ -48,16 +48,11 @@ if(!$_POST['name'])
     $content7= $_POST['content7'];
 
    
-
   function test_input($data) {
      $data = trim($data);
      $data = stripslashes($data);
      $data = htmlspecialchars($data);
      return $data;
-  }
-
-  function check(){
-    alert('임시저장no');
   }
 
 
@@ -107,42 +102,71 @@ $name = $stuid_array['student_name'];
 $sql = "SELECT * FROM result WHERE club_name = '$club' AND stu_id = '$stuid'";
 $result = mysqli_query($bd,$sql);
 
-$check = $_GET['temp'];
+$check = $_GET['temp']; //임시저장
 
-if( temp == NULL){
-  check();
-}
+if( $check != NULL ){ //제출하는 경우
+  if(mysqli_num_rows($result) > 0){ //내용 업데이트
+    $sql = "UPDATE result 
+    SET name = '$name',major = '$major',p_num = '$p_num',gender = '$gender',served = '$served',mail = '$mail',
+    activity = '$activity',text1 = '$content1',text2 = '$content2',text3 = '$content3',text4 = '$content4',
+    text5 = '$content5',text6 = '$content6',text7 = '$content7', storage ='NULL' WHERE club_name = '$club' AND stu_id = '$stuid'";
 
-if(mysqli_num_rows($result) > 0){
-$sql = "UPDATE result 
-SET name = '$name',major = '$major',p_num = '$p_num',gender = '$gender',served = '$served',mail = '$mail',
-activity = '$activity',text1 = '$content1',text2 = '$content2',text3 = '$content3',text4 = '$content4',
-text5 = '$content5',text6 = '$content6',text7 = '$content7' WHERE club_name = '$club' AND stu_id = '$stuid'";
+    if ($bd->query($sql) === TRUE) {
+        echo "New record inserted successfully";
+        header("Location: ../php/clubpage.php");
+    } else {
+        echo "Error: " . $sql . "<br>" . $bd->error;
+        //header("Location: ../php/firstpage.php");
+    }
 
-if ($bd->query($sql) === TRUE) {
-    echo "New record inserted successfully";
-    header("Location: ../php/clubpage.php");
-} else {
-    echo "Error: " . $sql . "<br>" . $bd->error;
-    //header("Location: ../php/firstpage.php");
-}
+    $bd->close();
+  }
+  else{ //처음 제출
+    $sql = "INSERT INTO result (club_name,name,stu_id,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7,storage)
+    VALUES ('$club','$name','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7','NULL')";
 
-$bd->close();
+    if ($bd->query($sql) === TRUE) {
+        echo "New record created successfully";
+        header("Location: ../php/clubpage.php");
+    } else {
+        echo "Error: " . $sql . "<br>" . $bd->error;
+        //header("Location: ../php/firstpage.php");
+    }
 
-}
-else{
-$sql = "INSERT INTO result (club_name,name,stu_id,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7)
-VALUES ('$club','$name','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7')";
+    $bd->close();
+  }
+}else{ //임시저장 하는 경우
+  if(mysqli_num_rows($result) > 0){
+    $sql = "UPDATE result 
+    SET name = '$name',major = '$major',p_num = '$p_num',gender = '$gender',served = '$served',mail = '$mail',
+    activity = '$activity',text1 = '$content1',text2 = '$content2',text3 = '$content3',text4 = '$content4',
+    text5 = '$content5',text6 = '$content6',text7 = '$content7', storage='1' WHERE club_name = '$club' AND stu_id = '$stuid'";
 
-if ($bd->query($sql) === TRUE) {
-    echo "New record created successfully";
-    header("Location: ../php/clubpage.php");
-} else {
-    echo "Error: " . $sql . "<br>" . $bd->error;
-    //header("Location: ../php/firstpage.php");
-}
+    if ($bd->query($sql) === TRUE) {
+        echo "New record inserted successfully";
+        header("Location: ../php/clubpage.php");
+    } else {
+        echo "Error: " . $sql . "<br>" . $bd->error;
+        //header("Location: ../php/firstpage.php");
+    }
 
-$bd->close();
+    $bd->close();
+
+  }
+  else{
+    $sql = "INSERT INTO result (club_name,name,stu_id,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7,storage)
+    VALUES ('$club','$name','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7','1')";
+
+    if ($bd->query($sql) === TRUE) {
+        echo "New record created successfully";
+        header("Location: ../php/clubpage.php");
+    } else {
+        echo "Error: " . $sql . "<br>" . $bd->error;
+        //header("Location: ../php/firstpage.php");
+    }
+
+    $bd->close();
+    }
 }
 
 ?>
