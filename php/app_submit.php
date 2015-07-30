@@ -92,15 +92,10 @@ else
       {
         $my_temp = mysqli_fetch_assoc($my_result);  
       }
-
       else 
       {
        echo "tmpData call failed";
       }
-  }
-  else 
-  {
-    die("Query failed");
   }
 
 ?>
