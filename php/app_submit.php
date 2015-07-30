@@ -81,6 +81,14 @@ else
   $text_name=array("content1","content2","content3","content4","content5","content6","content7");
   $stu_number = $user['stuid'];
 
+  //post
+  $my_stuid = '21300739';
+  $my_club = 'CRA';
+
+  $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND club_name = '$club'";
+  $re_query = mysqli_query($bd,$query);
+  $fetch = mysqli_fetch_array($re_query);
+
 ?>
 
 <!DOCTYPE HTML> 
@@ -222,11 +230,7 @@ else
     </div>
 
     <?php
-      $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
-      $re_query = mysqli_query($bd,$query);
-      $fetch = mysqli_fetch_array($re_query);
-
-      if( $fetch[0] == NULL ){
+      if( $fetch[0] != '0' ){
     ?>
       <div class="submit_content">
         <button type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
