@@ -80,6 +80,7 @@ else
   $pass_name=array("name","stuid","major","p_num","gender","served","mail","activity");
   $text_name=array("content1","content2","content3","content4","content5","content6","content7");
   $stu_number = $user['stuid'];
+  echo"$stu_number";
 
 ?>
 
