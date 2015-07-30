@@ -100,7 +100,7 @@ else
       }
   }
 
-  $temp = array($my_temp['major'], $my_temp['p_num'], $my_temp['gender'], $my_temp['served'], $my_temp['mail'], 
+  $temp = array($my_temp['name'], $my_temp['stu_id'], $my_temp['major'], $my_temp['p_num'], $my_temp['gender'], $my_temp['served'], $my_temp['mail'], 
     $my_temp['activity'], $my_temp['text1'], $my_temp['text2'], $my_temp['text3'], $my_temp['text4'],
     $my_temp['text5'], $my_temp['text6'], $my_temp['text7']);
 
@@ -147,6 +147,7 @@ else
 <?php
 if( $info == 1){ // 정보 존재
 ?>
+echo"존재합니다!!!";
   <div class="formContentsLayout">
     <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() "> 
         <!-- short text -->
@@ -160,7 +161,8 @@ if( $info == 1){ // 정보 존재
           <input type="text" class="form-control short-length"  
           placeholder="<?php echo $question_placeholder[$i]; ?>"
                  style="display:block" id="<?php echo $pass_name[$i]; ?>" 
-      <?php if($i < 2){?> disabled title="변경 불가한 항목입니다." <?php } ?> name="<?php echo $pass_name[$i]; ?>"> 
+      <?php if($i < 2){?> disabled title="변경 불가한 항목입니다." <?php } ?> 
+      <?php if($i > 1)?> value = <?php echo $temp[$i]; ?> name="<?php echo $pass_name[$i]; ?>"> 
         </div>
       </div>  
 
