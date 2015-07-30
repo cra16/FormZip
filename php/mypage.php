@@ -153,6 +153,7 @@
   while($list = mysqli_fetch_array($result)){
     $clubname = $list['club_name'];
   ?>
+      <form action = 'app_submit.php' method = 'POST'>
         <tr id = '$j' class = "clickable-row" data-href='firstpage.html'>
         <th class = "app-number" scope="row">
           <?php echo "$j";?>
@@ -161,9 +162,16 @@
           <?php echo "$clubname"; ?>
          </td>
         <td class = "app-status">
-          <?php echo "제출중"; ?>
+          <?php 
+            if($list['storage'] == '0'){
+              echo "제출완료";
+            }else{
+              echo "제출중";
+            }
+            ?>
         </td>
         </tr>
+      </form>
 <?php
 }
 
