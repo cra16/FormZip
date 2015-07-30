@@ -107,7 +107,7 @@ $name = $stuid_array['student_name'];
 $sql = "SELECT * FROM result WHERE club_name = '$club' AND stu_id = '$stuid'";
 $result = mysqli_query($bd,$sql);
 
-$check = $_GET['real']; //제출값 return
+$check = $_POST['real']; //제출값 return
 
 if( $check ){ //제출
   if(mysqli_num_rows($result) > 0){
