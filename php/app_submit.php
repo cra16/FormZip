@@ -237,8 +237,8 @@ if( $info == 1){ // 정보 존재
           <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
           <div class="col-lg-8">
             <input type="text" class="form-control short-length"  
-            placeholder="<?php echo $question_placeholder[$i]; ?>" value = <?php echo $pass_temp[$i]; ?>
-                   style="display:block" id="<?php echo $pass_name[$i]; ?>" name="<?php echo $pass_name[$i]; ?>">
+            placeholder="<?php echo '$question_placeholder[$i]'; ?>" value = <?php echo '$pass_temp[$i]'; ?>
+                   style="display:block" id="<?php echo '$pass_name[$i]'; ?>" name="<?php echo '$pass_name[$i]'; ?>">
              </div>
         </div>  
       <?php
