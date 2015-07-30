@@ -161,8 +161,9 @@ if( $info == 1){ // 정보 존재
           <input type="text" class="form-control short-length"  
           placeholder="<?php echo $question_placeholder[$i]; ?>"
                  style="display:block" id="<?php echo $pass_name[$i]; ?>" 
-      <?php if($i < 2){?> disabled title="변경 불가한 항목입니다." <?php } ?> 
-      <?php if($i > 1)?> value = <?php echo $temp[$i]; ?> name="<?php echo $pass_name[$i]; ?>"> 
+        <?php if($i < 2){?> disabled title="변경 불가한 항목입니다." <?php } ?> 
+        name="<?php echo $pass_name[$i]; ?>"
+        <?php if($i > 1)?> value = <?php echo $temp[$i]; ?> > 
         </div>
       </div>  
 
