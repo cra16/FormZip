@@ -49,6 +49,7 @@ else
 {
   die("Query failed");
 }
+
 $qry="SELECT * FROM student WHERE id='$userid'";
 $result=mysqli_query($bd,$qry);
 
@@ -85,9 +86,26 @@ else
   $my_stuid = '21300739';
   $my_club = 'CRA';
 
-  $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND club_name = '$club'";
-  $re_query = mysqli_query($bd,$query);
-  $fetch = mysqli_fetch_array($re_query);
+  $my_qry = "SELECT * FROM result WHERE stu_id = '$my_stuid' AND club_name = '$my_club' AND storage = '1' ";
+  $my_result = mysqli_query($bd,$my_qry);
+
+  //Check whether the query was successful or not
+  if($my_result) {
+
+      if(mysqli_num_rows($my_result) > 0) 
+      {
+        $my_temp = mysqli_fetch_assoc($my_result);  
+      }
+
+      else 
+      {
+       echo "Data call failed";
+      }
+  }
+  else 
+  {
+    die("Query failed");
+  }
 
 ?>
 
@@ -230,7 +248,11 @@ else
     </div>
 
     <?php
-      if( $fetch[0] != '0' ){
+      $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
+      $re_query = mysqli_query($bd,$query);
+      $fetch = mysqli_fetch_array($re_query);
+
+      if( $fetch[0] == NULL ){
     ?>
       <div class="submit_content">
         <button type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
