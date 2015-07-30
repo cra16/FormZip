@@ -146,7 +146,7 @@
 
   $i = 0;
   $j = 1;
-  $id = "21300739";
+  $id = "21305478";
   $qry2 = "SELECT * FROM result WHERE stu_id = '$id'";
   $result=mysqli_query($bd,$qry2);
 
