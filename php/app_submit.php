@@ -28,11 +28,10 @@ if(!$_GET['name'])
 }
 
 $club= $_SESSION["GROUP"];
-$member;
 $qry="SELECT * FROM application WHERE id='$club'";
 $result=mysqli_query($bd,$qry);
 
-$query = "SELECT storage FROM result WHERE stu_id = '$stu_number'club_name = '$club'";
+$query = "SELECT storage FROM result WHERE stu_id = '$stu_number' AND club_name = '$club'";
 $re_query = mysqli_query($bd,$query);
 $fetch = mysqli_fetch_array($re_query);
 
@@ -43,7 +42,6 @@ if($result) {
     {
       $member = mysqli_fetch_assoc($result);  
     }
-
     else 
     {
      echo "Data call failed";
