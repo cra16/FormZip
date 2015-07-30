@@ -162,7 +162,7 @@
         </tr>
         <?php
          //관리자여부 확인
-           if($cname==$club_name){
+           if($cname==$academy_name){
               $IsManager="true";
             }
             else{
