@@ -70,7 +70,6 @@ else
   die("Query failed");
 }
 
-
 //Sanitize the POST values
   $short_info=array("use","use","use","use","use",$member['served'],$member['mail'],$member['activity']);
   $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$member['sr5'],$member['sr6'],$member['sr7']);
@@ -80,9 +79,8 @@ else
   $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7']);
   $pass_name=array("name","stuid","major","p_num","gender","served","mail","activity");
   $text_name=array("content1","content2","content3","content4","content5","content6","content7");
+  $stu_number = $user['stuid'];
 
-  //$storage = $_GET['storage']; //1일 경우, 임시저장
-  $storage = 1;
 ?>
 
 <!DOCTYPE HTML> 
@@ -108,6 +106,9 @@ else
         if(result == false){
             return false;
         }
+      }
+      function disable(){
+        alert('이미 제출하셨습니다');
       }
     </script>
 
@@ -220,13 +221,29 @@ else
       </div>
     </div>
 
-    <div class="submit_content">
-      <button type="submit" name="name" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
-    </div>
+    <?php
+      $query = "SELECT * FROM result WHERE stuid = '$stu_number' AND storage='NULL'";
+      $re_query = mysqli_query($bd,$query);
 
-    <div class="submit_content">
-      <button type="submit" name="name" id ='real' value="<?php echo $club; ?>">제출</button>
-    </div>
+      if( $re_query != NULL ){
+    ?>
+      <div class="submit_content">
+        <button type="submit" name="name" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
+      </div>
+
+      <div class="submit_content">
+        <button type="submit" name="name" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
+      </div>
+    <?php
+      }else{ ?>
+        <div class="submit_content">
+          <button type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>">임시저장</button>
+        </div>
+
+        <div class="submit_content">
+        <button type="button" name="name" id ='real' onclick="disable()" value="<?php echo $club; ?>">제출</button>
+        </div>
+    <?php } ?>
   </form>
 </div>
 
