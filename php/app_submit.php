@@ -237,9 +237,9 @@ if( $info == 1){ // 정보 존재
         <div class="form-group">
           <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
           <div class="col-lg-8">
-            <input type="text" class="form-control short-length"  
-            placeholder="<?php echo $question_placeholder[$i]; ?>" value = <?php echo $temp[$i]; ?>
-                   style="display:block" id="<?php echo $pass_name[$i]; ?>" name="<?php echo $pass_name[$i]; ?>">
+            <input type="text" class="form-control short-length" placeholder="<?php echo $question_placeholder[$i]; ?>" 
+                   style="display:block" id="<?php echo $pass_name[$i]; ?>" name="<?php echo $pass_name[$i]; ?>"
+                   value = <?php echo $temp[$i]; ?> >
              </div>
         </div>  
       <?php
@@ -260,7 +260,7 @@ if( $info == 1){ // 정보 존재
           <div class="form-group">
             <label class="col-lg-3 control-label"><?php echo $title[$i]; ?></label>
             <div class="col-lg-8">
-            <textarea class="form-control" rows="3" value = <?php echo $temp[$i]; ?> name="<?php echo $text_name[$i]; ?>"></textarea>
+            <textarea class="form-control" rows="3" name="<?php echo $text_name[$i]; ?>" value = <?php echo $text_temp[$i]; ?>></textarea>
             <span class="help-block"><?php echo $explain[$i]; ?></span>    
             </div>
           </div>  
