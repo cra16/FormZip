@@ -109,7 +109,7 @@ $result = mysqli_query($bd,$sql);
 
 $check = $_GET['real']; //제출값 return
 
-if( $check != NULL ){ //제출
+if( $check ){ //제출
   if(mysqli_num_rows($result) > 0){
     $sql = "UPDATE result 
     SET name = '$name',major = '$major',p_num = '$p_num',gender = '$gender',served = '$served',mail = '$mail',
