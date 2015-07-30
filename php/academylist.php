@@ -62,7 +62,28 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
           ?>
 
         </li>       
-        <li><a href="agreement.php">Signup</a></li>
+        <li>
+          <?php
+            //로그인 여부 확인
+           if($_SESSION['USER_NAME']){
+            $id = $_SESSION['USER_NAME'];
+            $sql = "SELECT * FROM student WHERE id = '$id'";
+            $check_result = mysqli_query($bd,$sql);
+            $check = mysqli_fetch_array($check_result);
+            $cname = $check['c_name'];
+            //관리자 여부 확인
+              if($cname != NULL){
+               echo '<a href="clubpage.php">Club Page</a>';  
+              }
+              else{
+               echo '<a href="mypage.php">My Page</a>';
+              }
+            }
+            else
+              echo '<a href="agreement.php">Sign Up</a>';
+
+          ?>
+        </li>
         <li><a href="#" onclick = "help()">Help</a></li>
       </ul>
     </div>
