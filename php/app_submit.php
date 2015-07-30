@@ -42,7 +42,7 @@ if($result) {
 
     else 
     {
-     echo "Data call failed";
+     echo "지원기간이 아닙니다";
     }
 }
 else 
