@@ -79,6 +79,7 @@ else
   $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7']);
   $pass_name=array("name","stuid","major","p_num","gender","served","mail","activity");
   $text_name=array("content1","content2","content3","content4","content5","content6","content7");
+  $stu_number = $user['stuid'];
 
 ?>
 
@@ -225,7 +226,7 @@ else
     </div>
 
     <?php
-      $query = "SELECT * FROM result WHERE stuid = '$user['stuid']' AND storage='NULL'";
+      $query = "SELECT * FROM result WHERE stuid = 'stu_number' AND storage='NULL'";
       $re_query = mysqli_query($bd,$query);
 
       if( $re_query != NULL ){
