@@ -163,7 +163,7 @@ if( $info == 1){ // 정보 존재
                  style="display:block" id="<?php echo $pass_name[$i]; ?>" 
         <?php if($i < 2){?> disabled title="변경 불가한 항목입니다." <?php } ?> 
         name="<?php echo $pass_name[$i]; ?>"
-        <?php if($i > 1)?> value = <?php echo $temp[$i]; ?> > 
+        <?php if($i > 1)?> value = '<?php echo $pass_temp[$i]; ?>' > 
         </div>
       </div>  
 
@@ -175,13 +175,13 @@ if( $info == 1){ // 정보 존재
         <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
         <div class="col-lg-8">
           <?php
-          if($temp[$i] == 'man'){ //정보존재 ?>
+          if($pass_temp[$i] == 'man'){ //정보존재 ?>
             <input type="radio" id="man" name="gender" value="man" checked  style=margin:"10px" display:"none">
             <label for="man">남자</label>
             <input type="radio" id="woman" name="gender"value="woman" style=margin:"10px" display:"none">
             <label for="woman">여자</label>
           <?php
-        }else if($temp[$i] == 'woman'){ ?>
+        }else if($pass_temp[$i] == 'woman'){ ?>
             <input type="radio" id="man" name="gender" value="man" style=margin:"10px" display:"none">
             <label for="man">남자</label>
             <input type="radio" id="woman" name="gender" value="woman" checked style=margin:"10px" display:"none">
@@ -190,7 +190,7 @@ if( $info == 1){ // 정보 존재
         }else{ ?>
             <input type="radio" id="man" name="gender" value="man" style=margin:"10px" display:"none">
             <label for="man">남자</label>
-            <input type="radio" id="woman" name="gender" value="woman" checked style=margin:"10px" display:"none">
+            <input type="radio" id="woman" name="gender" value="woman" style=margin:"10px" display:"none">
             <label for="woman">여자</label>
           <?php
         } ?>
@@ -205,13 +205,13 @@ if( $info == 1){ // 정보 존재
           <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
           <div class="col-lg-8" id="showbox">
             <?php
-            if($temp[$i] == 'YES'){ // 정보존재?>
+            if($pass_temp[$i] == 'YES'){ // yes ?>
               <input type="radio" id="served" name="served" checked  style=margin:"10px" display:"none" value="YES">
               <label for="served" id="t_served1" >&nbsp;&nbsp;예&nbsp;&nbsp;</label>
               <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none" value="NO">
               <label for="nonserved" id="t_served2">아니오</label>
             <?php
-            }else if($temp[$i] == 'NO'){ ?>
+            }else if($pass_temp[$i] == 'NO'){ //no ?>
               <input type="radio" id="served" name="served" style=margin:"10px" display:"none" value="YES">
               <label for="served" id="t_served1" >&nbsp;&nbsp;예&nbsp;&nbsp;</label>
               <input type="radio" id="nonserved" name="served" checked style=margin:"10px" display:"none" value="NO">
@@ -239,7 +239,7 @@ if( $info == 1){ // 정보 존재
           <div class="col-lg-8">
             <input type="text" class="form-control short-length" placeholder="<?php echo $question_placeholder[$i]; ?>" 
                    style="display:block" id="<?php echo $pass_name[$i]; ?>" name="<?php echo $pass_name[$i]; ?>"
-                   value = <?php echo $temp[$i]; ?> >
+                   value = '<?php echo $pass_temp[$i]; ?>' >
              </div>
         </div>  
       <?php
@@ -260,7 +260,7 @@ if( $info == 1){ // 정보 존재
           <div class="form-group">
             <label class="col-lg-3 control-label"><?php echo $title[$i]; ?></label>
             <div class="col-lg-8">
-            <textarea class="form-control" rows="3" name="<?php echo $text_name[$i]; ?>" value = <?php echo $text_temp[$i]; ?>></textarea>
+            <textarea class="form-control" rows="3" name="<?php echo $text_name[$i]; ?>" value = '<?php echo $text_temp[$i]; ?>'></textarea>
             <span class="help-block"><?php echo $explain[$i]; ?></span>    
             </div>
           </div>  
