@@ -167,7 +167,7 @@
     $clubname = $list['club_name'];
     $storagee = $list['storage'];
 
-    if($storage == NULL){
+    if($storage == '0' ){
       $storage = "제출완료";
     }
     else{
