@@ -82,7 +82,7 @@ else
   $text_name=array("content1","content2","content3","content4","content5","content6","content7");
   $stu_number = $user['stuid'];
 
-  $my_qry = "SELECT * FROM result WHERE club_name='$club' AND stu_id='$stu_number' AND storage = '1'";
+  $my_qry = "SELECT * FROM result WHERE club_name='$club' AND stu_id='$stu_number'";
   $my_result = mysqli_query($bd,$my_qry);
 
   //Check whether the query was successful or not
@@ -147,7 +147,6 @@ else
 <?php
 if( $info == 1){ // 정보 존재
 ?>
-echo"존재합니다!!!";
   <div class="formContentsLayout">
     <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() "> 
         <!-- short text -->
@@ -237,7 +236,7 @@ echo"존재합니다!!!";
           <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
           <div class="col-lg-8">
             <input type="text" class="form-control short-length"  
-            placeholder="<?php echo $question_placeholder[$i]; ?>"
+            placeholder="<?php echo $question_placeholder[$i]; ?>" value = <?php echo $temp[$i]; ?>
                    style="display:block" id="<?php echo $pass_name[$i]; ?>" name="<?php echo $pass_name[$i]; ?>">
              </div>
         </div>  
@@ -259,7 +258,7 @@ echo"존재합니다!!!";
           <div class="form-group">
             <label class="col-lg-3 control-label"><?php echo $title[$i]; ?></label>
             <div class="col-lg-8">
-            <textarea class="form-control" rows="3" name="<?php echo $text_name[$i]; ?>"></textarea>
+            <textarea class="form-control" rows="3" value = <?php echo $temp[$i]; ?> name="<?php echo $text_name[$i]; ?>"></textarea>
             <span class="help-block"><?php echo $explain[$i]; ?></span>    
             </div>
           </div>  
