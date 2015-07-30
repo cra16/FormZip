@@ -158,7 +158,7 @@ if( $info == 1){ // 정보 존재
         <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
         <div class="col-lg-8">
           <input type="text" class="form-control short-length"  
-          placeholder="<?php if($temp[$i] !=0){ echo $temp[$i]; }else{ echo $question_placeholder[$i]; } ?>"
+          placeholder="<?php echo $question_placeholder[$i]; ?>"
                  style="display:block" id="<?php echo $pass_name[$i]; ?>" 
       <?php if($i < 2){?> disabled title="변경 불가한 항목입니다." <?php } ?> name="<?php echo $pass_name[$i]; ?>"> 
         </div>
@@ -235,7 +235,7 @@ if( $info == 1){ // 정보 존재
           <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
           <div class="col-lg-8">
             <input type="text" class="form-control short-length"  
-            placeholder="<?php if($temp[$i] != '0'){ echo $temp[$i]; }else{ echo $question_placeholder[$i]; } ?>"
+            placeholder="<?php echo $question_placeholder[$i]; ?>"
                    style="display:block" id="<?php echo $pass_name[$i]; ?>" name="<?php echo $pass_name[$i]; ?>">
              </div>
         </div>  
