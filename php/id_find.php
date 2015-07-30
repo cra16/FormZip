@@ -14,8 +14,6 @@
   mysqli_set_charset($bd, "utf8");
 
   mysqli_select_db($bd,DB_NAME) or die("Could not select database");
-
-
 ?>
 
 
@@ -32,6 +30,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/id_find.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../img/logo.png" />
   </head>
 <body>
 
@@ -71,7 +70,7 @@
   <!-- Logo Start -->
   <div class="container" class = "col-lg-12 col-xs-12">
       
-      <div id="header" class = "col-xs-8 col-xs-offset-1 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
+      <div id="header" class = "col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
           <a href="firstpage.php" class="h_logo">
           <img src="../img/title.png" class = "h_logo">
         </a>
@@ -88,15 +87,15 @@
       <div id="title"> <h2> 아이디 찾기 </h2> </div>
         <table>
           <tr>
-            <td><label class="col-lg-2 control--">이름</label></td>
+            <td><label> 이름</label></td>
             <td><input type="text" class="form-control short-length" name="name"  placeholder="Name"></td>
           </tr>
           <tr>
-            <td><label class="col-lg-4 control-label">학번</label></td>
+            <td><label >학번</label></td>
             <td><input type="text" class="form-control short-length" name="stuid" placeholder="Stuid ex)21200000" maxlength="8"> </td>
           </tr>
           <tr>
-            <td> <label class="col-lg-4 control-label">생년월일</label></td>
+            <td> <label>생년월일</label></td>
             <td><input type="text" class="form-control short-length" name="birth" placeholder="6자리 입력 ex)930102" maxlength="6"></td>
           </tr>
         </table>
