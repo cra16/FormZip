@@ -118,6 +118,7 @@ function due(){
 	var d_month = document.getElementById('month');
 	var d_day = document.getElementById('day');
 
+
 	if( s_month.value > d_month.value )
 	{
 	  alert('시작일이 제출일보다 느립니다');
@@ -126,7 +127,8 @@ function due(){
 
 	else if( s_month.value == d_month.value )
 	{
-	  if( s_day > d_day){
+
+	  if( s_day.value > d_day.value){
 	    alert('시작일이 제출일보다 느립니다');
 	    return false;
 	  }
