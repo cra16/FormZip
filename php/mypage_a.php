@@ -65,7 +65,7 @@
  ?> 
 
 
-    //기본정보 Start
+    <!-- 기본정보 Start -->
    <div class = "title">
     <h4> 기본 정보</h4>
    </div>
