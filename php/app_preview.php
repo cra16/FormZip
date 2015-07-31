@@ -172,7 +172,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <?php echo $member['s_month']; ?>월 <?php echo $member['s_day']; ?>일 부터
-        <?php echo $member['month']; ?>월 <?php echo $member['date']; ?>일 까지
+        <?php echo $member['month']; ?>월 <?php echo $member['day']; ?>일 까지
       </div>
     </div>
 
