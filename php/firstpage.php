@@ -32,7 +32,7 @@ session_start();
 
     <script type="text/javascript">
       function help(){
-        window.open("help.php","도움말", "left=200, top=200, width=400, height=470 , scrollbars=no, resizable=yes");
+        window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
       }
     </script>
 
