@@ -8,7 +8,6 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
 
 ?>
 
-
 <!DOCTYPE HTML> 
 <html>
 
@@ -26,10 +25,10 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
 
     <script>
       function due(){
-        $s_month = document.getElementById('s_month').value;
-        $s_day = document.getElementById('s_day').value;
-        $d_month = document.getElementById('month').value;
-        $d_day = document.getElementById('day').value;
+        $s_month = document.getElementById("s_month");
+        $s_day = document.getElementById("s_day");
+        $d_month = document.getElementById('month');
+        $d_day = document.getElementById('day');
 
         if( $s_month > $d_month ){
           alert('시작일이 제출일보다 느립니다');
@@ -44,7 +43,6 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
         }
       }
     </script>
-
   </head>
 
 <body> 
@@ -61,8 +59,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
   </div>
   <!-- 지원서 내부 -->
 <div class="formContentsLayout">
-  <form method="POST" action="app_exec.php" class="form-horizontal"> 
-
+  <form method="POST" onsubmit = "due()" action="app_exec.php" class="form-horizontal"> 
 
     <!-- short text -->
     <!-- 이름 / 학번 / 학과 / 전화번호 -->
@@ -207,7 +204,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     </div>
 
     <div class="submit_content">
-      <button  type="submit">만들기</button>
+      <button type="submit">만들기</button>
     </div>
   </form>
 </div>
