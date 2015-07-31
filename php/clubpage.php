@@ -203,7 +203,7 @@
           {   
             $qry_d = "SELECT * FROM application WHERE id = '$club_name'";
             $result_d = mysqli_query($bd,$qry_e);
-            $due = mysqli_fetch_assoc($result_e);
+            $due = mysqli_fetch_array($result_e);
 
             $now_month = date("m",time());
             $now_day = date("j",time());
