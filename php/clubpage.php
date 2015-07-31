@@ -201,13 +201,12 @@
         {
           if($id) // 로그인을 한 경우 지원하기 가능
           {   
-            $qry_d = "SELECT month, day FROM application WHERE id = '$club_name'";
+            $qry_d = "SELECT * FROM application WHERE id = '$club_name'";
             $result_d = mysqli_query($bd,$qry_e);
             $due = mysqli_fetch_assoc($result_e);
 
             $now_month = date("m",time());
             $now_day = date("j",time());
-            $now_day++;
 
             echo $due['month'];
             echo $due['day'];
