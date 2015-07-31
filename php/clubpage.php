@@ -205,11 +205,22 @@
             $result_d = mysqli_query($bd,$qry_e);
             $due = mysqli_fetch_assoc($result_e);
             $d_month = date("m",time());
-            $d_day = date("j",time()+1);
+            $d_day = date("j",time());
+            $d_day++;
+            $d_month = (int)$d_month;
+            $d_day = (int)$d_day;
 
-            if( $exist['month'] <= $d_month ){
-              if( $exist['day'] <= $d_day ){
-                exist = 1;
+            $exist = 0;
+
+            if( $due['month'] == NULL || $due['day'] == NULL){
+                exist = 0;
+            }
+
+            if( $d_month < $due['month'] ){
+              $exist = 1;
+            }else if($d_month == $due['month']){
+              if($d_day <= $due['day']){
+                $exist = 1;
               }
             }
 
