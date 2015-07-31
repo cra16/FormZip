@@ -204,26 +204,8 @@
             $qry_d = "SELECT month, day FROM application WHERE id = '$club_name'";
             $result_d = mysqli_query($bd,$qry_e);
             $due = mysqli_fetch_assoc($result_e);
-            $d_month = date("m",time());
-            $d_day = date("j",time());
-            $d_day++;
-            $d_month = (int)$d_month;
-            $d_day = (int)$d_day;
-
-            $exist = 0;
-
-            if( $due['month'] == NULL || $due['day'] == NULL){
-                exist = 0;
-            }
-
-            if( $d_month < $due['month'] ){
-              $exist = 1;
-            }else if($d_month == $due['month']){
-              if($d_day <= $due['day']){
-                $exist = 1;
-              }
-            }
-
+            $exist = 1;
+            
             if( exist == 1 ){ // 지원기간일 경우
         ?>  
               <form action="app_submit.php" method="GET">
