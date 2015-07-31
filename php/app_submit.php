@@ -133,23 +133,6 @@ else
       function disable(){
         alert('이미 제출하셨습니다');
       }
-<<<<<<< HEAD
-
-      function help(){
-        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
-=======
-      function ok2(){
-        var message = "임시저장하시겠습니까?";
-        var result = confirm(message);
-
-        if(result == false){
-            return false;
-        }
-      }
-      function disable(){
-        alert('이미 제출하셨습니다');
->>>>>>> a76cd7665ab289c53d38775f3b0f4179020e4396
-      }
     </script>
 
   </head>
@@ -168,8 +151,7 @@ if( $info == 1){ // 정보 존재
     <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() "> 
         <!-- short text -->
       <?php
-      for($i = 0; $i<4; $i++)
-      {
+      for($i = 0; $i<4; $i++){
       ?>
       <div class="form-group">
         <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
@@ -177,7 +159,7 @@ if( $info == 1){ // 정보 존재
           <input type="text" class="form-control short-length"  
           placeholder="<?php echo $question_placeholder[$i]; ?>"
                  style="display:block" id="<?php echo $pass_name[$i]; ?>" 
-        <?php if($i < 2){?> disabled title="변경 불가한 항목입니다." <?php } ?> 
+        <?php if($i < 2) ?> disabled title="변경 불가한 항목입니다."  
         name="<?php echo $pass_name[$i]; ?>"
         <?php if($i > 1)?> value = '<?php echo $pass_temp[$i]; ?>' > 
         </div>
@@ -293,7 +275,7 @@ if( $info == 1){ // 정보 존재
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
-          <?php echo $member['month'];?>월 <?php echo $member['day'];?>까지
+          <?php echo $member['month'];?>월 <?php echo $member['date'];?>까지
         </div>
       </div>
 
@@ -305,7 +287,7 @@ if( $info == 1){ // 정보 존재
         if( $fetch[0] == NULL ){
       ?>
         <div class="submit_content">
-          <button type="submit" name="temp" id = 'temp' onsubmit ="ok2()" value="<?php echo $club; ?>">임시저장</button>
+          <button type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
         </div>
 
         <div class="submit_content">
@@ -421,7 +403,7 @@ if( $info == 1){ // 정보 존재
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
-          <?php echo $member['month'];?>월 <?php echo $member['day'];?>까지
+          <?php echo $member['month'];?>월 <?php echo $member['date'];?>까지
         </div>
       </div>
 
@@ -433,7 +415,7 @@ if( $info == 1){ // 정보 존재
         if( $fetch[0] == NULL ){
       ?>
         <div class="submit_content">
-          <button type="submit" name="temp" id = 'temp' onsubmit ="ok2()" value="<?php echo $club; ?>">임시저장</button>
+          <button type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
         </div>
 
         <div class="submit_content">
