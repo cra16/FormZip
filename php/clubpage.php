@@ -217,6 +217,9 @@
             $now_day = (int)$now_day;
             $exist = 0;
 
+            if( due['month'] == NULL || due['day'] == NULL || due['s_day'] == NULL || due['s_month'] == NULL ){
+              $exist = 0;
+            }else{
               if( $now_month > $due['s_month'] && $now_month < $due['month'] ){
                 $exist = 1;
               }else if($now_month == $due['month'] || $now_month >= due['s_month']){
@@ -228,6 +231,7 @@
                   $exist = 1;
                 }
               }
+            }
             
               if( $exist == 1 ){ // 지원기간일 경우
           ?>  
