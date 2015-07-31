@@ -181,11 +181,6 @@
           </form>
         </tr>
         <tr>
-          <form action="mypage_a.php" method="GET">
-           <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">비밀번호 수정</button>
-          </form>
-        </tr>
-        <tr>
           <form action="app_make.php" method="GET">
             <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원서 만들기</button>
           </form>
@@ -217,31 +212,34 @@
             $now_day = (int)$now_day;
             $exist = 0;
 
-            if($now_month < $due['month']){
-              $exist = 1;
-            }else if($now_month == $due['month']){
-              if($now_day <= $due['day']){
+              if($now_month < $due['month']){
                 $exist = 1;
+              }else if($now_month == $due['month']){
+                if($now_day <= $due['day']){
+                  $exist = 1;
+                }
               }
-            }
+
+              echo $exist;
+              echo ': result';
             
-            if( exist == 1 ){ // 지원기간일 경우
-        ?>  
-              <form action="app_submit.php" method="GET">
-              <tr>
-                <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원하기</button>
-              </tr>
-              </from>
-              <?php
-            }
-            else{ //지원기간이 아닐 경우 ?>
-              <form >
-              <tr>
-                <button class = "club-apply-bt" type="button" name="name" onclick = "nonexist()" value="지원하기">지원하기</button>
-              </tr>
-              </from>
-              <?php
-           }
+              if( exist == 1 ){ // 지원기간일 경우
+          ?>  
+                <form action="app_submit.php" method="GET">
+                <tr>
+                  <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원하기</button>
+                </tr>
+                </from>
+                <?php
+              }
+              else{ //지원기간이 아닐 경우 ?>
+                <form >
+                <tr>
+                  <button class = "club-apply-bt" type="button" name="name" onclick = "nonexist()" value="지원하기">지원하기</button>
+                </tr>
+                </from>
+                <?php
+             }
 
           }
           else // 로그인을 하지 않은경우 지원하기 불가능
