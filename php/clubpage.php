@@ -217,10 +217,14 @@
             $now_day = (int)$now_day;
             $exist = 0;
 
-              if($now_month < $due['month']){
+              if( $now_month > $due['s_month'] && $now_month < $due['month'] ){
                 $exist = 1;
-              }else if($now_month == $due['month']){
+              }else if($now_month == $due['month'] || $now_month >= due['s_month']){
                 if($now_day <= $due['day']){
+                  $exist = 1;
+                }
+              }else if($now_month == due['s_month'] || $now_month <= due['month']){
+                if($now_day >= due['s_day']){
                   $exist = 1;
                 }
               }
