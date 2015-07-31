@@ -204,7 +204,18 @@
             $qry_d = "SELECT month, day FROM application WHERE id = '$club_name'";
             $result_d = mysqli_query($bd,$qry_e);
             $due = mysqli_fetch_assoc($result_e);
-            $exist = 1;
+
+            $now_month = date("m",time());
+            $now_day = date("j",time());
+            $now_day++;
+
+            echo $due['month'];
+            echo $due['day'];
+            echo '<br/>';
+
+            echo $now_month;
+            echo $now_day;
+            echo '<br/>';
             
             if( exist == 1 ){ // 지원기간일 경우
         ?>  
