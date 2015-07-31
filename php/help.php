@@ -20,7 +20,7 @@ mysqli_query("set session character_set_client=utf8;");
   </head>
 <body>
  <section class = "content-text">
-  <h4 class = "title">Contact Us:</h4>
+  <h4 class = "title">Contact us!</h4>
    <ul>
  	<li>email: hguformzip@gmail.com
  	<li>cell-phone:
