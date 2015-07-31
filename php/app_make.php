@@ -61,7 +61,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
   </div>
   <!-- 지원서 내부 -->
 <div class="formContentsLayout">
-  <form method="POST" action="app_exec.php" class="form-horizontal" onsubmit = "due()"> 
+  <form method="POST" action="app_exec.php" class="form-horizontal"> 
 
 
     <!-- short text -->
@@ -207,7 +207,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     </div>
 
     <div class="submit_content">
-      <button type="submit">만들기</button>
+      <button  type="submit">만들기</button>
     </div>
   </form>
 </div>
