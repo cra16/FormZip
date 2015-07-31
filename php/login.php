@@ -36,7 +36,7 @@
   <!-- Logo End -->
 
 
-    <div class="loginbox">
+    <div id="containbox">
      <div class="join_content">
       <form name="loginform" action="login_exec.php" method="POST">
         <div class="form-group">
@@ -58,6 +58,7 @@
             <a href="pw_find.php">비밀번호 찾기 </a>
             </div>
         </div> 
+
         <?php
           if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
            echo '<ul class="err">';
@@ -69,21 +70,17 @@
           }
         ?>
 
+       </div>
       </div>
       <div id="divmargin"></div>
 
       <div class="submit_content">
+
         <button type="submit">Log in</button>
       </div>
 
-      <div id="divmargin"></div>
-
-
-
       </form>
     </div>
-
-  </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
