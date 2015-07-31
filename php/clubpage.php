@@ -208,13 +208,17 @@
             $now_month = date("m",time());
             $now_day = date("j",time());
 
-            echo $due['month'];
-            echo $due['day'];
-            echo '<br/>';
+            $now_month = (int)$now_month;
+            $now_day = (int)$now_day;
+            $exist = 0;
 
-            echo $now_month;
-            echo $now_day;
-            echo '<br/>';
+            if($now_month < $due['month']){
+              $exist = 1;
+            }else if($now_month == $due['month']){
+              if($now_day <= $due['day']){
+                $exist = 1;
+              }
+            }
             
             if( exist == 1 ){ // 지원기간일 경우
         ?>  
