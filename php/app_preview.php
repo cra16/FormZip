@@ -64,6 +64,27 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/app_make.css" rel="stylesheet">
 
+    <script>
+      function due(){
+        $s_month = document.getElementById('s_month').value;
+        $s_day = document.getElementById('s_day').value;
+        $d_month = document.getElementById('month').value;
+        $d_day = document.getElementById('day').value;
+
+        if( $s_month > $d_month ){
+          alert('시작일이 제출일보다 느립니다');
+          return false;
+        }else if( $s_month == $d_month ){
+          if( $s_day > $d_day){
+            alert('시작일이 제출일보다 느립니다');
+            return false;
+          }
+        }else{
+          return true;
+        }
+      }
+    </script>
+
   </head>
 
 <body> 
@@ -177,7 +198,7 @@
     </div>
 
     <div class="submit_content">
-      <button type="submit">확인</button>
+      <button onsubmit = "due()" type="submit">확인</button>
     </div>
   </form>
 </div>
