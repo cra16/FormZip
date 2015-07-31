@@ -124,6 +124,36 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
       }
     ?>
 
+    <!-- start day -->
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">제출기한</label>
+      <div class="col-lg-10">
+        <select class="form-control button-length" name="s_month">
+        <?php
+          for($i = 1; $i<13; $i++)
+          {
+        ?>
+          <option value="<?php echo $i; ?>"><?php echo $i; ?>월</option>
+    
+        <?php
+          }
+        ?>
+        </select>
+
+         <select class="form-control button-length" name="s_day">
+          <?php
+          for($i = 1; $i<32; $i++)
+          {
+        ?>
+          <option value="<?php echo $i; ?>"><?php echo $i; ?>일</option>
+    
+        <?php
+          }
+        ?>
+        </select>
+      </div>
+    </div>
+
     <!-- due day  -->
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">제출기한</label>
