@@ -23,26 +23,6 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/app_make.css" rel="stylesheet">
 
-    <script>
-      function due(){
-        $s_month = document.getElementById("s_month");
-        $s_day = document.getElementById("s_day");
-        $d_month = document.getElementById('month');
-        $d_day = document.getElementById('day');
-
-        if( $s_month > $d_month ){
-          alert('시작일이 제출일보다 느립니다');
-          return false;
-        }else if( $s_month == $d_month ){
-          if( $s_day > $d_day){
-            alert('시작일이 제출일보다 느립니다');
-            return false;
-          }
-        }else{
-          return true;
-        }
-      }
-    </script>
   </head>
 
 <body> 
