@@ -124,7 +124,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
       }
     ?>
 
-    <!-- due date  -->
+    <!-- due day  -->
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">제출기한</label>
       <div class="col-lg-10">
@@ -140,7 +140,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
         ?>
         </select>
 
-         <select class="form-control button-length" name="date">
+         <select class="form-control button-length" name="day">
           <?php
           for($i = 1; $i<32; $i++)
           {
