@@ -28,8 +28,8 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
     <link href="../css/club_list.css" rel="stylesheet">
 
     <script type="text/javascript">
-    function help(){
-        window.open("help.php","도움말", "left=200, top=200, width=250, height=100 , scrollbars=no, resizable=yes");
+      function help(){
+        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
       }
     </script>
 

@@ -91,7 +91,11 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/application_list.css" rel="stylesheet">
-
+    <script type="text/javascript">
+      function help(){
+        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
+      }
+    </script>
   </head>
   <body>
 
@@ -120,7 +124,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
             ?>
           </li>        
           <li><a href="signup.php">Signup</a></li>
-          <li><a href="#">Help</a></li>
+         <li><a href="#" onclick = "help()">Help</a></li>
         </ul>
       </div>
     </div>

@@ -133,6 +133,10 @@ else
       function disable(){
         alert('이미 제출하셨습니다');
       }
+
+      function help(){
+        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
+      }
     </script>
 
   </head>
