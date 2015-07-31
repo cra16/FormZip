@@ -101,7 +101,7 @@
               echo '<a href="login.php">Login</a>';
           ?>
         </li>
-        <li>
+         <li>
           <?php
             //로그인 여부 확인
            if($_SESSION['USER_NAME']){
@@ -109,18 +109,22 @@
             $sql = "SELECT * FROM student WHERE id = '$id'";
             $check_result = mysqli_query($bd,$sql);
             $check = mysqli_fetch_array($check_result);
+            $index = $check['index'];
             $cname = $check['c_name'];
             //관리자 여부 확인
-              if($cname != NULL){
-               echo '<a href="clubpage.php">Club Page</a>';  
+              if($index == 0){
+                echo '<a href="mypage.php">My Page</a>';
+               
+              }
+              else if($index ==1){
+                echo '<a href="clubpage.php?name='.$cname.'">Club Page</a>'; 
               }
               else{
-               echo '<a href="mypage.php">My Page</a>';
+                echo '<a href="academypage.php?name='.$cname.'">Academy Page</a>';   
               }
             }
             else
               echo '<a href="agreement.php">Sign Up</a>';
-
           ?>
         </li>
         <li><a href="#" onclick="help()">Help</a></li>
