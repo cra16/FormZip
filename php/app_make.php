@@ -39,7 +39,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
   </div>
   <!-- 지원서 내부 -->
 <div class="formContentsLayout">
-  <form method="POST" onsubmit = "return due()"  class="form-horizontal"> 
+  <form method="POST" onsubmit = "return due()"  class="form-horizontal" action="app_exec.php"> 
 
     <!-- short text -->
     <!-- 이름 / 학번 / 학과 / 전화번호 -->
