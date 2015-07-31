@@ -66,43 +66,44 @@
   </div>
 </nav>
    <!-- Menubar end-->  
-  <div class="container">
-    <div id="header">
-      <h1> <a href="firstpage.php" class="h_logo">F O R M &nbsp;&nbsp;Z I P</a> </h1>
-    </div>
-  </div>  
+
+  <!-- Logo Start -->
+  <div class="container" class = "col-lg-12 col-xs-12">
+      
+      <div id="header" class = "col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
+          <a href="firstpage.php" class="h_logo">
+          <img src="../img/title.png" class = "h_logo">
+        </a>
+      </div>
+  </div>
+  <!-- Logo End -->
  
-  <div class="formContentsLayout">
+  <div class="containbox">
+    <div class = "join_content">
     <form method="POST" action="pw_find.php" class="form-horizontal"> 
-    <div id="title"> <h2> 비밀번호 찾기 </h2> </div>
-      <div class="form-group">
-        <label class="col-lg-4 control-label">아이디</label>
-        <div class="col-lg-8">
-        <input type="text" class="form-control short-length" name="userid"  placeholder="User ID">     
-        </div>
-      </div>  
-
-      <div class="form-group">
-        <label class="col-lg-4 control-label">이름</label>
-        <div class="col-lg-8">
-        <input type="text" class="form-control short-length" name="name"  placeholder="Name">     
-        </div>
-      </div>  
-
-      <div class="form-group">
-        <label class="col-lg-4 control-label">학번</label>
-        <div class="col-lg-8">
-        <input type="text" class="form-control short-length" name="stuid" placeholder="Stuid ex)21200000" maxlength="8">     
-        </div>
-      </div>  
-
-      <div class="form-group">
-        <label class="col-lg-4 control-label">생년월일</label>
-        <div class="col-lg-8">
-        <input type="text" class="form-control short-length" name="birth" placeholder="6자리 입력 ex)930102" maxlength="6">     
-        </div>
-      </div>  
-
+    <div class = "form-group">
+     <div id="title"> <h2> 비밀번호 찾기 </h2> </div>
+        <table>
+          <tr>
+            <td><label> 아이디</label></td>
+            <td><input type="text" class="form-control short-length" name="userid"  placeholder="User ID"></td>
+          </tr>
+          <tr>
+            <td><label >이름</label></td>
+            <td><input type="text" class="form-control short-length" name="name"  placeholder="Name">  </td>
+          </tr>
+          <tr>
+            <td> <label>학번</label></td>
+            <td> <input type="text" class="form-control short-length" name="stuid" placeholder="Stuid ex)21200000" maxlength="8"> </td>
+          </tr>
+          <tr>
+            <td> <label>생년월일</label></td>
+            <td> <input type="text" class="form-control short-length" name="birth" placeholder="6자리 입력 ex)930102" maxlength="6"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+      <div id="divmargin"></div>
       <div class="submit_content">
         <button type="submit" value="id_find" name="id_find" onclick="myFunction()">확인</button>
       </div>
@@ -147,7 +148,7 @@ if($result) {
 
 
 ?>
-    <div class="formContentsLayout">
+    <div class="join_content">
       <div class="form-group">
       <label class="col-lg-4 control-label" id="id_result">비밀번호:</label>   
        <label class="col-lg-4 control-label" id="id_result2">  <?php echo $decoding ?></label>   
