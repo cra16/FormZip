@@ -48,7 +48,7 @@ switch($_GET['mode']){
         break;*/
     case 'modify':
         $userid = $_SESSION["USER_NAME"]
-        $qry = 'UPDATE student SET password = $encryption WHERE id = "'.mysqli_real_escape_string($connect,$userid).'"';
+        $qry = "UPDATE student SET password = $encryption WHERE id = $userid";
         mysqli_query($connect,$qry);
         header("Location: ../php/clubpage.php");
         break;
