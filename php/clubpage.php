@@ -181,6 +181,11 @@
           </form>
         </tr>
         <tr>
+          <form action="mypage_a.php" method="GET">
+           <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">비밀번호 수정</button>
+          </form>
+        </tr>
+        <tr>
           <form action="app_make.php" method="GET">
             <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원서 만들기</button>
           </form>
