@@ -133,33 +133,66 @@ else
       function disable(){
         alert('이미 제출하셨습니다');
       }
+<<<<<<< HEAD
+
+      function help(){
+        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
+=======
+      function ok2(){
+        var message = "임시저장하시겠습니까?";
+        var result = confirm(message);
+
+        if(result == false){
+            return false;
+        }
+      }
+      function disable(){
+        alert('이미 제출하셨습니다');
+>>>>>>> a76cd7665ab289c53d38775f3b0f4179020e4396
+      }
     </script>
 
   </head>
 
 <body> 
-  <div class="container">
-    <div id="header">
-      <h1> <a href="firstpage.php" class="h_logo">F O R M &nbsp;&nbsp;Z I P</a> </h1>
-    </div>
+  <!-- Logo Start -->
+  <div class="container" class = "col-lg-12 col-xs-12">   
+      <div id="header" class = "col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
+          <a href="firstpage.php" class="h_logo">
+          <img src="../img/title.png" class = "h_logo">
+        </a>
+      </div>
   </div>
+  <!-- Logo End -->
+
 
 <?php
 if( $info == 1){ // 정보 존재
 ?>
   <div class="formContentsLayout">
     <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() "> 
+       <h3 class = "application">지원서</h3>    
+      <div id="divmargin"></div>              
+      <h5 class = "club-name"> <분류 : 동아리 - CRA></h5> 
+      <div id="divmargin"></div>   
+
+      <hr class = "line-bar">
+
+
+
+
         <!-- short text -->
       <?php
-      for($i = 0; $i<4; $i++){
+      for($i = 0; $i<4; $i++)
+      {
       ?>
       <div class="form-group">
-        <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-        <div class="col-lg-8">
-          <input type="text" class="form-control short-length"  
+        <label class="col-lg-3 col-md-3 col-xs-3control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8 col-md-8 col-xs-8">
+          <input type="text" class="form-control short-length col-lg-8"  
           placeholder="<?php echo $question_placeholder[$i]; ?>"
                  style="display:block" id="<?php echo $pass_name[$i]; ?>" 
-        <?php if($i < 2) ?> disabled title="변경 불가한 항목입니다."  
+        <?php if($i < 2){?> disabled title="변경 불가한 항목입니다." <?php } ?> 
         name="<?php echo $pass_name[$i]; ?>"
         <?php if($i > 1)?> value = '<?php echo $pass_temp[$i]; ?>' > 
         </div>
@@ -170,8 +203,8 @@ if( $info == 1){ // 정보 존재
       ?>
       <!-- 성별 -->
       <div class="form-group">
-        <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-        <div class="col-lg-8">
+        <label class="col-lg-3 col-md-3 col-xs-3 control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8 col-md-8 col-xs-8">
           <?php
           if($pass_temp[$i] == 'man'){ //정보존재 ?>
             <input type="radio" id="man" name="gender" value="man" checked  style=margin:"10px" display:"none">
@@ -200,8 +233,8 @@ if( $info == 1){ // 정보 존재
       if($short_info[$i]=="use"){
       ?>
         <div class="form-group">
-          <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-          <div class="col-lg-8" id="showbox">
+          <label class="col-lg-3 col-md-3 col-xs-3 control-label"><?php echo $label_name[$i]; ?></label>
+          <div class="col-lg-8 col-md-8 col-xs-8" id="showbox">
             <?php
             if($pass_temp[$i] == 'YES'){ // yes ?>
               <input type="radio" id="served" name="served" checked  style=margin:"10px" display:"none" value="YES">
@@ -233,8 +266,8 @@ if( $info == 1){ // 정보 존재
           if($short_info[$i]=="use"){  
       ?>
         <div class="form-group">
-          <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-          <div class="col-lg-8">
+          <label class="col-lg-3 col-md-3 col-xs-3 control-label"><?php echo $label_name[$i]; ?></label>
+          <div class="col-lg-8 col-md-8 col-xs-8">
             <input type="text" class="form-control short-length" placeholder="<?php echo $question_placeholder[$i]; ?>" 
                    style="display:block" id="<?php echo $pass_name[$i]; ?>" name="<?php echo $pass_name[$i]; ?>"
                    value = '<?php echo $pass_temp[$i]; ?>' >
@@ -256,8 +289,8 @@ if( $info == 1){ // 정보 존재
           if($sub_info[$i]=="use"){
       ?>
           <div class="form-group">
-            <label class="col-lg-3 control-label"><?php echo $title[$i]; ?></label>
-            <div class="col-lg-8">
+            <label class="col-lg-3 col-md-3 col-xs-3 control-label"><?php echo $title[$i]; ?></label>
+            <div class="col-lg-8 col-md-8 col-xs-8">
             <textarea class="form-control" rows="3" name="<?php echo $text_name[$i]; ?>">
               <?php if($text_temp[$i] != '0'){ echo $text_temp[$i]; } ?></textarea>
             <span class="help-block"> <?php echo $explain[$i]; ?></span>    
@@ -271,81 +304,112 @@ if( $info == 1){ // 정보 존재
       ?>
 
       <div class="form-group">
-        <label class="col-lg-2 control-label">제출기한</label>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <?php echo $member['month'];?>월 <?php echo $member['date'];?>까지
-        </div>
+        <label class="col-lg-3 col-md-3 col-xs-3 control-label">제출기한</label>
+        <p class="panel-body col-lg-8 col-md-8 col-xs-8">
+          <?php echo $member['s_month']; ?>월 <?php $member['s_day']; ?>일 까지부터
+          <?php echo $member['month'];?>월 <?php echo $member['day'];?>일 까지
+        </p>
       </div>
 
       <?php
         $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
         $re_query = mysqli_query($bd,$query);
         $fetch = mysqli_fetch_array($re_query);
-
         if( $fetch[0] == NULL ){
       ?>
+        <div class = "col-lg-4 col-lg-offset-4">
         <div class="submit_content">
-          <button type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
+          <button class="submit_content" type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
         </div>
-
         <div class="submit_content">
-          <button type="submit" name="real" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
+          <button class="submit_content" type="submit" name="real" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
         </div>
+      </div>
       <?php
         }else{ ?>
+        <div class = "col-lg-4 col-lg-offset-4">          
           <div class="submit_content">
-            <button type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>">임시저장</button>
+            <button class="submit_content" type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>">임시저장</button>
           </div>
-
           <div class="submit_content">
-          <button type="button" name="name" id ='real' onclick="disable()" value="<?php echo $club; ?>">제출</button>
+          <button class="submit_content" type="button" name="name" id ='real' onclick="disable()" value="<?php echo $club; ?>">제출</button>
           </div>
+        </div>
       <?php } ?>
     </form>
   </div>
+      <?php
+        $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
+        $re_query = mysqli_query($bd,$query);
+        $fetch = mysqli_fetch_array($re_query);
+        if( $fetch[0] == NULL ){
+      ?>
+        <div class = "col-lg-4 col-lg-offset-4">
+        <div class="submit_content">
+          <button class="submit_content" type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
+        </div        <div class="submit_content">
+          <button class="submit_content" type="submit" name="real" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
+        </div>
+      </div>
+      <?php
+        }else{ ?>
+        <div class = "col-lg-4 col-lg-offset-4">          
+          <div class="submit_content">
+            <button class="submit_content" type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>">임시저장</button>
+          </div>
+          <div class="submit_content">
+          <button class="submit_content" type="button" name="name" id ='real' onclick="disable()" value="<?php echo $club; ?>">제출</button>
+          </div>
+        </div>
+      <?php } ?>
+<!-- -------------------------------------------------------------------------------------------------------------- -->
 <?php 
 }else{ //정보 존재하지 않음 
   ?>
   <div class="formContentsLayout">
     <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() "> 
+      <h3 class = "application">지원서</h3>    
+      <div id="divmargin"></div>              
+      <h5 class = "club-name"> <분류 : 동아리 - CRA></h5> 
+      <div id="divmargin"></div>   
+
+      <hr class = "line-bar">
+
         <!-- short text -->
       <?php
       for($i = 0; $i<4; $i++)
       {
       ?>
       <div class="form-group">
-        <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-        <div class="col-lg-8">
+        <label class="col-lg-3 col-md-3 col-xs-3 control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8 col-md-8 col-xs-8">
           <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>"
                  style="display:block" id="<?php echo $pass_name[$i]; ?>" 
       <?php if($i < 2){?> disabled title="변경 불가한 항목입니다." <?php } ?> name="<?php echo $pass_name[$i]; ?>"> 
         </div>
       </div>  
+      <?php  }  ?>
 
-      <?php
-      }
-      ?>
       <!-- 성별 -->
       <div class="form-group">
-        <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-        <div class="col-lg-8">
-            <input type="radio" id="man" name="gender" value="man" checked  style=margin:"10px" display:"none">
+        <label class="col-lg-3 col-md-3 col-xs-3  control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8 col-md-8 col-xs-8">
+            <input type="radio" id="man" name="gender" value="man" style=margin:"10px" display:"none">
             <label for="man">남자</label>
             <input type="radio" id="woman" name="gender"value="woman" style=margin:"10px" display:"none">
             <label for="woman">여자</label>
         </div>
       </div>  
+
       <!-- 군필여부 -->
       <?php
       $i = 5;
       if($short_info[$i]=="use"){
       ?>
         <div class="form-group">
-          <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-          <div class="col-lg-8" id="showbox">
-              <input type="radio" id="served" name="served" checked  style=margin:"10px" display:"none" value="YES">
+          <label class="col-lg-3 col-md-3 col-xs-3  control-label"><?php echo $label_name[$i]; ?></label>
+          <div class="col-lg-8 col-md-8 col-xs-8" id="showbox">
+              <input type="radio" id="served" name="served" style=margin:"10px" display:"none" value="YES">
               <label for="served" id="t_served1" >&nbsp;&nbsp;예&nbsp;&nbsp;</label>
               <input type="radio" id="nonserved" name="served" style=margin:"10px" display:"none" value="NO">
               <label for="nonserved" id="t_served2">아니오</label>
@@ -361,8 +425,8 @@ if( $info == 1){ // 정보 존재
           
       ?>
         <div class="form-group">
-          <label class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-          <div class="col-lg-8">
+          <label class="col-lg-3 col-md-3 col-xs-3 control-label"><?php echo $label_name[$i]; ?></label>
+        <div class="col-lg-8 col-md-8 col-xs-8">
             <input type="text" class="form-control short-length"  placeholder="<?php echo $question_placeholder[$i]; ?>"
                    style="display:block" id="<?php echo $pass_name[$i]; ?>" name="<?php echo $pass_name[$i]; ?>">
              </div>
@@ -385,8 +449,8 @@ if( $info == 1){ // 정보 존재
           if($sub_info[$i]=="use"){
       ?>
           <div class="form-group">
-            <label class="col-lg-3 control-label"><?php echo $title[$i]; ?></label>
-            <div class="col-lg-8">
+            <label class="col-lg-3 col-md-3 col-xs-3 control-label"><?php echo $title[$i]; ?></label>
+            <div class="col-lg-8 col-md-8 col-xs-8">
             <textarea class="form-control" rows="3" name="<?php echo $text_name[$i]; ?>"></textarea>
             <span class="help-block"><?php echo $explain[$i]; ?></span>    
             </div>
@@ -399,40 +463,44 @@ if( $info == 1){ // 정보 존재
       ?>
 
       <div class="form-group">
-        <label class="col-lg-2 control-label">제출기한</label>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <?php echo $member['month'];?>월 <?php echo $member['date'];?>까지
-        </div>
+        <label class="col-lg-3 col-md-3 col-xs-3 control-label">제출기한</label>
+        <p class="panel-body col-lg-8 col-md-8 col-xs-8">
+          <?php echo $member['s_month']; ?>월 <?php $member['s_day']; ?>일 까지부터
+          <?php echo $member['month'];?>월 <?php echo $member['day'];?>일 까지
+        </p>
       </div>
 
-      <?php
+    </form>
+  </div>
+     <?php
         $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
         $re_query = mysqli_query($bd,$query);
         $fetch = mysqli_fetch_array($re_query);
 
         if( $fetch[0] == NULL ){
       ?>
-        <div class="submit_content">
-          <button type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
+        <div class = "col-lg-8 col-lg-offset-4 col">      
+        <div class="submit_content col-lg-4">
+          <button type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>" class = "save">임시저장</button>
         </div>
 
-        <div class="submit_content">
+        <div class="submit_content col-lg-4">
           <button type="submit" name="real" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
         </div>
+       </div> 
       <?php
         }else{ ?>
-          <div class="submit_content">
+        <div class = "col-lg-8 col-lg-offset-4">        
+          <div class="submit_content col-lg-4">
             <button type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>">임시저장</button>
           </div>
 
-          <div class="submit_content">
+          <div class="submit_content  col-lg-4">
           <button type="button" name="name" id ='real' onclick="disable()" value="<?php echo $club; ?>">제출</button>
           </div>
-      <?php } ?>
-    </form>
-  </div>
+        </div>
+  <?php } ?>
+
 <?php
 }
 ?>
