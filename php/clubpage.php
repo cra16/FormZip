@@ -64,7 +64,7 @@
 
   <script type="text/javascript">
     function help(){
-        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
+        window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
       }
     function warning(){
         alert("지원을 원하실 경우 로그인을 해 주세요");
@@ -217,13 +217,21 @@
             $now_day = (int)$now_day;
             $exist = 0;
 
-              if($now_month < $due['month']){
+            if( $due['month'] == NULL || $due['day'] == NULL || $due['s_day'] == NULL || $due['s_month'] == NULL ){
+              $exist = 0;
+            }else{
+              if( $now_month >= $due['s_month'] && $now_month <= $due['month'] ){
                 $exist = 1;
-              }else if($now_month == $due['month']){
+              }else if($now_month == $due['month'] || $now_month >= $due['s_month']){
                 if($now_day <= $due['day']){
                   $exist = 1;
                 }
+              }else if($now_month == $due['s_month'] || $now_month <= $due['month']){
+                if($now_day >= $due['s_day']){
+                  $exist = 1;
+                }
               }
+            }
             
               if( $exist == 1 ){ // 지원기간일 경우
           ?>  

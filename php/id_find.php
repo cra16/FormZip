@@ -114,8 +114,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+
 
 
 <?php
@@ -132,16 +131,10 @@ if($result && $name!="") {
 
 // DB에 입력한 값이 존재하면 display
     if($member['stuid']==$stuid && $member['birth']==$birth){
-?>
-    <div class="formContentsLayout">
-      <div class="form-group">
-      <label class="col-lg-4 control-label" id="id_result">아이디:</label>   
-       <label class="col-lg-4 control-label" id="id_result2">  <?php echo $member['id'] ?></label>   
-      </div>  
-    </div>
-
-<?php
+      echo "<script>alert('".$member['id']."')</script>"; 
     }
   }
 }
 ?>
+</body>
+</html>

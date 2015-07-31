@@ -52,6 +52,8 @@ if ($conn->connect_error) {
     
     $explain=array("$explain1","$explain2","$explain3","$explain4","$explain5","$explain6","$explain7");
 
+    $s_month = mysqli_real_escape_string($conn,$_POST['s_month']);
+    $s_day = mysqli_real_escape_string($conn,$_POST['s_day']);
     $month = mysqli_real_escape_string($conn,$_POST['month']);
     $day = mysqli_real_escape_string($conn,$_POST['day']);
 
@@ -94,7 +96,7 @@ $admin = $_SESSION["USER_NAME"];
 //VALUES ('$id','$served' ,'$mail' ,'$activity' ,'$sr1' ,'$sr2' ,'$sr3' ,'$sr4' ,'$sr5' ,'$sr6' ,'$sr7' ,'$title1','$explain1','$title2','$explain2','$title3','$explain3','$title4','$explain4','$title5','$explain5','$title6','$explain6','$title7','$explain7','$month','$day')";
 
 $sql = "UPDATE application
-SET served = '$served' ,mail = '$mail' ,activity = '$activity' ,sr1 = '$sr1' ,sr2 = '$sr2' ,sr3 = '$sr3' ,sr4 = '$sr4' ,sr5 = '$sr5' ,sr6 = '$sr6' ,sr7 = '$sr7' ,title1 = '$title1' ,explain1 = '$explain1' ,title2 = '$title2' ,explain2 = '$explain2' ,title3 = '$title3' ,explain3 = '$explain3' ,title4 = '$title4' ,explain4 = '$explain4' ,title5 = '$title5' ,explain5 = '$explain5' ,title6 = '$title6' ,explain6 = '$explain6' ,title7 = '$title7' ,explain7 = '$explain7' ,month = '$month' ,day = '$day'  WHERE id = '$admin'";
+SET served = '$served' ,mail = '$mail' ,activity = '$activity' ,sr1 = '$sr1' ,sr2 = '$sr2' ,sr3 = '$sr3' ,sr4 = '$sr4' ,sr5 = '$sr5' ,sr6 = '$sr6' ,sr7 = '$sr7' ,title1 = '$title1' ,explain1 = '$explain1' ,title2 = '$title2' ,explain2 = '$explain2' ,title3 = '$title3' ,explain3 = '$explain3' ,title4 = '$title4' ,explain4 = '$explain4' ,title5 = '$title5' ,explain5 = '$explain5' ,title6 = '$title6' ,explain6 = '$explain6' ,title7 = '$title7' ,explain7 = '$explain7' ,month = '$month' ,day = '$day', s_month = '$s_month', s_day = '$s_day'  WHERE id = '$admin'";
 
 
 if ($conn->query($sql) === TRUE) {

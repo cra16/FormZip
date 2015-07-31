@@ -64,6 +64,7 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/app_make.css" rel="stylesheet">
 
+    
   </head>
 
 <body> 
@@ -142,8 +143,6 @@
       }
     ?>
 
-
-
     <!-- long text -->
     <?php
       for($i = 0; $i<8; $i++)
@@ -168,15 +167,13 @@
       }
     ?>
 
-
-
-
     <div class="form-group">
       <label class="col-lg-2 control-label">제출기한</label>
     </div>
     <div class="panel panel-default">
       <div class="panel-body">
-        <?php echo $member['month'];?>월 <?php echo $member['date'];?>까지
+        <?php echo $member['s_month']; ?>월 <?php echo $member['s_day']; ?>일 부터
+        <?php echo $member['month']; ?>월 <?php echo $member['day']; ?>일 까지
       </div>
     </div>
 
@@ -185,8 +182,6 @@
     </div>
   </form>
 </div>
-
-
 
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

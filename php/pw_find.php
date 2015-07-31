@@ -115,8 +115,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-</body>
-</html>
+
 
 
 <?php
@@ -144,19 +143,12 @@ if($result) {
       $de_str = pack("H*", $password); //hex로 변환한 ascii를 binary로 변환
       $decoding = mcrypt_decrypt(MCRYPT_3DES, $key, $de_str, MCRYPT_MODE_ECB, $s_vector_iv);
 
+     
+      echo "<script>alert('".$decoding."')</script>";
 
-
-
-?>
-    <div class="join_content">
-      <div class="form-group">
-      <label class="col-lg-4 control-label" id="id_result">비밀번호:</label>   
-       <label class="col-lg-4 control-label" id="id_result2">  <?php echo $decoding ?></label>   
-      </div>  
-    </div>
-
-<?php
     }
   }
 }
 ?>
+</body>
+</html>

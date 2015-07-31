@@ -8,7 +8,6 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
 
 ?>
 
-
 <!DOCTYPE HTML> 
 <html>
 
@@ -23,6 +22,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/app_make.css" rel="stylesheet">
+
   </head>
 
 <body> 
@@ -39,8 +39,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
   </div>
   <!-- 지원서 내부 -->
 <div class="formContentsLayout">
-  <form method="POST" action="app_exec.php" class="form-horizontal"> 
-
+  <form method="POST" onsubmit = "return due()"  class="form-horizontal"> 
 
     <!-- short text -->
     <!-- 이름 / 학번 / 학과 / 전화번호 -->
@@ -124,11 +123,11 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
       }
     ?>
 
-    <!-- due day  -->
+    <!-- start day -->
     <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">제출기한</label>
+      <label for="select" class="col-lg-2 control-label">시작일</label>
       <div class="col-lg-10">
-        <select class="form-control button-length" name="month">
+        <select class="form-control button-length" name="s_month" id="s_month">
         <?php
           for($i = 1; $i<13; $i++)
           {
@@ -140,7 +139,37 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
         ?>
         </select>
 
-         <select class="form-control button-length" name="day">
+         <select class="form-control button-length" name="s_day" id="s_day">
+          <?php
+          for($i = 1; $i<32; $i++)
+          {
+        ?>
+          <option value="<?php echo $i; ?>"><?php echo $i; ?>일</option>
+    
+        <?php
+          }
+        ?>
+        </select>
+      </div>
+    </div>
+
+    <!-- due day  -->
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">제출기한</label>
+      <div class="col-lg-10">
+        <select class="form-control button-length" name="month" id="month">
+        <?php
+          for($i = 1; $i<13; $i++)
+          {
+        ?>
+          <option value="<?php echo $i; ?>"><?php echo $i; ?>월</option>
+    
+        <?php
+          }
+        ?>
+        </select>
+
+         <select class="form-control button-length" name="day" id="day">
           <?php
           for($i = 1; $i<32; $i++)
           {

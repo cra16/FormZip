@@ -47,45 +47,9 @@ body {
   text-decoration:none;
 }
 
-.helpbox{
-  width: 700px;
-  margin: 20px auto 0 auto;
-  border: 1px solid #979FA0;
-  background-color: white;
-  padding:10px;
-  border-radius:4px;
-  opacity:0.8;
-}
 
-#panel, #flip {
-    padding: 4px;
-    text-align: center;
-  
-}
 
-#panel {
-    padding: 50px;
-    display: none;
-}
 
-table.personal{
-  margin-left: 5%;
-  margin-bottom: 5%;
-  border-spacing: 5%;
-  width: 80%;
-  border: white;
-  box-shadow: none;
-
-}
-.header{
-
-  font-color: black;
-  text-align: left;
-  width: 120px;
-  height: 30px;
-  margin-left: 10%;
-  
-}
 
 
 .title h4{
@@ -98,60 +62,6 @@ table.personal{
   }
 
 
-.fixed-name, .fixed-id, .password, .new-password{
-  border-style: none;
-  border: 1px solid #dddcdc;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  width: 200px;
-  float: left;
-  box-shadow: 
-}
-
-.fixed-bday{
-  border-style: none;      
-  border: 1px solid #dddcdc;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  margin-right: 3%;
-  float: left;
-  width: 80px;
-}
-
-td.bday{
-  width: 80%;
-}
-
-
-table.table-striped {
-  width: 450px;
-  float: center;
-  background-color: white;
-  border-radius: 2px;
-  border-width: 1px 1px 1px 1px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-th.number, th.app-number{
-  text-align: center; 
-  width: 50px;
-}
-
-th.club, td.app-club{
-  width: 150px;
-  text-align: center;
-}
-
-th.status, td.app-status{
-  width: 150px;
-  text-align: center;
-}
-
-
-#wrap{
-  position: absolute;
-  width: 50%;
-  margin-right: 200px;  
-  left: 25%;
-}
 
 .title-name{
   margin-left: 5%;
@@ -201,7 +111,28 @@ hr.line-bar {
 }
 
 .error {
-  margin-left: 33%;
+  margin-left: 35%;
   font-size: 15px;
   color: #FF8080;
+}
+
+.form-control{
+  padding-top:6px !important;
+  padding-bottom:6px !important;
+  height:35px !important;
+}
+
+.form-control[disabled]{
+  background-color:white !important;
+  cursor:pointer !important;
+}
+
+.short-length{
+  width:40% !important;
+  display:inline-block;
+}
+
+.control-label{
+  margin-left:8%;
+  text-align:left !important;
 }
