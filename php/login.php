@@ -51,7 +51,7 @@
             <div id="form-margin"></div>
 
             <div class="find_info"> 
-            <a href="signup.php">회원가입</a> 
+            <a href="agreement.php">회원가입</a> 
             <img src="../img/bar.png">
             <a href="id_find.php">아이디 찾기</a>
             <img src="../img/bar.png">
