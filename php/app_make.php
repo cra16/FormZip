@@ -23,26 +23,6 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/app_make.css" rel="stylesheet">
 
-    <script>
-      function due(){
-        $s_month = document.getElementById("s_month");
-        $s_day = document.getElementById("s_day");
-        $d_month = document.getElementById('month');
-        $d_day = document.getElementById('day');
-
-        if( $s_month > $d_month ){
-          alert('시작일이 제출일보다 느립니다');
-          return false;
-        }else if( $s_month == $d_month ){
-          if( $s_day > $d_day){
-            alert('시작일이 제출일보다 느립니다');
-            return false;
-          }
-        }else{
-          return true;
-        }
-      }
-    </script>
   </head>
 
 <body> 
@@ -59,7 +39,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
   </div>
   <!-- 지원서 내부 -->
 <div class="formContentsLayout">
-  <form method="POST" onsubmit = "due()" action="app_exec.php" class="form-horizontal"> 
+  <form method="POST" onsubmit = "return due()"  class="form-horizontal"> 
 
     <!-- short text -->
     <!-- 이름 / 학번 / 학과 / 전화번호 -->
@@ -133,8 +113,8 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
         단락 텍스트<?php echo $i+1;?></label>
         <div class="col-lg-9">
           <input type="text" class="form-control"  placeholder="항목 제목-제목을 입력해주세요" style="display:none" name="title<?php echo $i+1;?>" id="title<?php echo $i+1;?>">
-          <inputt type="text" class="form-control"  placeholder="항목 설명-항목에 대한 설명을 입력해주세요" style="display:none" name="explain<?php echo $i+1;?>" id="explain<?php echo $i+1;?>">
-          <inpu type="radio" id="<?php echo $sub_radio_name[$i]; ?>" name="<?php echo $sub_radio_name[$i]; ?>" value="use"  onclick="Sub_Show<?php echo $i+1;?>()">Use
+          <input type="text" class="form-control"  placeholder="항목 설명-항목에 대한 설명을 입력해주세요" style="display:none" name="explain<?php echo $i+1;?>" id="explain<?php echo $i+1;?>">
+          <input type="radio" id="<?php echo $sub_radio_name[$i]; ?>" name="<?php echo $sub_radio_name[$i]; ?>" value="use"  onclick="Sub_Show<?php echo $i+1;?>()">Use
           <input type="radio" id="<?php echo $sub_radio_name[$i]; ?>" name="<?php echo $sub_radio_name[$i]; ?>" value="notuse" onclick="Sub_Blind<?php echo $i+1;?>()" checked>not Use
         </div>
       </div>  
@@ -147,7 +127,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">시작일</label>
       <div class="col-lg-10">
-        <select class="form-control button-length" name="s_month">
+        <select class="form-control button-length" name="s_month" id="s_month">
         <?php
           for($i = 1; $i<13; $i++)
           {
@@ -159,7 +139,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
         ?>
         </select>
 
-         <select class="form-control button-length" name="s_day">
+         <select class="form-control button-length" name="s_day" id="s_day">
           <?php
           for($i = 1; $i<32; $i++)
           {
@@ -177,7 +157,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">제출기한</label>
       <div class="col-lg-10">
-        <select class="form-control button-length" name="month">
+        <select class="form-control button-length" name="month" id="month">
         <?php
           for($i = 1; $i<13; $i++)
           {
@@ -189,7 +169,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
         ?>
         </select>
 
-         <select class="form-control button-length" name="day">
+         <select class="form-control button-length" name="day" id="day">
           <?php
           for($i = 1; $i<32; $i++)
           {

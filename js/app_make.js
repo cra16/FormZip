@@ -111,3 +111,28 @@ $(document).ready(function(){
     });
 });
 
+
+function due(){
+	var s_month = document.getElementById("s_month");
+	var s_day = document.getElementById("s_day");
+	var d_month = document.getElementById('month');
+	var d_day = document.getElementById('day');
+
+	if( s_month.value > d_month.value )
+	{
+	  alert('시작일이 제출일보다 느립니다');
+	  return false;
+	}
+
+	else if( s_month.value == d_month.value )
+	{
+	  if( s_day > d_day){
+	    alert('시작일이 제출일보다 느립니다');
+	    return false;
+	  }
+	}
+
+	else{
+	  return true;
+	}
+}
