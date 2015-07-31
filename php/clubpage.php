@@ -239,8 +239,8 @@
                 <tr>
                   <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원하기</button>
                 </tr>
-                <?php echo $due['s_month']; ?>월 <?php echo $due['s_day']; ?>일 부터
-                <?php echo $due['month']; ?>월 <?php echo $due['day']; ?>일 까지
+                <?php echo $due['s_month']; ?>월 <?php echo $due['s_day']; ?>일 ~
+                <?php echo $due['month']; ?>월 <?php echo $due['day']; ?>일 
                 </from>
                 <?php
               }
@@ -263,8 +263,8 @@
             <td><input class = "club-apply-bt" type ="submit" value = "지원하기" onclick="warning()"></td>
           </tr>
           <?php if($exist == 1){
-            echo $due['s_month']; ?>월 <?php $due['s_day']; ?>일 부터
-            <?php echo $due['month']; ?>월 <?php $due['day']; ?>일 까지
+            echo $due['s_month']; ?>월 <?php $due['s_day']; ?>일 ~
+            <?php echo $due['month']; ?>월 <?php $due['day']; ?>일 
           <?php 
           }else{ ?>
             지원 기간이 아닙니다
