@@ -3,6 +3,7 @@ session_start();
 // Manager judge
 //require_once('auth.php');
 require_once('DB_INFO.php');
+require_once('auth.php');
 header('Content-Type: text/html; charset=utf-8');
 
 mysqli_query("set session character_set_connection=utf8;");
@@ -123,7 +124,31 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
                 echo '<a href="login.php">Login</a>';
             ?>
           </li>        
-          <li><a href="signup.php">Signup</a></li>
+          <li>
+          <?php
+            //로그인 여부 확인
+           if($_SESSION['USER_NAME']){
+            $sql = "SELECT * FROM student WHERE id = '$club_name'";
+            $check_result = mysqli_query($bd,$sql);
+            $check = mysqli_fetch_array($check_result);
+            $index = $check['index'];
+            $cname = $check['c_name'];
+            //관리자 여부 확인
+              if($index == 0){
+                echo '<a href="mypage.php">My Page</a>';
+               
+              }
+              else if($index ==1){
+                echo '<a href="clubpage.php?name='.$cname.'">Club Page</a>'; 
+              }
+              else{
+                echo '<a href="academypage.php?name='.$cname.'">Academy Page</a>';   
+              }
+            }
+            else
+              echo '<a href="agreement.php">Sign Up</a>';
+          ?>
+        </li>
          <li><a href="#" onclick = "help()">Help</a></li>
         </ul>
       </div>
