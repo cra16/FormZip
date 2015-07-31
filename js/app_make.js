@@ -113,22 +113,23 @@ $(document).ready(function(){
 
 
 function due(){
-	var s_month = document.getElementById("s_month");
-	var s_day = document.getElementById("s_day");
-	var d_month = document.getElementById('month');
-	var d_day = document.getElementById('day');
+	var s_month = document.getElementById("s_month").value*1;
+	var s_day = document.getElementById("s_day").value*1;
+	var d_month = document.getElementById("month").value*1;
+	var d_day = document.getElementById("day").value*1;
 
-
-	if( s_month.value > d_month.value )
+	
+	
+	if( s_month > d_month )
 	{
 	  alert('시작일이 제출일보다 느립니다');
 	  return false;
 	}
 
-	else if( s_month.value == d_month.value )
+	else if( s_month == d_month )
 	{
 
-	  if( s_day.value > d_day.value){
+	  if( s_day > d_day){
 	    alert('시작일이 제출일보다 느립니다');
 	    return false;
 	  }
