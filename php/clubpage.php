@@ -219,11 +219,8 @@
                   $exist = 1;
                 }
               }
-
-              echo $exist;
-              echo ': result';
             
-              if( exist == 1 ){ // 지원기간일 경우
+              if( $exist == 1 ){ // 지원기간일 경우
           ?>  
                 <form action="app_submit.php" method="GET">
                 <tr>
