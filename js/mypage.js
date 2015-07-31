@@ -6,9 +6,7 @@ var Msg=["pw_cur","pw_new","ps_ck"];
 function passWord(){
 	var now = document.getElementById("now");
 	var currnet = document.getElementById("current");
-     alert(now);
-     alert(current);
-	if(current.value == "")
+    if(current.value == "")
     {
 		document.getElementById("pw_cur").style.display="block";
 		document.getElementById("pw_cur").innerHTML="필수정보입니다";
