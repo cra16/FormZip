@@ -133,11 +133,10 @@ else
       function disable(){
         alert('이미 제출하셨습니다');
       }
-<<<<<<< HEAD
 
       function help(){
         window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
-=======
+
       function ok2(){
         var message = "임시저장하시겠습니까?";
         var result = confirm(message);
@@ -148,7 +147,6 @@ else
       }
       function disable(){
         alert('이미 제출하셨습니다');
->>>>>>> a76cd7665ab289c53d38775f3b0f4179020e4396
       }
     </script>
 
