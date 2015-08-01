@@ -48,7 +48,7 @@
   </div>
   <!-- Logo End -->
  
-  <div class="formContentsLayout">
+  <div class="col-xs-12 col-md-4 col-md-offset-4 formContentsLayout">
  
     
  <!-- 로그인 여부 판단 -->
@@ -74,17 +74,9 @@
     <h4> 기본 정보</h4>
    </div>
 
+
       
-      <label class="header">이름</label>
-      <input class = "content" type='text' value = "<?php echo $name; ?>" disabled>
-      <div id="divmargin"></div> 
-      <label class="header">ID</label>
-      <input class = "content" type='text' value = "<?php echo $id; ?>" disabled>
-      <div id="divmargin"></div> 
-    
-      <label class="header">생년월일</label>
-      <input class = "bday" type='text' value = "<?php echo $bday; ?>" disabled>
-      <div id="divmargin"></div>  
+
 
    <?php 
     //비밀번호 체크
@@ -108,23 +100,53 @@
 ?>
 
 
-   <form action="pw_change.php" method="POST" onsubmit="return validateForm()">
-      
-      <label class="header">기존 비밀번호</label>
-      <input class = "content" type="password" id="current" name="current" class="password" onblur="passWord()">    
-      <div id="pw_cur" class="error" style="display:none"></div> 
-      <div id="divmargin"></div>
+   <form action="pw_change.php" method="POST" onsubmit="return validateForm()" align="center" class="form-horizontal">
+    <div class="form-group">
+      <label  class="col-xs-4 col-md-4 control-label">이름</label>
+      <div class="col-xs-8 col-md-8">
+      <input type="text" class="form-control" value = "<?php echo $name; ?>" disabled>
+      </div>
+    </div>
 
-      <label class="header">새 비밀번호</label>
-      <input class = "content" type="password" id="newp" name="newp" class="new-password" onblur="PWCheck()" >
-      <div id="pw_new" class="error" style="display:none"></div>
-      <div id="divmargin"></div>
-
-      <label class="header">비밀번호 재입력</label>
-      <input class = "content" type="password" id="pw" name="pw" class="new-password" onblur="PsCfCheck()" >
-      <div id="ps_ck" class="error" style="display:none"></div>
-      <div id="divmargin"></div>
+    <div class="form-group">
+      <label  class="col-xs-4 col-md-4 control-label">ID</label>
+      <div class="col-xs-8 col-md-8">
+      <input type="text" class="form-control" value = "<?php echo $id; ?>" disabled>
+      </div>
+    </div>
+          
+    <div class="form-group">
+      <label  class="col-xs-4 col-md-4 control-label">생년월일</label>
+      <div class="col-xs-8 col-md-8">
+      <input type="text" class="form-control" value = "<?php echo $bday; ?>" disabled>
+      </div>
+    </div>    
+    
+    <div class="form-group">
+      <label  class="col-xs-4 col-md-4 control-label">기존 비밀번호</label>
+      <div class="col-xs-8 col-md-8">
+      <input type="password" class="form-control" id="current" name="current">
+      <div id="pw_cur" class="error" style="display:none"></div>
+      </div>
+    </div>     
    
+    <div class="form-group">
+      <label  class="col-xs-4 col-md-4 control-label">새 비밀번호</label>
+      <div class="col-xs-8 col-md-8">
+      <input type="password" class="form-control" id="newp" name="newp" onkeyup="PwCheck()">
+      <div id="pw_new" class="error" style="display:none"></div>
+      </div>
+    </div>        
+
+    <div class="form-group">
+      <label  class="col-xs-4 col-md-4 control-label">비밀번호 재입력</label>
+      <div class="col-xs-8 col-md-8">
+      <input type="password" class="form-control" id="pw" name="pw" onkeyup="PwCheck()">
+      <div id="ps_ck" class="error" style="display:none"></div>
+      </div>
+    </div>         
+
+
 
    <div class = "submit">
       <input type = "submit" value = "저장" class = "save">
@@ -147,7 +169,7 @@
     <h4 id = "line"> 내 지원서</h4>
    </div>
 
-    <table align="center" class="table table-striped">
+    <table align="center" class="col-xs-12 col-md-12 table table-striped">
       <thead>
         <tr>
           <th class = "number">번호</th>
