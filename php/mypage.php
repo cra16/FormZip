@@ -22,16 +22,19 @@
 <html>
 
    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-      <title>:: 마이 페이지 ::</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>:: 마이 페이지 ::</title>
 
-      <!-- Bootstrap -->
-      <link href="../css/mypage.css" rel="stylesheet">
-      <link href="../css/bootstrap.css" rel="stylesheet">
-      <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="../css/mypage.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+   
+
   </head>
 
 <body> 
@@ -65,75 +68,63 @@
   $list = mysqli_fetch_array($result);
   $name = $list['student_name'];
   $bday = $list['birth'];
-
-  //비밀번호 체크
-  $key = KEY;
-  $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
-
-  $password = mysqli_real_escape_string($bd,$list['password']);
-
-  ### 복호화 ####
-  $de_str = pack("H*", $password); //hex로 변환한 ascii를 binary로 변환
-  $decoding = mcrypt_decrypt(MCRYPT_3DES, $key, $de_str, MCRYPT_MODE_ECB, $s_vector_iv); 
  ?> 
      
    <div class = "title">
     <h4> 기본 정보</h4>
    </div>
 
-    <div class="form-horizontal">
-      <div class="form-group">
-        <label  class="col-lg-3 control-label">이름</label>
-        <div class="col-lg-6">
-          <input type="text" class="form-control" id="inputEmail" placeholder="<?php echo $name; ?>" disabled>
-        </div>
-      </div> 
-      <div id="divmargin"></div> 
       
-      <div class="form-group">
-        <label  class="col-lg-3 control-label">ID</label>
-        <div class="col-lg-6">
-          <input type="text" class="form-control" id="inputEmail" placeholder="<?php echo $id; ?>" disabled>
-        </div>
-      </div> 
+      <label class="header">이름</label>
+      <input class = "content" type='text' value = "<?php echo $name; ?>" disabled>
       <div id="divmargin"></div> 
-
-      <div class="form-group">
-        <label  class="col-lg-3 control-label">생년월일</label>
-        <div class="col-lg-6">
-          <input type="text" class="form-control" id="inputEmail" placeholder="<?php echo $bday; ?>"  disabled>
-        </div>
-      </div> 
+      <label class="header">ID</label>
+      <input class = "content" type='text' value = "<?php echo $id; ?>" disabled>
       <div id="divmargin"></div> 
-    </div>
     
+      <label class="header">생년월일</label>
+      <input class = "bday" type='text' value = "<?php echo $bday; ?>" disabled>
+      <div id="divmargin"></div>  
 
-  
-<?php
-$label_name=array("기존 비밀번호","새 비밀번호","비밀번호 재입력");
-$pw_id_name=array("current","newp","pw");
-  
+   <?php 
+    //비밀번호 체크
+    $key = KEY;
+      $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
 
+      $password = mysqli_real_escape_string($bd,$list['password']);
+
+      ### 복호화 ####
+      $de_str = pack("H*", $password); //hex로 변환한 ascii를 binary로 변환
+      $decoding = mcrypt_decrypt(MCRYPT_3DES, $key, $de_str, MCRYPT_MODE_ECB, $s_vector_iv); 
+   
+    
+   $check_result = $_POST['check'];
+   if($check_result == 'true'){
+     echo "<script>alert(\"비밀번호가 정상적으로 수정되었습니다.\");</script>";
+  }
+   else if($check_result == 'false'){
+     echo "<script>alert(\"비밀번호를 정확하게 입력해주세요.\");</script>";
+   }
 ?>
 
-   <form class="form-horizontal" action="data_change.php?mode=modify" method="POST" onsubmit="return validateForm()">
-    <input type="hidden" id="now" name = "now" value ="<?php echo $decoding; ?>" >
 
-
-      <?php
-      for($i=0; $i<3; $i++){
-      ?>
-      <div class="form-group">
-        <label  class="col-lg-3 control-label"><?php echo $label_name[$i]; ?></label>
-        <div class="col-lg-6">
-          <input type="password" class="form-control" id="<?php echo $pw_id_name[$i]; ?>" name="<?php echo $pw_id_name[$i]; ?>" onkeyup=PwCheck()>
-        </div>
-      </div> 
-      <div id="divmargin"></div> 
-      <?php } ?>  
+   <form action="pw_change.php" method="POST" onsubmit="return validateForm()">
       
-      <div id="ps_ck" class="error" style="display:none"></div> 
-  
+      <label class="header">기존 비밀번호</label>
+      <input class = "content" type="password" id="current" name="current" class="password" onblur="passWord()">    
+      <div id="pw_cur" class="error" style="display:none"></div> 
+      <div id="divmargin"></div>
+
+      <label class="header">새 비밀번호</label>
+      <input class = "content" type="password" id="newp" name="newp" class="new-password" onblur="PWCheck()" >
+      <div id="pw_new" class="error" style="display:none"></div>
+      <div id="divmargin"></div>
+
+      <label class="header">비밀번호 재입력</label>
+      <input class = "content" type="password" id="pw" name="pw" class="new-password" onblur="PsCfCheck()" >
+      <div id="ps_ck" class="error" style="display:none"></div>
+      <div id="divmargin"></div>
+   
 
    <div class = "submit">
       <input type = "submit" value = "저장" class = "save">
@@ -141,6 +132,8 @@ $pw_id_name=array("current","newp","pw");
    </form>    
 
 
+
+<hr class = "line-bar">
 
 
 
@@ -217,3 +210,5 @@ $pw_id_name=array("current","newp","pw");
     <script src="../js/mypage.js"></script>
 </body>
 </html>
+
+
