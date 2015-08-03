@@ -93,28 +93,36 @@
 
 
 
-   <form action="pw_change.php" method="POST" onsubmit="return validateForm()">
+   <form action="pw_change.php" method="POST" onsubmit="return validateForm()" class="form-horizontal">
     <input type="hidden" id="now" name = "now" value ="<?php echo $decoding; ?>" >
-    
-      <label class="header">기존 비밀번호</label>
-      <input class = "content" type="password" id="current" name="current" class="password" onblur="passWord()">    
-      <div id="pw_cur" class="error" style="display:none"></div> 
-      <div id="divmargin"></div>
+      <div class="form-group">
+        <label  class="col-xs-4 col-md-4 control-label">기존 비밀번호</label>
+        <div class="col-xs-8 col-md-6">
+        <input type="password" class="form-control" id="current" name="current" maxlength="20">
+        <div id="pw_cur" class="error" style="display:none"></div>
+        </div>
+      </div>     
+     
+      <div class="form-group">
+        <label  class="col-xs-4 col-md-4 control-label">새 비밀번호</label>
+        <div class="col-xs-8 col-md-6">
+        <input type="password" class="form-control" id="newp" name="newp" onkeyup="PwCheck()" maxlength="20">
+        <div id="pw_new" class="error" style="display:none"></div>
+        </div>
+      </div>        
 
-      <label class="header">새 비밀번호</label>
-      <input class = "content" type="password" id="newp" name="newp" class="new-password" onblur="PWCheck()">
-      <div id="pw_new" class="error" style="display:none"></div>
-      <div id="divmargin"></div>
-
-      <label class="header">비밀번호 재입력</label>
-      <input class = "content" type="password" id="pw" name="pw" class="new-password" onblur="PsCfCheck()">
-      <div id="ps_ck" class="error" style="display:none"></div>
-      <div id="divmargin"></div>
+      <div class="form-group">
+        <label  class="col-xs-4 col-md-4 control-label">비밀번호 재입력</label>
+        <div class="col-xs-8 col-md-6">
+        <input type="password" class="form-control" id="pw" name="pw" onkeyup="PwCheck()" maxlength="20">
+        <div id="ps_ck" class="error" style="display:none"></div>
+        </div>
+      </div>             
    
 
-   <div class = "submit">
-      <input type = "submit" value = "저장" class = "save">
-   </div>
+     <div class = "submit">
+        <input type = "submit" value = "저장" class = "save">
+     </div>
    </form>    
 
 
