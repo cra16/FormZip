@@ -241,6 +241,8 @@
                 </tr>
                 </from>
                 <?php
+                echo $due['s_month']; ?>월 <?php echo $due['s_day']; ?>일 ~
+                <?php echo $due['month']; ?>월 <?php echo $due['day']; ?>까지
               }
               else{ //지원기간이 아닐 경우 ?>
                 <form >
