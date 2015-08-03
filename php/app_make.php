@@ -1,8 +1,4 @@
 <?php
-// Session start 
-session_start();
-$club= $_SESSION["GROUP"];
-
 require_once('auth.php');
 $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
 $question_placeholder= array("Name","Student ID","Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)formzip@naver.com","ex)3학기");
@@ -30,29 +26,24 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
   </head>
 
 <body> 
-  <!-- Logo Start -->
-  <div class="container" class = "col-lg-12 col-xs-12">
-      <div id="header" class = "col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
-          <a href="firstpage.php" class="h_logo">
-          <img src="../img/title.png" class = "h_logo">
-        </a>
-      </div>
+  <!-- title -->
+  <div class="container">
+    <div id="header">
+      <h1> <a href="firstpage.php" class="h_logo">F O R M &nbsp;&nbsp;Z I P</a> </h1>
+    </div>
   </div>
-  <!-- Logo End -->
   <!-- Help box -->
   <div class="helpbox">
-    <div id="flip"> 도움말 <img src="../img/arrow.png"></div>
+    <div id="flip">Help <img src="../img/arrow.png"></div>
     <div id="panel">이름, 학번, 학과, 전화번호, 성별은 기본 항목입니다.<br>군필여부, e-mail, 활동가능학기, 단락텍스트 1~7은 선택사항입니다.<br>선택사항의 사용을 원하시면 'use'를, 아니면 'not use'를 선택해주세요. </div>
   </div>
   <!-- 지원서 내부 -->
 <div class="formContentsLayout">
-
   <h3 class = "application">지원서</h3>    
       <div id="divmargin"></div>              
       <h5 class = "club-name"> - <?php echo $club; ?> - </h5> 
       <div id="divmargin"></div>   
-
-  <form method="POST" class="form-horizontal" action="app_exec.php"> 
+  <form method="POST" onsubmit = "return due()"  class="form-horizontal" action="app_exec.php"> 
 
     <!-- short text -->
     <!-- 이름 / 학번 / 학과 / 전화번호 -->
@@ -194,12 +185,15 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
         ?>
         </select>
       </div>
-      <div class = "col-lg-6 col-lg-offset-4 col-md-6 col-md-offset-4 col-xs-6 col-xs-offset-4">  
-       <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="button" name="name" id = 'temp' value="<?php echo $club; ?>" class = "save col-lg-4">양식 저장</button>     
-      </div>
+    </div>
+
+    <div class="submit_content">
+      <button type="submit">만들기</button>
     </div>
   </form>
 </div>
+
+
 
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
