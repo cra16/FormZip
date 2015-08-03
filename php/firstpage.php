@@ -79,10 +79,10 @@ session_start();
                
               }
               else if($index ==1){
-                echo '<a href="clubpage.php?name='$cname'">Club Page</a>'; 
+                echo '<a href="clubpage.php?name='.$cname.'">Club Page</a>'; 
               }
               else{
-                echo '<a href="academypage.php?name='$cname'">Academy Page</a>';   
+                echo '<a href="academypage.php?name='.$cname.'">Academy Page</a>';   
               }
             }
             else
@@ -103,6 +103,9 @@ session_start();
   <div class = "academy-button"></div>
   <a class="academy-button" href="../php/academylist.php"></a>   
    
+ 
+
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
