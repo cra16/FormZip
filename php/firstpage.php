@@ -35,17 +35,14 @@ session_start();
         window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
       }
       function explain(){
-        var cw = screen.availWidth;     //화면 넓이
-        var ch = screen.availHeight;    //화면 높이
 
-        var sw=520;    //띄울 창의 넓이
-        var sh=620;    //띄울 창의 높이
+        var windowW = 520;  // 창의 가로 길이
+        var windowH = 620;  // 창의 세로 길이
+        var left = Math.ceil((window.screen.width - windowW)/2);
+        var top = Math.ceil((window.screen.height - windowH)/2);
 
-        var ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
-        var mt=(ch-sh)/2;         //가운데 띄우기위한 창의 y위치
+        window.open("explain.php","pop_01","l top="+top+", left="+left+", height="+windowH+", width="+windowW);
 
-        //window.open("explain.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
-        window.open('explain.php','도움말','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no,scrollbars=yes');
       }
     </script>
 
