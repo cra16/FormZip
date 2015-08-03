@@ -84,7 +84,7 @@
               echo '<a href="login.php">Login</a>';
           ?>
         </li>
-        <li><a href="signup.php">Signup</a></li>
+        <li>echo '<a href="clubpage.php?name='.$cname.'">Club Page</a>';</li>
         <li><a href="#">Help</a></li>
       </ul>
     </div>
