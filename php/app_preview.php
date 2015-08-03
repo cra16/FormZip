@@ -79,6 +79,10 @@
 <div class="formContentsLayout">
   <form method="POST" action="clubpage.php" class="form-horizontal"> 
     
+    <h3 class = "application">지원서</h3>    
+    <div id="divmargin"></div>              
+    <h5 class = "club-name"> - <?php echo $club; ?> - </h5> 
+    <div id="divmargin"></div>   
     <!-- short text -->
     <!-- short text -->
     <!-- 이름 / 학번 / 학과 / 전화번호 -->
