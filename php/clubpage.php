@@ -200,11 +200,11 @@
                 if(mysqli_num_rows($result) > 0) 
                  { ?>
                     <form action="app_preview.php" method="GET">
-                     <button class = "club-result-bt" type="submit" name="name" value="<?php echo $academy_name; ?>">지원서 미리보기</button>
+                     <button class = "club-result-bt4" type="submit" name="name" value="<?php echo $academy_name; ?>">지원서 미리보기</button>
                     </form>
                <?php  }
                  else 
-                 { ?> <input class = "club-result-bt" type="button" value="지원서 미리보기" onclick="test()">                      
+                 { ?> <input class = "club-result-bt4" type="button" value="지원서 미리보기" onclick="test()">                      
                     <script type="text/javascript">
                     function test(){
                      alert("만들어진 지원서 양식이 없습니다.");
