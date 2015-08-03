@@ -102,9 +102,12 @@ body {
 #panel, #flip {
     padding: 4px;
     text-align: center;
-  
 }
 
+#flip{
+  font-size: 1.2em;
+  color: #3E809C;
+}
 #panel {
     padding: 50px;
     display: none;
@@ -191,4 +194,10 @@ hr.line-bar {
     background: #333;
     background-image: linear-gradient(to right, #ccc, #5a5830, #ccc);
     width: 80%;
+}
+
+.title-b{
+  color: #414141;
+  text-align: center;
+  font-size: 1.7em;
 }

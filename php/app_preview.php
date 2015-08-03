@@ -49,6 +49,7 @@
   $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7']);
 ?>
 
+
 <!DOCTYPE HTML> 
 <html>
 
@@ -68,14 +69,19 @@
   </head>
 
 <body> 
-  <div class="container">
-    <div id="header">
-      <h1> <a href="firstpage.php" class="h_logo">F O R M &nbsp;&nbsp;Z I P</a> </h1>
-      <h2>  PREVIEW </h2>
-    </div>
-  </div>
+  <!-- Logo Start -->
+  <div class="container" class = "col-lg-12 col-xs-12">   
+      <div id="header" class = "col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
+          <a href="firstpage.php" class="h_logo">
+          <img src="../img/title.png" class = "h_logo">
+        </a>
+      </div>
+   <div id="divmargin"></div> 
+</div>
+  <!-- Logo End -->
+<h2 class = "title-b"> 미리보기 </h2>
 
- 
+<div id="divmargin"></div>    
 <div class="formContentsLayout">
     <h3 class = "application">지원서</h3>    
     <div id="divmargin"></div>              
