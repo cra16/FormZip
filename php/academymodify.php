@@ -16,9 +16,9 @@
 
   mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
-  $club_name= $_GET['name'];
+  $academy_name= $_GET['name'];
 
-  $qry="SELECT * FROM club WHERE c_name='$club_name'";   
+  $qry="SELECT * FROM academy WHERE a_name='$academy_name'";   
   $result=mysqli_query($bd,$qry);
 
   //Check whether the query was successful or not
@@ -49,7 +49,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> FORM:ZIP 페이지 수정 </title>
+    <title> 학회페이지 변경 </title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -86,7 +86,7 @@
         </li>
         <li>
         <?php
-          echo '<a href="clubpage.php">Club Page</a>';   
+          echo '<a href="academypage.php?name='.$cname.'">Academy Page</a>';   
                ?>
         </li>
         <li><a href="#">Help</a></li>
@@ -100,14 +100,14 @@
   
   <div id = "wrap">
     <div id = "navigation">Formzip </div>
-    <!-- 동아리 수정 Start-->
+    <!-- 학회 수정 Start-->
     <div id = "section">
       <form class = "content" method = "POST" action="clubexec.php" enctype="multipart/form-data">
         <img class = "picture" src = "../clubimg/<?php echo $member['img_name']; ?>">   <!-- *그림 가져오기 -->
         
           <div class="containerbox">
             <div class="form-group">
-              <label for="inputEmail" class="col-lg-3 control-label">이미지 업로드</label>
+              <label for="inputEmail" class="col-lg-3 control-label">파일 업로드</label>
               <div class="col-lg-10">
               <input type="file" class="form-control" name="upload_file">
               </div>
@@ -115,22 +115,22 @@
             <div class="form-group">
               <label class="col-lg-3 control-label">Title</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" name="title" placeholder="동아리 제목을 입력해주세요" value = '<?php echo $club_name; ?>'>
+                <input type="text" class="form-control" name="title" placeholder="학회 제목을 입력해주세요" value = '<?php echo $club_name; ?>'>
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-lg-3 control-label"> 소개글 </label>
                 <div class="col-lg-10">
-                <textarea class="form-control" rows="14" name="text" ><?php echo $member['text']; ?></textarea>   
+                <textarea class="form-control" rows="3" name="text" ><?php echo $member['text']; ?></textarea>   
                 </div>
             </div>  
           </div>
     </div>
    
-    <!-- 동아리 소개 End-->
+    <!-- 학회 소개 End-->
 
-    <!-- 동아리 프로필 Start-->
+    <!-- 학회 프로필 Start-->
     <div id = "aside">
       <table class = "profile">
         <tr>
@@ -142,15 +142,15 @@
       </table>
     </div>
     </form>
-    <!-- 동아리 프로필 End-->
+    <!-- 학회 프로필 End-->
   </div>
+
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
-
-

@@ -176,7 +176,7 @@
         {
         ?>
         <tr>
-          <form action="clubmodify.php" method="GET">
+          <form action="academymodify.php" method="GET">
            <button class = "club-result-bt1" type="submit" name="name" value="<?php echo $academy_name; ?>">페이지 수정</button>
           </form>
         </tr>
