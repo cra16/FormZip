@@ -43,11 +43,13 @@
 //Sanitize the POST values
   $short_info=array("use","use","use","use","use",$member['served'],$member['mail'],$member['activity']);
   $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$member['sr5'],$member['sr6'],$member['sr7']);
-  $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
+  $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기수");
   $question_placeholder= array("Name","Student ID","Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)formzip@naver.com","ex)3학기");
   $title=array($member['title1'],$member['title2'],$member['title3'],$member['title4'],$member['title5'],$member['title6'],$member['title7']);
   $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7']);
 ?>
+
+
 
 
 <!DOCTYPE HTML> 
@@ -134,7 +136,7 @@
     <?php
     }
 
-    // 이메일 / 활동가능학기
+    // 이메일 / 활동가능학기수
        for($i = 6; $i<8; $i++)
       {
         if($short_info[$i]=="use"){
@@ -176,21 +178,19 @@
     <?php
       }
     ?>
-
+    <div class = "form-group">
     <div class="form-group">
-      <label class="col-lg-2 control-label">제출기한</label>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-body">
+      <label class="col-lg-3 control-label">제출기한</label>
+      <div class="col-lg-8">
         <?php echo $member['s_month']; ?>월 <?php echo $member['s_day']; ?>일 부터
         <?php echo $member['month']; ?>월 <?php echo $member['day']; ?>일 까지
       </div>
+     <div class = "col-lg-6 col-lg-offset-4 col-md-6 col-md-offset-4 col-xs-6 col-xs-offset-4">  
+      <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="submit">확인</button>
     </div>
 
-
-    <div class="submit_content">
-      <button type="submit">확인</button>
     </div>
+  </div>
   </form>
 </div>
 
