@@ -77,12 +77,12 @@
 
  
 <div class="formContentsLayout">
-  <form method="POST" action="clubpage.php" class="form-horizontal"> 
-    
     <h3 class = "application">지원서</h3>    
     <div id="divmargin"></div>              
     <h5 class = "club-name"> - <?php echo $user_id; ?> - </h5> 
-    <div id="divmargin"></div>   
+    <div id="divmargin"></div> 
+  <form method="POST" action="clubpage.php" class="form-horizontal"> 
+      
     <!-- short text -->
     <!-- short text -->
     <!-- 이름 / 학번 / 학과 / 전화번호 -->
@@ -180,6 +180,7 @@
         <?php echo $member['month']; ?>월 <?php echo $member['day']; ?>일 까지
       </div>
     </div>
+
 
     <div class="submit_content">
       <button type="submit">확인</button>
