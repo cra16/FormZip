@@ -170,7 +170,7 @@ if( $info == 1){ // 정보 존재
     <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() "> 
        <h3 class = "application">지원서</h3>    
       <div id="divmargin"></div>              
-      <h5 class = "club-name"> <분류 : 동아리 - CRA></h5> 
+      <h5 class = "club-name"> <분류 : 동아리 - <?php echo $club; ?>></h5> 
       <div id="divmargin"></div>   
 
       <hr class = "line-bar">
