@@ -75,7 +75,7 @@ else
   $short_info=array("use","use","use","use","use",$member['served'],$member['mail'],$member['activity']);
   $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$member['sr5'],$member['sr6'],$member['sr7']);
   $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
-  $question_placeholder= array($user['student_name'],$user['stuid'],"Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)formzip@naver.com","ex)3학기");
+  $question_placeholder= array($user['student_name'],$user['stuid'],"ex) 1전공/2전공","Phone number","남/여","남성인 경우만 해당","ex)formzip@naver.com","ex)3학기");
   $title=array($member['title1'],$member['title2'],$member['title3'],$member['title4'],$member['title5'],$member['title6'],$member['title7']);
   $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7']);
   $pass_name=array("name","stuid","major","p_num","gender","served","mail","activity");
@@ -311,25 +311,18 @@ if( $info == 1){ // 정보 존재
         $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
         $re_query = mysqli_query($bd,$query);
         $fetch = mysqli_fetch_array($re_query);
+
         if( $fetch[0] == NULL ){
       ?>
-        <div class = "col-lg-4 col-lg-offset-4">
-        <div class="submit_content">
-          <button class="submit_content" type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
-        </div>
-        <div class="submit_content">
-          <button class="submit_content" type="submit" name="real" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
-        </div>
+        <div class = "col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
+          <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>">임시저장</button>
+          <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="submit" name="real" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
       </div>
       <?php
         }else{ ?>
-        <div class = "col-lg-4 col-lg-offset-4">          
-          <div class="submit_content">
-            <button class="submit_content" type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>">임시저장</button>
-          </div>
-          <div class="submit_content">
+        <div class = "col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2"> 
+          <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>">임시저장</button>
           <button class="submit_content" type="button" name="name" id ='real' onclick="disable()" value="<?php echo $club; ?>">제출</button>
-          </div>
         </div>
       <?php } ?>
     </form>
@@ -440,42 +433,35 @@ if( $info == 1){ // 정보 존재
           <?php echo $member['s_month']; ?>월 <?php $member['s_day']; ?>일 까지부터
           <?php echo $member['month'];?>월 <?php echo $member['day']; ?>일 까지
         </p>
-      </div>
 
-    </form>
-  </div>
-     <?php
+
+        <br>
+             <?php
         $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
         $re_query = mysqli_query($bd,$query);
         $fetch = mysqli_fetch_array($re_query);
 
         if( $fetch[0] == NULL ){
       ?>
-        <div class = "col-lg-8 col-lg-offset-4 col">      
-        <div class="submit_content col-lg-4">
-          <button type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>" class = "save">임시저장</button>
-        </div>
-
-        <div class="submit_content col-lg-4">
-          <button type="submit" name="real" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
-        </div>
+        <div class = "col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
+          <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>" >임시저장</button>
+          <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="submit" name="real" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
        </div> 
       <?php
         }else{ ?>
-        <div class = "col-lg-8 col-lg-offset-4">        
-          <div class="submit_content col-lg-4">
-            <button type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>">임시저장</button>
-          </div>
-
-          <div class="submit_content  col-lg-4">
-          <button type="button" name="name" id ='real' onclick="disable()" value="<?php echo $club; ?>">제출</button>
-          </div>
+        <div class = "col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">  
+         <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>" class = "save col-lg-4">임시저장</button>
+         <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="button" name="name" id ='real' onclick="disable()" value="<?php echo $club; ?>" class = "save col-lg-4">제출</button>
         </div>
   <?php } ?>
-
 <?php
 }
 ?>
+
+      </div>
+    
+    </form>
+  </div>
 
 
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

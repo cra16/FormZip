@@ -59,6 +59,8 @@ body {
 .formContentsLayout {
   width: 700px;
   margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
   border: 1px solid #979FA0;
   background-color: white;
   padding:10px;
@@ -68,27 +70,23 @@ body {
 
 
 .submit_content{
-   margin:0 auto;
-    width:200px;
-}
+  margin: 20px;
+  width: 40%;
+  background-color: #7e7e7c;
+  font-style: bold;
+  color: white;
+  height : 40px;
+  border-style: none;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 
-.submit_content button{
-  
-  width:200px;
-  height:100%;
-  background-color:white;
-  border-radius: 7px;
-  color:gray;
-  letter-spacing: 0.6rem;
-  font-size:2rem;
-  padding:0 !important;
 }
-
-.submit_content button:hover{
-  background-color:black;
+.submit_content:hover{
+  background-color:#a39d12;
   color:white;
-  padding-left:10%;
+  box-shadow: 0 0 5px #67665a;
   }
+
 
 
 .helpbox{
@@ -128,9 +126,14 @@ body {
   display:none;
 }
 
+.form-control{
+  color: #404040;
+}
+
 .form-control[disabled]{
-  background-color:white;
+  background-color:#f0f0f0;
   cursor:pointer;
+  color: black;
 }
 
 input[type=radio] + label {
@@ -182,3 +185,10 @@ hr.line-bar {
   margin-top:20px;
 }
 
+hr.line-bar {
+    border: 0;
+    height: 0.8px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #5a5830, #ccc);
+    width: 80%;
+}
