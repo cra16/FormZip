@@ -49,7 +49,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title> 동아리페이지 변경 </title>
+    <title> FORM:ZIP 페이지 수정 </title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -103,7 +103,7 @@
         
           <div class="containerbox">
             <div class="form-group">
-              <label for="inputEmail" class="col-lg-3 control-label">파일 업로드</label>
+              <label for="inputEmail" class="col-lg-3 control-label">이미지 업로드</label>
               <div class="col-lg-10">
               <input type="file" class="form-control" name="upload_file">
               </div>
@@ -116,9 +116,9 @@
             </div>
 
             <div class="form-group">
-              <label class="col-lg-3 control-label">동아리 설명</label>
+              <label class="col-lg-3 control-label"> 소개글 </label>
                 <div class="col-lg-10">
-                <textarea class="form-control" rows="3" name="text" ><?php echo $member['text']; ?></textarea>   
+                <textarea class="form-control" rows="14" name="text" ><?php echo $member['text']; ?></textarea>   
                 </div>
             </div>  
           </div>
@@ -140,8 +140,6 @@
     </form>
     <!-- 동아리 프로필 End-->
   </div>
-
-
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
