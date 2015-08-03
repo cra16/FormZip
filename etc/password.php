@@ -7,7 +7,7 @@
   </head>
 <body>
  <?php
-   require_once('firstapp/php/DB_INFO.php');
+   require_once('../php/DB_INFO.php');
   header('Content-Type: text/html; charset=utf-8');
 
   mysqli_query("set session character_set_connection=utf8;");
@@ -19,10 +19,7 @@
 
   mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
- require_once('firstapp/php/DB_INFO.php');
-
-
- $key = KEY;
+$key = KEY;
 $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
 
 
