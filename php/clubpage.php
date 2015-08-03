@@ -15,7 +15,6 @@
 
   mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
-
   if($_GET['name']!=""){
    $club_name= $_GET['name'];
    $_SESSION["GROUP"] = $club_name;
@@ -242,7 +241,8 @@
                 </from>
                 <?php
                 echo $due['s_month']; ?>월 <?php echo $due['s_day']; ?>일 ~
-                <?php echo $due['month']; ?>월 <?php echo $due['day']; ?>까지
+                <?php echo $due['month']; ?>월 <?php echo $due['day']; ?>일 
+              <?php
               }
               else{ //지원기간이 아닐 경우 ?>
                 <form >
