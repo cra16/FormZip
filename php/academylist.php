@@ -1,16 +1,20 @@
 <?php
-session_start();
-require_once('DB_INFO.php');
-header('Content-Type: text/html; charset=utf-8');
+  // Session start 
+  session_start();
 
-mysqli_query("set session character_set_connection=utf8;");
-mysqli_query("set session character_set_results=utf8;");
-mysqli_query("set session character_set_client=utf8;");
+  // DB connection
+  require_once('DB_INFO.php');
+  header('Content-Type: text/html; charset=utf-8');
 
-$bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
-mysqli_set_charset($bd, "utf8");
+  mysqli_query("set session character_set_connection=utf8;");
+  mysqli_query("set session character_set_results=utf8;");
+  mysqli_query("set session character_set_client=utf8;");
+ die("Could not connect database");
+  mysqli_set_charset($bd, "utf8");
+  $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or
 
-mysqli_select_db($bd,DB_NAME) or die("Could not select database");
+  mysqli_select_db($bd,DB_NAME) or die("Could not select database");
+
  ?>
 
 <!DOCTYPE html>
@@ -168,22 +172,31 @@ $j=0;
 $academy[$i] = "dd";
 ?>
 
-<div class="container">
+<div class="container col-xs-12 col-md-12 col-lg-12">
   <div class="row">
-    <form action="academypage.php" method="GET"  >
-<?php
-while($academy[$i] != NULL){
-   for($j=0 ; $j<4 ; $j++){
-    $academy = mysqli_fetch_array($result);
-    if($academy[$i] == NULL){
-      break;
-    }
-    echo " <div class='col-xs-6 col-md-3' >";
-    echo "<input class = 'club-element' type = 'submit' value ='$academy[$i]' name='name'>";
-    echo "</div>";
-    }
-  }  
-?>
+   <div class="col-lg-1 col-xs-1 col-md-1"></div>
+   <div class="col-lg-10 col-xs-10 col-md-10">
+    <form action="academypage.php" method="GET">
+      <?php
+      while($academyname[$i] != NULL){
+        for($j=0 ; $j<3 ; $j++){
+          $academyname = mysqli_fetch_array($result);
+          if($academyname[$i] == NULL){
+            break;
+          }
+          echo " <div class='col-xs-6 col-md-3' >";
+          echo "<input class = 'club-element' type = 'submit' value ='$academy[$i]' name='name'>";
+          echo "</div>";
+          } 
+      }
+      ?>
+      <div class="col-lg-1 col-xs-1 col-md-1"></div>
+    </form>
+   </div>
+   <div class="col-lg-1 col-xs-1 col-md-1"></div>
+  </div>
+</div>
+
 </form>
 </div>
 </div>
