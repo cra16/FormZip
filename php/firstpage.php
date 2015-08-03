@@ -37,7 +37,7 @@ session_start();
     </script>
 
   </head>
-  <body>
+  <body onload = "help()">
  <!-- Menubar start-->  
   <nav class="navbar navbar-default">
   <div class="container-fluid">
