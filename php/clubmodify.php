@@ -111,14 +111,14 @@
             <div class="form-group">
               <label class="col-lg-3 control-label">Title</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" name="title" placeholder="동아리 제목을 입력해주세요">
+                <input type="text" class="form-control" name="title" placeholder="동아리 제목을 입력해주세요" value = '<?php echo $club_name; ?>'>
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-lg-3 control-label">동아리 설명</label>
                 <div class="col-lg-10">
-                <textarea class="form-control" rows="3" name="text"></textarea>   
+                <textarea class="form-control" rows="3" name="text" value='<?php echo $member['text']; ?>'></textarea>   
                 </div>
             </div>  
           </div>
