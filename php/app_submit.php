@@ -133,11 +133,9 @@ else
       function disable(){
         alert('이미 제출하셨습니다');
       }
-<<<<<<< HEAD
-
       function help(){
         window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
-=======
+      }
       function ok2(){
         var message = "임시저장하시겠습니까?";
         var result = confirm(message);
@@ -148,7 +146,6 @@ else
       }
       function disable(){
         alert('이미 제출하셨습니다');
->>>>>>> a76cd7665ab289c53d38775f3b0f4179020e4396
       }
     </script>
 
@@ -291,8 +288,7 @@ if( $info == 1){ // 정보 존재
           <div class="form-group">
             <label class="col-lg-3 col-md-3 col-xs-3 control-label"><?php echo $title[$i]; ?></label>
             <div class="col-lg-8 col-md-8 col-xs-8">
-            <textarea class="form-control" rows="3" name="<?php echo $text_name[$i]; ?>">
-              <?php if($text_temp[$i] != '0'){ echo $text_temp[$i]; } ?></textarea>
+            <textarea class="form-control" rows="3" name="<?php echo $text_name[$i]; ?>"><?php if($text_temp[$i] != '0'){ echo $text_temp[$i]; } ?></textarea>
             <span class="help-block"> <?php echo $explain[$i]; ?></span>    
             </div>
           </div>  
@@ -306,7 +302,7 @@ if( $info == 1){ // 정보 존재
       <div class="form-group">
         <label class="col-lg-3 col-md-3 col-xs-3 control-label">제출기한</label>
         <p class="panel-body col-lg-8 col-md-8 col-xs-8">
-          <?php echo $member['s_month']; ?>월 <?php $member['s_day']; ?>일 까지부터
+          <?php echo $member['s_month']; ?>월 <?php echo $member['s_day']; ?>일 까지부터
           <?php echo $member['month'];?>월 <?php echo $member['day'];?>일 까지
         </p>
       </div>
@@ -362,7 +358,7 @@ if( $info == 1){ // 정보 존재
           </div>
         </div>
       <?php } ?>
-<!-- -------------------------------------------------------------------------------------------------------------- -->
+
 <?php 
 }else{ //정보 존재하지 않음 
   ?>
@@ -466,7 +462,7 @@ if( $info == 1){ // 정보 존재
         <label class="col-lg-3 col-md-3 col-xs-3 control-label">제출기한</label>
         <p class="panel-body col-lg-8 col-md-8 col-xs-8">
           <?php echo $member['s_month']; ?>월 <?php $member['s_day']; ?>일 까지부터
-          <?php echo $member['month'];?>월 <?php echo $member['day'];?>일 까지
+          <?php echo $member['month'];?>월 <?php echo $member['day']; ?>일 까지
         </p>
       </div>
 
