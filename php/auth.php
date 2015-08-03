@@ -21,7 +21,7 @@ $result=mysqli_query($connect,$qry);
 	if($result) {
 		if(mysqli_num_rows($result) > 0 ) {
 			$member = mysqli_fetch_assoc($result);
-			if($member['index']!=1){
+			if($member['index']!=1 &&$member['index']!=2 ){
 		      header("location: firstpage.php");
 		      exit();}
 		 }else {

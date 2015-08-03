@@ -181,14 +181,45 @@
           </form>
         </tr>
         <tr>
+          <form action="mypage_a.php" method="GET">
+           <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">비밀번호 수정</button>
+          </form>
+        </tr>
+        <tr>
           <form action="app_make.php" method="GET">
             <button class = "club-result-bt2" type="submit" name="name" value="<?php echo $academy_name; ?>">지원서 만들기</button>
           </form>
         </tr>
         <tr>
-          <form action="app_preview.php" method="GET">
-           <button class = "club-result-bt3" type="submit" name="name" value="<?php echo $academy_name; ?>">지원서 미리보기</button>
-          </form>
+          <?php 
+            $qry="SELECT * FROM application WHERE id='$user_id'";   
+             $result=mysqli_query($bd,$qry);
+
+              //Check whether the query was successful or not
+                if($result) {
+
+                if(mysqli_num_rows($result) > 0) 
+                 { ?>
+                    <form action="app_preview.php" method="GET">
+                     <button class = "club-result-bt" type="submit" name="name" value="<?php echo $academy_name; ?>">지원서 미리보기</button>
+                    </form>
+               <?php  }
+                 else 
+                 { ?> <input class = "club-result-bt" type="button" value="지원서 미리보기" onclick="test()">                      
+                    <script type="text/javascript">
+                    function test(){
+                     alert("만들어진 지원서 양식이 없습니다.");
+                    }
+                    </script>
+                <?php 
+                }
+               }
+              else 
+              {
+                die("Query failed");
+              }?>
+         
+          
         </tr>
         <tr>
           <form action="app_list.php" method="GET">
