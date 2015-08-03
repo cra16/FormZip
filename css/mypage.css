@@ -3,7 +3,7 @@
 
 
 body { 
-  background: url(../img/1.jpg) no-repeat center center fixed; 
+  background: url(../img/2.png) no-repeat center center fixed; 
   background-size:100% 100%;
 }
 
@@ -88,6 +88,18 @@ table.personal{
   margin-top: 20px;
   margin-left: 5%; 
   }
+
+.title-a h4{
+  font-style: bold;
+  font-size:2.0rem;
+  color: #289685;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-left: 5%; 
+  text-align: center;
+  }
+
+
 
 
 .fixed-name, .fixed-id, .password, .new-password{

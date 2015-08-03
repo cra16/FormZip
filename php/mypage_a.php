@@ -66,7 +66,7 @@
 
 
     <!-- 기본정보 Start -->
-   <div class = "title">
+   <div class = "titl-a">
     <h4> 기본 정보</h4>
    </div>
 
@@ -124,12 +124,6 @@
         <input type = "submit" value = "저장" class = "save">
      </div>
    </form>    
-
-
-
-<hr class = "line-bar">
-
-
 
 <!-- 기본 정보 End -->
 
