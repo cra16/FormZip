@@ -34,10 +34,23 @@ session_start();
       function help(){
         window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
       }
+      function explain(){
+        var cw = screen.availWidth;     //화면 넓이
+        var ch = screen.availHeight;    //화면 높이
+
+        var sw=520;    //띄울 창의 넓이
+        var sh=620;    //띄울 창의 높이
+
+        var ml=(cw-sw)/2;        //가운데 띄우기위한 창의 x위치
+        var mt=(ch-sh)/2;         //가운데 띄우기위한 창의 y위치
+
+        //window.open("explain.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
+        window.open('explain.php','도움말','width='+sw+',height='+sh+',top='+mt+',left='+ml+',resizable=no,scrollbars=yes');
+      }
     </script>
 
   </head>
-  <body onload = "help()">
+  <body onload = "explain()">
  <!-- Menubar start-->  
   <nav class="navbar navbar-default">
   <div class="container-fluid">
