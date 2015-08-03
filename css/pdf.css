@@ -68,3 +68,10 @@ input[type=radio]:checked + label {
 #nonserved{
   display:none;
 }
+
+
+.text_box{
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+
+}
