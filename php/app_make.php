@@ -4,7 +4,7 @@ session_start();
 $club= $_SESSION["GROUP"];
 
 require_once('auth.php');
-$label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
+$label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기수");
 $question_placeholder= array("Name","Student ID","Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)formzip@naver.com","ex)3학기");
 $text_name=array("t_name","t_stuid","t_major","t_phonenum","t_gender","t_served","t_mail","t_activity");
 $radio_name=array("r_served","r_mail","r_activity");
@@ -20,7 +20,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>application making page</title>
+    <title>FORM:ZIP 지원서 양식 만들기</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
   <!-- Help box -->
   <div class="helpbox">
     <div id="flip"> 도움말 <img src="../img/arrow.png"></div>
-    <div id="panel">이름, 학번, 학과, 전화번호, 성별은 기본 항목입니다.<br>군필여부, e-mail, 활동가능학기, 단락텍스트 1~7은 선택사항입니다.<br>선택사항의 사용을 원하시면 'use'를, 아니면 'not use'를 선택해주세요. </div>
+    <div id="panel">이름, 학번, 학과, 전화번호, 성별은 기본 항목입니다.<br>군필여부, e-mail, 활동가능학기수, 질물 1~7은 선택사항입니다.<br>선택사항의 사용을 원하시면 'use'를, 아니면 'not use'를 선택해주세요. </div>
   </div>
   <!-- 지원서 내부 -->
 <div class="formContentsLayout">
@@ -98,7 +98,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
           <input type="radio" id="<?php echo $radio_name[$i-5]; ?>" name="<?php echo $radio_name[$i-5]; ?>" value="notuse" onclick="Blind<?php echo $i-4;?>()">not Use
         </div>
       </div>  
-    <!-- 이메일 / 활동가능학기 -->
+    <!-- 이메일 / 활동가능학기수 -->
     <?php
        for($i = 6; $i<8; $i++)
       {
@@ -123,10 +123,10 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     ?>
       <div class="form-group">
         <label class="col-lg-3 control-label" title="선택 항목입니다. 사용을 원하실 경우 Use 아닌경우 not Use를 선택해 주세요">
-        단락 텍스트<?php echo $i+1;?></label>
+        질문 <?php echo $i+1;?></label>
         <div class="col-lg-9">
-          <input type="text" class="form-control"  placeholder="항목 제목-제목을 입력해주세요" style="display:none" name="title<?php echo $i+1;?>" id="title<?php echo $i+1;?>">
-          <input type="text" class="form-control"  placeholder="항목 설명-항목에 대한 설명을 입력해주세요" style="display:none" name="explain<?php echo $i+1;?>" id="explain<?php echo $i+1;?>">
+          <input type="text" class="form-control"  placeholder="질문을 입력해주세요." style="display:none" name="title<?php echo $i+1;?>" id="title<?php echo $i+1;?>">
+          <input type="text" class="form-control"  placeholder="설명-질문에 대한 설명을 입력해주세요" style="display:none" name="explain<?php echo $i+1;?>" id="explain<?php echo $i+1;?>">
           <input type="radio" id="<?php echo $sub_radio_name[$i]; ?>" name="<?php echo $sub_radio_name[$i]; ?>" value="use"  onclick="Sub_Show<?php echo $i+1;?>()">Use
           <input type="radio" id="<?php echo $sub_radio_name[$i]; ?>" name="<?php echo $sub_radio_name[$i]; ?>" value="notuse" onclick="Sub_Blind<?php echo $i+1;?>()" checked>not Use
         </div>
