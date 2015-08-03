@@ -75,7 +75,7 @@ $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$mem
 while ($list = mysqli_fetch_assoc($result)) {  
 
   $short_info=array($list['name'],$list['stu_id'],$list['major'],$list['p_num'],$list['gender'],$list['served'],$list['mail'],$list['activity']);
-  $text_name=array($list['text1'],$list['text2'],$list['text3'],$list['text4'],$list['text5'],$list['text6'],$list['text7'],);
+  $text_name=array(str_replace("\n","<br>",$list['text1']),str_replace("\n","<br>",$list['text2']),str_replace("\n","<br>",$list['text3']),str_replace("\n","<br>",$list['text4']),str_replace("\n","<br>",$list['text5']),str_replace("\n","<br>",$list['text6']),str_replace("\n","<br>",$list['text7']));
 
 ?>
   <div class="formContentsLayout form-horizontal">
@@ -88,7 +88,7 @@ while ($list = mysqli_fetch_assoc($result)) {
         <div class="form-group">
           <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
           <div class="col-lg-8">
-            <input type="text" class="form-control short-length" placeholder="<?php echo $short_info[$j]; ?>" style="display:block" id="<?php echo $text_name[$j]; ?>" name="<?php echo $text_name[$j]; ?>" disabled>
+            <input type="text" class="form-control short-length" placeholder="<?php echo $short_info[$j]; ?>" style="display:block" disabled>
           </div>
         </div>  
         
@@ -151,7 +151,7 @@ while ($list = mysqli_fetch_assoc($result)) {
           <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
           <div class="col-lg-8">
             <input type="text" class="form-control short-length"  placeholder="<?php echo $short_info[$j]; ?>"
-                   style="display:block" id="<?php echo $text_name[$i]; ?>" name="<?php echo $text_name[$i]; ?>" disabled>
+                   style="display:block"  disabled>
              </div>
         </div>  
       
@@ -172,8 +172,8 @@ while ($list = mysqli_fetch_assoc($result)) {
       ?>
           <div class="form-group">
             <label class="col-lg-3 control-label"><?php echo $title[$j]; ?></label>
-            <div class="col-lg-8">
-            <textarea class="form-control" rows="3" id="textArea" placeholder="<?php echo $text_name[$j]; ?>" disabled></textarea>
+            <div class="col-lg-9">
+            <p class="text_box"><?php echo $text_name[$j]; ?></p>
             <span class="help-block"><?php echo $explain[$j]; ?></span>    
             </div>
           </div>  
