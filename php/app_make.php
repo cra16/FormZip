@@ -1,4 +1,8 @@
 <?php
+// Session start 
+session_start();
+$club= $_SESSION["GROUP"];
+
 require_once('auth.php');
 $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
 $question_placeholder= array("Name","Student ID","Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)formzip@naver.com","ex)3학기");
