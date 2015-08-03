@@ -15,7 +15,6 @@
 
   mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
-
   if($_GET['name']!=""){
    $academy_name= $_GET['name'];
    $_SESSION["GROUP"] = $academy_name;
@@ -202,11 +201,34 @@
         {
           if($id) // 로그인을 한 경우 지원하기 가능
           {   
-            $qry_e = "SELECT month FROM application WHERE id = '$academy_name'";
-            $result_e = mysqli_query($bd,$qry_e);
-            $exist = mysqli_fetch_array($result_e);
-            
-            if( $exist[0] != NULL ){ // 지원서가 있을 경우 
+            $qry_d = "SELECT month FROM application WHERE id = '$academy_name'";
+            $result_d = mysqli_query($bd,$qry_d);
+            $due = mysqli_fetch_assoc($result_d);
+
+            $now_month = date("m",time());
+            $now_day = date("j",time());
+
+            $now_month = (int)$now_month;
+            $now_day = (int)$now_day;
+            $exist = 0;
+
+            if( $due['month'] == NULL || $due['day'] == NULL || $due['s_day'] == NULL || $due['s_month'] == NULL ){
+              $exist = 0;
+            }else{
+              if( $now_month >= $due['s_month'] && $now_month <= $due['month'] ){
+                $exist = 1;
+              }else if($now_month == $due['month'] || $now_month >= $due['s_month']){
+                if($now_day <= $due['day']){
+                  $exist = 1;
+                }
+              }else if($now_month == $due['s_month'] || $now_month <= $due['month']){
+                if($now_day >= $due['s_day']){
+                  $exist = 1;
+                }
+              }
+            }
+
+            if( $exist == 1 ){ // 지원서가 있을 경우 
         ?>  
               <form action="app_submit.php" method="GET">
               <tr>
@@ -214,6 +236,9 @@
               </tr>
               </from>
               <?php
+                echo $due['s_month']; ?>월 <?php echo $due['s_day']; ?>일 ~
+                <?php echo $due['month']; ?>월 <?php echo $due['day']; ?>일 
+            <?php
             }
             else{ //지원서가 없을 경우 ?>
               <form >
@@ -222,6 +247,7 @@
               </tr>
               </from>
               <?php
+              echo "지원기간이 아닙니다";
            }
 
           }
@@ -234,6 +260,7 @@
           </tr>
         </from>
            <?php
+           echo '로그인 후 지원가능합니다';
           }
        }
         ?>

@@ -174,7 +174,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
           for($i = 1; $i<32; $i++)
           {
         ?>
-          <option value="<?php echo $i; ?>"><?php echo $i; ?>일</option>
+          <option value=" <?php echo $i; ?> "><?php echo $i; ?>일</option>
     
         <?php
           }
