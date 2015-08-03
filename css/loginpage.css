@@ -66,6 +66,11 @@ body{
   color: #545454;
   margin-bottom: 14px;
 }
+
+.form-control{
+  margin-bottom: 13px;
+
+}
 .inputmargin{
   margin-top:3px;
 }
