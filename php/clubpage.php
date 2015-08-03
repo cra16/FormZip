@@ -176,27 +176,27 @@
         ?>
         <tr>
           <form action="clubmodify.php" method="GET">
-           <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">페이지 수정</button>
+           <button class = "club-result-bt1" type="submit" name="name" value="<?php echo $club_name; ?>">페이지 수정</button>
           </form>
         </tr>
         <tr>
           <form action="mypage_a.php" method="GET">
-           <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">비밀번호 수정</button>
+           <button class = "club-result-bt2" type="submit" name="name" value="<?php echo $club_name; ?>">비밀번호 수정</button>
           </form>
         </tr>
         <tr>
           <form action="app_make.php" method="GET">
-            <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원서 만들기</button>
+            <button class = "club-result-bt3" type="submit" name="name" value="<?php echo $club_name; ?>">지원서 만들기</button>
           </form>
         </tr>
         <tr>
           <form action="app_preview.php" method="GET">
-           <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원서 미리보기</button>
+           <button class = "club-result-bt4" type="submit" name="name" value="<?php echo $club_name; ?>">지원서 미리보기</button>
           </form>
         </tr>
         <tr>
           <form action="app_list.php" method="GET">
-            <button class = "club-result-bt" type="submit" name="name" value="<?php echo $club_name; ?>">지원자 현황</button>
+            <button class = "club-result-bt5" type="submit" name="name" value="<?php echo $club_name; ?>">지원 현황</button>
           </form>
         </tr>
         <?php

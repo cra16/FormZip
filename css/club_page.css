@@ -101,7 +101,22 @@ body{
 	font-size: 20px;
 }
 
-.club-result-bt{
+.club-result-bt1{
+	display: block;
+	border-radius: 6px;
+	border-style: none;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	background-color: #D2D68B;
+	width: 40%;
+	color: #fff;
+	width: 300px;
+	height: 45px;
+	border-radius: 4px 4px 4px  4px;
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+.club-result-bt2{
 	display: block;
 	border-radius: 6px;
 	border-style: none;
@@ -115,6 +130,53 @@ body{
 	font-size: 20px;
 	margin-top: 10px;
 }
+.club-result-bt3{
+	display: block;
+	border-radius: 6px;
+	border-style: none;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	background-color: #B3B85E;
+	width: 40%;
+	color: #fff;
+	width: 300px;
+	height: 45px;
+	border-radius: 4px 4px 4px  4px;
+	font-size: 20px;
+	margin-top: 10px;
+}
+.club-result-bt4{
+	display: block;
+	border-radius: 6px;
+	border-style: none;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	background-color: #A4A84F;
+	width: 40%;
+	color: #fff;
+	width: 300px;
+	height: 45px;
+	border-radius: 4px 4px 4px  4px;
+	font-size: 20px;
+	margin-top: 10px;
+}
+.club-result-bt5{
+	display: block;
+	border-radius: 6px;
+	border-style: none;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	background-color: #989C45;
+	width: 40%;
+	color: #fff;
+	width: 300px;
+	height: 45px;
+	border-radius: 4px 4px 4px  4px;
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+
+
+
+
 
 
 .title{
