@@ -334,7 +334,7 @@ if( $info == 1){ // 정보 존재
       <?php } ?>
     </form>
   </div>
-      <?php
+<!--       <?php
         $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
         $re_query = mysqli_query($bd,$query);
         $fetch = mysqli_fetch_array($re_query);
@@ -357,7 +357,7 @@ if( $info == 1){ // 정보 존재
           <button class="submit_content" type="button" name="name" id ='real' onclick="disable()" value="<?php echo $club; ?>">제출</button>
           </div>
         </div>
-      <?php } ?>
+      <?php } ?> -->
 
 <?php 
 }else{ //정보 존재하지 않음 
