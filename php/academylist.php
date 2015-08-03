@@ -10,8 +10,8 @@
   mysqli_query("set session character_set_results=utf8;");
   mysqli_query("set session character_set_client=utf8;");
 
-  $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
   mysqli_set_charset($bd, "utf8");
+  $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or
 
   mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
@@ -24,7 +24,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>:: 학회 목록 ::</title>
+    <title>Academy List</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -196,6 +196,13 @@ $academy[$i] = "dd";
    <div class="col-lg-1 col-xs-1 col-md-1"></div>
   </div>
 </div>
+
+</form>
+</div>
+</div>
+
+
+
   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
