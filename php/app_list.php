@@ -85,7 +85,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>지원자 리스트</title>
+    <title>FORM:ZIP 지원현황</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -109,7 +109,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="firstpage.php">Form_Zip</a>
+        <a class="navbar-brand" href="firstpage.php">FORM:ZIP</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -132,7 +132,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
 
 <!-- Application List Start -->
 <div class = "col-xs-12 col-md-6 col-md-offset-3 ">
-  <h4 class = "title-name"> -- 지원 현황 -- </h4>
+  <h4 class = "title-name"> ◁ 지원 현황 ▷ </h4>
 
   <table align="center" class="table table-striped">
     <thead>
