@@ -9,7 +9,7 @@
   mysqli_query("set session character_set_connection=utf8;");
   mysqli_query("set session character_set_results=utf8;");
   mysqli_query("set session character_set_client=utf8;");
- die("Could not connect database");
+
   mysqli_set_charset($bd, "utf8");
   $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or
 
