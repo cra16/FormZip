@@ -51,7 +51,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
       <div id="divmargin"></div>              
       <h5 class = "club-name"> - <?php echo $club; ?> - </h5> 
       <div id="divmargin"></div>   
-      
+
   <form method="POST" onsubmit = "return due()"  class="form-horizontal" action="app_exec.php"> 
 
     <!-- short text -->
@@ -195,7 +195,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
         </select>
       </div>
       <div class = "col-lg-6 col-lg-offset-4 col-md-6 col-md-offset-4 col-xs-6 col-xs-offset-4">  
-       <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>" class = "save col-lg-4">양식 저장</button>     
+       <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="button" name="name" id = 'temp' value="<?php echo $club; ?>" class = "save col-lg-4">양식 저장</button>     
       </div>
     </div>
   </form>
