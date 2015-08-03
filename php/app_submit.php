@@ -170,7 +170,7 @@ if( $info == 1){ // 정보 존재
     <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() "> 
        <h3 class = "application">지원서</h3>    
       <div id="divmargin"></div>              
-      <h5 class = "club-name"> <분류 : <?php if($user['index'] == 1){ echo '동아리'; }else if($user['index']==2){ echo '학회'; } ?> - <?php echo $club; ?>></h5> 
+      <h5 class = "club-name"><분류 : <?php if($user['index'] == 1){ ?> 동아리 <?php }else if($user['index']==2){ ?> 학회 <?php } ?> - <?php echo $club; ?>></h5> 
       <div id="divmargin"></div>   
 
       <hr class = "line-bar">
@@ -332,7 +332,7 @@ if( $info == 1){ // 정보 존재
     <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() "> 
       <h3 class = "application">지원서</h3>    
       <div id="divmargin"></div>              
-      <h5 class = "club-name"> <분류 : <?php if($user['index'] == 1){ echo '동아리'; }else if($user['index']==2){ echo '학회'; } ?> - <?php echo $club; ?>></h5> 
+      <h5 class = "club-name"> <분류 : <?php if($user['index'] == 1){ ?> 동아리 <?php }else if($user['index']==2){ ?> 학회 <?php } ?> - <?php echo $club; ?>></h5> 
       <div id="divmargin"></div>   
 
       <hr class = "line-bar">
