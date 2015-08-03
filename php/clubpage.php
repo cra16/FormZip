@@ -191,13 +191,14 @@
         </tr>
         <tr>
           <?php 
-            $qry="SELECT * FROM application WHERE id='$user_id'";   
-             $result=mysqli_query($bd,$qry);
+            $qry_d = "SELECT * FROM application WHERE id = '$club_name'";
+            $result_d = mysqli_query($bd,$qry_d);
+            $due = mysqli_fetch_assoc($result_d);
 
               //Check whether the query was successful or not
                 if($result) {
 
-                if(mysqli_num_rows($result) > 0) 
+                if($due['month']!=NULL) 
                  { ?>
                     <form action="app_preview.php" method="GET">
                      <button class = "club-result-bt4" type="submit" name="name" value="<?php echo $academy_name; ?>">지원서 미리보기</button>
@@ -231,10 +232,6 @@
         {
           if($id) // 로그인을 한 경우 지원하기 가능
           {   
-            $qry_d = "SELECT * FROM application WHERE id = '$club_name'";
-            $result_d = mysqli_query($bd,$qry_d);
-            $due = mysqli_fetch_assoc($result_d);
-
             $now_month = date("m",time());
             $now_day = date("j",time());
 

@@ -115,7 +115,7 @@
             <div class="form-group">
               <label class="col-lg-3 control-label">Title</label>
               <div class="col-lg-10">
-                <input type="text" class="form-control" name="title" placeholder="학회 제목을 입력해주세요" value = '<?php echo $club_name; ?>'>
+                <input type="text" class="form-control" name="title" placeholder="학회 제목을 입력해주세요" value = '<?php echo $academy_name; ?>'>
               </div>
             </div>
 
@@ -134,10 +134,10 @@
     <div id = "aside">
       <table class = "profile">
         <tr>
-          <input class = "club-logo" type ="text" value = "<?php echo $club_name; ?>">  <!-- *동아리 이름 (로고)-->
+          <input class = "club-logo" type ="text" value = "<?php echo $academy_name; ?>">  <!-- *동아리 이름 (로고)-->
         </tr>
         <tr>
-          <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $club_name; ?>">수정하기</button>
+          <button class = "club-apply-bt" type="submit" name="name" value="<?php echo $academy_name; ?>">수정하기</button>
         </tr>
       </table>
     </div>

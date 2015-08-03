@@ -192,16 +192,13 @@
         </tr>
         <tr>
           <?php 
-            $qry="SELECT * FROM application WHERE id='$user_id'";   
-             $result=mysqli_query($bd,$qry);
+            $qry_d = "SELECT * FROM application WHERE id = '$club_name'";
+            $result_d = mysqli_query($bd,$qry_d);
+            $due = mysqli_fetch_assoc($result_d);
 
-              //Check whether the query was successful or not
-                if($result) {
-
-                if(mysqli_num_rows($result) > 0) 
-                 { ?>
+           if($due['month']!=NULL){ ?>
                     <form action="app_preview.php" method="GET">
-                     <button class = "club-result-bt4" type="submit" name="name" value="<?php echo $academy_name; ?>">지원서 미리보기</button>
+                    <button class = "club-result-bt4" type="submit" name="name" value="<?php echo $academy_name; ?>">지원서 미리보기</button>
                     </form>
                <?php  }
                  else 
@@ -209,17 +206,11 @@
                     <script type="text/javascript">
                     function test(){
                      alert("만들어진 지원서 양식이 없습니다.");
-                    }
+                      }
                     </script>
                 <?php 
                 }
-               }
-              else 
-              {
-                die("Query failed");
-              }?>
-         
-          
+                ?>                  
         </tr>
         <tr>
           <form action="app_list.php" method="GET">
@@ -231,11 +222,7 @@
         else if($IsManager=="false")  //현재 로그인 개정이 관리자가 아닐경우 실행
         {
           if($id) // 로그인을 한 경우 지원하기 가능
-          {   
-            $qry_d = "SELECT month FROM application WHERE id = '$academy_name'";
-            $result_d = mysqli_query($bd,$qry_d);
-            $due = mysqli_fetch_assoc($result_d);
-
+          { 
             $now_month = date("m",time());
             $now_day = date("j",time());
 
