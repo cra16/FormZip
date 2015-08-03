@@ -103,45 +103,45 @@
    <form action="pw_change.php" method="POST" onsubmit="return validateForm()" align="center" class="form-horizontal">
     <div class="form-group">
       <label  class="col-xs-4 col-md-4 control-label">이름</label>
-      <div class="col-xs-8 col-md-8">
+      <div class="col-xs-8 col-md-4">
       <input type="text" class="form-control" value = "<?php echo $name; ?>" disabled>
       </div>
     </div>
 
     <div class="form-group">
       <label  class="col-xs-4 col-md-4 control-label">ID</label>
-      <div class="col-xs-8 col-md-8">
+      <div class="col-xs-8 col-md-4">
       <input type="text" class="form-control" value = "<?php echo $id; ?>" disabled>
       </div>
     </div>
           
     <div class="form-group">
       <label  class="col-xs-4 col-md-4 control-label">생년월일</label>
-      <div class="col-xs-8 col-md-8">
+      <div class="col-xs-8 col-md-4">
       <input type="text" class="form-control" value = "<?php echo $bday; ?>" disabled>
       </div>
     </div>    
     
     <div class="form-group">
       <label  class="col-xs-4 col-md-4 control-label">기존 비밀번호</label>
-      <div class="col-xs-8 col-md-8">
-      <input type="password" class="form-control" id="current" name="current">
+      <div class="col-xs-8 col-md-6">
+      <input type="password" class="form-control" id="current" name="current" maxlength="20">
       <div id="pw_cur" class="error" style="display:none"></div>
       </div>
     </div>     
    
     <div class="form-group">
       <label  class="col-xs-4 col-md-4 control-label">새 비밀번호</label>
-      <div class="col-xs-8 col-md-8">
-      <input type="password" class="form-control" id="newp" name="newp" onkeyup="PwCheck()">
+      <div class="col-xs-8 col-md-6">
+      <input type="password" class="form-control" id="newp" name="newp" onkeyup="PwCheck()" maxlength="20">
       <div id="pw_new" class="error" style="display:none"></div>
       </div>
     </div>        
 
     <div class="form-group">
       <label  class="col-xs-4 col-md-4 control-label">비밀번호 재입력</label>
-      <div class="col-xs-8 col-md-8">
-      <input type="password" class="form-control" id="pw" name="pw" onkeyup="PwCheck()">
+      <div class="col-xs-8 col-md-6">
+      <input type="password" class="form-control" id="pw" name="pw" onkeyup="PwCheck()" maxlength="20">
       <div id="ps_ck" class="error" style="display:none"></div>
       </div>
     </div>         
