@@ -26,15 +26,18 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
   </head>
 
 <body> 
-  <!-- title -->
-  <div class="container">
-    <div id="header">
-      <h1> <a href="firstpage.php" class="h_logo">F O R M &nbsp;&nbsp;Z I P</a> </h1>
-    </div>
+  <!-- Logo Start -->
+  <div class="container" class = "col-lg-12 col-xs-12">
+      <div id="header" class = "col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
+          <a href="firstpage.php" class="h_logo">
+          <img src="../img/title.png" class = "h_logo">
+        </a>
+      </div>
   </div>
+  <!-- Logo End -->
   <!-- Help box -->
   <div class="helpbox">
-    <div id="flip">Help <img src="../img/arrow.png"></div>
+    <div id="flip"> 도움말 <img src="../img/arrow.png"></div>
     <div id="panel">이름, 학번, 학과, 전화번호, 성별은 기본 항목입니다.<br>군필여부, e-mail, 활동가능학기, 단락텍스트 1~7은 선택사항입니다.<br>선택사항의 사용을 원하시면 'use'를, 아니면 'not use'를 선택해주세요. </div>
   </div>
   <!-- 지원서 내부 -->
@@ -181,10 +184,9 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
         ?>
         </select>
       </div>
-    </div>
-
-    <div class="submit_content">
-      <button type="submit">만들기</button>
+      <div class = "col-lg-6 col-lg-offset-4 col-md-6 col-md-offset-4 col-xs-6 col-xs-offset-4">  
+       <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="button" name="name" id = 'temp' onclick="disable()" value="<?php echo $club; ?>" class = "save col-lg-4">양식 저장</button>     
+      </div>
     </div>
   </form>
 </div>
