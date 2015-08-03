@@ -195,13 +195,9 @@
             $result_d = mysqli_query($bd,$qry_d);
             $due = mysqli_fetch_assoc($result_d);
 
-              //Check whether the query was successful or not
-                if($result) {
-
-                if($due['month']!=NULL) 
-                 { ?>
+           if($due['month']!=NULL){ ?>
                     <form action="app_preview.php" method="GET">
-                     <button class = "club-result-bt4" type="submit" name="name" value="<?php echo $academy_name; ?>">지원서 미리보기</button>
+                    <button class = "club-result-bt4" type="submit" name="name" value="<?php echo $academy_name; ?>">지원서 미리보기</button>
                     </form>
                <?php  }
                  else 
@@ -209,17 +205,11 @@
                     <script type="text/javascript">
                     function test(){
                      alert("만들어진 지원서 양식이 없습니다.");
-                    }
+                      }
                     </script>
                 <?php 
                 }
-               }
-              else 
-              {
-                die("Query failed");
-              }?>
-         
-          
+                ?>                  
         </tr>
         <tr>
           <form action="app_list.php" method="GET">
