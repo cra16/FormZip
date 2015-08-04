@@ -225,12 +225,11 @@
             $qry_d = "SELECT * FROM application WHERE id = '$club_name'";
             $result_d = mysqli_query($bd,$qry_d);
             $due = mysqli_fetch_assoc($result_d);
+            date_default_timezone_set("Asia/Seoul");
+          
+            $now_month = (int)date("m");
+            $now_day = (int)date("d");
             
-            $now_month = date("m",time());
-            $now_day = date("j",time());
-
-            $now_month = (int)$now_month;
-            $now_day = (int)$now_day;
             $exist = 0;
 
             if( $due['month'] == NULL || $due['day'] == NULL || $due['s_day'] == NULL || $due['s_month'] == NULL ){
