@@ -39,6 +39,26 @@
     die("Query failed");
   }
 
+  $qry_index = "SELECT * FROM student WHERE id = '$user_id";
+  $re_index = mysqli_query($bd,$qry_index);
+
+    //Check whether the query was successful or not
+  if($re_index) {
+
+      if(mysqli_num_rows($re_index) > 0) 
+      {
+        $user = mysqli_fetch_assoc($re_index); 
+      }
+
+      else 
+      {
+       echo "Data call failed";
+      }
+  }
+  else 
+  {
+    die("Query failed");
+  }
 
 //Sanitize the POST values
   $short_info=array("use","use","use","use","use",$member['served'],$member['mail'],$member['activity']);
@@ -89,7 +109,13 @@
     <div id="divmargin"></div>              
     <h5 class = "club-name"> - <?php echo $user_id; ?> - </h5> 
     <div id="divmargin"></div> 
-  <form method="POST" action="clubpage.php" class="form-horizontal"> 
+  <?php
+  if( $user['index'] == 1){ ?>
+    <form method="POST" action="clubpage.php" class="form-horizontal"> 
+  <?php
+  }else { ?>
+  <form method="POST" action="academypage.php" class="form-horizontal"> 
+  <?php } ?>
       
     <!-- short text -->
     <!-- short text -->
