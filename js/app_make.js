@@ -139,3 +139,49 @@ function due(){
 	  return true;
 	}
 }
+
+function due_isset(){
+    var s_month = document.getElementById("s_month").value*1;
+	var s_day = document.getElementById("s_day").value*1;
+	var d_month = document.getElementById("month").value*1;
+	var d_day = document.getElementById("day").value*1;
+	var p_s_month = document.getElementById("p_s_month").value*1;
+	var p_s_day = document.getElementById("p_s_day").value*1;
+	var p_month = document.getElementById("p_month").value*1;
+	var p_day = document.getElementById("p_day").value*1;
+    var now_month = document.getElementById("now_month").value*1; 
+    var now_day = document.getElementById("now_day").value*1;
+	
+	
+	if( s_month > d_month )
+	{
+	  alert('시작일이 제출일보다 느립니다');
+	  return false;
+	}
+
+	else if( s_month == d_month )
+	{
+
+	  if( s_day > d_day){
+	    alert('시작일이 제출일보다 느립니다');
+	    return false;
+	  }
+	}
+
+	else{
+	  
+	  if((now_month>=p_s_month)&&(now_month<=p_month)&&(now_day>=p_s_day)&&(now_day<=p_day)){
+		 alert('you cannot change your data during submit time');
+		 return false;   
+	    }
+	 else{
+	 var r = confirm("Press a button!");	 
+       if (r == true) {
+		       return true;
+		    } else {
+		        alert('you press cancel');
+			  return false;
+		   }
+	     }
+      }
+}

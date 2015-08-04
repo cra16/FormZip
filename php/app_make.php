@@ -1,9 +1,29 @@
 <?php
 // Session start 
 session_start();
+
+require_once('DB_INFO.php');
+require_once('auth.php');
+header('Content-Type: text/html; charset=utf-8');
+
+mysqli_query("set session character_set_connection=utf8;");
+mysqli_query("set session character_set_results=utf8;");
+mysqli_query("set session character_set_client=utf8;");
+
+
 $club= $_SESSION["GROUP"];
 
-require_once('auth.php');
+$conn=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
+mysqli_set_charset($conn, "utf8");
+
+
+mysqli_select_db($conn,DB_NAME) or die("Could not select database");
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+
 $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기수");
 $question_placeholder= array("Name","Student ID","Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)formzip@naver.com","ex)3학기");
 $text_name=array("t_name","t_stuid","t_major","t_phonenum","t_gender","t_served","t_mail","t_activity");
@@ -46,14 +66,38 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
   </div>
   <!-- 지원서 내부 -->
 <div class="formContentsLayout">
-  <form method="POST" onsubmit = "return due()"  class="form-horizontal" action="app_exec.php"> 
+  <?php  
+$qry = "SELECT * FROM application WHERE id = '$club'";
+            $result = mysqli_query($conn,$qry);
+            $isset = mysqli_fetch_assoc($result);
 
+           if($isset['month']!=NULL){
+            date_default_timezone_set("Asia/Seoul");
+          
+            $now_month = (int)date("m");
+            $now_day = (int)date("d");
+         
+?>            
+<form method="POST" onsubmit = "return due_isset()"  class="form-horizontal" action="app_exec.php"> 
+<input type="hidden" id = "p_month" name = "p_month" value = "<?php echo $isset['month']; ?>" >
+<input type="hidden" id = "p_day" name = "p_day" value = "<?php echo $isset['day']; ?>" >
+<input type="hidden" id = "p_s_month" name = "p_s_month" value = "<?php echo $isset['s_month']; ?>">
+<input type="hidden" id = "p_s_day" name = "p_s_day" value = "<?php echo $isset['s_day']; ?>">
+<input type="hidden" id = "now_day" name = "now_day" value = "<?php echo $now_day; ?>">
+<input type="hidden" id = "now_month" name = "now_month" value = "<?php echo $now_month; ?>">
+
+<?php  
+   }
+   else{
+?>
+
+<form method="POST" onsubmit = "return due()"  class="form-horizontal" action="app_exec.php"> 
+<?php   } ?>
   <h3 class = "application">지원서</h3>    
       <div id="divmargin"></div>              
       <h5 class = "club-name"> - <?php echo $club; ?> - </h5> 
-      <div id="divmargin"></div>   
-
-
+      <div id="divmargin"></div>
+ 
     <!-- short text -->
     <!-- 이름 / 학번 / 학과 / 전화번호 -->
     <?php
