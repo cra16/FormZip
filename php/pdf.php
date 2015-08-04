@@ -58,7 +58,7 @@ $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$mem
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=1280">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>TEMP</title>
 
@@ -69,7 +69,23 @@ $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$mem
   </head>
 
 <body> 
-
+<div class="modal" id="pop_up">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="PopUp()">×</button>
+        <h4 class="modal-title">지원서 PDF 만들기 안내</h4>
+      </div>
+      <div class="modal-body">
+        <p>PDF변환은 Chrome에서만 가능합니다.</p>
+        <p>1. Ctrl+p를 누릅니다.</p>
+        <p>2. 좌측 메뉴의 대상에서 저장 방식을 PDF로 설정합니다.</p>
+        <p>3. 저장을 누릅니다.</p>
+      </div>
+     
+    </div>
+  </div>
+</div>
 
 <?php
 while ($list = mysqli_fetch_assoc($result)) {  
@@ -190,10 +206,11 @@ while ($list = mysqli_fetch_assoc($result)) {
 
 
 
-
+  
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/app_list.js"></script>
 </body>
 </html>

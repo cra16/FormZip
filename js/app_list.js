@@ -30,3 +30,9 @@
     });
 
   }       
+
+
+  function PopUp(){
+    document.getElementById("pop_up").style.display="none";
+  }
+
