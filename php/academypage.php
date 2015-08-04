@@ -133,7 +133,6 @@
 </nav>
    <!-- Menubar end-->  
   
-
   
   <div id = "wrap">
     <div id = "navigation">학회 소개:: </div>
@@ -223,11 +222,14 @@
         {
           if($id) // 로그인을 한 경우 지원하기 가능
           { 
-            $now_month = date("m",time());
-            $now_day = date("j",time());
-
-            $now_month = (int)$now_month;
-            $now_day = (int)$now_day;
+            $qry_d = "SELECT * FROM application WHERE id = '$club_name'";
+            $result_d = mysqli_query($bd,$qry_d);
+            $due = mysqli_fetch_assoc($result_d);
+            date_default_timezone_set("Asia/Seoul");
+          
+            $now_month = (int)date("m");
+            $now_day = (int)date("d");
+            
             $exist = 0;
 
             if( $due['month'] == NULL || $due['day'] == NULL || $due['s_day'] == NULL || $due['s_month'] == NULL ){
