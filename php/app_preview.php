@@ -36,7 +36,7 @@
   }
   else 
   {
-    die("Query failed");
+    die("Query failed_d");
   }
 
   $qry_index = "SELECT * FROM student WHERE c_name = '$user_id";
@@ -57,7 +57,7 @@
   }
   else 
   {
-    die("Query failed");
+    die("Query failed_index");
   }
 
 //Sanitize the POST values
