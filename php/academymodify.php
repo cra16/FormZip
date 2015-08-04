@@ -102,7 +102,7 @@
     <div id = "navigation">Formzip </div>
     <!-- 학회 수정 Start-->
     <div id = "section">
-      <form class = "content" method = "POST" action="clubexec.php" enctype="multipart/form-data">
+      <form class = "content" method = "POST" action="academyexec.php" enctype="multipart/form-data">
         <img class = "picture" src = "../clubimg/<?php echo $member['img_name']; ?>">   <!-- *그림 가져오기 -->
         
           <div class="containerbox">
