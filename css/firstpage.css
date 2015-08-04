@@ -3,29 +3,29 @@
 
 
 html { 
-  background: url(../img/background.jpg) no-repeat center center fixed;   
-  background-size:100% 100%;
+  background: url(../img/background.jpg) no-repeat 0px 60px fixed;   
+  background-size:100% auto;
 }
 
 .text{
-	background-color: transparent;
-	color
+    background-color: transparent;
+    color
 }
 
 .club-button{
     position: absolute;
-    top: 64%;
-    left: 30%;    
-    height: 12%;
+    top: 480px;
+    left: 30%;        
+    height: 60px;
     width: 13%;
 }
 
 .academy-button{
     position: absolute;
-    top: 64%;
+    top: 480px;
     left: 58%;    
-    height: 12%;
-    width: 15%;
+    height: 60px;
+    width: 13%;
 }
 
 .link-button{

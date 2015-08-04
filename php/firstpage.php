@@ -1,27 +1,15 @@
 <?php
 //Start the session
 session_start();
-
-// DB connection
-  require_once('DB_INFO.php');
-  header('Content-Type: text/html; charset=utf-8');
-
-  mysqli_query("set session character_set_connection=utf8;");
-  mysqli_query("set session character_set_results=utf8;");
-  mysqli_query("set session character_set_client=utf8;");
-
-  $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
-  mysqli_set_charset($bd, "utf8");
-
-  mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=1024">
+    <meta name="viewport" content="width=1280">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Firstpage</title>
 
@@ -32,15 +20,12 @@ session_start();
 
     <script type="text/javascript">
       function help(){
-        window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
-      }
-      function explain(){
-        window.open("explain.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
+        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
       }
     </script>
 
   </head>
-  <body onload = "explain()">
+  <body>
  <!-- Menubar start-->  
   <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -68,28 +53,11 @@ session_start();
         </li>
         <li>
           <?php
-            //로그인 여부 확인
-           if($_SESSION['USER_NAME']){
-            $id = $_SESSION['USER_NAME'];
-            $sql = "SELECT * FROM student WHERE id = '$id'";
-            $check_result = mysqli_query($bd,$sql);
-            $check = mysqli_fetch_array($check_result);
-            $index = $check['index'];
-            $cname = $check['c_name'];
-            //관리자 여부 확인
-              if($index == 0){
-                echo '<a href="mypage.php">My Page</a>';
-               
-              }
-              else if($index ==1){
-                echo '<a href="clubpage.php?name='.$cname.'">Club Page</a>'; 
-              }
-              else{
-                echo '<a href="academypage.php?name='.$cname.'">Academy Page</a>';   
-              }
-            }
+            if($_SESSION['USER_NAME'])
+              echo '<a href="mypage.php">My Page</a>';
             else
-              echo '<a href="agreement.php">Sign Up</a>';
+              echo '<a href="signup.php">Sign Up</a>';
+
           ?>
         </li>
         <li><a href="#" onclick = "help()">Help</a></li>
@@ -105,13 +73,16 @@ session_start();
 
   <div class = "academy-button"></div>
   <a class="academy-button" href="../php/academylist.php"></a>   
-   
- 
 
+   <!-- 
+  <div id="popup" style="position: absolute; top: 80px; left: 1px; width: 285px; height: 495px; z-index: 101; display: block; overflow: hidden;">
+    <img src="../img/popup.png" class = "popup">
+  </div>
+ -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
