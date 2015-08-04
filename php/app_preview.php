@@ -39,7 +39,7 @@
     die("Query failed");
   }
 
-  $qry_index = "SELECT * FROM student WHERE id = '$user_id";
+  $qry_index = "SELECT * FROM student WHERE c_name = '$user_id";
   $re_index = mysqli_query($bd,$qry_index);
 
     //Check whether the query was successful or not
