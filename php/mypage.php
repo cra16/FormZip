@@ -204,7 +204,8 @@
   ?>    
         <tr id = "<?php echo $j; ?>" onclick="location.href='app_submit.php?name=<?php echo "$clubname"; ?>'">
         <th class = "app-number" scope="row">
-          <?php echo "$j++;";?>
+          <?php echo "$j";
+          $j++; ?>
         </th>
          <td class = "app-club">
           <?php echo "$clubname"; ?>
