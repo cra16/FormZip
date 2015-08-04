@@ -14,17 +14,17 @@ html {
 
 .club-button{
     position: absolute;
-    top: 480px;
+    top: 55%;
     left: 30%;        
-    height: 60px;
+    height: 50%;
     width: 13%;
 }
 
 .academy-button{
     position: absolute;
-    top: 480px;
+    top: 55%;
     left: 58%;    
-    height: 60px;
+    height: 50%;
     width: 13%;
 }
 
