@@ -171,15 +171,18 @@ function due_isset(){
 	else{
 	  
 	  if((now_month>=p_s_month)&&(now_month<=p_month)&&(now_day>=p_s_day)&&(now_day<=p_day)){
-		 alert('you cannot change your data during submit time');
+		 alert('지원기간 중에서 지원서를 수정하실 수 없습니다.');
 		 return false;   
 	    }
 	 else{
-	 var r = confirm("Press a button!");	 
+	 var r = confirm("지원서를 새로 작성하시겠습니까? 
+확인을 누르실 경우, 이전 지원서에 지원한 지원자들의 정보 및 지원서들이 자동으로 삭제됩니다. 
+원치 않으시다면, 관리자페이지 -> 지원자 현황에 들어가셔서 지원 정보들을 파일로 받으신 후 다시 작성해주시기 바랍니다. 
+");	 
        if (r == true) {
 		       return true;
 		    } else {
-		        alert('you press cancel');
+		        alert('취소하셨습니다.');
 			  return false;
 		   }
 	     }
