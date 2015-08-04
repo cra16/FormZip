@@ -27,7 +27,7 @@ if(!$_GET['name'])
   exit();
 }
 
-$club= $_SESSION["GROUP"];
+$club= $_GET["name"];
 $qry="SELECT * FROM application WHERE id='$club'";
 $result=mysqli_query($bd,$qry);
 
