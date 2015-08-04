@@ -24,15 +24,15 @@
   //Check whether the query was successful or not
   if($result) {
 
-      // if(mysqli_num_rows($result) > 0) 
-      // {
+      if(mysqli_num_rows($result) > 0) 
+      {
         $member = mysqli_fetch_assoc($result); 
-      // }
+      }
 
-      // else 
-      // {
+      else 
+      {
        echo "Data call failed";
-      //}
+      }
   }
   else 
   {
