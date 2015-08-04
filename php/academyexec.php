@@ -101,5 +101,5 @@ else
 
 
 $conn->close();
-header("Location: ../php/clubpage.php");    
+header("Location: ../php/academypage.php");    
  
