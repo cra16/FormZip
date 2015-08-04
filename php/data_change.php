@@ -35,7 +35,7 @@ switch($_GET['mode']){
         break;
         }
 
-
+        $_SESSION['USER_NAME']=$id; // 회원가입 후 바로 로그인 가능
         $info = "INSERT INTO student (id, password, student_name,stuid,birth)
          VALUES ('".mysqli_real_escape_string($connect,$_POST['userid'])."', '".$encryption."'
                    ,'".mysqli_real_escape_string($connect,$_POST['name'])."', '".mysqli_real_escape_string($connect,$_POST['stuid'])."', '".mysqli_real_escape_string($connect,$_POST['birth'])."')" ; 
