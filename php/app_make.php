@@ -18,7 +18,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1280">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>FORM:ZIP 지원서 양식 만들기</title>
 

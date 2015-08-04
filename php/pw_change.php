@@ -52,9 +52,14 @@ if(mysqli_num_rows($result) > 0) {
 <body><?php
 if($member['index']==0) {?>
 <form name="pw_send" method="POST" action="mypage.php" >
-<?php }else{ ?>
-<form name="pw_send" method="POST" action="mypage_a.php" >  
-<?php
+<?php }else{
+  if($member['index']==1){?>
+    <form name="pw_send" method="POST" action="clubpage.php?name=<?php echo $id; ?>" >  
+  <?php 
+  }else{ ?>
+    <form name="pw_send" method="POST" action="academypage.php?name=<?php echo $id; ?>" >
+  <?php
+  }
  }
  if($encryption==$member['password']){
    $sql = 'UPDATE student SET password = "'.mysqli_real_escape_string($bd,$new_encryption).'"WHERE id = "'.mysqli_real_escape_string($bd,$_SESSION["USER_NAME"]).'"';
@@ -62,7 +67,7 @@ if($member['index']==0) {?>
    echo '<input type="hidden" id="check" name="check" value="true">';
   }
 else{
-  echo  '<input type="hidden" id="check" name="check" value="false">';	
+  echo  '<input type="hidden" id="check" name="check" value="false">';  
   } 
 ?>
  </form>

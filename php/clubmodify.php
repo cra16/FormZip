@@ -47,7 +47,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1280">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title> FORM:ZIP 페이지 수정 </title>
 
@@ -55,6 +55,12 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/club_page.css" rel="stylesheet">
+
+    <script type="text/javascript">
+    function help(){
+        window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
+    }
+    </script>
   </head>
   
 <body>
@@ -89,7 +95,7 @@
           echo '<a href="clubpage.php">Club Page</a>';   
                ?>
         </li>
-        <li><a href="#">Help</a></li>
+        <li><a href="#" onclick="help()" >Help</a></li>
       </ul>
     </div>
   </div>

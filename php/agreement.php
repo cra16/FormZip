@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1280">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Signup</title>
 
@@ -75,7 +75,7 @@ function checkbox(){
       <br>
       4. "비밀번호"는 회원이 사용하는 이용자 ID와 일치된 회원임을 확인하고 회원의 권리와 이익보호를 위하여 회원이 선정한 특정 문자의 조합을 말합니다. <br>
       <br>
-      5. "해지"는 한동대학교 CRA FORMZIP팀또는 회원이 이용계약을 해약하는 것을 말합니다.<br>
+      5. "해지"는 한동대학교 CRA FORMZIP팀 또는 회원이 이용계약을 해약하는 것을 말합니다.<br>
       <br>
       제 3 조 (이용약관의 공시 및 준용) <br>
       <br>
@@ -116,7 +116,7 @@ function checkbox(){
       <br>
         1) 한동대학교 CRA FORMZIP팀이 설비의 여유가 없는 경우<br> 
         2) 한동대학교 CRA FORMZIP팀의 기술상 지장이 있는 경우 <br>
-        3) 기타 한동대학교 CRA FORMZIP팀의 운영의 어려움이있는 경우<br>
+        3) 기타 한동대학교 CRA FORMZIP팀의 운영의 어려움이 있는 경우<br>
       <br>
       4. 서버의 시스템 맹점을 이용하여 가입을 하였더라도 정확한 정보가 아닌 것은 한동대학교 CRA FORMZIP팀측에서 정확한 정보를 요구 수정할 수 있으며, 이에 불응할 시 회원에게 강제 해지와 같은 조치를 취할 수 있습니다.<br>
       <br>

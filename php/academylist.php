@@ -18,7 +18,7 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1280">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Academy List</title>
 
@@ -32,7 +32,6 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
         window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
       }
     </script>
-
   </head>
 <body>
 
@@ -134,7 +133,7 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
         <img src="../img/bar.png">
         <input type = 'submit' class = "searchbutton" name ='industrial_edu' value ='산업디자인' >
         <img src="../img/bar.png">
-        <input type = 'submit' class = "searchbutton" name ='GEA' value ='글로벌에디슨아카데미' >
+        <input type = 'submit' class = "searchbutton" name ='GEA' value ='GEA' >
         <img src="../img/bar.png">
         <input type = 'submit' class = "searchbutton" name ='ICT' value ='창의융합교육원' >
     </form>

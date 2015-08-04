@@ -36,9 +36,29 @@
   }
   else 
   {
-    die("Query failed");
+    die("Query failed_d");
   }
 
+  $qry_index = "SELECT * FROM student WHERE id = '$user_id'";
+  $re_index = mysqli_query($bd,$qry_index);
+
+    //Check whether the query was successful or not
+  if($re_index) {
+
+      if(mysqli_num_rows($re_index) > 0) 
+      {
+        $user = mysqli_fetch_assoc($re_index); 
+      }
+
+      else 
+      {
+       echo "Data call failed";
+      }
+  }
+  else 
+  {
+    die("Query failed_index");
+  }
 
 //Sanitize the POST values
   $short_info=array("use","use","use","use","use",$member['served'],$member['mail'],$member['activity']);
@@ -58,7 +78,7 @@
    <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1280">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>application making page</title>
 
@@ -89,7 +109,13 @@
     <div id="divmargin"></div>              
     <h5 class = "club-name"> - <?php echo $user_id; ?> - </h5> 
     <div id="divmargin"></div> 
-  <form method="POST" action="clubpage.php" class="form-horizontal"> 
+  <?php
+  if( $user['index'] == 1){ ?>
+    <form method="POST" action="clubpage.php" class="form-horizontal"> 
+  <?php
+  }else { ?>
+  <form method="POST" action="academypage.php" class="form-horizontal"> 
+  <?php } ?>
       
     <!-- short text -->
     <!-- short text -->
