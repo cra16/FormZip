@@ -283,7 +283,9 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
   <form action="pdf.php" method="POST">
   <button class = "download col-lg-5 col-md-5 col-xs-5" type="submit" name="name" value="<?php echo $academy_name; ?>">PDF 파일 다운로드</button>
   </form>
+  <form action="download.php" method="POST">
   <button class = "download col-lg-5 col-md-5 col-xs-5" type="submit" name="name" value="<?php echo $academy_name; ?>">엑셀 파일 다운로드</button>
+  </form>
 </div>
 </div>
 
