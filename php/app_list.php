@@ -93,7 +93,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
     <link href="../css/application_list.css" rel="stylesheet">
     <script type="text/javascript">
       function help(){
-        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
+        window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
       }
     </script>
   </head>
@@ -280,7 +280,9 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
  <div class= "col-lg-2 col-md-2 col-xs-2"></div>
  <div class = "col-lg-8 col-md-8 col-xs-8">
   <div class= "col-lg-1 col-md-1 col-xs-1"></div>
+  <form action="pdf.php" method="POST">
   <button class = "download col-lg-5 col-md-5 col-xs-5" type="submit" name="name" value="<?php echo $academy_name; ?>">PDF 파일 다운로드</button>
+  </form>
   <button class = "download col-lg-5 col-md-5 col-xs-5" type="submit" name="name" value="<?php echo $academy_name; ?>">엑셀 파일 다운로드</button>
 </div>
 </div>
