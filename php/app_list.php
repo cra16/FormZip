@@ -196,9 +196,9 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
   </table>
 
 
-  <div class="pagingbox" >
-    
-    <ul class="pagination">
+  <div class="pagingbox col-lg-12" >
+    <div class = "col-lg-4 col-md-4 col-xs-4"></div>
+    <ul class="pagination  col-lg-4 col-md-4 col-xs-4">
     <?php
     $page_list=5;
     // get the current page or set a default
@@ -273,9 +273,19 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
 
     ?>
     </ul>
- 
+     <div class = "col-lg-4 col-md-4 col-xs-4"></div>
   </div>
+
+<div class = "col-lg-12 col-md-12 col-xs-12">
+ <div class= "col-lg-2 col-md-2 col-xs-2"></div>
+ <div class = "col-lg-8 col-md-8 col-xs-8">
+  <div class= "col-lg-1 col-md-1 col-xs-1"></div>
+  <button class = "download col-lg-5 col-md-5 col-xs-5" type="submit" name="name" value="<?php echo $academy_name; ?>">PDF 파일 다운로드</button>
+  <button class = "download col-lg-5 col-md-5 col-xs-5" type="submit" name="name" value="<?php echo $academy_name; ?>">엑셀 파일 다운로드</button>
 </div>
+</div>
+
+
 
 
 <?php
