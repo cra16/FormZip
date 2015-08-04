@@ -55,6 +55,12 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/club_page.css" rel="stylesheet">
+
+    <script type="text/javascript">
+    function help(){
+        window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
+    }
+    </script>
   </head>
   
 <body>
@@ -89,7 +95,7 @@
           echo '<a href="clubpage.php">Club Page</a>';   
                ?>
         </li>
-        <li><a href="#">Help</a></li>
+        <li><a href="#" onclick="help()" >Help</a></li>
       </ul>
     </div>
   </div>
