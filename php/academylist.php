@@ -133,7 +133,7 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
         <img src="../img/bar.png">
         <input type = 'submit' class = "searchbutton" name ='industrial_edu' value ='산업디자인' >
         <img src="../img/bar.png">
-        <input type = 'submit' class = "searchbutton" name ='GEA' value ='글로벌에디슨아카데미' >
+        <input type = 'submit' class = "searchbutton" name ='GEA' value ='GEA' >
         <img src="../img/bar.png">
         <input type = 'submit' class = "searchbutton" name ='ICT' value ='창의융합교육원' >
     </form>
