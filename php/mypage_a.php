@@ -33,7 +33,11 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-   
+    <script type="text/javascript">
+    function help(){
+        window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
+    }
+    </script>
 
   </head>
 
