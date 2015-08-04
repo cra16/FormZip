@@ -18,7 +18,7 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1280">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Academy List</title>
 
@@ -32,7 +32,6 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
         window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
       }
     </script>
-
   </head>
 <body>
 
