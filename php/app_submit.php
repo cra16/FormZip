@@ -28,7 +28,6 @@ if(!$_GET['name'])
 }
 
 $club= $_SESSION["GROUP"];
-$member;
 $qry="SELECT * FROM application WHERE id='$club'";
 $result=mysqli_query($bd,$qry);
 
@@ -42,6 +41,7 @@ if($result) {
 
     else 
     {
+     alert('지원기간이 아닙니다');
      echo "지원기간이 아닙니다";
     }
 }
@@ -63,7 +63,8 @@ if($result) {
 
     else 
     {
-     echo "Data call failed";
+     alert('지원서가 존재하지 않습니다');
+     //echo "지원서가 존재하지 않습니다";
     }
 }
 else 
@@ -143,9 +144,6 @@ else
         if(result == false){
             return false;
         }
-      }
-      function disable(){
-        alert('이미 제출하셨습니다');
       }
     </script>
 
