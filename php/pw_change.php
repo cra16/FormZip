@@ -46,15 +46,20 @@ if(mysqli_num_rows($result) > 0) {
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=1280">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   </head>
 <body><?php
 if($member['index']==0) {?>
 <form name="pw_send" method="POST" action="mypage.php" >
-<?php }else{ ?>
-<form name="pw_send" method="POST" action="mypage_a.php" >  
-<?php
+<?php }else{
+  if($member['index']==1){?>
+    <form name="pw_send" method="POST" action="clubpage.php?name=<?php echo $id; ?>" >  
+  <?php 
+  }else{ ?>
+    <form name="pw_send" method="POST" action="academypage.php?name=<?php echo $id; ?>" >
+  <?php
+  }
  }
  if($encryption==$member['password']){
    $sql = 'UPDATE student SET password = "'.mysqli_real_escape_string($bd,$new_encryption).'"WHERE id = "'.mysqli_real_escape_string($bd,$_SESSION["USER_NAME"]).'"';
@@ -62,7 +67,7 @@ if($member['index']==0) {?>
    echo '<input type="hidden" id="check" name="check" value="true">';
   }
 else{
-  echo  '<input type="hidden" id="check" name="check" value="false">';	
+  echo  '<input type="hidden" id="check" name="check" value="false">';  
   } 
 ?>
  </form>
