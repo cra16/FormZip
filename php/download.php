@@ -45,19 +45,19 @@
   echo '<td>mail</td>';
  if($check['activity']=="use")
   echo '<td>activity</td>';
- if($check['text1']=="use")
+ if($check['sr1']=="use")
   echo '<td>Answer1</td>';
- if($check['text2']=="use")
+ if($check['sr2']=="use")
   echo '<td>Answer2</td>';
- if($check['text3']=="use")
+ if($check['sr3']=="use")
   echo '<td>Answer3</td>';
- if($check['text4']=="use")
+ if($check['sr4']=="use")
   echo '<td>Answer4</td>';
- if($check['text5']=="use")
+ if($check['sr5']=="use")
   echo '<td>Answer5</td>';
- if($check['text6']=="use")
+ if($check['sr6']=="use")
   echo '<td>Answer6</td>';
- if($check['text7']=="use") 
+ if($check['sr7']=="use") 
   echo '<td>Answer7</td>';
  
   echo '</tr>';
@@ -96,37 +96,37 @@ while($array = mysqli_fetch_array($result)){
             <p align=center><?php echo $array['activity'];?></p>
         </td>
         <?php } 
-        if($check['text1']=="use"){?>
+        if($check['sr1']=="use"){?>
         <td width=100>
             <p align=center><?php echo $array['text1'];?></p>
         </td> 
         <?php }
-        if($check['text2']=="use"){?>
+        if($check['sr2']=="use"){?>
         <td width=100>
             <p align=center><?php echo $array['text2'];?></p>
         </td> 
         <?php }
-         if($check['text3']=="use"){?>
+         if($check['sr3']=="use"){?>
         <td width=100>
             <p align=center><?php echo $array['text3'];?></p>
         </td>
         <?php }
-        if($check['text4']=="use"){?>
+        if($check['sr4']=="use"){?>
         <td width=100>
             <p align=center><?php echo $array['text4'];?></p>
         </td>
         <?php }
-        if($check['text5']=="use"){?>
+        if($check['sr5']=="use"){?>
         <td width=100>
             <p align=center><?php echo $array['text5'];?></p>
         </td>
         <?php }
-        if($check['text6']=="use"){?>
+        if($check['sr6']=="use"){?>
         <td width=100>
             <p align=center><?php echo $array['text6'];?></p>
         </td> 
         <?php }
-        if($check['text7']=="use"){?>
+        if($check['sr7']=="use"){?>
         <td width=100>
             <p align=center><?php echo $array['text7'];?></p>
         </td> 
