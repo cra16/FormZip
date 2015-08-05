@@ -23,7 +23,7 @@ $cname= $check['c_name'];
 $qry="SELECT * FROM result WHERE club_name='$cname'";   
 $result=mysqli_query($bd,$qry);
 
-$per_page=1;  //page당 display할 목록의 수
+$per_page=10;  //page당 display할 목록의 수
 $total_results=mysqli_num_rows($result);  //해당 동아리의 지원자 수
 $total_pages=ceil($total_results/$per_page); 
 $result=$_GET['currentpage'];
@@ -52,14 +52,13 @@ if ($currentpage < 1) {
 $offset = ($currentpage - 1) * $per_page;
 
 // get the info from the db 
-$sql = "SELECT * FROM result WHERE club_name='$club_name' LIMIT $offset, $per_page";
+$sql = "SELECT * FROM result WHERE club_name='$cname' LIMIT $offset, $per_page";
 $result=mysqli_query($bd,$sql);
 $count=0;
 $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
 
-$user_id= $_SESSION["USER_NAME"]; 
 
-$qry="SELECT * FROM application WHERE id='$user_id'";   
+$qry="SELECT * FROM application WHERE id='$cname'";   
 $temp=mysqli_query($bd,$qry);
 
 //Check whether the query was successful or not
