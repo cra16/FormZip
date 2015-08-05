@@ -17,6 +17,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
+$club_name=$_POST["name"];
+
+if($club_name="")       //app_make를 통해 정상적인 정보를 받지 않은 경우
+{
+    header("Location: ../php/firstpage.php");
+}
+
+$id = $_SESSION["USER_NAME"];
+$qry = "SELECT * FROM student WHERE id = '$id'";
+            $result = mysqli_query($conn,$qry);
+            $temp = mysqli_fetch_assoc($result);
+
+$admin=$temp['c_name'];
+
 //POST values
    $served = mysqli_real_escape_string($conn,$_POST['r_served']);
     $mail = mysqli_real_escape_string($conn,$_POST['r_mail']);
@@ -87,9 +101,7 @@ for($i=0; $i <7; $i++)
 
 
 */
-$admin = $_SESSION["USER_NAME"];
 
-$club_name=$_SESSION['GROUP'];
 
 
 //$sql = "INSERT INTO application

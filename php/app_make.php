@@ -11,7 +11,8 @@ mysqli_query("set session character_set_results=utf8;");
 mysqli_query("set session character_set_client=utf8;");
 
 
-$club= $_SESSION["GROUP"];
+$club= $_GET["name"];
+
 
 $conn=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
 mysqli_set_charset($conn, "utf8");

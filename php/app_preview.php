@@ -16,7 +16,15 @@
 
   mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
-  $user_id= $_SESSION["USER_NAME"]; 
+
+  $id = $_SESSION["USER_NAME"]; //$id => 아이디
+  $qry = "SELECT * FROM student WHERE id = '$id'";
+              $result = mysqli_query($bd,$qry);
+              $temp = mysqli_fetch_assoc($result);
+
+  $user_id=$temp['c_name'];   //$user_id => 해당 동아리 이름
+
+
 
   $qry="SELECT * FROM application WHERE id='$user_id'";   
   $result=mysqli_query($bd,$qry);
@@ -39,7 +47,7 @@
     die("Query failed_d");
   }
 
-  $qry_index = "SELECT * FROM student WHERE id = '$user_id'";
+  $qry_index = "SELECT * FROM student WHERE id = '$id'";
   $re_index = mysqli_query($bd,$qry_index);
 
     //Check whether the query was successful or not
