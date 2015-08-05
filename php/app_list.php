@@ -3,6 +3,7 @@ session_start();
 // Manager judge
 //require_once('auth.php');
 require_once('DB_INFO.php');
+require_once('auth.php');
 header('Content-Type: text/html; charset=utf-8');
 
 mysqli_query("set session character_set_connection=utf8;");
@@ -13,8 +14,13 @@ $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect data
 mysqli_set_charset($bd, "utf8");
 mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
-$club_name=$_SESSION['USER_NAME'];
-$qry="SELECT * FROM result WHERE club_name='$club_name'";   
+ $id = $_SESSION["USER_NAME"]; //$id => 아이디
+  $qry = "SELECT * FROM student WHERE id = '$id'";
+              $result = mysqli_query($bd,$qry);
+              $check = mysqli_fetch_assoc($result);
+
+$cname= $check['c_name'];
+$qry="SELECT * FROM result WHERE club_name='$cname'";   
 $result=mysqli_query($bd,$qry);
 
 $per_page=1;  //page당 display할 목록의 수
@@ -127,12 +133,8 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
         <?php
             //로그인 여부 확인
            if($_SESSION['USER_NAME']){
-            $id = $_SESSION['USER_NAME'];
-            $sql = "SELECT * FROM student WHERE id = '$id'";
-            $check_result = mysqli_query($bd,$sql);
-            $check = mysqli_fetch_array($check_result);
-            $index = $check['index'];
-            $cname = $check['c_name'];
+             $index = $check['index'];
+            
             //관리자 여부 확인
               if($index == 0){
                 echo '<a href="mypage.php">My Page</a>';
