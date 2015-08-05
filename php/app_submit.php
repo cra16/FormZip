@@ -138,17 +138,16 @@ else
         window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
       }
       function ok2(){
-        if( index == 0 ){ 
-          var message = "임시저장하시겠습니까?";
-          var result = confirm(message);
+        var message = "임시저장하시겠습니까?";
+        var result = confirm(message);
 
-          if(result == false){
+        if(result == false){
             return false;
-          }
-        }else{
-          alert('관리자는 제출이 불가능합니다');
-          return false;
         }
+      }
+      function manager(){
+        alert('관리자는 지원이 불가합니다');
+        return false;
       }
     </script>
 
@@ -170,7 +169,7 @@ else
 if( $info == 1){ // 정보 존재
 ?>
   <div class="formContentsLayout">
-    <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() "> 
+    <form method="POST" action="app_storage.php" class="form-horizontal" <?php if($index==0){ ?> onsubmit=" return ok() " <?php }else{ ?> onsubmit = "return manager()" <?php } ?>> 
        <h3 class = "application">지원서</h3>    
       <div id="divmargin"></div>              
       <h5 class = "club-name"> - <?php echo $club; ?> - </h5> 
