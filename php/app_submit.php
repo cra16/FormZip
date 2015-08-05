@@ -169,7 +169,7 @@ else
 if( $info == 1){ // 정보 존재
 ?>
   <div class="formContentsLayout">
-    <form method="POST" action="app_storage.php" class="form-horizontal" <?php if($index==0){ ?> onsubmit=" return ok() " <?php }else{ ?> onsubmit = "return manager()" <?php } ?>> 
+    <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() " > 
        <h3 class = "application">지원서</h3>    
       <div id="divmargin"></div>              
       <h5 class = "club-name"> - <?php echo $club; ?> - </h5> 
@@ -331,7 +331,7 @@ if( $info == 1){ // 정보 존재
 }else{ //정보 존재하지 않음 
   ?>
   <div class="formContentsLayout">
-    <form method="POST" action="app_storage.php" class="form-horizontal" onsubmit=" return ok() "> 
+    <form method="POST" action="app_storage.php" class="form-horizontal" <?php if($index==0){ ?> onsubmit=" return ok() " <?php }else{ ?> onsubmit = "return manager()" <?php } ?>> 
       <h3 class = "application">지원서</h3>    
       <div id="divmargin"></div>              
       <h5 class = "club-name"> - <?php echo $club; ?> - </h5> 
