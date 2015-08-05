@@ -295,7 +295,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
 
 <?php
 // get the info from the db 
-$sql = "SELECT * FROM result WHERE club_name='$club_name' LIMIT $offset, $per_page";
+$sql = "SELECT * FROM result WHERE club_name='$cname' LIMIT $offset, $per_page";
 $result=mysqli_query($bd,$sql);
 
 for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
