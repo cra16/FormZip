@@ -81,6 +81,8 @@ else
   $text_name=array("content1","content2","content3","content4","content5","content6","content7");
   $stu_number = $user['stuid'];
 
+  $index = member['index'];
+
   $my_qry = "SELECT * FROM result WHERE club_name='$club' AND stu_id='$stu_number'";
   $my_result = mysqli_query($bd,$my_qry);
 
@@ -136,11 +138,16 @@ else
         window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
       }
       function ok2(){
-        var message = "임시저장하시겠습니까?";
-        var result = confirm(message);
+        if( index == 0 ){ 
+          var message = "임시저장하시겠습니까?";
+          var result = confirm(message);
 
-        if(result == false){
+          if(result == false){
             return false;
+          }
+        }else{
+          alert('관리자는 제출이 불가능합니다');
+          return false;
         }
       }
     </script>
