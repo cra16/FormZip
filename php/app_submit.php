@@ -81,7 +81,7 @@ else
   $text_name=array("content1","content2","content3","content4","content5","content6","content7");
   $stu_number = $user['stuid'];
 
-  $index = member['index'];
+  $index = $member['index'];
 
   $my_qry = "SELECT * FROM result WHERE club_name='$club' AND stu_id='$stu_number'";
   $my_result = mysqli_query($bd,$my_qry);
