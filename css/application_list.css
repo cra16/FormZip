@@ -30,12 +30,6 @@
    color:black !important;
 }
 
-#wrap{
-  position: absolute;
-  width: 50%;
-  margin-right: 200px;  
-  left: 25%;
-}
 
 .title-name{
   text-align:center;
@@ -65,7 +59,7 @@ margin:0 auto;
 .pop-layer p.ctxt {color: #666; line-height: 25px;}
 .pop-layer .btn-r {width: 100%; margin:10px 0 20px; padding-top: 10px; border-top: 1px solid #DDD; text-align:right;}
 
-a.cbtn {display:inline-block; height:25px; padding:0 14px 0; border:1px solid #304a8a; background-color:#3f5a9d; font-size:13px; color:#fff; line-height:25px;} 
+a.cbtn {display:inline-block; height:25px; padding:0 14px 0; border:1px solid #304a8a; background-color:#3f5a9d; font-size:13px; color:#fff; line-height:25px; float:right;} 
 a.cbtn:hover {border: 1px solid #091940; background-color:#1f326a; color:#fff;}
 
 .formContentsLayout {
@@ -134,7 +128,7 @@ input[type=radio]:checked + label {
       margin-bottom: 15px;
 }
 
-.download{
+.download1{
   display: block;
   border-radius: 6px;
   border-style: none;
@@ -147,4 +141,162 @@ input[type=radio]:checked + label {
   font-size: 13px;
   opacity: 0.9;
   margin: 2%;
+  float:right;
+}
+
+.download2{
+  display: block;
+  border-radius: 6px;
+  border-style: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  background-color: #C4AA5E;
+  width: 40%;
+  color: #fff;
+  width: 140px;
+  height: 40px;
+  font-size: 13px;
+  opacity: 0.9;
+  margin: 2%;
+  float:left;
+}
+
+ #mask {  
+   position:absolute;  
+   z-index:9000;  
+   background-color:#000;  
+   display:none;  
+   left:0;
+   top:0;
+ } 
+  
+/*
+ 팝업으로 뜨는 윈도우 css  
+*/ 
+#wrap{
+  position: absolute;
+  width: 50%;
+  margin-right: 200px;  
+  
+}
+
+.window0{
+   display: none;
+   position:absolute;  
+   left:50%;
+   top:50px;
+   margin-left: -350px;
+   width:700px;
+   height:500px;
+   background-color:#FFF;
+   z-index:10000;
+   padding:10px;   
+}
+.window1{
+   display: none;
+   position:absolute;  
+   left:50%;
+   top:50px;
+   margin-left: -350px;
+   width:700px;
+   height:500px;
+   background-color:#FFF;
+   z-index:10000;
+   padding:10px;   
+}
+.window2{
+   display: none;
+   position:absolute;  
+   left:50%;
+   top:50px;
+   margin-left: -350px;
+   width:700px;
+   height:500px;
+   background-color:#FFF;
+   z-index:10000;
+   padding:10px;   
+}
+
+.window3{
+   display: none;
+   position:absolute;  
+   left:50%;
+   top:50px;
+   margin-left: -350px;
+   width:700px;
+   height:500px;
+   background-color:#FFF;
+   z-index:10000;
+   padding:10px;   
+}
+.window4{
+   display: none;
+   position:absolute;  
+   left:50%;
+   top:50px;
+   margin-left: -350px;
+   width:700px;
+   height:500px;
+   background-color:#FFF;
+   z-index:10000;
+   padding:10px;   
+}
+.window5{
+   display: none;
+   position:absolute;  
+   left:50%;
+   top:50px;
+   margin-left: -350px;
+   width:700px;
+   height:500px;
+   background-color:#FFF;
+   z-index:10000;
+   padding:10px;   
+}.window6{
+   display: none;
+   position:absolute;  
+   left:50%;
+   top:50px;
+   margin-left: -350px;
+   width:700px;
+   height:500px;
+   background-color:#FFF;
+   z-index:10000;
+   padding:10px;   
+}
+.window7{
+   display: none;
+   position:absolute;  
+   left:50%;
+   top:50px;
+   margin-left: -350px;
+   width:700px;
+   height:500px;
+   background-color:#FFF;
+   z-index:10000;
+   padding:10px;   
+}
+.window8{
+   display: none;
+   position:absolute;  
+   left:50%;
+   top:50px;
+   margin-left: -350px;
+   width:700px;
+   height:500px;
+   background-color:#FFF;
+   z-index:10000;
+   padding:10px;   
+}
+
+ .window9{
+   display: none;
+   position:absolute;  
+   left:50%;
+   top:50px;
+   margin-left: -350px;
+   width:700px;
+   height:500px;
+   background-color:#FFF;
+   z-index:10000;
+   padding:10px;   
 }

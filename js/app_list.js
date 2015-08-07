@@ -1,38 +1,31 @@
-  function layer_open(el){
+function PopUp(){
+  document.getElementById("pop_up").style.display="none";
+}
 
-    var temp = $('#' + el);
-    var bg = temp.prev().hasClass('bg');  //dimmed 레이어를 감지하기 위한 boolean 변수
+function wrapWindowByMask(i){
+  //화면의 높이와 너비를 구한다.
+  var maskHeight = window.innerHeight;  
+  var maskWidth = window.innerWidth;  
+      
+  //마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
+  $('#mask').css({'width':maskWidth,'height':maskHeight});  
+  //애니메이션 효과 - 일단 0초동안 까맣게 됐다가 60% 불투명도로 간다.
+  $('#mask').fadeIn(0);      
+  $('#mask').fadeTo("slow",0.6);    
+  //윈도우 같은 거 띄운다.
+  $('.window'+i).show();
+}
 
-    if(bg){
-      $('.layer').fadeIn(); //'bg' 클래스가 존재하면 레이어가 나타나고 배경은 dimmed 된다. 
-    }else{
-      temp.fadeIn();
-    }
-
-    // 화면의 중앙에 레이어를 띄운다.
-    if (temp.outerHeight() < $(document).height() ) temp.css('margin-top', '-'+temp.outerHeight()/2+'px');
-    else temp.css('top', '0px');
-    if (temp.outerWidth() < $(document).width() ) temp.css('margin-left', '-'+temp.outerWidth()/2+'px');
-    else temp.css('left', '0px');
-
-    temp.find('a.cbtn').click(function(e){
-      if(bg){
-        $('.layer').fadeOut(); //'bg' 클래스가 존재하면 레이어를 사라지게 한다. 
-      }else{
-        temp.fadeOut();
-      }
-      e.preventDefault();
-    });
-
-    $('.layer .bg').click(function(e){  //배경을 클릭하면 레이어를 사라지게 하는 이벤트 핸들러
-      $('.layer').fadeOut();
-      e.preventDefault();
-    });
-
-  }       
+$(document).ready(function(){
+  //검은 막 띄우기
 
 
-  function PopUp(){
-    document.getElementById("pop_up").style.display="none";
-  }
+  //닫기 버튼을 눌렀을 때
+  $('.layer .cbtn').click(function (e) {  
+      //링크 기본동작은 작동하지 않도록 한다.
+      e.preventDefault();  
+      $('#mask, .layer').hide();  
+  });
+  //닫기 버튼을 눌렀을 때
 
+});

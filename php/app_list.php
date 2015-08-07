@@ -180,13 +180,13 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
   ?>
     <tr class = 'table_row'>
       <td class = 'studnet-number' scope='row'>
-      <a href="#" class="btn-example" onclick="layer_open('layer<?php echo $count;?>');return false;"><?php echo "$stu_id"; ?></a> 
+      <a href="#" class="btn-example" onclick="wrapWindowByMask(<?php echo $count; ?>)"><?php echo "$stu_id"; ?></a> 
       </td>
       <td class = 'Name'>
-      <a href="#" class="btn-example" onclick="layer_open('layer<?php echo $count;?>');return false;"><?php echo "$name"; ?></a> 
+      <a href="#" class="btn-example" onclick="wrapWindowByMask(<?php echo $count; ?>)"><?php echo "$name"; ?></a> 
       </td>
       <td class = 'sex'>
-      <a href="#" class="btn-example" onclick="layer_open('layer<?php echo $count++;?>');return false;"><?php echo "$gender"; ?></a> 
+      <a href="#" class="btn-example"onclick="wrapWindowByMask(<?php echo $count++; ?>)"><?php echo "$gender"; ?></a> 
       </td>
     </tr>
 
@@ -195,11 +195,10 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
   ?> 
     </tbody>
   </table>
-
-
-  <div class="pagingbox col-lg-12" >
-    <div class = "col-lg-4 col-md-4 col-xs-4"></div>
-    <ul class="pagination  col-lg-4 col-md-4 col-xs-4">
+</div>
+<center>
+  <div class="col-xs-12 col-md-6 col-md-offset-3 ">
+    <ul class="pagination pagingbox">
     <?php
     $page_list=5;
     // get the current page or set a default
@@ -210,7 +209,6 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
         $start=floor(($currentpage-1)/$page_list)*$page_list+1;
         $end= $start+$page_list-1;
       }
-
       else{
         $start=1;
         $end=$start+$page_list-1;
@@ -229,7 +227,6 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
     <?php
     }
 
-    
     else{
     ?>
       <li><a disabled>«</a></li>
@@ -238,19 +235,19 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
     // pagination: 숫자 표시
 
 
-      for($i=$start; $i<=$end;$i++)
-      {
-        if($i > $total_pages){
-          break;
-        }
+    for($i=$start; $i<=$end;$i++)
+    {
+      if($i > $total_pages){
+        break;
+      }
 
-        if($i==$currentpage){
+      if($i==$currentpage){
     ?>
         <li><a href="app_list.php?currentpage=<?php echo $i;?>" id="distinguish"><?php echo $i;?></a></li>          
-   <?php
-        }
+    <?php
+      }
 
-        else{
+      else{
     ?>
         <li><a href="app_list.php?currentpage=<?php echo $i;?>"><?php echo $i;?></a></li>
     <?php
@@ -258,7 +255,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
     ?>
       
     <?php
-      }
+    }
     // pagination: >> 표시  
       if($end<$total_pages){
     ?>
@@ -274,25 +271,27 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
 
     ?>
     </ul>
-     <div class = "col-lg-4 col-md-4 col-xs-4"></div>
   </div>
-
-<div class = "col-lg-12 col-md-12 col-xs-12">
- <div class= "col-lg-2 col-md-2 col-xs-2"></div>
- <div class = "col-lg-8 col-md-8 col-xs-8">
-  <div class= "col-lg-1 col-md-1 col-xs-1"></div>
-  <form action="pdf.php" method="POST">
-  <button class = "download col-lg-5 col-md-5 col-xs-5" type="submit" name="name" value="<?php echo $academy_name; ?>">PDF 파일 다운로드</button>
-  </form>
-  <form action="download.php" method="POST">
-  <button class = "download col-lg-5 col-md-5 col-xs-5" type="submit" name="name" value="<?php echo $academy_name; ?>">엑셀 파일 다운로드</button>
-  </form>
+</center>
+<!-- PDF & 엑셀 다운로드 -->
+<div class="col-md-6 col-md-offset-3 ">
+  <div class="col-md-6">
+    <form action="pdf.php" method="POST">
+    <button class = "download1 col-md-5 col-md-5 col-xs-5" type="submit" name="name" value="<?php echo $academy_name; ?>">PDF 파일 다운로드</button>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <form action="download.php" method="POST">
+    <button class = "download2 col-md-5 col-md-5 col-xs-5" type="submit" name="name" value="<?php echo $academy_name; ?>">엑셀 파일 다운로드</button>
+    </form>
+  </div>
 </div>
-</div>
 
 
 
 
+ 
+  <div id="mask"></div>
 <?php
 // get the info from the db 
 $sql = "SELECT * FROM result WHERE club_name='$cname' LIMIT $offset, $per_page";
@@ -305,8 +304,7 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
   $text_name=array($list['text1'],$list['text2'],$list['text3'],$list['text4'],$list['text5'],$list['text6'],$list['text7'],);
 
 ?>
-  <div id="layer<?php echo $i;?>" class="pop-layer">
-  <div class="formContentsLayout form-horizontal">
+  <div class="window<?php echo $i; ?> layer form-horizontal">
 
   <!-- 이름 / 학번 / 학과 / 전화번호 -->
     <?php
@@ -314,8 +312,8 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
     {
       ?>
       <div class="form-group">
-        <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
-        <div class="col-lg-8">
+        <label class="col-md-3 control-label"><?php echo $label_name[$j]; ?></label>
+        <div class="col-md-8">
           <input type="text" class="form-control short-length" placeholder="<?php echo $short_info[$j]; ?>" style="display:block" id="<?php echo $text_name[$j]; ?>" name="<?php echo $text_name[$j]; ?>" disabled>
         </div>
       </div>  
@@ -325,8 +323,8 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
     ?> 
    <!-- 성별 -->
     <div class="form-group">
-      <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
-      <div class="col-lg-8">
+      <label class="col-md-3 control-label"><?php echo $label_name[$j]; ?></label>
+      <div class="col-md-8">
         <?php
         if($list['gender']=='man'){
         ?>
@@ -348,8 +346,8 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
     if($user_info[$j]=="use" && $list['gender']=='man'){
     ?>
       <div class="form-group">
-        <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
-        <div class="col-lg-8" id="showbox">
+        <label class="col-md-3 control-label"><?php echo $label_name[$j]; ?></label>
+        <div class="col-md-8" id="showbox">
         <?php
         if($list['served']=='YES'){
         ?>
@@ -375,8 +373,8 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
         
     ?>
       <div class="form-group">
-        <label class="col-lg-3 control-label"><?php echo $label_name[$j]; ?></label>
-        <div class="col-lg-8">
+        <label class="col-md-3 control-label"><?php echo $label_name[$j]; ?></label>
+        <div class="col-md-8">
           <input type="text" class="form-control short-length"  placeholder="<?php echo $short_info[$j]; ?>"
                  style="display:block" id="<?php echo $text_name[$i]; ?>" name="<?php echo $text_name[$i]; ?>" disabled>
            </div>
@@ -398,8 +396,8 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
         if($sub_info[$j]=="use"){
     ?>
         <div class="form-group">
-          <label class="col-lg-3 control-label"><?php echo $title[$j]; ?></label>
-          <div class="col-lg-8">
+          <label class="col-md-3 control-label"><?php echo $title[$j]; ?></label>
+          <div class="col-md-8">
           <textarea class="form-control" rows="3" id="textArea" placeholder="<?php echo $text_name[$j]; ?>" disabled></textarea>
           <span class="help-block"><?php echo $explain[$j]; ?></span>    
           </div>
@@ -419,24 +417,19 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
       <a href="#" class="cbtn">Close</a>
     </div>       
   </div>
-  </div>
   
 <?php
 }
 ?>
-
-    
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/app_list.js"></script>
   
 
 
-
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/app_list.js"></script>
+ 
   </body>
 </html>
 
