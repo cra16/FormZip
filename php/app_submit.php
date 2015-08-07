@@ -183,7 +183,7 @@ if( $info == 1){ // 정보 존재
       {
       ?>
       <div class="form-group">
-        <label class="col-lg-3 col-md-3 col-xs-3control-label"><?php echo $label_name[$i]; ?></label>
+        <label class="col-lg-3 col-md-3 col-xs-3 control-label"><?php echo $label_name[$i]; ?></label>
         <div class="col-lg-8 col-md-8 col-xs-8">
           <input type="text" class="form-control short-length col-lg-8"  
           placeholder="<?php echo $question_placeholder[$i]; ?>"
