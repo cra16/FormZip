@@ -124,7 +124,7 @@ else
 
     <script type="text/javascript">
       function ok(){
-        var message = "정말 제출하시겠습니까?";
+        var message = "정말 제출하시겠습니까? 제출 후에는 수정이 불가능 합니다.";
         var result = confirm(message);
 
         if(result == false){
@@ -443,7 +443,7 @@ if( $info == 1){ // 정보 존재
         if( $fetch[0] == NULL ){
       ?>
         <div class = "col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
-          <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="submit" name="temp" id = 'temp' value="<?php echo $club; ?>" >임시저장</button>
+          <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="submit" name="temp" id = 'temp' onsubmit = "ok2()" value="<?php echo $club; ?>" >임시저장</button>
           <button class = "submit_content col-lg-4 col-md-4 col-xs-4" type="submit" name="real" id ='real' onsubmit ="ok()" value="<?php echo $club; ?>">제출</button>
        </div> 
       <?php
