@@ -98,7 +98,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
     <link href="../css/application_list.css" rel="stylesheet">
     <script type="text/javascript">
       function help(){
-        window.open("help.php","도움말", "left=200, top=200, width=520, height=620 , scrollbars=no, resizable=yes");
+        window.open("help.php","도움말", "left=200, top=200, width=520, location=no, height=620 , scrollbars=no, resizable=yes");
       }
     </script>
   </head>

@@ -31,6 +31,11 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/id_find.css" rel="stylesheet">
+    <script type="text/javascript">
+      function help(){
+        window.open("help.php","도움말", "left=200, top=200, width=520, height=620 ,location=no, scrollbars=no, resizable=yes");
+      }
+    </script>
   </head>
 <body>
 
@@ -60,7 +65,7 @@
           ?>
         </li>
         <li><a href="signup.php">Signup</a></li>
-        <li><a href="#">Help</a></li>
+        <li><a href="#" onclick = "help()">Help</a></li>
       </ul>
     </div>
   </div>

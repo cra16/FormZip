@@ -135,7 +135,7 @@ else
         alert('이미 제출하셨습니다');
       }
       function help(){
-        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , scrollbars=no, resizable=yes");
+        window.open("help.php","도움말", "left=200, top=200, width=350, height=420 , location=no, scrollbars=no, resizable=yes");
       }
       function ok2(){
         var message2 = "임시저장하시겠습니까?";
