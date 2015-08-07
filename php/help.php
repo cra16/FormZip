@@ -17,6 +17,11 @@ mysqli_query("set session character_set_client=utf8;");
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/help.css" rel="stylesheet">
+    <script language = "JavaScript" type="text/javascript">
+    <!--
+        document.title = "Help";
+    -->
+    </script>
   </head>
 <body>
  <section class = "content-text">
