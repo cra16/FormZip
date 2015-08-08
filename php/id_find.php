@@ -131,7 +131,7 @@ if($result && $name!="") {
 
 // DB에 입력한 값이 존재하면 display
     if($member['stuid']==$stuid && $member['birth']==$birth){
-      echo "<script>alert('".$member['id']."')</script>"; 
+      echo "<script>alert('아이디: ".$member['id']."')</script>"; 
     }
   }
 }

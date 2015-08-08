@@ -124,7 +124,7 @@ else
 
     <script type="text/javascript">
       function ok(){
-        var message = "제출 후에는 수정이 불가능 합니다. 정말 제출하시겠습니까?";
+        var message = "제출 후에는 수정이 불가능하며 임시저장한 내용은 Mypage에서 확인할 수 있습니다.";
         var result = confirm(message);
 
         if(result == false){

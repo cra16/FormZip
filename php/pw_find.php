@@ -149,7 +149,7 @@ if($result) {
       $decoding = mcrypt_decrypt(MCRYPT_3DES, $key, $de_str, MCRYPT_MODE_ECB, $s_vector_iv);
 
      
-      echo "<script>alert('".$decoding."')</script>";
+      echo "<script>alert('비밀번호: ".$decoding."')</script>";
 
     }
   }

@@ -64,7 +64,7 @@ if($encryption != $password){?>    <!--비밀번호가 일치하지 않는 경�
 else // 비밀번호가 일치하는 경우
 { 
   $sql1 = "DELETE FROM student WHERE id='$id'"; 
-  $sql2 = "DELETE FROM result WHERE stu_id= '$user_id'";
+  $sql2 = "DELETE FROM result WHERE stu_id= '$user_id' AND storage='1'";
   if($result=mysqli_query($conn,$sql1)){
     unset($_SESSION["USER_NAME"]);
     unset($_SESSION["USER_PASSWORD"]);
