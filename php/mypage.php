@@ -103,21 +103,21 @@
    <form action="pw_change.php" method="POST" onsubmit="return validateForm()" align="center" class="form-horizontal">
     <div class="form-group">
       <label  class="col-xs-4 col-md-4 control-label">이름</label>
-      <div class="col-xs-8 col-md-4">
+      <div class="col-xs-8 col-md-6">
       <input type="text" class="form-control" value = "<?php echo $name; ?>" disabled>
       </div>
     </div>
 
     <div class="form-group">
       <label  class="col-xs-4 col-md-4 control-label">ID</label>
-      <div class="col-xs-8 col-md-4">
+      <div class="col-xs-8 col-md-6">
       <input type="text" class="form-control" value = "<?php echo $id; ?>" disabled>
       </div>
     </div>
           
     <div class="form-group">
       <label  class="col-xs-4 col-md-4 control-label">생년월일</label>
-      <div class="col-xs-8 col-md-4">
+      <div class="col-xs-8 col-md-6">
       <input type="text" class="form-control" value = "<?php echo $bday; ?>" disabled>
       </div>
     </div>    
@@ -223,8 +223,13 @@
     </table>
 </div>
 <!-- 지원서 리스트 Start -->
-
-
+<table class="col-xs-12 col-md-12 table table-striped"></table>
+<table style="text-align:center" class="col-xs-12 col-md-12 table table-striped">
+  <tbody>
+    <tr onclick="location.href='withdrawal.php'">
+      <td> 회원탈퇴 바로가기</td>
+    </tr>
+  </tbody>
 
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
