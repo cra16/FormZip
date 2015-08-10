@@ -429,7 +429,7 @@ if( $info == 1){ // 정보 존재
       <div class="form-group">
         <label class="col-lg-3 col-md-3 col-xs-3 control-label">제출기한</label>
         <p class="panel-body col-lg-8 col-md-8 col-xs-8">
-          <?php echo $member['s_month']; ?>월 <?php $member['s_day']; ?>일 까지부터
+          <?php echo $member['s_month']; ?>월 <?php echo $member['s_day']; ?>일 까지부터
           <?php echo $member['month'];?>월 <?php echo $member['day']; ?>일 까지
         </p>
 
