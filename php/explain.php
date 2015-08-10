@@ -25,7 +25,7 @@ mysqli_query("set session character_set_client=utf8;");
   </head>
 <body>
  <section class = "content-text">
-  <h4 class = "title">Contact us!</h4>
+  
    <br><h5 class = "explanation">동아리/학회 페이지 등록 방법:</h5>
    <ol>
  	<li> 아래 사항들을 정확히 기재하여 hguformzip@gmail.com 으로 메일을 보낸다.
@@ -40,6 +40,7 @@ mysqli_query("set session character_set_client=utf8;");
  	</li>
    </ol>
 
+<h4 class = "title">Contact us!</h4>
     <ul>
   <li>email: hguformzip@gmail.com
   <li>cell-phone:

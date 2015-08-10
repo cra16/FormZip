@@ -25,15 +25,7 @@ mysqli_query("set session character_set_client=utf8;");
   </head>
 <body>
  <section class = "content-text">
-  <h4 class = "title">Contact us!</h4>
-   <ul>
- 	<li>email: hguformzip@gmail.com
- 	<li>cell-phone:
- 	<br> 010-5103-2361/
- 	<br> 010-4952-0181/
- 	<br> 010-4857-2886 	
-   </ul>
-
+  
   <br><h5 class = "explanation">동아리/학회 페이지 등록 방법:</h5>
    <ol>
  	<li> 아래 사항들을 정확히 기재하여 hguformzip@gmail.com 으로 메일을 보낸다.
@@ -47,6 +39,14 @@ mysqli_query("set session character_set_client=utf8;");
  	<li> 해당 페이지에서 '지원서 양식 수정'을 통해 지원서를 만든다.
  	</li>
    </ol>
+   <h4 class = "title">Contact us!</h4>
+   <ul>
+  <li>email: hguformzip@gmail.com
+  <li>cell-phone:
+  <br> 010-5103-2361/
+  <br> 010-4952-0181/
+  <br> 010-4857-2886  
+   </ul>
  </section>	
 </body>
 </html>
