@@ -29,7 +29,7 @@ $tmp_file = $_FILES['upload_file']['tmp_name'];
 
 
 $s_file_name=iconv('UTF-8','EUC-KR',$file_name); 
-$file_path = '../clubimg/'.$s_file_name;
+$file_path = '..\clubimg\\'.$s_file_name;
 
 $r = move_uploaded_file($tmp_file, $file_path);
 
