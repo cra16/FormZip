@@ -104,3 +104,4 @@ else
 $conn->close();
 header("Location: ../php/clubpage.php");    
  
+?>
