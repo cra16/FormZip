@@ -26,7 +26,7 @@ mysqli_query("set session character_set_client=utf8;");
 <body>
  <section class = "content-text">
   
-   <br><h5 class = "explanation">동아리/학회 페이지 등록 방법:</h5>
+   <h5 class = "explanation">동아리/학회 페이지 등록 방법:</h5>
    <ol>
  	<li> 아래 사항들을 정확히 기재하여 hguformzip@gmail.com 으로 메일을 보낸다.
  		<br>1) 동아리/학회 이름
@@ -39,7 +39,7 @@ mysqli_query("set session character_set_client=utf8;");
  	<li> 해당 페이지에서 '지원서 양식 수정'을 통해 지원서를 만든다.
  	</li>
    </ol>
-
+<br>
 <h4 class = "title">Contact us!</h4>
     <ul>
   <li>email: hguformzip@gmail.com
