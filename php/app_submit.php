@@ -306,6 +306,7 @@ if( $info == 1){ // 정보 존재
         </p>
       </div>
 
+      <input name="club_name" value="<?php echo $club; ?>" type="hidden">
       <?php
         $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
         $re_query = mysqli_query($bd,$query);
@@ -433,6 +434,7 @@ if( $info == 1){ // 정보 존재
           <?php echo $member['month'];?>월 <?php echo $member['day']; ?>일 까지
         </p>
 
+      <input name="club_name" value="<?php echo $club; ?>" type="hidden">
 
         <br>
              <?php

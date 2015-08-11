@@ -31,7 +31,7 @@ if(!$_POST['temp'] && !$_POST['real'])
 }
 
 //POST values
-    $club= $_SESSION["GROUP"];
+    $club= $_POST['club_name'];
     $major=mysqli_real_escape_string($bd,test_input($_POST['major']));
     $p_num=mysqli_real_escape_string($bd,test_input($_POST['p_num']));
     $gender=mysqli_real_escape_string($bd,test_input($_POST['gender']));
@@ -118,7 +118,7 @@ if( $check ){ //제출
 
     if ($bd->query($sql) === TRUE) {
         echo "New record inserted successfully";
-        header("Location: ../php/clubpage.php");
+        header("Location: ../php/clublist.php");
     } else {
         echo "Error: " . $sql . "<br>" . $bd->error;
         //header("Location: ../php/firstpage.php");
@@ -132,7 +132,7 @@ if( $check ){ //제출
 
     if ($bd->query($sql) === TRUE) {
         echo "New record created successfully";
-        header("Location: ../php/clubpage.php");
+        header("Location: ../php/clublist.php");
     } else {
         echo "Error: " . $sql . "<br>" . $bd->error;
         //header("Location: ../php/firstpage.php");
@@ -150,7 +150,7 @@ if( $check ){ //제출
 
     if ($bd->query($sql) === TRUE) {
         echo "New record inserted successfully";
-        header("Location: ../php/clubpage.php");
+        header("Location: ../php/clublist.php");
     } else {
         echo "Error: " . $sql . "<br>" . $bd->error;
         //header("Location: ../php/firstpage.php");
@@ -165,7 +165,7 @@ if( $check ){ //제출
 
     if ($bd->query($sql) === TRUE) {
         echo "New record created successfully";
-        header("Location: ../php/clubpage.php");
+        header("Location: ../php/clublist.php");
     } else {
         echo "Error: " . $sql . "<br>" . $bd->error;
         //header("Location: ../php/firstpage.php");
