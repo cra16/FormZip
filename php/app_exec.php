@@ -106,12 +106,12 @@ for($i=0; $i <7; $i++)
 
 //$sql = "INSERT INTO application
 //VALUES ('$id','$served' ,'$mail' ,'$activity' ,'$sr1' ,'$sr2' ,'$sr3' ,'$sr4' ,'$sr5' ,'$sr6' ,'$sr7' ,'$title1','$explain1','$title2','$explain2','$title3','$explain3','$title4','$explain4','$title5','$explain5','$title6','$explain6','$title7','$explain7','$month','$day')";
-$qry = "SELECT * FROM application WHERE id = '$club_name'";
+$qry = "SELECT * FROM application WHERE id = '$admin'";
             $result = mysqli_query($conn,$qry);
             $isset = mysqli_fetch_assoc($result);
 
            if($isset['month']!=NULL){
-             $del = "DELETE FROM result WHERE club_name = '$club_name'";
+             $del = "DELETE FROM result WHERE club_name = '$admin'";
              mysqli_query($conn,$del);
  
            }
