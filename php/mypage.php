@@ -188,7 +188,7 @@
   $stuid_array = mysqli_fetch_array($stuid_result);
   $stuid = $stuid_array['stuid'];
 
-  $qry2 = "SELECT * FROM result WHERE stu_id = '$stuid'";
+  $qry2 = "SELECT * FROM result WHERE id = '$id'";
   $result=mysqli_query($bd,$qry2);
 
   while($list = mysqli_fetch_array($result)){

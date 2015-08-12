@@ -83,7 +83,7 @@ else
 
   $index = $user['index'];
 
-  $my_qry = "SELECT * FROM result WHERE club_name='$club' AND stu_id='$stu_number'";
+  $my_qry = "SELECT * FROM result WHERE club_name='$club' AND id='$userid'";
   $my_result = mysqli_query($bd,$my_qry);
 
   //Check whether the query was successful or not
@@ -308,7 +308,7 @@ if( $info == 1){ // 정보 존재
 
       <input name="club_name" value="<?php echo $club; ?>" type="hidden">
       <?php
-        $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
+        $query = "SELECT * FROM result WHERE id = '$userid' AND storage='0' AND club_name = '$club'";
         $re_query = mysqli_query($bd,$query);
         $fetch = mysqli_fetch_array($re_query);
 
@@ -438,7 +438,7 @@ if( $info == 1){ // 정보 존재
 
         <br>
              <?php
-        $query = "SELECT * FROM result WHERE stu_id = '$stu_number' AND storage='0' AND club_name = '$club'";
+        $query = "SELECT * FROM result WHERE id = '$userid' AND storage='0' AND club_name = '$club'";
         $re_query = mysqli_query($bd,$query);
         $fetch = mysqli_fetch_array($re_query);
 
