@@ -90,7 +90,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=1280">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>FORM:ZIP 지원현황</title>
+    <title>iBELONG :: 지원현황</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -114,7 +114,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="firstpage.php">FORM:ZIP</a>
+        <a class="navbar-brand" href="firstpage.php">iBELONG</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

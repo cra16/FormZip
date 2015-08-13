@@ -74,7 +74,7 @@ else
   $short_info=array("use","use","use","use","use",$member['served'],$member['mail'],$member['activity']);
   $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$member['sr5'],$member['sr6'],$member['sr7']);
   $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
-  $question_placeholder= array($user['student_name'],$user['stuid'],"ex) 1전공/2전공","Phone number","남/여","남성인 경우만 해당","ex)formzip@naver.com","ex)3학기");
+  $question_placeholder= array($user['student_name'],$user['stuid'],"ex) 1전공/2전공","Phone number","남/여","남성인 경우만 해당","ex)ibelong@naver.com","ex)3학기");
   $title=array($member['title1'],$member['title2'],$member['title3'],$member['title4'],$member['title5'],$member['title6'],$member['title7']);
   $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7']);
   $pass_name=array("name","stuid","major","p_num","gender","served","mail","activity");

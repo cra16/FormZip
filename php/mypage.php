@@ -26,7 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=1280">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>:: 마이 페이지 ::</title>
+    <title>iBELONG :: 마이 페이지</title>
 
     <!-- Bootstrap -->
     <link href="../css/mypage.css" rel="stylesheet">

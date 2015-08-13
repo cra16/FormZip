@@ -26,7 +26,7 @@ if ($conn->connect_error) {
 
 
 $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기수");
-$question_placeholder= array("Name","Student ID","Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)formzip@naver.com","ex)3학기");
+$question_placeholder= array("Name","Student ID","Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)ibelong@naver.com","ex)3학기");
 $text_name=array("t_name","t_stuid","t_major","t_phonenum","t_gender","t_served","t_mail","t_activity");
 $radio_name=array("r_served","r_mail","r_activity");
 $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
@@ -41,7 +41,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=1280">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>FORM:ZIP 지원서 양식 만들기</title>
+    <title>iBELONG :: 지원서 양식 만들기</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
