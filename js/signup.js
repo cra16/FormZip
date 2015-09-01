@@ -309,7 +309,8 @@ function validateForm() {
 
 	if(checking==0){
 	document.getElementById("userIdMsg").style.display="block";
-	document.getElementById("userIdMsg").innerHTML="필수 항목입니다.";
+	document.getElementById("userIdMsg").innerHTML="중복 확인을 해주세요.";
+	document.getElementById("userIdMsg").style.color="#FF8080";
 	check_arr[1]=0;
 	}
 
@@ -329,7 +330,7 @@ function validateForm() {
 
 	if(checkid==0){
 	document.getElementById("userIdMsg").style.display="block";
-	document.getElementById("userIdMsg").innerHTML="필수 항목입니다.";
+	document.getElementById("userIdMsg").innerHTML="중복 확인을 해주세요.";
 	check_arr[1]=0;
 	return false;
 	}

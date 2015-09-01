@@ -40,6 +40,7 @@ else{
   else{
     echo "사용 가능한 아이디입니다.";
     echo " <script> opener.document.all.checkid.value=1; </script>";
+    echo " <script> opener.document.all.userid.disabled=true; </script>";
     echo " <script>  opener.document.all.userIdMsg.style.display='block';</script>";
     echo " <script>  opener.document.all.userIdMsg.innerHTML='확인되었습니다.';</script>";
     echo " <script>  opener.document.all.userIdMsg.style.color='#66FF66';</script>";
