@@ -311,7 +311,7 @@ function validateForm() {
 	document.getElementById("userIdMsg").style.display="block";
 	document.getElementById("userIdMsg").innerHTML="중복 확인을 해주세요.";
 	document.getElementById("userIdMsg").style.color="#FF8080";
-	check_arr[1]=0;
+	return false;
 	}
 
 	for(i=0; i<6; i++){
@@ -330,10 +330,10 @@ function validateForm() {
 
 	if(checkid==0){
 	document.getElementById("userIdMsg").style.display="block";
-	document.getElementById("userIdMsg").innerHTML="중복 확인을 해주세요.";
-	check_arr[1]=0;
+	document.getElementById("userIdMsg").innerHTML="다시 확인을 해주세요.";
 	return false;
 	}
+	document.all.userid.disabled=false;
 }
 
 
