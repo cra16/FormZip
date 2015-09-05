@@ -59,6 +59,12 @@
   echo '<td>Answer6</td>';
  if($check['sr7']=="use") 
   echo '<td>Answer7</td>';
+if($check['sr8']=="use") 
+  echo '<td>Answer7</td>';
+if($check['sr9']=="use") 
+  echo '<td>Answer7</td>';
+if($check['sr10']=="use") 
+  echo '<td>Answer7</td>';
  
   echo '</tr>';
 
@@ -130,6 +136,21 @@ while($array = mysqli_fetch_array($result)){
         <td width=100>
             <p align=center><?php echo $array['text7'];?></p>
         </td> 
+        <?php }
+        if($check['sr8']=="use"){?>
+        <td width=100>
+            <p align=center><?php echo $array['text8'];?></p>
+        </td>
+        <?php }
+        if($check['sr9']=="use"){?>
+        <td width=100>
+            <p align=center><?php echo $array['text9'];?></p>
+        </td>
+        <?php }
+        if($check['sr10']=="use"){?>
+        <td width=100>
+            <p align=center><?php echo $array['text10'];?></p>
+        </td>
          <?php } ?>    
     </tr>      
 <?php
