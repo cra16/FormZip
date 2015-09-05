@@ -55,7 +55,7 @@ $offset = ($currentpage - 1) * $per_page;
 $sql = "SELECT * FROM result WHERE club_name='$cname' LIMIT $offset, $per_page";
 $result=mysqli_query($bd,$sql);
 $count=0;
-$label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
+$label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","학기");
 
 
 $qry="SELECT * FROM application WHERE id='$cname'";   
@@ -74,10 +74,10 @@ if($temp) {
 
 
 //Sanitize the POST values
-$sub_info=array($user['sr1'],$user['sr2'],$user['sr3'],$user['sr4'],$user['sr5'],$user['sr6'],$user['sr7']);
+$sub_info=array($user['sr1'],$user['sr2'],$user['sr3'],$user['sr4'],$user['sr5'],$user['sr6'],$user['sr7'],$user['sr8'],$user['sr9'],$user['sr10']);
 $user_info=array("use","use","use","use","use",$user['served'],$user['mail'],$user['activity']);
-$title=array($user['title1'],$user['title2'],$user['title3'],$user['title4'],$user['title5'],$user['title6'],$user['title7']);
-$explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['explain4'],$user['explain5'],$user['explain6'],$user['explain7']);
+$title=array($user['title1'],$user['title2'],$user['title3'],$user['title4'],$user['title5'],$user['title6'],$user['title7'],$user['title8'],$user['title9'],$user['title']);
+$explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['explain4'],$user['explain5'],$user['explain6'],$user['explain7'],$user['explain8'],$user['explain9'],$user['explain10']);
 
 
 
@@ -301,7 +301,7 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
 {
  
   $short_info=array($list['name'],$list['stu_id'],$list['major'],$list['p_num'],$list['gender'],$list['served'],$list['mail'],$list['activity']);
-  $text_name=array($list['text1'],$list['text2'],$list['text3'],$list['text4'],$list['text5'],$list['text6'],$list['text7'],);
+  $text_name=array($list['text1'],$list['text2'],$list['text3'],$list['text4'],$list['text5'],$list['text6'],$list['text7'],$list['text8'],$list['text9'],$list['text10']);
 
 ?>
   <div class="window<?php echo $i; ?> layer form-horizontal">
@@ -366,7 +366,7 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
     }
  
 
-    // 이메일 / 활동가능학기
+    // 이메일 / 학기
        for($j = 6; $j<8; $j++)
       {
         if($user_info[$j]=="use"){
@@ -387,7 +387,7 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
 
     <!-- long text -->
     <?php
-      for($j = 0; $j<8; $j++)
+      for($j = 0; $j<10; $j++)
       {
         if($sub_info[$j]=="notuse")
         {
