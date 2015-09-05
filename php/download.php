@@ -60,11 +60,11 @@
  if($check['sr7']=="use") 
   echo '<td>Answer7</td>';
 if($check['sr8']=="use") 
-  echo '<td>Answer7</td>';
+  echo '<td>Answer8</td>';
 if($check['sr9']=="use") 
-  echo '<td>Answer7</td>';
+  echo '<td>Answer9</td>';
 if($check['sr10']=="use") 
-  echo '<td>Answer7</td>';
+  echo '<td>Answer10</td>';
  
   echo '</tr>';
 
