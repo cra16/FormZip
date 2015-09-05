@@ -104,7 +104,36 @@ function Sub_Blind7(){
 	document.getElementById("title7").style.display="none";
 	document.getElementById("explain7").style.display="none";
 }
+// This function change sub_question6
+function Sub_Show7(){
+	document.getElementById("title7").style.display="block";
+	document.getElementById("explain7").style.display="block";
+}
 
+function Sub_Blind7(){
+	document.getElementById("title7").style.display="none";
+	document.getElementById("explain7").style.display="none";
+}
+// This function change sub_question6
+function Sub_Show7(){
+	document.getElementById("title7").style.display="block";
+	document.getElementById("explain7").style.display="block";
+}
+
+function Sub_Blind8(){
+	document.getElementById("title8").style.display="none";
+	document.getElementById("explain8").style.display="none";
+}
+// This function change sub_question6
+function Sub_Show9(){
+	document.getElementById("title9").style.display="block";
+	document.getElementById("explain9").style.display="block";
+}
+
+function Sub_Blind10(){
+	document.getElementById("title10").style.display="none";
+	document.getElementById("explain10").style.display="none";
+}
 $(document).ready(function(){
     $("#flip").click(function(){
         $("#panel").slideToggle("slow");
