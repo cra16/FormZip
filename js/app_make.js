@@ -19,7 +19,7 @@ function Blind2(){
 	document.getElementById("t_mail").style.display="none";
 }
 
-//활동가능학기
+//학기
 function Show3(){
 	document.getElementById("t_activity").style.display="block";
 }
