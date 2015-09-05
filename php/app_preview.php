@@ -70,11 +70,11 @@
 
 //Sanitize the POST values
   $short_info=array("use","use","use","use","use",$member['served'],$member['mail'],$member['activity']);
-  $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$member['sr5'],$member['sr6'],$member['sr7']);
+  $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$member['sr5'],$member['sr6'],$member['sr7'],$member['sr8'],$member['sr9'],$member['sr10']);
   $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기수");
   $question_placeholder= array("Name","Student ID","Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)ibelong@naver.com","ex)3학기");
-  $title=array($member['title1'],$member['title2'],$member['title3'],$member['title4'],$member['title5'],$member['title6'],$member['title7']);
-  $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7']);
+  $title=array($member['title1'],$member['title2'],$member['title3'],$member['title4'],$member['title5'],$member['title6'],$member['title7'],$member['title8'],$member['title9'],$member['title10']);
+  $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7'],$member['explain8'],$member['explain9'],$member['explain10']);
 ?>
 
 
@@ -191,7 +191,7 @@
 
     <!-- long text -->
     <?php
-      for($i = 0; $i<8; $i++)
+      for($i = 0; $i<10; $i++)
       {
         if($sub_info[$i]=="notuse")
         {

@@ -46,6 +46,9 @@ if(!$_POST['temp'] && !$_POST['real'])
     $content5= $_POST['content5'];
     $content6= $_POST['content6'];
     $content7= $_POST['content7'];
+    $content8= $_POST['content8'];
+    $content9= $_POST['content9'];
+    $content10= $_POST['content10'];
 
    
 
@@ -114,7 +117,7 @@ if( $check ){ //제출
     $sql = "UPDATE result 
     SET name = '$name',major = '$major',p_num = '$p_num',gender = '$gender',served = '$served',mail = '$mail',
     activity = '$activity',text1 = '$content1',text2 = '$content2',text3 = '$content3',text4 = '$content4',
-    text5 = '$content5',text6 = '$content6',text7 = '$content7', storage = '0' WHERE club_name = '$club' AND id = '$id'";
+    text5 = '$content5',text6 = '$content6',text7 = '$content7',text8 = '$content8',text9 = '$content9',text10 = '$content10', storage = '0' WHERE club_name = '$club' AND id = '$id'";
 
     if ($bd->query($sql) === TRUE) {
         echo "New record inserted successfully";
@@ -127,8 +130,8 @@ if( $check ){ //제출
     $bd->close();
   }
   else{
-    $sql = "INSERT INTO result (club_name,name,id,stu_id,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7,storage)
-    VALUES ('$club','$name','$id','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7','0')";
+    $sql = "INSERT INTO result (club_name,name,id,stu_id,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7,text8,text9,text10,storage)
+    VALUES ('$club','$name','$id','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7','$content8','$content9','$content10','0')";
 
     if ($bd->query($sql) === TRUE) {
         echo "New record created successfully";
@@ -146,7 +149,7 @@ if( $check ){ //제출
     $sql = "UPDATE result 
     SET name = '$name',major = '$major',p_num = '$p_num',gender = '$gender',served = '$served',mail = '$mail',
     activity = '$activity',text1 = '$content1',text2 = '$content2',text3 = '$content3',text4 = '$content4',
-    text5 = '$content5',text6 = '$content6',text7 = '$content7', storage='1' WHERE club_name = '$club' AND id = '$id'";
+    text5 = '$content5',text6 = '$content6',text7 = '$content7',text8 = '$content8',text9 = '$content9',text10 = '$content10', storage='1' WHERE club_name = '$club' AND id = '$id'";
 
     if ($bd->query($sql) === TRUE) {
         echo "New record inserted successfully";
@@ -160,8 +163,8 @@ if( $check ){ //제출
 
   }
   else{
-    $sql = "INSERT INTO result (club_name,name,id,stu_id,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7,storage)
-    VALUES ('$club','$name','$id','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7','1')";
+    $sql = "INSERT INTO result (club_name,name,id,stu_id,major,p_num,gender,served,mail,activity,text1,text2,text3,text4,text5,text6,text7,text8,text9,text10,storage)
+    VALUES ('$club','$name','$id','$stuid' ,'$major' ,'$p_num' ,'$gender' ,'$served' ,'$mail' ,'$activity' ,'$content1' ,'$content2' ,'$content3' ,'$content4','$content5','$content6','$content7','$content8','$content9','$content10','1')";
 
     if ($bd->query($sql) === TRUE) {
         echo "New record created successfully";

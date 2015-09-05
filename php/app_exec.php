@@ -43,8 +43,11 @@ $admin=$temp['c_name'];
     $sr5 = mysqli_real_escape_string($conn,$_POST['sr5']);
     $sr6 = mysqli_real_escape_string($conn,$_POST['sr6']);
     $sr7 = mysqli_real_escape_string($conn,$_POST['sr7']);
+    $sr8 = mysqli_real_escape_string($conn,$_POST['sr8']);
+    $sr9 = mysqli_real_escape_string($conn,$_POST['sr9']);
+    $sr10 = mysqli_real_escape_string($conn,$_POST['sr10']);
 
-    $sr = array("$sr1","$sr2","$sr3","$sr4","$sr5","$sr6","$sr7");
+    $sr = array("$sr1","$sr2","$sr3","$sr4","$sr5","$sr6","$sr7","$sr8","$sr9","$sr10");
 
     $title1= $_POST['title1'];
     $title2= $_POST['title2'];
@@ -53,8 +56,11 @@ $admin=$temp['c_name'];
     $title5= $_POST['title5'];
     $title6= $_POST['title6'];
     $title7= $_POST['title7'];
+    $title8= $_POST['title8'];
+    $title9= $_POST['title9'];
+    $title10= $_POST['title10'];
 
-    $title=array("$title1","$title2","$title3","$title4","$title5","$title6","$title7");
+    $title=array("$title1","$title2","$title3","$title4","$title5","$title6","$title7","$title8","$title9","$title10");
 
     $explain1=$_POST['explain1'];
     $explain2=$_POST['explain2'];
@@ -63,8 +69,10 @@ $admin=$temp['c_name'];
     $explain5=$_POST['explain5'];
     $explain6=$_POST['explain6'];
     $explain7=$_POST['explain7'];
-    
-    $explain=array("$explain1","$explain2","$explain3","$explain4","$explain5","$explain6","$explain7");
+    $explain8=$_POST['explain8'];
+    $explain9=$_POST['explain9'];
+    $explain10=$_POST['explain10'];
+    $explain=array("$explain1","$explain2","$explain3","$explain4","$explain5","$explain6","$explain7","$explain8","$explain9","$explain10");
 
     $s_month = mysqli_real_escape_string($conn,$_POST['s_month']);
     $s_day = mysqli_real_escape_string($conn,$_POST['s_day']);
@@ -117,7 +125,7 @@ $qry = "SELECT * FROM application WHERE id = '$admin'";
            }
            
 $sql = "UPDATE application
-SET served = '$served' ,mail = '$mail' ,activity = '$activity' ,sr1 = '$sr1' ,sr2 = '$sr2' ,sr3 = '$sr3' ,sr4 = '$sr4' ,sr5 = '$sr5' ,sr6 = '$sr6' ,sr7 = '$sr7' ,title1 = '$title1' ,explain1 = '$explain1' ,title2 = '$title2' ,explain2 = '$explain2' ,title3 = '$title3' ,explain3 = '$explain3' ,title4 = '$title4' ,explain4 = '$explain4' ,title5 = '$title5' ,explain5 = '$explain5' ,title6 = '$title6' ,explain6 = '$explain6' ,title7 = '$title7' ,explain7 = '$explain7' ,month = '$month' ,day = '$day', s_month = '$s_month', s_day = '$s_day'  WHERE id = '$admin'";
+SET served = '$served' ,mail = '$mail' ,activity = '$activity' ,sr1 = '$sr1' ,sr2 = '$sr2' ,sr3 = '$sr3' ,sr4 = '$sr4' ,sr5 = '$sr5' ,sr6 = '$sr6' ,sr7 = '$sr7' ,title1 = '$title1' ,explain1 = '$explain1' ,title2 = '$title2' ,explain2 = '$explain2' ,title3 = '$title3' ,explain3 = '$explain3' ,title4 = '$title4' ,explain4 = '$explain4' ,title5 = '$title5' ,explain5 = '$explain5' ,title6 = '$title6' ,explain6 = '$explain6' ,title7 = '$title7' ,explain7 = '$explain7' ,title7 = '$title7' ,explain7 = '$explain7' ,title8 = '$title8' ,explain9 = '$explain9' ,title10 = '$title10' ,explain10 = '$explain10' ,month = '$month' ,day = '$day', s_month = '$s_month', s_day = '$s_day'  WHERE id = '$admin'";
 
 
 if ($conn->query($sql) === TRUE) {

@@ -72,13 +72,13 @@ else
 
 //Sanitize the POST values
   $short_info=array("use","use","use","use","use",$member['served'],$member['mail'],$member['activity']);
-  $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$member['sr5'],$member['sr6'],$member['sr7']);
+  $sub_info=array($member['sr1'],$member['sr2'],$member['sr3'],$member['sr4'],$member['sr5'],$member['sr6'],$member['sr7'],$member['sr8'],$member['sr9'],$member['sr10']);
   $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","활동가능학기");
   $question_placeholder= array($user['student_name'],$user['stuid'],"ex) 1전공/2전공","Phone number","남/여","남성인 경우만 해당","ex)ibelong@naver.com","ex)3학기");
-  $title=array($member['title1'],$member['title2'],$member['title3'],$member['title4'],$member['title5'],$member['title6'],$member['title7']);
-  $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7']);
+  $title=array($member['title1'],$member['title2'],$member['title3'],$member['title4'],$member['title5'],$member['title6'],$member['title7'],$member['title8'],$member['title9'],$member['title10']);
+  $explain=array($member['explain1'],$member['explain2'],$member['explain3'],$member['explain4'],$member['explain5'],$member['explain6'],$member['explain7'],$member['explain8'],$member['explain9'],$member['explain10']);
   $pass_name=array("name","stuid","major","p_num","gender","served","mail","activity");
-  $text_name=array("content1","content2","content3","content4","content5","content6","content7");
+  $text_name=array("content1","content2","content3","content4","content5","content6","content7","content8","content9","content10");
   $stu_number = $user['stuid'];
 
   $index = $user['index'];
@@ -103,7 +103,7 @@ else
   $pass_temp = array($my_temp['name'], $my_temp['stu_id'], $my_temp['major'], $my_temp['p_num'], $my_temp['gender'], $my_temp['served'], $my_temp['mail'], 
     $my_temp['activity']);
   $text_temp = array($my_temp['text1'], $my_temp['text2'], $my_temp['text3'], $my_temp['text4'],
-    $my_temp['text5'], $my_temp['text6'], $my_temp['text7']);
+    $my_temp['text5'], $my_temp['text6'], $my_temp['text7'], $my_temp['text8'], $my_temp['text9'], $my_temp['text10']);
 
 ?>
 
@@ -276,7 +276,7 @@ if( $info == 1){ // 정보 존재
 
       <!-- long text -->
       <?php
-        for($i = 0; $i<8; $i++)
+        for($i = 0; $i<10; $i++)
         {
           if($sub_info[$i]=="notuse")
           {
@@ -405,7 +405,7 @@ if( $info == 1){ // 정보 존재
       <!-- long text -->
 
       <?php
-        for($i = 0; $i<8; $i++)
+        for($i = 0; $i<10; $i++)
         {
           if($sub_info[$i]=="notuse")
           {

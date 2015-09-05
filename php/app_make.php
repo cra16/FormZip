@@ -29,7 +29,7 @@ $label_name = array("이름","학번","학과","전화번호","성별","군필�
 $question_placeholder= array("Name","Student ID","Major ex) 1전공/2전공","Phone number ex)01012345678","남/여","남성인 경우만 해당","ex)ibelong@naver.com","ex)3학기");
 $text_name=array("t_name","t_stuid","t_major","t_phonenum","t_gender","t_served","t_mail","t_activity");
 $radio_name=array("r_served","r_mail","r_activity");
-$sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
+$sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7","sr8","sr9","sr10");
 
 ?>
 
@@ -63,7 +63,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7");
   <!-- Help box -->
   <div class="helpbox">
     <div id="flip"> 도움말 <img src="../img/arrow.png"></div>
-    <div id="panel">이름, 학번, 학과, 전화번호, 성별은 기본 항목입니다.<br>군필여부, e-mail, 활동가능학기수, 질물 1~7은 선택사항입니다.<br>선택사항의 사용을 원하시면 'use'를, 아니면 'not use'를 선택해주세요. </div>
+    <div id="panel">이름, 학번, 학과, 전화번호, 성별은 기본 항목입니다.<br>군필여부, e-mail, 활동가능학기수, 질물 1~10은 선택사항입니다.<br>선택사항의 사용을 원하시면 'use'를, 아니면 'not use'를 선택해주세요. </div>
   </div>
   <!-- 지원서 내부 -->
 <div class="formContentsLayout">
@@ -163,7 +163,7 @@ $qry = "SELECT * FROM application WHERE id = '$club'";
     ?>
     <!-- long text  -->
     <?php
-      for($i = 0; $i<7; $i++)
+      for($i = 0; $i<10; $i++)
       {
     ?>
       <div class="form-group">
