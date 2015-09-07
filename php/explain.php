@@ -29,7 +29,7 @@ mysqli_query("set session character_set_client=utf8;");
   
    <h5 class = "explanation">동아리/학회 페이지 등록 방법:</h5>
    <ol>
- 	<li> 아래 사항들을 정확히 기재하여 hguibelong@gmail.com 으로 메일을 보낸다.
+ 	<li> 아래 사항들을 정확히 기재하여 ibelong2hgu@gmail.com 으로 메일을 보낸다.
  		<br>1) 동아리/학회 이름
  		<br>2) 희망하는 아이디
  		<br>3) 희망하는 비밀번호
@@ -43,7 +43,7 @@ mysqli_query("set session character_set_client=utf8;");
 <br>
 <h4 class = "title">Contact us!</h4>
     <ul>
-  <li>email: hguibelong@gmail.com
+  <li>email: ibelong2hgu@gmail.com
   <li>cell-phone:
   <br> 010-5103-2361/
   <br> 010-4952-0181/
