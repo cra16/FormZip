@@ -25,7 +25,7 @@ $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB)
 
 ////동아리 비밀번호////
 
-/*$num = 54;
+$num = 54;
 
  $sql = "SELECT c_name FROM club";
 
@@ -49,7 +49,7 @@ echo $clubname[0].'----->'.$decoding.'<br>'.'<br>';
 echo '==========================='.'<br>';
 
 $num =$num +6;
-}*/
+}
 
 /////////////////////
 
