@@ -30,6 +30,13 @@
    color:black !important;
 }
 
+.table_row_temp{
+    background-color:white !important;
+}
+
+.table_row_temp a{
+   color:blue !important;
+}
 
 .title-name{
   text-align:center;

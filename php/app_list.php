@@ -180,15 +180,15 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
    if($list['storage']==0){
   ?>
 
-    <tr class = 'table_row'>
+    <tr class = 'table_row_temp'>
       <td class = 'studnet-number' scope='row'>
-      <a href="#" class="btn-example" color:blue onclick="wrapWindowByMask(<?php echo $count; ?>)"><?php echo "$stu_id"; ?></a> 
+      <a href="#" class="btn-example" onclick="wrapWindowByMask(<?php echo $count; ?>)"><?php echo "$stu_id"; ?></a> 
       </td>
       <td class = 'Name'>
-      <a href="#" class="btn-example" color:blue onclick="wrapWindowByMask(<?php echo $count; ?>)"><?php echo "$name"; ?></a> 
+      <a href="#" class="btn-example" onclick="wrapWindowByMask(<?php echo $count; ?>)"><?php echo "$name"; ?></a> 
       </td>
       <td class = 'sex'>
-      <a href="#" class="btn-example" color:blueonclick="wrapWindowByMask(<?php echo $count++; ?>)"><?php echo "$gender"; ?></a> 
+      <a href="#" class="btn-example"onclick="wrapWindowByMask(<?php echo $count++; ?>)"><?php echo "$gender"; ?></a> 
       </td>
     </tr>
   <?php 
