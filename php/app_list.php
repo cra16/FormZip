@@ -218,7 +218,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
 <center>
 
   <div class="col-xs-12 col-md-6 col-md-offset-3 ">
-    <div> ※작성중인 지원서는 초록색으로 표시됩니다.</div>
+    <div color:black> ※제출이 완료된 지원서는 초록색으로 표시됩니다.</div>
     <ul class="pagination pagingbox">
     <?php
     $page_list=5;
