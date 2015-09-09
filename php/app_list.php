@@ -176,9 +176,26 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
     $stu_id = $list['stu_id'];
     $name = $list['name'];
     $gender=$list['gender']; 
-
+  
+   if($list['storage']==0){
   ?>
+
     <tr class = 'table_row'>
+      <td class = 'studnet-number' scope='row'>
+      <a href="#" class="btn-example" color:blue onclick="wrapWindowByMask(<?php echo $count; ?>)"><?php echo "$stu_id"; ?></a> 
+      </td>
+      <td class = 'Name'>
+      <a href="#" class="btn-example" color:blue onclick="wrapWindowByMask(<?php echo $count; ?>)"><?php echo "$name"; ?></a> 
+      </td>
+      <td class = 'sex'>
+      <a href="#" class="btn-example" color:blueonclick="wrapWindowByMask(<?php echo $count++; ?>)"><?php echo "$gender"; ?></a> 
+      </td>
+    </tr>
+  <?php 
+    }
+    else{ 
+    ?>
+        <tr class = 'table_row'>
       <td class = 'studnet-number' scope='row'>
       <a href="#" class="btn-example" onclick="wrapWindowByMask(<?php echo $count; ?>)"><?php echo "$stu_id"; ?></a> 
       </td>
@@ -189,8 +206,8 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
       <a href="#" class="btn-example"onclick="wrapWindowByMask(<?php echo $count++; ?>)"><?php echo "$gender"; ?></a> 
       </td>
     </tr>
-
-  <?php
+<?php
+   }
   }
   ?> 
     </tbody>
