@@ -39,16 +39,16 @@ if(!$_POST['temp'] && !$_POST['real'])
     $mail=$_POST['mail'];
     $activity=mysqli_real_escape_string($bd,test_input($_POST['activity']));
 
-    $content1= $_POST['content1'];
-    $content2= $_POST['content2'];
-    $content3= $_POST['content3'];
-    $content4= $_POST['content4'];
-    $content5= $_POST['content5'];
-    $content6= $_POST['content6'];
-    $content7= $_POST['content7'];
-    $content8= $_POST['content8'];
-    $content9= $_POST['content9'];
-    $content10= $_POST['content10'];
+    $content1= addslashes($_POST['content1']);
+    $content2= addslashes($_POST['content2']);
+    $content3= addslashes($_POST['content3']);
+    $content4= addslashes($_POST['content4']);
+    $content5= addslashes($_POST['content5']);
+    $content6= addslashes($_POST['content6']);
+    $content7= addslashes($_POST['content7']);
+    $content8= addslashes($_POST['content8']);
+    $content9= addslashes($_POST['content9']);
+    $content10= addslashes($_POST['content10']);
 
    
 

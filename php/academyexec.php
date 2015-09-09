@@ -34,8 +34,8 @@ $r = move_uploaded_file($tmp_file, $file_path);
 
 
 // title, text 정보 불러오기
-$title= $_POST['title'];
-$text= $_POST['text'];
+$title= addslashes($_POST['title']);
+$text= addslashes($_POST['text']);
 $academy_name= $_POST['name'];
 
 if ($r == true) 
