@@ -213,6 +213,8 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
     </tbody>
   </table>
 </div>
+<div> ※작성중인 지원서는 초록색으로 표시됩니다.</div>
+
 <center>
   <div class="col-xs-12 col-md-6 col-md-offset-3 ">
     <ul class="pagination pagingbox">
