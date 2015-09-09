@@ -49,29 +49,29 @@ $admin=$temp['c_name'];
 
     $sr = array("$sr1","$sr2","$sr3","$sr4","$sr5","$sr6","$sr7","$sr8","$sr9","$sr10");
 
-    $title1= $_POST['title1'];
-    $title2= $_POST['title2'];
-    $title3= $_POST['title3'];
-    $title4= $_POST['title4'];
-    $title5= $_POST['title5'];
-    $title6= $_POST['title6'];
-    $title7= $_POST['title7'];
-    $title8= $_POST['title8'];
-    $title9= $_POST['title9'];
-    $title10= $_POST['title10'];
+    $title1= addslashes($_POST['title1']);
+    $title2= addslashes($_POST['title2']);
+    $title3= addslashes($_POST['title3']);
+    $title4= addslashes($_POST['title4']);
+    $title5= addslashes($_POST['title5']);
+    $title6= addslashes($_POST['title6']);
+    $title7= addslashes($_POST['title7']);
+    $title8= addslashes($_POST['title8']);
+    $title9= addslashes($_POST['title9']);
+    $title10= addslashes($_POST['title10']);
 
     $title=array("$title1","$title2","$title3","$title4","$title5","$title6","$title7","$title8","$title9","$title10");
 
-    $explain1=$_POST['explain1'];
-    $explain2=$_POST['explain2'];
-    $explain3=$_POST['explain3'];
-    $explain4=$_POST['explain4'];
-    $explain5=$_POST['explain5'];
-    $explain6=$_POST['explain6'];
-    $explain7=$_POST['explain7'];
-    $explain8=$_POST['explain8'];
-    $explain9=$_POST['explain9'];
-    $explain10=$_POST['explain10'];
+    $explain1= addslashes($_POST['explain1']);
+    $explain2= addslashes($_POST['explain2']);
+    $explain3= addslashes($_POST['explain3']);
+    $explain4= addslashes($_POST['explain4']);
+    $explain5= addslashes($_POST['explain5']);
+    $explain6= addslashes($_POST['explain6']);
+    $explain7= addslashes($_POST['explain7']);
+    $explain8= addslashes($_POST['explain8']);
+    $explain9= addslashes($_POST['explain9']);
+    $explain10= addslashes($_POST['explain10']);
     $explain=array("$explain1","$explain2","$explain3","$explain4","$explain5","$explain6","$explain7","$explain8","$explain9","$explain10");
 
     $s_month = mysqli_real_escape_string($conn,$_POST['s_month']);
