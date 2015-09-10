@@ -150,8 +150,10 @@ if($result) {
       $decoding = mcrypt_decrypt(MCRYPT_3DES, $key, $de_str, MCRYPT_MODE_ECB, $s_vector_iv);
 
      
+     if($member['student_name']==0)
       echo "<script>alert('비밀번호: ".$decoding."')</script>";
-
+     else
+      echo "<script>alert('동아리및 학회의 비밀번호는 관리자에게 문의해주시기 바랍니다.')</script>";
     }
   }
 }
