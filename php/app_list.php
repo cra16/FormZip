@@ -416,13 +416,11 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
           break;
         }
         if($sub_info[$j]=="use"){
-             row_len= intvar(mb_strlen($explain[$j], "UTF-8")/40)+1;
-  
     ?>
         <div class="form-group">
           <label class="col-md-3 control-label"><?php echo $title[$j]; ?></label>
           <div class="col-md-8">
-          <textarea class="form-control" rows="<?php echo row_len; ?>" id="textArea" placeholder="<?php echo $text_name[$j]; ?>" disabled></textarea>
+          <textarea class="form-control" rows="3" id="textArea" placeholder="<?php echo $text_name[$j]; ?>" disabled></textarea>
           <span class="help-block"><?php echo $explain[$j]; ?></span>    
           </div>
         </div>  
