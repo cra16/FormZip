@@ -416,7 +416,7 @@ for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
           break;
         }
         if($sub_info[$j]=="use"){
-             row_len= intvar(mb_strlen($text_name[$j], "UTF-8")/40)+1;
+             row_len= intvar(mb_strlen($explain[$j], "UTF-8")/40)+1;
   
     ?>
         <div class="form-group">
