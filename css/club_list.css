@@ -2,62 +2,97 @@
 * { font-family:"Nanum Gothic" !important }
 
  body { 
-  background: url(../img/2.png) no-repeat center center fixed; 
-  background-repeat: repeat;
+  /*background: url(../img/title_black.png) no-repeat center center fixed; */
   background-size:100% auto;
 }
 
-h2{
-  position: relative;
-  font-weight:800;
+.wrapper {
+  margin-bottom: 5%;
   text-align: center;
-  color: black;
-  font-size:62px;
-  margin-bottom: 30px;s
-  margin-top: 30px;
-  letter-spacing:5px;
 }
 
-h3{
-  position: relative;
-  text-align: center;
-  color: black;
-  letter-spacing:2px;
-  font-size: 135%;
+.dropdown-menu > form > input {
+  background-color:white;
+  padding: 3px 20px;
+  clear: both;
   font-weight: normal;
-  margin-top: -5px;
-  margin-bottom: 60px;
-  padding: 0 15px;
+  line-height: 1.42857143;
+  color: #333333;
+  white-space: nowrap;
+  border: none;
 
 }
 
+.dropdown-menu > form > input:hover {
+  background-color:white;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #00995c;
+  white-space: nowrap;
+  border: none;
 
-.searchbox{
-  text-align:center;
-  margin: 8px auto 50px;
-  padding:0 3px;
 }
 
-.searchbutton{
-  width:120px !important;
-  height: 40px;
-  width: 12%;
-  background-color:transparent;
-  text-decoration: none;
-  border: 10px solid #4EA689;
-  border-style: none;
-  font-size: 17px;
-  color: #515151;
-  padding:1 0;
-  
+.Search_Bar
+{
+  background-color:white;
+  border-color:white;
+  color: #00b38f;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  margin-bottom:25px;
+  float:center;
+  opacity: 0.9;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
 }
 
+.Search_Bar:hover {
+  background-color:white;
+  border-color:white;
+  color: #00b38f;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  margin-bottom:25px;
+  float:center;
+  opacity: 0.9;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+}
 
-.club-element{
+.Search_Bar:active {
+  background-color:white !important;
+  border-color:white;
+  color: #00b38f;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  margin-bottom:25px;
+  float:center;
+  opacity: 0.9;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+}
+
+.Search_Bar:focus {
+  background-color:white !important;
+  border-color:white;
+  color: #00b38f;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  margin-bottom:25px;
+  float:center;
+  opacity: 0.9;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+}
+
+.group_name{
   background-color: white;
   width: 100%;  
-  height: 18rem;
-  color: #3b2987;
+  height: 4rem;
+  color: #00b38f;
   border-radius: 10px;
   border: none;
   font-size: 24px;
@@ -67,61 +102,11 @@ h3{
   opacity: 0.9;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
   word-wrap: break-word;
-
 }
 
 
-.club-element: hover{
-  white-space: normal;
-  background-color: #637c2a;
-  width: 23rem;  
-  height: 20rem;
-  color: white;
-  border-radius: 10px;
-  border: none;
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom:15px;
-  float:center;
-  opacity: 0.9;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
-  word-wrap: break-word;
-}
-
-
-.menu-list,{
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.container{
-  position: relative;
-  text-align: center;
-  background-color: transparent;
-  width:100% auto;
-
-}
-
-
-
-
-#header .h_logo{
-  position: relative;
-  display: block;
-  overflow: hidden;
-  margin: -10px auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
+.group_img{
   width: 100%;
-  text-decoration:none;
-  }
-
-
-.col-xs-8 {
-  white-space: nowrap;
-  width: 
-}
-
-.club_list{
-  font-size: 40px;
+  height: 20rem;
+  border-radius: :5px;
 }

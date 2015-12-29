@@ -41,62 +41,63 @@ session_start();
 
   </head>
   <body onload = "explain()">
- <!-- Menubar start-->  
+    
+  <!-- Menubar start-->  
   <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="firstpage.php">iBELONG</a>
-    </div>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="firstpage.php">iBELONG</a>
+      </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-     
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <?php
-            if($_SESSION['USER_NAME'])
-              echo '<a href="logout.php">Logout</a>';
-            else
-              echo '<a href="login.php">Login</a>';
-          ?>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <?php
+              if($_SESSION['USER_NAME'])
+                echo '<a href="logout.php">Logout</a>';
+              else
+                echo '<a href="login.php">Login</a>';
+            ?>
 
-        </li>
-        <li>
-          <?php
-            //로그인 여부 확인
-           if($_SESSION['USER_NAME']){
-            $id = $_SESSION['USER_NAME'];
-            $sql = "SELECT * FROM student WHERE id = '$id'";
-            $check_result = mysqli_query($bd,$sql);
-            $check = mysqli_fetch_array($check_result);
-            $index = $check['index'];
-            $cname = $check['c_name'];
-            //관리자 여부 확인
-              if($index == 0){
-                echo '<a href="mypage.php">My Page</a>';
-               
+          </li>
+          <li>
+            <?php
+              //로그인 여부 확인
+             if($_SESSION['USER_NAME']){
+              $id = $_SESSION['USER_NAME'];
+              $sql = "SELECT * FROM student WHERE id = '$id'";
+              $check_result = mysqli_query($bd,$sql);
+              $check = mysqli_fetch_array($check_result);
+              $index = $check['index'];
+              $cname = $check['c_name'];
+              //관리자 여부 확인
+                if($index == 0){
+                  echo '<a href="mypage.php">My Page</a>';
+                 
+                }
+                else if($index ==1){
+                  echo '<a href="clubpage.php?name='.$cname.'">Club Page</a>'; 
+                }
+                else{
+                  echo '<a href="academypage.php?name='.$cname.'">Academy Page</a>';   
+                }
               }
-              else if($index ==1){
-                echo '<a href="clubpage.php?name='.$cname.'">Club Page</a>'; 
-              }
-              else{
-                echo '<a href="academypage.php?name='.$cname.'">Academy Page</a>';   
-              }
-            }
-            else
-              echo '<a href="agreement.php">Sign Up</a>';
-          ?>
-        </li>
-        <li><a href="#" onclick = "help()">Help</a></li>
-      </ul>
+              else
+                echo '<a href="agreement.php">Sign Up</a>';
+            ?>
+          </li>
+          <li><a href="#" onclick = "help()">Help</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
    <!-- Menubar end-->  
 
   <div class = "club-button"></div>
