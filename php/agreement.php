@@ -12,41 +12,38 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/agreement.css" rel="stylesheet">
 
-<script>
+  <script>
 
-function checkbox(){
-  var use = document.getElementById("agree").checked;
-  var info = document.getElementById("agree2").checked;
-  if(use==true && info==true){
-    return true;
-  }
+    function checkbox(){
+      var use = document.getElementById("agree").checked;
+      var info = document.getElementById("agree2").checked;
+      if(use==true && info==true){
+        return true;
+      }
 
-  else{
-    alert("약관을 확인해주세요!!!");
-    return false;
-  }
+      else{
+        alert("약관을 확인해주세요!!!");
+        return false;
+      }
 
-}
-
-</script>
+    }
+  </script>
 
   </head>
   <body>
 
-  <!-- Logo Start -->
-  <div class="container" class = "col-lg-12 col-xs-12">
-      
-      <div id="header" class = "col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
-          <a href="firstpage.php" class="h_logo">
-          <img src="../img/title.png" class = "h_logo">
+     <!-- Logo Start -->
+    <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+      <div class ="wrapper">
+        <a href="firstpage.php">
+        <img src="../img/logo_mint.png" width="100%" >
         </a>
       </div>
-      
-  </div>
-  <!-- Logo End -->
+    </div>
+    <!-- Logo End -->
 
   <section id = "middle">
-    <div class="wrapper5 col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4">   
+    <div class="wrapper5 col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">   
       <form action="signup.php" method="POST" name="myForm" onsubmit ="return checkbox()" class = "col-lg-">
 
       <h3>iBELONG 이용약관</h3>
@@ -227,13 +224,13 @@ function checkbox(){
    
   </section>
   
-  <div class="col-xs-12  col-md-4 col-md-offset-4 "> 
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 "> 
     <p><label><input type="checkbox" name="agree" id="agree" value="agree" checked> 약관을 모두 읽었으며 동의합니다.</label></p>
   </div>
   <br>
 
   <section>
-    <div class="wrapper5 col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 "> 
+    <div class="wrapper5 col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3"> 
       <h3>iBELONG 개인정보보호정책</h3>  
       
       1. 한동 대학교 CRA iBELONG은 귀하의 개인정보보호를 매우 중요시하며, [정보통신망이용촉진등에관한법률]상의 개인정보보호 규정 및 정보통신부가 제정한 
@@ -370,19 +367,16 @@ function checkbox(){
       소속 / 직위　:　한동대학교 CRA / iBELONG 팀장<br>
       E - M A I L　:　hguibelong@gmail.com<br>    
       </div>
-    </section>
+  </section>
 
-  <div class="col-xs-12  col-md-4 col-md-offset-4 "> 
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 "> 
     <p><label><input type="checkbox" name="agree" id="agree2" value="agree" checked> 약관을 모두 읽었으며 동의합니다.</label></p>
   </div>
 
-   <div class="div_yg col-xs-4 col-xs-offset-4  col-md-4 col-md-offset-7 " > 
+   <div class="col-xs-12  col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-off" > 
     <button type="submit" value="다음 단계" class = "save">다음단계</button>
   </div>
     
-    <div class="col-xs-12  col-md-4 col-md-offset-4 "> 
-  &nbsp;
-  </div>
   
  
 

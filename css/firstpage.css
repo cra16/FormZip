@@ -3,8 +3,13 @@
 
 
 html { 
-  background: url(../img/background.jpg) no-repeat 0px 60px fixed;   
-  background-size:100% auto;
+   background: url(../img/background.jpg) no-repeat center center fixed;   
+     /*background-size: 100% auto;*/
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .text{
@@ -15,17 +20,19 @@ html {
 .club-button{
     position: absolute;
     top: 55%;
-    left: 30%;        
-    height: 50%;
-    width: 13%;
+    height: 30%;
+    width: 40%;
+    /*background-color: black;*/
 }
 
 .academy-button{
     position: absolute;
     top: 55%;
-    left: 58%;    
-    height: 50%;
-    width: 13%;
+    left: 60%;    
+    height: 30%;
+    width: 40%;
+    /*background-color: black;*/
+
 }
 
 .link-button{
