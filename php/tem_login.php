@@ -1,0 +1,117 @@
+
+<?php
+  //Start session
+  session_start();  
+  //Unset the variables stored in session
+  unset($_SESSION['USER_NAME']);
+  unset($_SESSION['USER_PASSWORD']);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1280">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>iBELONG :: Login</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/loginpage.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <!-- Logo Start -->
+  <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+    <div class ="wrapper">
+      <a href="firstpage.php">
+      <img src="../img/title.png" width="100%">
+    </div>
+  </div>
+  <!-- Logo End -->
+
+<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+  <form name="loginform" action="login_exec.php" method="POST">
+    <div class="form-group">
+      <h2>로그인</h2>
+      <h4>Apply &amp; Recruit!</h4>
+     <input class="form-control" id="username" name="username" type="text" placeholder="UserId" maxlength="20">
+    </div>
+    <div class="form-group">
+      <input class="form-control" id="password" name="password" type="password" placeholder="Password" maxlength="15">
+    </div>
+  
+    <div class="row extra">
+      <div class="col-xs-4 col-sm-4"> 
+        <a href="agreement.php">회원가입</a> 
+      </div>
+      
+      <div class="col-xs-4 col-sm-4">            
+        <a href="id_find.php">아이디 찾기</a>
+      </div>
+     
+      <div class="col-xs-4 col-sm-4">  
+        <a href="pw_find.php">비밀번호 찾기 </a>
+      </div>
+    </div>
+
+    <div class="submit_content">
+      <button type="submit">Log in</button>
+    </div>
+  </form>
+</div>
+
+
+   <!--  <div id="containbox">
+     <div class="join_content">
+      <form name="loginform" action="login_exec.php" method="POST">
+        <div class="form-group">
+          <h2>로그인</h2>
+          <h4>Apply &amp; Recruit!</h4>
+            <input class="form-control" id="username" name="username" type="text" placeholder="UserId" maxlength="20">
+                  
+            <div id="form-margin"></div>
+                  
+            <input class="form-control" id="password" name="password" type="password" placeholder="Password" maxlength="15">
+                  
+            <div id="form-margin"></div>
+
+            <div class="find_info"> 
+            <a href="agreement.php">회원가입</a> 
+            <img src="../img/bar.png">
+            <a href="id_find.php">아이디 찾기</a>
+            <img src="../img/bar.png">
+            <a href="pw_find.php">비밀번호 찾기 </a>
+            </div>
+        </div> 
+
+        <?php
+          if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
+           echo '<ul class="err">';
+           foreach($_SESSION['ERRMSG_ARR'] as $msg) {
+              echo '<li>',$msg,'</li>'; 
+          }
+          echo '</ul>';
+          unset($_SESSION['ERRMSG_ARR']);
+          }
+        ?>
+
+       </div>
+      </div>
+      <div id="divmargin"></div>
+
+      <div class="submit_content">
+
+        <button type="submit">Log in</button>
+      </div>
+
+      </form>
+    </div> -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+  </body>
+</html>
