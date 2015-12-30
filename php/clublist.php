@@ -98,7 +98,7 @@
   <!-- Menubar end-->  
 
   <!-- Logo Start -->
-  <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+  <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
     <div class ="wrapper">
       <a href="firstpage.php">
       <img src="../img/logo_mint.png" width="100%" height="50%">
