@@ -180,13 +180,15 @@
             if($clubname[$i] == NULL){
               break;
             }
-            echo " <div class='col-lg-3 col-xs-12 col-md-4 col-sm-6'>";
+            
             ?>
+            <div class='col-lg-3 col-xs-12 col-md-4 col-sm-6'>
             <img class="group_img" src = "../clubimg/<?php echo $clubname['img_name'] ?>">
 
-            <?php
-            echo "<input class = 'group_name' type = 'submit' value ='$clubname[$i]' name = 'name'>";
-            echo "</div>";
+            
+            <input class = 'group_name' type = 'submit' value ='$clubname[$i]' name = 'name'>
+            </div>
+        <?php
           } 
         }
         ?>
