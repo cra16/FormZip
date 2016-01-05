@@ -33,8 +33,14 @@
   white-space: nowrap;
   border: none;
 
+<<<<<<< HEAD
 }
 
+
+.Search_Bar
+{
+=======
+}
 
 .Search_Bar
 {
@@ -51,6 +57,7 @@
 }
 
 .Search_Bar:hover {
+>>>>>>> 218cd797ac2a6c6816e8ceb2d150d5c26329c868
   background-color:white;
   border-color:white;
   color: #00b38f;
@@ -63,7 +70,29 @@
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
 }
 
+<<<<<<< HEAD
+.Search_Bar:hover {
+  background-color:white;
+=======
 .Search_Bar:active {
+  background-color:white !important;
+>>>>>>> 218cd797ac2a6c6816e8ceb2d150d5c26329c868
+  border-color:white;
+  color: #00b38f;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  margin-bottom:25px;
+  float:center;
+  opacity: 0.9;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+}
+
+<<<<<<< HEAD
+.Search_Bar:active {
+=======
+.Search_Bar:focus {
+>>>>>>> 218cd797ac2a6c6816e8ceb2d150d5c26329c868
   background-color:white !important;
   border-color:white;
   color: #00b38f;
@@ -76,17 +105,32 @@
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
 }
 
+<<<<<<< HEAD
 .Search_Bar:focus {
   background-color:white !important;
   border-color:white;
   color: #00b38f;
   border-radius: 10px;
   border: none;
+=======
+.group_name{
+  background-color: white;
+  width: 100%;  
+  height: 4rem;
+  color: #00b38f;
+  border-radius: 10px;
+  border: none;
+  font-size: 24px;
+>>>>>>> 218cd797ac2a6c6816e8ceb2d150d5c26329c868
   font-weight: bold;
   margin-bottom:25px;
   float:center;
   opacity: 0.9;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+<<<<<<< HEAD
+=======
+  word-wrap: break-word;
+>>>>>>> 218cd797ac2a6c6816e8ceb2d150d5c26329c868
 }
 
 .group_name{
@@ -105,9 +149,15 @@
   word-wrap: break-word;
 }
 
+<<<<<<< HEAD
 
 .group_img{
   width: 100%;
   height: 12rem;
+=======
+.group_img{
+  width: 100%;
+  height: 20rem;
+>>>>>>> 218cd797ac2a6c6816e8ceb2d150d5c26329c868
   border-radius: :5px;
 }

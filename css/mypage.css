@@ -3,103 +3,28 @@
 
 
 body { 
-  background: url(../img/2.png) no-repeat center center fixed; 
+  /*background: url(../img/2.png) no-repeat center center fixed; */
   background-size:100% 100%;
 }
 
-
-
-.container{
-  width:100%;
-  height:100%;
-}
-
-
-
-.formContentsLayout {
-  width: 550px;
-  margin: 0 auto;
-  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-  background-color: white;
-  background-color: white;
-  padding:10px;
-  border-radius:4px;
-  opacity:0.8;
-}
-
-#header-logo {
-  position: relative;
-  height: 168px;
-  padding: 62px 0 0;
-  width: 900px;
-  margin: -10px auto;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
-#header-logo .h_logo{
-  position: relative;
-  display: block;
-  overflow: hidden;
-  width: 400px;
-  margin: -10px auto;
-  text-decoration:none;
-}
-
-.helpbox{
-  width: 700px;
-  margin: 20px auto 0 auto;
-  border: 1px solid #979FA0;
-  background-color: white;
-  padding:10px;
-  border-radius:4px;
-  opacity:0.8;
-}
-
-#panel, #flip {
-    padding: 4px;
-    text-align: center;
-  
-}
-
-#panel {
-    padding: 50px;
-    display: none;
-}
-
-table.personal{
-  margin-left: 5%;
+.wrapper {
   margin-bottom: 5%;
-  border-spacing: 5%;
-  width: 80%;
-  border: white;
-  box-shadow: none;
-
+  text-align: center;
 }
-
-
 
 .title h4{
   font-style: bold;
-  font-size:2.0rem;
+  font-size:3.0rem;
   color: #289685;
   margin-bottom: 15px;
   margin-top: 20px;
   margin-left: 5%; 
+  text-align:center;
   }
 
-.title-a h4{
-  font-style: bold;
-  font-size:2.0rem;
-  color: #289685;
-  margin-bottom: 15px;
-  margin-top: 20px;
-  margin-left: 5%; 
-  text-align: center;
-  }
-
-
+.control-label{
+  text-align:left !important;
+}
 
 
 .fixed-name, .fixed-id, .password, .new-password{
@@ -170,35 +95,27 @@ hr.line-bar {
     width: 90%;
 }
 
-
-
-
-/*제출 버튼*/
-
-.submit{
-  text-align: center;
-  height  : 40px;
-}
-
-.save{
-  background-color: #7e7e7c;
-  font-style: bold;
-  color: white;
-  height : 40px;
-  width: 100px;
-  border-style: none;
-  border-radius: 3px;
+.submit_content{
+  width:100%;
+  margin:0 auto;
+  padding:10px auto;
+  text-align:center;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
-.save:hover{
-  background-color:#a39d12;
+.submit_content input{
+  width:100%;
+  height:100%;
+  margin-top: 5%;
+  margin-bottom:2%;
+  background-color:#00b38f;
+  border-radius: 7px;
   color:white;
-  box-shadow: 0 0 5px #67665a;
-  }
+  letter-spacing: 0.6rem;
+  font-size:2rem;
+}
 
 
-/*signup.css 에서 가져온 코드*/
 #divmargin{
   margin-top:15px;
 }

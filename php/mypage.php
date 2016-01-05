@@ -21,7 +21,7 @@
 <!DOCTYPE HTML> 
 <html>
 
-   <head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=1280">
@@ -32,131 +32,95 @@
     <link href="../css/mypage.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-   
-
   </head>
 
-<body> 
-  <!-- Logo Start -->
-  <div class="container">
-    <div id="header-logo">
-        <a href="firstpage.php" class="h_logo">
-        <img src="../img/title.png" class = "h_logo">
+  <body> 
+   <!-- Logo Start -->
+  <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+    <div class ="wrapper">
+      <a href="firstpage.php">
+      <img src="../img/logo_mint.png" width="100%" height="50%">
       </a>
     </div>
   </div>
   <!-- Logo End -->
- 
-  <div class="col-xs-12 col-md-4 col-md-offset-4 formContentsLayout">
- 
-    
- <!-- 로그인 여부 판단 -->
- <?php
-  $id = $_SESSION['USER_NAME'];
-   if(!$id){
-     header("location: login.php");
-     exit();
-    }
-
-
-
-    //기본정보 Start
-
-  $qry="SELECT * FROM student WHERE id='$id'";   
-  $result=mysqli_query($bd,$qry);
-  $list = mysqli_fetch_array($result);
-  $name = $list['student_name'];
-  $bday = $list['birth'];
- ?> 
      
-   <div class = "title">
-    <h4> 기본 정보</h4>
-   </div>
+  <!-- 로그인 여부 판단 -->
+  <?php
+    $id = $_SESSION['USER_NAME'];
+     if(!$id){
+       header("location: login.php");
+       exit();
+      }
 
 
-      
 
+      //기본정보 Start
 
-   <?php 
-    //비밀번호 체크
-    $key = KEY;
-      $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
-
-      $password = mysqli_real_escape_string($bd,$list['password']);
-
-      ### 복호화 ####
-      $de_str = pack("H*", $password); //hex로 변환한 ascii를 binary로 변환
-      $decoding = mcrypt_decrypt(MCRYPT_3DES, $key, $de_str, MCRYPT_MODE_ECB, $s_vector_iv); 
-   
+    $qry="SELECT * FROM student WHERE id='$id'";   
+    $result=mysqli_query($bd,$qry);
+    $list = mysqli_fetch_array($result);
+    $name = $list['student_name'];
+    $bday = $list['birth'];
     
-   $check_result = $_POST['check'];
-   if($check_result == 'true'){
-     echo "<script>alert(\"비밀번호가 정상적으로 수정되었습니다.\");</script>";
-  }
+    // 비밀번호 체크
+    $key = KEY;
+    $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
+    $password = mysqli_real_escape_string($bd,$list['password']);
+
+    ### 복호화 ####
+    $de_str = pack("H*", $password); //hex로 변환한 ascii를 binary로 변환
+    $decoding = mcrypt_decrypt(MCRYPT_3DES, $key, $de_str, MCRYPT_MODE_ECB, $s_vector_iv); 
+    $check_result = $_POST['check'];
+    if($check_result == 'true'){
+      echo "<script>alert(\"비밀번호가 정상적으로 수정되었습니다.\");</script>";
+    }
    else if($check_result == 'false'){
      echo "<script>alert(\"비밀번호를 정확하게 입력해주세요.\");</script>";
    }
-?>
+  ?>
+  <!-- 로그인 여부 판단 End -->
+  <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
+  <div class = "title">
+    <h4> 기본 정보</h4>
+  </div>
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
 
-
-   <form action="pw_change.php" method="POST" onsubmit="return validateForm()" align="center" class="form-horizontal">
-    <div class="form-group">
-      <label  class="col-xs-4 col-md-4 control-label">이름</label>
-      <div class="col-xs-8 col-md-6">
-      <input type="text" class="form-control" value = "<?php echo $name; ?>" disabled>
+    <form action="pw_change.php" method="POST" onsubmit="return validateForm()" align="center" class="form-horizontal">
+      <div class="form-group">
+        <input type="text" class="form-control" value = "<?php echo $name; ?>" disabled>
       </div>
-    </div>
 
-    <div class="form-group">
-      <label  class="col-xs-4 col-md-4 control-label">ID</label>
-      <div class="col-xs-8 col-md-6">
-      <input type="text" class="form-control" value = "<?php echo $id; ?>" disabled>
+      <div class="form-group">
+        <input type="text" class="form-control" value = "<?php echo $id; ?>" disabled>
       </div>
-    </div>
-          
-    <div class="form-group">
-      <label  class="col-xs-4 col-md-4 control-label">생년월일</label>
-      <div class="col-xs-8 col-md-6">
-      <input type="text" class="form-control" value = "<?php echo $bday; ?>" disabled>
+            
+      <div class="form-group">
+        <input type="text" class="form-control" value = "<?php echo $bday; ?>" disabled>
+      </div>  
+
+      <div class="form-group">
+        <input type="password" class="form-control" id="current" name="current" maxlength="20" placeholder="기존 비밀번호">
+        <div id="pw_cur" class="error" style="display:none"></div> 
+      </div>     
+     
+      <div class="form-group">
+        <input type="password" class="form-control" id="newp" name="newp" onkeyup="PwCheck()" maxlength="20" placeholder="새 비밀번호">
+        <div id="pw_new" class="error" style="display:none"></div>
+      </div>        
+
+      <div class="form-group">
+        <input type="password" class="form-control" id="pw" name="pw" onkeyup="PwCheck()" maxlength="20" placeholder="비밀번호 재입력">
+        <div id="ps_ck" class="error" style="display:none"></div>
+      </div>   
+
+      <div class = "submit_content col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+        <input type = "submit" value = "저장">
       </div>
-    </div>    
-    
-    <div class="form-group">
-      <label  class="col-xs-4 col-md-4 control-label">기존 비밀번호</label>
-      <div class="col-xs-8 col-md-6">
-      <input type="password" class="form-control" id="current" name="current" maxlength="20">
-      <div id="pw_cur" class="error" style="display:none"></div>
-      </div>
-    </div>     
-   
-    <div class="form-group">
-      <label  class="col-xs-4 col-md-4 control-label">새 비밀번호</label>
-      <div class="col-xs-8 col-md-6">
-      <input type="password" class="form-control" id="newp" name="newp" onkeyup="PwCheck()" maxlength="20">
-      <div id="pw_new" class="error" style="display:none"></div>
-      </div>
-    </div>        
+    </form>    
+  </div>
 
-    <div class="form-group">
-      <label  class="col-xs-4 col-md-4 control-label">비밀번호 재입력</label>
-      <div class="col-xs-8 col-md-6">
-      <input type="password" class="form-control" id="pw" name="pw" onkeyup="PwCheck()" maxlength="20">
-      <div id="ps_ck" class="error" style="display:none"></div>
-      </div>
-    </div>         
-
-
-
-   <div class = "submit">
-      <input type = "submit" value = "저장" class = "save">
-   </div>
-   </form>    
-
-
-
-<hr class = "line-bar">
-
+  
 
 
 <!-- 기본 정보 End -->
@@ -164,12 +128,12 @@
 
 
 <!-- 지원서 리스트 Start -->
-<div>
+<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+  <hr class = "line-bar">
    <div class = "title" >
     <h4 id = "line"> 내 지원서</h4>
    </div>
-
-    <table align="center" class="col-xs-12 col-md-12 table table-striped">
+    <table align="center" class="table table-striped">
       <thead>
         <tr>
           <th class = "number">번호</th>
@@ -221,16 +185,16 @@
 ?> 
       </tbody>
     </table>
-</div>
+
 <!-- 지원서 리스트 Start -->
-<table class="col-xs-12 col-md-12 table table-striped"></table>
-<table style="text-align:center" class="col-xs-12 col-md-12 table table-striped">
+<table style="text-align:center" class="table table-striped">
   <tbody>
     <tr onclick="location.href='withdrawal.php'">
       <td> 회원탈퇴 바로가기</td>
     </tr>
   </tbody>
-
+</table>
+</div>
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
