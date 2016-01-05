@@ -186,7 +186,7 @@
             <img class="group_img" src = "../clubimg/<?php echo $clubname['img_name'] ?>">
 
             
-            <input class = 'group_name' type = 'submit' value ='$clubname[$i]' name = 'name'>
+            <input class = 'group_name' type = 'submit' value = <?php echo $clubname[$i] ?> name = 'name'>
             </div>
         <?php
           } 
