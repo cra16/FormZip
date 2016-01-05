@@ -140,11 +140,6 @@ mysqli_select_db($bd,DB_NAME) or die("Could not select database");
       <div class="col-lg-1 col-xs-1 col-md-1"></div>
     </div>
   </div>
-
-   <div class="row">
-     <div class="col-xs-10 col-md-10 searchbox">
-     </div>
-   </div> 
   <!-- Club Search Bar End-->
 
 
