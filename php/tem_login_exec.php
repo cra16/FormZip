@@ -101,17 +101,21 @@ class HisnetValidation{
       $result = iconv("EUC-KR","UTF-8", $result);
       curl_close($ch);
     }
-
-
+    
     // Response result read
     $html = str_get_html($result);  
-    $table = $html->find('.tblcationTitlecls', 1)->parent()->parent();
-    $td_id = $table->children(1)->children(1)->innertext;
-    $stu_id = substr($td_id, 11, 19);
-    echo $result;
-    echo "   stu_id:";
-    // Delete temp file after using
-    unlink($ckfile);
+    if(is_object($html->find('.tblcationTitlecls', 1)))
+      echo "i am in!!";
+
+    else
+      echo "nothing";
+    // $table = $html->find('.tblcationTitlecls', 1)->parent()->parent();
+    // $td_id = $table->children(1)->children(1)->innertext;
+    // $stu_id = substr($td_id, 11, 19);
+    // echo $result;
+    // echo "   stu_id:";
+    // // Delete temp file after using
+    // unlink($ckfile);
   }
 
   /**
