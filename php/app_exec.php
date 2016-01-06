@@ -1,21 +1,6 @@
 <?php
 session_start();
 require_once('DB_INFO.php');
-header('Content-Type: text/html; charset=utf-8');
-
-mysqli_query("set session character_set_connection=utf8;");
-mysqli_query("set session character_set_results=utf8;");
-mysqli_query("set session character_set_client=utf8;");
-
-$conn=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
-mysqli_set_charset($conn, "utf8");
-
-
-mysqli_select_db($conn,DB_NAME) or die("Could not select database");
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
 
 $club_name=$_POST["name"];
 
@@ -26,26 +11,26 @@ if($club_name="")       //app_make를 통해 정상적인 정보를 받지 않�
 
 $id = $_SESSION["USER_NAME"];
 $qry = "SELECT * FROM student WHERE id = '$id'";
-            $result = mysqli_query($conn,$qry);
+            $result = mysqli_query($link,$qry);
             $temp = mysqli_fetch_assoc($result);
 
 $admin=$temp['c_name'];
 
 //POST values
-   $served = mysqli_real_escape_string($conn,$_POST['r_served']);
-    $mail = mysqli_real_escape_string($conn,$_POST['r_mail']);
-    $activity = mysqli_real_escape_string($conn,$_POST['r_activity']);
+   $served = mysqli_real_escape_string($link,$_POST['r_served']);
+    $mail = mysqli_real_escape_string($link,$_POST['r_mail']);
+    $activity = mysqli_real_escape_string($link,$_POST['r_activity']);
     
-    $sr1 = mysqli_real_escape_string($conn,$_POST['sr1']);
-    $sr2 = mysqli_real_escape_string($conn,$_POST['sr2']);
-    $sr3 = mysqli_real_escape_string($conn,$_POST['sr3']);
-    $sr4 = mysqli_real_escape_string($conn,$_POST['sr4']);
-    $sr5 = mysqli_real_escape_string($conn,$_POST['sr5']);
-    $sr6 = mysqli_real_escape_string($conn,$_POST['sr6']);
-    $sr7 = mysqli_real_escape_string($conn,$_POST['sr7']);
-    $sr8 = mysqli_real_escape_string($conn,$_POST['sr8']);
-    $sr9 = mysqli_real_escape_string($conn,$_POST['sr9']);
-    $sr10 = mysqli_real_escape_string($conn,$_POST['sr10']);
+    $sr1 = mysqli_real_escape_string($link,$_POST['sr1']);
+    $sr2 = mysqli_real_escape_string($link,$_POST['sr2']);
+    $sr3 = mysqli_real_escape_string($link,$_POST['sr3']);
+    $sr4 = mysqli_real_escape_string($link,$_POST['sr4']);
+    $sr5 = mysqli_real_escape_string($link,$_POST['sr5']);
+    $sr6 = mysqli_real_escape_string($link,$_POST['sr6']);
+    $sr7 = mysqli_real_escape_string($link,$_POST['sr7']);
+    $sr8 = mysqli_real_escape_string($link,$_POST['sr8']);
+    $sr9 = mysqli_real_escape_string($link,$_POST['sr9']);
+    $sr10 = mysqli_real_escape_string($link,$_POST['sr10']);
 
     $sr = array("$sr1","$sr2","$sr3","$sr4","$sr5","$sr6","$sr7","$sr8","$sr9","$sr10");
 
@@ -74,53 +59,18 @@ $admin=$temp['c_name'];
     $explain10= addslashes($_POST['explain10']);
     $explain=array("$explain1","$explain2","$explain3","$explain4","$explain5","$explain6","$explain7","$explain8","$explain9","$explain10");
 
-    $s_month = mysqli_real_escape_string($conn,$_POST['s_month']);
-    $s_day = mysqli_real_escape_string($conn,$_POST['s_day']);
-    $month = mysqli_real_escape_string($conn,$_POST['month']);
-    $day = mysqli_real_escape_string($conn,$_POST['day']);
+    $s_month = mysqli_real_escape_string($link,$_POST['s_month']);
+    $s_day = mysqli_real_escape_string($link,$_POST['s_day']);
+    $month = mysqli_real_escape_string($link,$_POST['month']);
+    $day = mysqli_real_escape_string($link,$_POST['day']);
 
-/*
-
-출력 확인부분
-echo $served;
-echo "<br>";
-
-echo $mail;
-echo "<br>";
-echo $activity;
-echo "<br>";
-    
-
-for($i =0; $i <7;$i++)
-{
-    echo $sr[$i];
-    echo "<br>";
-}
-
-for($i=0; $i <7; $i++)
-{
-    if($sr[$i]=="notuse")
-    {
-        $$title[$i] = "notuse";
-        $explain[$i] = "notuse";
-    }
-
-}
-
-
-*/
-
-
-
-//$sql = "INSERT INTO application
-//VALUES ('$id','$served' ,'$mail' ,'$activity' ,'$sr1' ,'$sr2' ,'$sr3' ,'$sr4' ,'$sr5' ,'$sr6' ,'$sr7' ,'$title1','$explain1','$title2','$explain2','$title3','$explain3','$title4','$explain4','$title5','$explain5','$title6','$explain6','$title7','$explain7','$month','$day')";
 $qry = "SELECT * FROM application WHERE id = '$admin'";
-            $result = mysqli_query($conn,$qry);
+            $result = mysqli_query($link,$qry);
             $isset = mysqli_fetch_assoc($result);
 
            if($isset['month']!=NULL){
              $del = "DELETE FROM result WHERE club_name = '$admin'";
-             mysqli_query($conn,$del);
+             mysqli_query($link,$del);
  
            }
            
@@ -128,18 +78,14 @@ $sql = "UPDATE application
 SET served = '$served' ,mail = '$mail' ,activity = '$activity' ,sr1 = '$sr1' ,sr2 = '$sr2' ,sr3 = '$sr3' ,sr4 = '$sr4' ,sr5 = '$sr5' ,sr6 = '$sr6' ,sr7 = '$sr7' ,title1 = '$title1' ,explain1 = '$explain1' ,title2 = '$title2' ,explain2 = '$explain2' ,title3 = '$title3' ,explain3 = '$explain3' ,title4 = '$title4' ,explain4 = '$explain4' ,title5 = '$title5' ,explain5 = '$explain5' ,title6 = '$title6' ,explain6 = '$explain6' ,title7 = '$title7' ,explain7 = '$explain7' ,title7 = '$title7' ,explain7 = '$explain7' ,title8 = '$title8' ,explain9 = '$explain9' ,title10 = '$title10' ,explain10 = '$explain10' ,month = '$month' ,day = '$day', s_month = '$s_month', s_day = '$s_day'  WHERE id = '$admin'";
 
 
-if ($conn->query($sql) === TRUE) {
+if ($link->query($sql) === TRUE) {
     echo "New record created successfully";
     header("Location: ../php/app_preview.php");
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $link->error;
 }
 
-$conn->close();
-
-
-
-
+$link->close();
 ?>
  
     

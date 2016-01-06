@@ -4,16 +4,6 @@
 
   // DB connection
   require_once('DB_INFO.php');
-  header('Content-Type: text/html; charset=utf-8');
-
-  mysqli_query("set session character_set_connection=utf8;");
-  mysqli_query("set session character_set_results=utf8;");
-  mysqli_query("set session character_set_client=utf8;");
-
-  $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
-  mysqli_set_charset($bd, "utf8");
-
-  mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
  ?>
 
@@ -58,7 +48,7 @@
       //기본정보 Start
 
     $qry="SELECT * FROM student WHERE id='$id'";   
-    $result=mysqli_query($bd,$qry);
+    $result=mysqli_query($link,$qry);
     $list = mysqli_fetch_array($result);
     $name = $list['student_name'];
     $bday = $list['birth'];
@@ -66,7 +56,7 @@
     // 비밀번호 체크
     $key = KEY;
     $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
-    $password = mysqli_real_escape_string($bd,$list['password']);
+    $password = mysqli_real_escape_string($link,$list['password']);
 
     ### 복호화 ####
     $de_str = pack("H*", $password); //hex로 변환한 ascii를 binary로 변환
@@ -148,12 +138,12 @@
   $j = 1;
   $id = $id;
   $qry = "SELECT * FROM student WHERE id = '$id'";
-  $stuid_result = mysqli_query($bd,$qry);
+  $stuid_result = mysqli_query($link,$qry);
   $stuid_array = mysqli_fetch_array($stuid_result);
   $stuid = $stuid_array['stuid'];
 
   $qry2 = "SELECT * FROM result WHERE id = '$id'";
-  $result=mysqli_query($bd,$qry2);
+  $result=mysqli_query($link,$qry2);
 
   while($list = mysqli_fetch_array($result)){
     $clubname = $list['club_name'];

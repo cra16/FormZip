@@ -5,24 +5,15 @@ session_start();
 require_once('auth.php');
 // DB connection
 require_once('DB_INFO.php');
-header('Content-Type: text/html; charset=utf-8');
-
-mysqli_query("set session character_set_connection=utf8;");
-mysqli_query("set session character_set_results=utf8;");
-mysqli_query("set session character_set_client=utf8;");
-
-$bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
-mysqli_set_charset($bd, "utf8");
-mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
 //지원서 결과 DB로부터 불러오기
 $club_name=$_SESSION['USER_NAME'];
 $qry="SELECT * FROM result WHERE club_name='$club_name'";   
-$result=mysqli_query($bd,$qry);
+$result=mysqli_query($link,$qry);
 
 //해당 동아리의 지원 양식
 $qry="SELECT * FROM application WHERE id='$club_name'";   
-$temp=mysqli_query($bd,$qry);
+$temp=mysqli_query($link,$qry);
 
 //Check whether the query was successful or not
 if($temp) {

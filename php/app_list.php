@@ -4,24 +4,15 @@ session_start();
 //require_once('auth.php');
 require_once('DB_INFO.php');
 require_once('auth.php');
-header('Content-Type: text/html; charset=utf-8');
-
-mysqli_query("set session character_set_connection=utf8;");
-mysqli_query("set session character_set_results=utf8;");
-mysqli_query("set session character_set_client=utf8;");
-
-$bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
-mysqli_set_charset($bd, "utf8");
-mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 
  $id = $_SESSION["USER_NAME"]; //$id => 아이디
   $qry = "SELECT * FROM student WHERE id = '$id'";
-              $result = mysqli_query($bd,$qry);
+              $result = mysqli_query($link,$qry);
               $check = mysqli_fetch_assoc($result);
 
 $cname= $check['c_name'];
 $qry="SELECT * FROM result WHERE club_name='$cname'";   
-$result=mysqli_query($bd,$qry);
+$result=mysqli_query($link,$qry);
 
 $per_page=10;  //page당 display할 목록의 수
 $total_results=mysqli_num_rows($result);  //해당 동아리의 지원자 수
@@ -53,13 +44,13 @@ $offset = ($currentpage - 1) * $per_page;
 
 // get the info from the db 
 $sql = "SELECT * FROM result WHERE club_name='$cname' LIMIT $offset, $per_page";
-$result=mysqli_query($bd,$sql);
+$result=mysqli_query($link,$sql);
 $count=0;
 $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","학기");
 
 
 $qry="SELECT * FROM application WHERE id='$cname'";   
-$temp=mysqli_query($bd,$qry);
+$temp=mysqli_query($link,$qry);
 
 //Check whether the query was successful or not
 if($temp) {
@@ -317,7 +308,7 @@ $explain=array($user['explain1'],$user['explain2'],$user['explain3'],$user['expl
 <?php
 // get the info from the db 
 $sql = "SELECT * FROM result WHERE club_name='$cname' LIMIT $offset, $per_page";
-$result=mysqli_query($bd,$sql);
+$result=mysqli_query($link,$sql);
 
 for($i=0; $i<$count,$list = mysqli_fetch_assoc($result);$i++)
 {

@@ -11,29 +11,17 @@ if(!$id){
 
 // DB connection
 require_once('DB_INFO.php');
-header('Content-Type: text/html; charset=utf-8');
-
-mysqli_query("set session character_set_connection=utf8;");
-mysqli_query("set session character_set_results=utf8;");
-mysqli_query("set session character_set_client=utf8;");
-
-// Create connection
-$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
 
 
 ### 비밀번호 암호화된것 복호화 하기 ####
 $key = KEY;
 $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
-$password = mysqli_real_escape_string($conn,$_POST['pw']);
+$password = mysqli_real_escape_string($link,$_POST['pw']);
 $en_str = mcrypt_encrypt(MCRYPT_3DES, $key, $password, MCRYPT_MODE_ECB, $s_vector_iv);
 $encryption = bin2hex($en_str);  
 
 $qry = "SELECT * FROM student WHERE id = '$id'";
-$result = mysqli_query($conn,$qry);
+$result = mysqli_query($link,$qry);
 $user = mysqli_fetch_assoc($result);
 
 $password=$user['password'];
@@ -65,7 +53,7 @@ else // 비밀번호가 일치하는 경우
 { 
   $sql1 = "DELETE FROM student WHERE id='$id'"; 
   $sql2 = "DELETE FROM result WHERE stu_id= '$user_id' AND storage='1'";
-  if($result=mysqli_query($conn,$sql1)){
+  if($result=mysqli_query($link,$sql1)){
     unset($_SESSION["USER_NAME"]);
     unset($_SESSION["USER_PASSWORD"]);
     echo "Data deleted";  
@@ -75,7 +63,7 @@ else // 비밀번호가 일치하는 경우
     echo "failed";
   }
 
-  if($result=mysqli_query($conn,$sql2)){
+  if($result=mysqli_query($link,$sql2)){
     echo "Data deleted";
   }          
 

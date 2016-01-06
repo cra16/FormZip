@@ -5,17 +5,6 @@
 
   // DB connection
   require_once('DB_INFO.php');
-  header('Content-Type: text/html; charset=utf-8');
-
-  mysqli_query("set session character_set_connection=utf8;");
-  mysqli_query("set session character_set_results=utf8;");
-  mysqli_query("set session character_set_client=utf8;");
-
-  $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
-  mysqli_set_charset($bd, "utf8");
-
-  mysqli_select_db($bd,DB_NAME) or die("Could not select database");
-
 ?>
 
 
@@ -139,7 +128,7 @@ $name= $_POST['name'];
 $stuid=$_POST['stuid'];
 $birth=$_POST['birth'];
 $qry="SELECT * FROM student WHERE id='$user_id'";
-$result=mysqli_query($bd,$qry);
+$result=mysqli_query($link,$qry);
 
 //student table이 존재할때
 if($result) {
@@ -152,7 +141,7 @@ if($result) {
       $key = KEY;
       $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
 
-      $password = mysqli_real_escape_string($bd,$member['password']);
+      $password = mysqli_real_escape_string($link,$member['password']);
 
       ### 복호화 ####
       $de_str = pack("H*", $password); //hex로 변환한 ascii를 binary로 변환

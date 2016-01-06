@@ -4,15 +4,6 @@ session_start();
 
 // DB connection
 require_once('DB_INFO.php');
-header('Content-Type: text/html; charset=utf-8');
-
-mysqli_query("set session character_set_connection=utf8;");
-mysqli_query("set session character_set_results=utf8;");
-mysqli_query("set session character_set_client=utf8;");
-
-$bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
-mysqli_set_charset($bd, "utf8") or die("Could not select database");
-mysqli_select_db($bd,DB_NAME);
 
 //로그인 여부 판단
 $userid = $_SESSION['USER_NAME'];
@@ -29,7 +20,7 @@ if(!$_GET['name'])
 
 $club= $_GET["name"];
 $qry="SELECT * FROM application WHERE id='$club'";
-$result=mysqli_query($bd,$qry);
+$result=mysqli_query($link,$qry);
 
 //Check whether the query was successful or not
 if($result) {
@@ -50,7 +41,7 @@ else
 }
 
 $qry="SELECT * FROM student WHERE id='$userid'";
-$result=mysqli_query($bd,$qry);
+$result=mysqli_query($link,$qry);
 
 //Check whether the query was successful or not
 if($result) {
@@ -84,7 +75,7 @@ else
   $index = $user['index'];
 
   $my_qry = "SELECT * FROM result WHERE club_name='$club' AND id='$userid'";
-  $my_result = mysqli_query($bd,$my_qry);
+  $my_result = mysqli_query($link,$my_qry);
 
   //Check whether the query was successful or not
   if($my_result) {
@@ -309,7 +300,7 @@ if( $info == 1){ // 정보 존재
       <input name="club_name" value="<?php echo $club; ?>" type="hidden">
       <?php
         $query = "SELECT * FROM result WHERE id = '$userid' AND storage='0' AND club_name = '$club'";
-        $re_query = mysqli_query($bd,$query);
+        $re_query = mysqli_query($link,$query);
         $fetch = mysqli_fetch_array($re_query);
 
         if( $fetch[0] == NULL ){
@@ -439,7 +430,7 @@ if( $info == 1){ // 정보 존재
         <br>
              <?php
         $query = "SELECT * FROM result WHERE id = '$userid' AND storage='0' AND club_name = '$club'";
-        $re_query = mysqli_query($bd,$query);
+        $re_query = mysqli_query($link,$query);
         $fetch = mysqli_fetch_array($re_query);
 
         if( $fetch[0] == NULL ){

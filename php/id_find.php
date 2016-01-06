@@ -4,16 +4,6 @@
 
   // DB connection
   require_once('DB_INFO.php');
-  header('Content-Type: text/html; charset=utf-8');
-
-  mysqli_query("set session character_set_connection=utf8;");
-  mysqli_query("set session character_set_results=utf8;");
-  mysqli_query("set session character_set_client=utf8;");
-
-  $bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
-  mysqli_set_charset($bd, "utf8");
-
-  mysqli_select_db($bd,DB_NAME) or die("Could not select database");
 ?>
 
 
@@ -127,7 +117,7 @@ $name= $_POST['name'];
 $stuid=$_POST['stuid'];
 $birth=$_POST['birth'];
 $qry="SELECT * FROM student WHERE student_name='$name'";
-$result=mysqli_query($bd,$qry);
+$result=mysqli_query($link,$qry);
 
 //student table이 존재하고 POST값이 != NULL(값이 입력 받을때)
 if($result && $name!="") {

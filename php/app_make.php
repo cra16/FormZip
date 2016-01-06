@@ -4,25 +4,9 @@ session_start();
 
 require_once('DB_INFO.php');
 require_once('auth.php');
-header('Content-Type: text/html; charset=utf-8');
-
-mysqli_query("set session character_set_connection=utf8;");
-mysqli_query("set session character_set_results=utf8;");
-mysqli_query("set session character_set_client=utf8;");
-
 
 $club= $_GET["name"];
 
-
-$conn=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");
-mysqli_set_charset($conn, "utf8");
-
-
-mysqli_select_db($conn,DB_NAME) or die("Could not select database");
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
 
 
 $label_name = array("이름","학번","학과","전화번호","성별","군필여부","e-mail","가능학기수");
@@ -69,7 +53,7 @@ $sub_radio_name=array("sr1","sr2","sr3","sr4","sr5","sr6","sr7","sr8","sr9","sr1
 <div class="formContentsLayout">
   <?php  
 $qry = "SELECT * FROM application WHERE id = '$club'";
-            $result = mysqli_query($conn,$qry);
+            $result = mysqli_query($link,$qry);
             $isset = mysqli_fetch_assoc($result);
 
            if($isset['month']!=NULL){

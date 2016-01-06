@@ -7,20 +7,6 @@ require_once('auth.php');
 
 // DB connection
 require_once('DB_INFO.php');
-header('Content-Type: text/html; charset=utf-8');
-
-mysqli_query("set session character_set_connection=utf8;");
-mysqli_query("set session character_set_results=utf8;");
-mysqli_query("set session character_set_client=utf8;");
-
-// Create connection
-$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-mysqli_set_charset($conn, "utf8");
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
 
 
 //  이미지 저장 
@@ -39,18 +25,19 @@ $title= addslashes($_POST['title']);
 $text= addslashes($_POST['text']);
 $club_name= $_POST['name'];
 
+//update photo
 if ($r == true) 
 {
     $sql = "UPDATE club
     SET img_name='$file_name'
     WHERE c_name='$club_name'";
-    if ($conn->query($sql) === TRUE) 
+    if ($link->query($sql) === TRUE)
     {
         echo "New record created successfully";
     } 
     else 
     {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $sql . "<br>" . $link->error;
     }
 
 }
@@ -58,19 +45,19 @@ else
 {
     echo "ERROR: File not moved correctly";
 }
-
+//update title
 if ($title != "") 
 {
     $sql = "UPDATE club
     SET title='$title'
     WHERE c_name='$club_name'";
-    if ($conn->query($sql) === TRUE) 
+    if ($link->query($sql) === TRUE)
     {
         echo "New record created successfully";
     } 
     else 
     {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $sql . "<br>" . $link->error;
     }
 
 }
@@ -78,19 +65,19 @@ else
 {
     echo "ERROR: File not moved correctly";
 }
-
+//update content
 if ($text !="") 
 {
     $sql = "UPDATE club
     SET text ='$text'
     WHERE c_name='$club_name'";
-    if ($conn->query($sql) === TRUE) 
+    if ($link->query($sql) === TRUE)
     {
         echo "New record created successfully";
     } 
     else 
     {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $sql . "<br>" . $link->error;
     }
 
 }
@@ -101,7 +88,7 @@ else
 
 
 
-$conn->close();
+$link->close();
 header("Location: ../php/clubpage.php");    
  
 ?>

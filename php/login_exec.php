@@ -2,17 +2,6 @@
 	//Start session
 session_start();
 require_once('DB_INFO.php');
-header('Content-Type: text/html; charset=utf-8');
-
-mysqli_query("set session character_set_connection=utf8;");
-mysqli_query("set session character_set_results=utf8;");
-mysqli_query("set session character_set_client=utf8;");
-
-$bd=mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD) or die("Could not connect database");;
-mysqli_set_charset($bd, "utf8") or die("Could not select database");
-
-
-mysqli_select_db($bd,DB_NAME);
 
 	//Array to store validation errors
 	$errmsg_arr = array();
@@ -21,14 +10,14 @@ mysqli_select_db($bd,DB_NAME);
 	$errflag = false;
  
 	//Sanitize the POST values
-	$username = mysqli_real_escape_string($bd,$_POST['username']);    
+	$username = mysqli_real_escape_string($link,$_POST['username']);
 
 
      ### 비밀번호 처리 ###
      $key = KEY;
      $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
 
-     $password = mysqli_real_escape_string($bd,$_POST['password']);
+     $password = mysqli_real_escape_string($link,$_POST['password']);
 
      ### 암호화 ###
      $en_str = mcrypt_encrypt(MCRYPT_3DES, $key, $password, MCRYPT_MODE_ECB, $s_vector_iv);
@@ -55,7 +44,7 @@ mysqli_select_db($bd,DB_NAME);
 
 	//Create query
 	$qry="SELECT * FROM student WHERE id='$username' AND password='$encryption'";
-	$result=mysqli_query($bd,$qry);
+	$result=mysqli_query($link,$qry);
  
 	//Check whether the query was successful or not
 	if($result) {
