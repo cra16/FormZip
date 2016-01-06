@@ -1,4 +1,21 @@
 <?php
+
+//Input Validations
+  if($_POST['his_id'] == '') {
+    $errflag = true;
+  }
+  if($_POST['his_pw'] == '') {
+    $errflag = true;
+  }
+
+  //If there are no input information, redirect back to the login form
+  if($errflag) {
+    session_write_close();
+    header("location: tem_login.php");//login page로 변경해야 하는 부분!!
+    exit();
+  }
+
+// Identify user_id, user_pw
 $member = new HisnetValidation();
 $member->Validation($_POST['his_id'],$_POST['his_pw']);
 
@@ -11,10 +28,6 @@ class HisnetValidation{
   var $his_id = null;
   //hisnet pw
   var $his_pw = null;
-  //교직원 여부
-  var $is_faculty = null;
-  // login check
-  var $is_login_successed = false;
   /**
    * @function membercraHisValidation
    * @brief 생성자. 학번, 이름, 히즈넷 아이디, 히즈넷 비밀번호, 교직원 여부를 프로퍼티에 넣기
@@ -41,7 +54,20 @@ class HisnetValidation{
    * 만약 히즈넷의 로그인 알고리즘이 바뀌면 이 부분을 수정해 주어야 한다.
    **/
   function requestHisnet() {
+    //Connect with DB
+    session_start();
+    require_once('DB_INFO.php');
+    //simple_html_dom.php is needed to access hisnetpage information
     include 'simple_html_dom.php';
+    //Password handling
+    $key = KEY;
+    $s_vector_iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_3DES, MCRYPT_MODE_ECB), MCRYPT_RAND);
+    $password = mysqli_real_escape_string($bd,$_POST['password']);
+    //Password encryption
+    $en_str = mcrypt_encrypt(MCRYPT_3DES, $key, $password, MCRYPT_MODE_ECB, $s_vector_iv);
+    $encryption = bin2hex($en_str);  
+    
+
     // Create temorary file for save cookies
     $ckfile = tempnam ("/tmp", "CURLCOOKIE");
     // POST data form for login
@@ -54,8 +80,7 @@ class HisnetValidation{
       "x" => 0,
       "y" => 0,
       );
-     // Access hisnet basic information
-    {
+    // Access hisnet basic information
       // 1st request
       $ch = curl_init ("http://hisnet.handong.edu/login/_login.php");
       curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
@@ -76,7 +101,7 @@ class HisnetValidation{
       $dataopost = array (
         "memo" => "",
         );
-      
+
       // 3rd request
       $ch = curl_init ("http://hisnet.handong.edu/main.php");
       curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
@@ -92,7 +117,7 @@ class HisnetValidation{
       curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt ($ch, CURLOPT_COOKIEFILE, $ckfile);
       curl_setopt ($ch, CURLOPT_REFERER, "http://hisnet.handong.edu/main.php");
-      
+
       $ch = curl_init ("http://hisnet.handong.edu/haksa/hakjuk/HHAK110M.php");
       curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
       curl_setopt ($ch, CURLOPT_COOKIEFILE, $ckfile);
@@ -100,59 +125,64 @@ class HisnetValidation{
       $result = curl_exec ($ch);
       $result = iconv("EUC-KR","UTF-8", $result);
       curl_close($ch);
-    }
-    
-    // Response result read
+    // Access result read
     $html = str_get_html($result);  
+    // Access 'student' DB
+    $id = $_POST['his_id'];
+    $qry = "SELECT * FROM student WHERE id = '$id'";
+    $outcome = mysqli_query($link,$qry);
+    // Hisnet login success
     if(is_object($html->find('.tblcationTitlecls', 1)))
-      echo "i am in!!";
+    {
+      $table = $html->find('.tblcationTitlecls', 1)->parent()->parent();
+      $td_id = $table->children(1)->children(1)->innertext;
+      $td_birth = $table->children(0)->children(3)->innertext;
+      $stu_id = substr($td_id, 11, 8);
+      $stu_name = $html->find('strong', 0)->innertext;
+      $stu_birth = substr($td_birth,0,6);
+      //When there is no data in student DB
+      if($outcome)
+      {
+        if(mysqli_num_rows($outcome) == 0){
+          $sql = "INSERT INTO student (student_name,stuid,birth)
+          VALUES ('$stu_name','$stu_id','$stu_birth')";
+          if ($link->query($sql) === TRUE){
+              echo "New record created successfully";
+          } 
+          else{
+              echo "Error";
+          }
+        }
+        $link->close();
+      }
 
-    else
-      echo "nothing";
-    // $table = $html->find('.tblcationTitlecls', 1)->parent()->parent();
-    // $td_id = $table->children(1)->children(1)->innertext;
-    // $stu_id = substr($td_id, 11, 19);
-    // echo $result;
-    // echo "   stu_id:";
-    // // Delete temp file after using
-    // unlink($ckfile);
+      $_SESSION['USER_NAME'] = $id;
+      session_write_close();
+      // header("location: firstpage.php");
+      exit();
+    }
+ 
+    // Hisnet login fail
+    else{
+      // Handling club or academy
+      if($outcome)
+      {
+        if(mysqli_num_rows($outcome )>0){
+          $_SESSION['USER_NAME'] = $id;
+          session_write_close();
+          // header("location: firstpage.php");
+          exit();
+        }
+        else
+          header("Location: ../php/tem_login.php");    
+      }
+
+      else
+      header("Location: ../php/tem_login.php");    
+    }
+
+    // Delete temp file after using
+    unlink($ckfile);
   }
-
-  /**
-   * @function parseResponse
-   * @brief 요청 결과를 해석해서 사용자 정보를 클래스 프로퍼티에 넣는다
-   * @param HTTP response $res
-   */
-  function parseResponse($result) {
-    include 'simple_html_dom.php';
-
-    $result = iconv("EUC-KR","UTF-8", $result);
-
-    $html = str_get_html($result);    
-    
-    $table = $html->find('.tblcationTitlecls', 1)->parent()->parent();
-    $td_id = $table->children(1)->children(1)->innertext;
-    $td_school = $table->children(4)->children(0)->innertext;
-    
-    if(!strcmp($td_school,'대학원'))
-      $stu_id = substr($td_id, 0, 8);
-    else
-      $stu_id = substr($td_id, 11, 19);
-    $stu_name = $html->find('strong', 0)->innertext;
-    
-    debugPrint('school:'.$td_school);
-    debugPrint('name:'.$stu_name.' and id:'.$stu_id);
-    debugPrint('this_name:'.$this->stu_name.' and this_id:'.$this->stu_id);
-    
-    $this->is_login_successed = 
-      (($stu_id==$this->stu_id) && ($this->stu_name==$stu_name));
-    
-    
-  }
-  
-  function isLoginSuccess() {
-    return $this->is_login_successed;
-  }
-  
 }
 ?>
