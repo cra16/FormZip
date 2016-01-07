@@ -41,10 +41,10 @@
       <div class="form-group">
         <h2>로그인</h2>
         <h4>Apply &amp; Recruit!</h4>
-       <input class="form-control" id="username" name="username" type="text" placeholder="UserId" maxlength="20">
+       <input class="form-control" id="his_id" name="his_id" type="text" placeholder="UserId" maxlength="20">
       </div>
       <div class="form-group">
-        <input class="form-control" id="password" name="password" type="password" placeholder="Password" maxlength="15">
+        <input class="form-control" id="his_pw" name="his_pw" type="password" placeholder="Password" maxlength="15">
       </div>
     
       <div class="row extra">
