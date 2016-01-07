@@ -35,12 +35,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DB_INFO.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DB_INFO.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DB_INFO.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33548388">
+            <state vertical-scroll-proportion="-11.142858">
               <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="withdrawal.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/withdrawal.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.285715">
+              <caret line="130" column="25" selection-start-line="130" selection-start-column="25" selection-end-line="130" selection-end-column="25" />
+              <folding>
+                <marker date="1452072427938" expanded="true" signature="2284:2322" placeholder="SELECT * FRO... student" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="check_id.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/check_id.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.714286">
+              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+              <folding>
+                <marker date="1452070130204" expanded="true" signature="206:243" placeholder="SELECT * FRO... student" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/signup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-23.172413">
+              <caret line="65" column="78" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data_change.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data_change.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8752688">
+              <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
+              <folding>
+                <marker date="1452071889461" expanded="true" signature="471:508" placeholder="SELECT * FRO... student" />
+                <marker date="1452071889461" expanded="true" signature="776:1115" placeholder="INSERT INTO student... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -172,9 +219,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DB_INFO.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33548388">
+        <state vertical-scroll-proportion="-11.142858">
           <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/withdrawal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.285715">
+          <caret line="130" column="25" selection-start-line="130" selection-start-column="25" selection-end-line="130" selection-end-column="25" />
+          <folding>
+            <marker date="1452072427938" expanded="true" signature="2284:2322" placeholder="SELECT * FRO... student" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/check_id.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.714286">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <marker date="1452070130204" expanded="true" signature="206:243" placeholder="SELECT * FRO... student" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.172413">
+          <caret line="65" column="78" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_change.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8752688">
+          <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
+          <folding>
+            <marker date="1452071889461" expanded="true" signature="471:508" placeholder="SELECT * FRO... student" />
+            <marker date="1452071889461" expanded="true" signature="776:1115" placeholder="INSERT INTO student... " />
+          </folding>
         </state>
       </provider>
     </entry>
