@@ -10,13 +10,26 @@ body{
   background-color: transparent;
 }
 
+h2{
+  font-weight: 500 !important;
+  font-size: 2.3em !important;
+  margin: .67em 0 !important;
+  text-align: center;
+  position: static;
+  display: block;
+}
 .wrapper {
     margin-top: 10%;
     text-align: center;
 }
 
-
 /*박스 Start*/
+.loginbox{
+ border: 1px solid #EBEAEA;
+ padding-bottom:3rem;
+ display:block;
+}
+
 .form-group h2{
   text-align:center;
   font-size:2.0rem;
@@ -32,54 +45,26 @@ body{
 
 .form-control{
   margin-bottom: 13px;
+}
 
-}
-.inputmargin{
-  margin-top:3px;
-}
-#divmargin{
-  margin-top:15px;
-}
+
 /*박스 End*/
 
 
 /*제출 버튼 Start*/
 .submit_content{
-  height:61px;
+   width:100% !important;
+   margin-bottom:13px;
+}
+
+.help_content{
   width:100%;
-  margin:0 auto;
-  padding:10px auto;
-  text-align:center;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-.submit_content button{
-  width:100%;
-  height:100%;
-  background-color:#00b38f;
-  border-radius: 7px;
-  color:white;
-  letter-spacing: 0.6rem;
-  font-size:2rem;
+  text-transform: none !important;
+  box-shadow: none !important;
+  text-align: right;
+  font-size: 1.5rem;
+  margin-bottom:3px;
 }
 
 
-.error {
-  margin: 3px 0 3px 1px;
-  font-size: 12px;
-  color: #FF8080;
-}
-.error2 {
-  margin: 3px 0 3px 1px;
-  font-size: 14px;
-  color: #FF8080;
-  text-align:center;
-}
 
-
-.extra{
-  text-align:center;
-}
-
-.extra a{
-  color: #00b38f;
-}
