@@ -1,19 +1,5 @@
 <?php
 
-//Input Validations
-  if($_POST['his_id'] == '') {
-    $errflag = true;
-  }
-  if($_POST['his_pw'] == '') {
-    $errflag = true;
-  }
-
-  //If there are no input information, redirect back to the login form
-  if($errflag) {
-    session_write_close();
-    header("location:login.php");//login page로 변경해야 하는 부분!!
-    exit();
-  }
 
 // Identify user_id, user_pw
 $member = new HisnetValidation();
@@ -33,12 +19,16 @@ class HisnetValidation{
    * @brief 생성자. 학번, 이름, 히즈넷 아이디, 히즈넷 비밀번호, 교직원 여부를 프로퍼티에 넣기
    **/
   function validation($his_id, $his_pw){
-    // 일단 값이 있는지 검사
-    if (empty($his_id))
-    return false;
-    if (empty($his_pw))
-    return false;
-   
+    // Examine hisnet_id and hisnet_pw
+    if (empty($his_id)|| empty($his_pw))
+    $errflag = true;
+    //If there are no input information, redirect back to the login form
+    if($errflag) {
+    session_write_close();
+    header("location:firstpage.php");
+echo"<script>alert(\"를 다시 입력해 주세요. 에러가 났어요\");</script>";
+    exit();
+  }   
     $this->his_id = $his_id;
     $this->his_pw = $his_pw;
     // 히즈넷에 요청을 보내서 올바른 사람인지 확인한다.
@@ -156,7 +146,7 @@ class HisnetValidation{
 
       $_SESSION['USER_NAME'] = $id;
       session_write_close();
-      header("location: firstpage.php");
+      header("location: clublist.php");
       exit();
     }
 
@@ -178,15 +168,15 @@ class HisnetValidation{
         if(mysqli_num_rows($outcome)>0){
           $_SESSION['USER_NAME'] = $id;
           session_write_close();
-         header("location: firstpage.php");
+         header("location: clublist.php");
           exit();
         }
         else
-          header("location: login.php");
+          header("location: firstpage.php");
       }
 
       else
-      header("location: login.php");
+      header("location: firstpage.php");
     }
 
     // Delete temp file after using

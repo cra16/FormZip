@@ -5,13 +5,13 @@
   // DB connection
   require_once('DB_INFO.php');
 
-  if($_GET['name']!=""){
+  if($_GET['name']!=NULL){
    $club_name= $_GET['name'];
    $_SESSION["GROUP"] = $club_name;
   }
   else{
     if($_SESSION['GROUP']==NULL)
-      header("location: login.php");
+      header("location: clublist.php");
    
     $club_name=$_SESSION['GROUP'];
     $_GET['name']=$club_name;

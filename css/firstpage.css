@@ -1,50 +1,100 @@
-@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-* { font-family:"Nanum Gothic" !important }
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 
+html,body{
+  width: 100%;
+  height:100%;
+}
 
-html { 
-   background: url(../img/background.jpg) no-repeat center center fixed;   
-     /*background-size: 100% auto;*/
+/*default or less than 768px(xs size)*/
+  h1{
+    font-family:'Montserrat';
+    font-weight: 500 !important;
+    font-size: 9rem;
+    letter-spacing: 0.4rem;
+    text-align: center;
+    display:block;
+  }
 
+  h2{
+    visibility: hidden;
+    height: 0px;
+  }
+
+  h3{
+    font-family:'Montserrat';
+
+  }
+
+  .header {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../img/bg.jpg);
+    background-attachment: fixed;
+    background-repeat : no-repeat; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
+    -o-background-size: cover;
+  }
+
+  .loginbox{
+   border: 1px solid #EBEAEA;
+   padding-bottom:2rem;
+   display:block;
+   margin-top:3rem;
+   text-align: center;
+   background-color: white;
+   width:100%;
+/*   opacity: 0.8;
+*/  }
+
+  .submit_content{
+     width:100% !important;
+     margin-top: 20px;
+     margin-bottom:13px;
+  }
+
+  .join_content{
+    width:100% !important;
+    margin-top:30%;
+    background-color:black;
+    height:50px;
+    border-radius : 5px;
+  }
+
+
+  .joinButton:hover {
+    width:100% !important;
+    margin-top:40%;
+    background-color:black;
+    height:50px;
+    border-radius : 5px;
+  }
+
+@media(min-width:768px) {
+  h2{
+    font-family:'Montserrat';
+    font-weight: 500 !important;
+    font-size: 2rem !important;
+    letter-spacing: 0.4rem;
+    letter-spacing: 10px;
+    text-align: center;
+    display:block;
+    visibility: visible;
+  }
+  .join_content{
+    margin-top:30%;
+  }
 }
 
-.text{
-    background-color: transparent;
-    color
+@media(min-width:992px) {
 }
 
-.club-button{
-    position: absolute;
-    top: 55%;
-    height: 30%;
-    width: 40%;
-    /*background-color: black;*/
+@media(min-width:1200px) {
+  h1{
+    margin-top : 40px;
+    font-size: 11rem;
+  }
 }
-
-.academy-button{
-    position: absolute;
-    top: 55%;
-    left: 60%;    
-    height: 30%;
-    width: 40%;
-    /*background-color: black;*/
-
-}
-
-.link-button{
-    position: absolute;
-    top: 64%;
-    left: 28%;    
-    height: 12%;
-    width: 15%;
-}
-
-.popup{
-    width: 285px;
-    height: auto;
-}
-
