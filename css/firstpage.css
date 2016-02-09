@@ -9,15 +9,21 @@ html,body{
   h1{
     font-family:'Montserrat';
     font-weight: 500 !important;
-    font-size: 9rem;
+    font-size: 5.5rem;
     letter-spacing: 0.4rem;
     text-align: center;
     display:block;
   }
 
   h2{
-    visibility: hidden;
-    height: 0px;
+    font-family:'Montserrat';
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.4rem;
+    letter-spacing: 10px;
+    text-align: center;
+    display:block;
+    visibility: visible;
   }
 
   h3{

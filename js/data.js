@@ -1,7 +1,7 @@
 var app = angular.module('grouplist', []);
 
 app.controller('ClubController', function($scope,$http) {
-    $http.get('./club_api.php').
+    $http.get('../php-config/clublist_config.php').
     success(function(data) {
         // here the data from the api is assigned to a variable named users
         $scope.list = data;
@@ -11,7 +11,7 @@ app.controller('ClubController', function($scope,$http) {
 
 
 app.controller('AcademyController', function($scope,$http) {
-    $http.get('./academy_api.php').
+    $http.get('../php-config/academylist_config.php').
     success(function(data) {
         // here the data from the api is assigned to a variable named users
         $scope.list = data;
