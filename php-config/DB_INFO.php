@@ -1,8 +1,6 @@
 <?php
-//=================================/
-// file name: DB_INFO.php         //
-//what to do: DB config           //
-//=================================/
+// 파일명: DP_INFO.php
+// 설명: 기본적인 db연동
 
   // Define database connection constants
   define('DB_HOST', "localhost");

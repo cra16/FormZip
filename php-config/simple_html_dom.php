@@ -1,4 +1,7 @@
 <?php
+// 파일명: simple_html_dom.php
+// 설명: 히즈넷 정보 parsing에 사용
+
 /**
  * Website: http://sourceforge.net/projects/simplehtmldom/
  * Additional projects that may be used: http://sourceforge.net/projects/debugobject/

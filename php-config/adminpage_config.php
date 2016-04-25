@@ -1,11 +1,14 @@
 <?php
+// 파일명: adminpage_config.php
+// 설명: 관리자 로그인시 관리페이지 접근가능 여부 판단
+//	만일 관리자가 아닌 사람이 페이지에 접근 하려고 할시 첫 페이지로 이동
 	session_start();
 
-	// wrong access-> no login
+	// 로그인을 하지 않았거나 MODE가 없는경우(MODE가 1이면 동아리, 2이면 학회)
 	if(!$_SESSION['USER_NAME']||!$_SESSION['MODE'])
      header("location: ../php-views/firstpage.php");
 
- 	// wring access-> common user
+ 	// MODE가 제대로 넘어오지 않는 경우
  	if($_SESSION['MODE']!=1 && $_SESSION['MODE']!=2)
      header("location: ../php-views/firstpage.php");
 

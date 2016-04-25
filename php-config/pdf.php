@@ -1,4 +1,7 @@
 <?php
+// 파일명: pdf.php
+// 설명: 지원 내용을 pdf로 출력
+
 // Session start 
 session_start();
 // Manager judge
