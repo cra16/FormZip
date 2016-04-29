@@ -1,4 +1,5 @@
 <?php
+//Excel download를 받을 수 있도록 header 설정
   session_start();
   require_once('DB_INFO.php');
   Header("Content-type: application/vnd.ms-excel");
@@ -7,7 +8,7 @@
   Header("Content-Description: PHP5 Generated Data");
   Header("Pragma: no-cache");
   Header("Expires: 0");
-
+//db connect
   mysqli_query("set session character_set_connection=utf8;");
   mysqli_query("set session character_set_results=utf8;");
   mysqli_query("set session character_set_client=utf8;");
@@ -18,11 +19,12 @@
   mysqli_select_db($connect,DB_NAME);
 
   $club_name=$_SESSION["GROUP"];
- 
+ //db에 있는 질문 목록과 답변 목록 가져오기
   $result = mysqli_query($connect,"SELECT * FROM result WHERE club_name = '$club_name'"); 
   $qry = mysqli_query($connect,"SELECT * FROM application WHERE id = '$club_name'");
   
   $check = mysqli_fetch_array($qry);
+  //표의 형식으로 html 문서 작성하기
  ?>
 <!DOCTYPE html>
 <html>

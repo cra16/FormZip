@@ -52,43 +52,6 @@ if(!$_POST['temp'] && !$_POST['real'])
     alert('임시저장no');
   }
 
-
-    echo $club;
-  echo "<br>";
-   echo $major;
-  echo "<br>";
-
-   echo $p_num;
-  echo "<br>";
-
-   echo $gender;
-  echo "<br>";
-
-   echo $served;
-     echo "<br>";
-
-   echo $mail;
-     echo "<br>";
-
-   echo $activity;
-     echo "<br>";
- echo "<br>";
-   echo $content1;
-     echo "<br>";
- echo "<br>";
-   echo $content2;
-     echo "<br>";
- echo "<br>";
-   echo $content3;
-     echo "<br>";
-
-   echo $content4;
-   echo $content5;
-   echo $content6;
-   echo $content7;
-
-
-
 $id = $_SESSION['USER_NAME'];
 $qry = "SELECT * FROM student WHERE id = '$id'";
 $stuid_result = mysqli_query($link,$qry);

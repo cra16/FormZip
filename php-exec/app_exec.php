@@ -57,17 +57,17 @@ $admin=$temp['c_name'];
     $s_day = mysqli_real_escape_string($link,$_POST['s_day']);
     $month = mysqli_real_escape_string($link,$_POST['month']);
     $day = mysqli_real_escape_string($link,$_POST['day']);
-
+//해당 단체 지원서 선택
 $qry = "SELECT * FROM application WHERE id = '$admin'";
             $result = mysqli_query($link,$qry);
             $isset = mysqli_fetch_assoc($result);
-
+//날짜가 설정되어있을 경우(지원서를 등록한적있을경우) 지워준다
            if($isset['month']!=NULL){
              $del = "DELETE FROM result WHERE club_name = '$admin'";
              mysqli_query($link,$del);
  
            }
-           
+//입력 정보를 업데이트 한다.           
 $sql = "UPDATE application
 SET served = '$served' ,mail = '$mail' ,activity = '$activity' ,sr1 = '$sr1' ,sr2 = '$sr2' ,sr3 = '$sr3' ,sr4 = '$sr4' ,sr5 = '$sr5' ,sr6 = '$sr6' ,sr7 = '$sr7' ,title1 = '$title1' ,explain1 = '$explain1' ,title2 = '$title2' ,explain2 = '$explain2' ,title3 = '$title3' ,explain3 = '$explain3' ,title4 = '$title4' ,explain4 = '$explain4' ,title5 = '$title5' ,explain5 = '$explain5' ,title6 = '$title6' ,explain6 = '$explain6' ,title7 = '$title7' ,explain7 = '$explain7',month = '$month' ,day = '$day', s_month = '$s_month', s_day = '$s_day'  WHERE id = '$admin'";
 

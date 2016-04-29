@@ -89,7 +89,7 @@ session_start();
 		$qry_d = "SELECT * FROM application WHERE id = '$group_name'";
 		$result_d = mysqli_query($link,$qry_d);
 		$due = mysqli_fetch_assoc($result_d);
-
+    //지원서 등록여부(날짜로 확인)로 지원서 뷰 여부를 확인해준다
 		if($due['month']!=NULL){ ?>
 		        <form action="app_preview.php" method="GET">
 		        <button class = "btn btn-primary btn-round" type="submit" name="name" value="<?php echo $group_name; ?>">지원서 미리보기</button>
