@@ -1,4 +1,6 @@
 <?php
+// 파일명: app_storage.php
+// 설명: user가 지원서를 쓴 후 지원서 저장
 // Session start 
 session_start();
 

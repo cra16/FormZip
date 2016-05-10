@@ -1,4 +1,6 @@
 <?php
+// 파일명: app_exec.php
+// 설명: 그룹 담당자가 지원서 만들경우 실제 처리담당
 session_start();
 require_once('../php-config/DB_INFO.php');
 

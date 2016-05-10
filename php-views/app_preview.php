@@ -1,4 +1,6 @@
 <?php
+// 파일명: app_preview.php
+// 설명: 그룹 관리자가 지원서 만들것을 미리 볼 수 있도록 display
   // Session start 
   session_start();
   // Manager judge

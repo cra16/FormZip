@@ -1,4 +1,6 @@
 <?php
+// 파일명: clublist.php
+// 설명: 동아리, 동호회 display
   // Session start 
   session_start();
   // Incorrect access

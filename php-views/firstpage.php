@@ -1,4 +1,6 @@
 <?php
+// 파일명: firstpage.php
+// 설명: 첫, 로그인 페이지
 //Start the session
 session_start();
 unset($_SESSION['USER_NAME']);

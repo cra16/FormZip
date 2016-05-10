@@ -1,4 +1,6 @@
 <?php
+// 파일명: app_make.php
+// 설명: 그룹 관리자가 지원서 만들 수 있도록 display
 // Session start 
 session_start();
 

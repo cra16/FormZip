@@ -1,4 +1,6 @@
 <?php 
+// 파일명: academymodify.php
+// 설명: 학회 관리자가 해당 학회 변경 원할 시 update하도록 display
   // Session start 
   session_start();
   // Manager judge

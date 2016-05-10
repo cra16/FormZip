@@ -1,4 +1,6 @@
 <?php
+// 파일명: academylist.php
+// 설명: 일반 user가 로그인을 하고 학회버튼을 누를경우 학회 정보 display
   // Session start 
   session_start();
   // Incorrect access

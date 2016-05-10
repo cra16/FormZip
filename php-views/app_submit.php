@@ -1,4 +1,6 @@
 <?php
+// 파일명: app_submit.php
+// 설명: 학생이 해당 그룹에 지원서 쓸 수 있도록 display
 // Session start 
 session_start();
 

@@ -1,4 +1,6 @@
 <?php 
+// 파일명: clubmodify.php
+// 설명: 동아리 관리자가 해당 동아리 변경 원할 시 update하도록 display
   // Session start 
   session_start();
   // Manager judge

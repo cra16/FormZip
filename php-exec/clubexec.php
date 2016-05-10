@@ -1,4 +1,6 @@
 <?php
+// 파일명: clubexec.php
+// 설명: 동아리 관리자가 동아리 페이지 변경할 경우 실제 처리 담당
 // Session start 
 session_start();
 

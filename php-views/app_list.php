@@ -1,4 +1,6 @@
 <?php
+// 파일명: app_list.php
+// 설명: 그룹 관리자가 지원서를 볼 수 있는 display
 session_start();
 // Manager judge
 //require_once('auth.php');

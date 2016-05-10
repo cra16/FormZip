@@ -1,4 +1,6 @@
 <?php
+// 파일명: mypage.php
+// 설명: 학생의 개인 페이지
   // Session start 
   session_start();
 

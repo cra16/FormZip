@@ -1,4 +1,6 @@
 <?php 
+// 파일명: individual_page.php
+// 설명: 각 동아리 페이지
   // Session start 
   session_start();
   include('../php-config/individual_config.php');

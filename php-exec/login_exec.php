@@ -1,4 +1,6 @@
 <?php
+// 파일명: login_exec.php
+// 설명: 로그인을 할때 실제 처리 담당
 // Identify user_id, user_pw
 $member = new HisnetValidation();
 $member->validation($_POST['his_id'],$_POST['his_pw']);
@@ -12,10 +14,10 @@ class HisnetValidation{
   var $his_id = null;
   //hisnet pw
   var $his_pw = null;
-  /**
-   * @function membercraHisValidation
-   * @brief 생성자. 학번, 이름, 히즈넷 아이디, 히즈넷 비밀번호, 교직원 여부를 프로퍼티에 넣기
-   **/
+  
+   //function membercraHisValidation
+  //brief 생성자. 학번, 이름, 히즈넷 아이디, 히즈넷 비밀번호, 교직원 여부를 프로퍼티에 넣기
+
   function validation($his_id, $his_pw){
     // Examine hisnet_id and hisnet_pw
     if (empty($his_id)|| empty($his_pw))
@@ -34,13 +36,13 @@ class HisnetValidation{
   }
   
   
-  /**
-   * @function requestHisnet
-   * @brief 히즈넷 서버에 로그인 요청을 보낸다. fsockopen() 사용
-   * 먼저 쿠키를 받아낸다.
-   * 주의할 점은 /login.asp 와 /goMenu_eval.asp 그리고 /main.asp 3곳에 요청을 다 보내야 한다. (2012년 1월 31일 기준.)
-   * 만약 히즈넷의 로그인 알고리즘이 바뀌면 이 부분을 수정해 주어야 한다.
-   **/
+  
+   // @function requestHisnet
+   //@brief 히즈넷 서버에 로그인 요청을 보낸다. fsockopen() 사용
+   //먼저 쿠키를 받아낸다.
+   //주의할 점은 /login.asp 와 /goMenu_eval.asp 그리고 /main.asp 3곳에 요청을 다 보내야 한다. (2012년 1월 31일 기준.)
+   //만약 히즈넷의 로그인 알고리즘이 바뀌면 이 부분을 수정해 주어야 한다.
+   //
   function requestHisnet() {
     //Connect with DB
     session_start();

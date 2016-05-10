@@ -1,4 +1,6 @@
 <?php
+// 파일명: academyexec.php
+// 설명: 학회 관리자가 학회 페이지 변경할 경우 실제 처리 담당
 // Session start 
 session_start();
 

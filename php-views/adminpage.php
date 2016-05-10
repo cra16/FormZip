@@ -1,4 +1,6 @@
 <?php
+// 파일명: adminpage.php
+// 설명: 그룹 관리지가 어떤것을 할지 display(페이지수정, 지원서 수정, 지원서 만들기 등)
 session_start();
 	require_once('../php-config/adminpage_config.php');
 	require_once('../php-config/individual_config.php');
