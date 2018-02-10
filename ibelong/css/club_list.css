@@ -1,0 +1,167 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+html,body{
+  width: 100%;
+  height:100%;
+  text-align:center;
+}
+
+h1{
+  font-family:'Montserrat';
+  font-weight: 500 !important;
+  font-size: 4rem;
+  letter-spacing: 0.4rem;
+  text-align: center;
+  display:block;
+}
+
+a,a:hover{
+  color: black;
+  text-decoration: none;
+}
+
+.btn-default{
+  font-family: 'Lato', serif;
+  font-weight:500;
+  font-size:14px;
+  margin-bottom: 20px !important;
+  width:100%;
+  position:relative;
+}
+
+#home_button{
+  font-family:"Montserrat" !important;
+}
+
+.searchbar{
+  width:100%;
+  margin-bottom: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius:20px;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 35px;
+  font-size:20px;
+}
+
+.searchbar select{
+  font-size:20px;
+  text-align-last:center; 
+  text-align: center;
+  text-indent:5px;
+  color: black; 
+  padding: 0;
+}
+
+.section{
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  float: left;
+  width:100%;
+}
+
+.block{
+  float:left;
+  width:35%;
+  height:auto;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+  position:relative;
+  margin-bottom: 10px;
+}
+
+ .block img{
+  width:100%;
+  height:100%;
+ }
+
+.block_content {
+    display: inline-block;
+    background: #FFF;
+    width: 65%;
+ }
+
+.block_content input{
+  font-family:"Montserrat" !important;
+}
+
+@media(min-width:650px) {
+  h1{
+    font-size: 6rem;
+  }
+
+  .btn-default{
+    font-size:20px;
+  }
+
+  .logo_box{
+    height:160px;
+    width:80%;
+  }
+  .section{
+      width:50%;
+  }
+  .block, .block img{
+    width:100%;
+    height:146px;
+  }
+  .block_content {
+       width: 100%;
+  }
+  .searchbar{
+    width:50%;
+  }
+}
+
+@media(min-width:768px) {
+  h1{
+    font-size: 8rem;
+  }
+  .section{
+      width:33.3333333%;
+  }
+  .block, .block img{
+    width:208px;
+    height:135px;
+  }
+}
+
+@media(min-width:992px) {
+  h1{
+    font-size: 9rem;
+  }
+  .logo_box{
+    height:160px;
+    width:700px;
+  }
+  .section{
+      width:25%;
+  }
+  .block, .block img{
+    width:205px;
+    height:133px;
+  }
+}
+
+@media(min-width:1200px) {
+  .block, .block img{
+    width:255px;
+    height:166px;
+  }
+}
+
+
+input[value="CRA"]{
+  color:white;
+  font-size:200%;
+  font-weight:bold;
+  background-color: #B9DFDF;
+
+}
+img[src="../clubimg/crang.gif"]{
+  //border: 1px solid blue;
+}
