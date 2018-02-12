@@ -5,7 +5,7 @@
   // Define database connection constants
   defined("DB_HOST") || define("DB_HOST", "localhost");
   defined("DB_USER") || define("DB_USER", "root");
-  defined("DB_PASSWORD") || define("DB_PASSWORD", "helloworld206");
+  defined("DB_PASSWORD") || define("DB_PASSWORD", "123456");
   defined("DB_NAME") || define("DB_NAME", "ibelong");
   defined("KEY") || define("KEY", "1qaz2wsx3edc4rfv5tgb6yhn");
 
