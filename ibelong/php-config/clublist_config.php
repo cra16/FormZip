@@ -7,7 +7,7 @@
         $db_name  = 'ibelong';
         $hostname = 'localhost';
         $username = 'root';
-        $password = 'helloworld206';
+        $password = '123456';
 
         // connect to the fbsql_database(link_identifier)se(json으로 파일을 보내기 위해 PDO 방식 체택)
         $dbh = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password);

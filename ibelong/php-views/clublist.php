@@ -19,11 +19,12 @@
     <!-- CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
-    <link href="../css/club_list.css?9version=23123" rel="stylesheet">
+    <link href="../css/club_list.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
   </head>
 
   <body>
+
     <!-- Navigation -->
     <nav class="navbar navbar-default">
       <div class="container-fluid">

@@ -6,7 +6,7 @@
 $db_name  = 'ibelong';
 $hostname = 'localhost';
 $username = 'root';
-$password = 'helloworld206';
+$password = '123456';
 
 // db와 연결(json 방식으로 파일을 보내기 위해 PDO방식 체택)
 $dbh = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password);
