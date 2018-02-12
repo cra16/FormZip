@@ -1,8 +1,11 @@
 <?php 
 // 파일명: individual_page.php
 // 설명: 각 동아리 페이지
+
   // Session start 
   session_start();
+  if (!array_key_exists('GROUP', $_SESSION)) $_SESSION['GROUP'] = null;
+  
   include('../php-config/individual_config.php');
   $individual_page = new IndividualConfig();
   $individual_page->validation($_GET['name'],$_SESSION['GROUP']);
