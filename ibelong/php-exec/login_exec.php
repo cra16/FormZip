@@ -217,9 +217,10 @@ class HisnetValidation{
           $row = $outcome->fetch_assoc();
           $_SESSION['USER_NAME'] = $id;
           $_SESSION['MODE']=$row['index'];
-          echo  $_SESSION['MODE'];
           session_write_close();
-         header("location: ../php-views/adminpage.php");
+          if($id==='admin')
+            header("location: ../php-views/intergrated_admin.php");
+          else header("location: ../php-views/adminpage.php");
           exit();
         }
         else{
