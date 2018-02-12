@@ -19,6 +19,9 @@ class HisnetValidation{
   //brief 생성자. 학번, 이름, 히즈넷 아이디, 히즈넷 비밀번호, 교직원 여부를 프로퍼티에 넣기
 
   function validation($his_id, $his_pw){
+
+    $errflag = false;
+
     // Examine hisnet_id and hisnet_pw
     if (empty($his_id)|| empty($his_pw))
     $errflag = true;
@@ -70,7 +73,7 @@ class HisnetValidation{
     $ckfile = tempnam ("/tmp", "CURLCOOKIE");
     // POST data form for login
     $dataopost = array (
-      "Language" => "Korean",
+      "Language" => "Korean",         
       "f_name" => "",
       "id" => $this->his_id,
       "part" => "",
@@ -78,6 +81,13 @@ class HisnetValidation{
       "x" => 0,
       "y" => 0,
       );
+
+
+    //////////////////////////////////////////////////////////////////
+    //For using curl function, you should install php7.0-curl package
+    //For example; apt-get install php7.0-curl
+    //////////////////////////////////////////////////////////////////
+
     // Access hisnet basic information
       // 1st request
       $ch = curl_init ("http://hisnet.handong.edu/login/_login.php");
@@ -121,8 +131,9 @@ class HisnetValidation{
       curl_setopt ($ch, CURLOPT_COOKIEFILE, $ckfile);
       curl_setopt ($ch, CURLOPT_REFERER, "http://hisnet.handong.edu/for_student/main.php");
       $result = curl_exec ($ch);
-      $result = iconv("EUC-KR","UTF-8", $result);
+      $result = iconv("EUC-KR","UTF-8", $result); 
       curl_close($ch);
+
     // Access result read
     $html = str_get_html($result);  
     // Access 'student' DB
