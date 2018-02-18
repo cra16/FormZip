@@ -36,7 +36,17 @@ class HisnetValidation{
     //   exit();
     // }
     //////////////////////////////////////////////
+    
 
+    // test with offline
+    if($his_id === 'admin'){
+      session_start();
+      $_SESSION['USER_NAME'] = $his_id;
+      $_SESSION['MODE']=2;
+      session_write_close();  
+      header("location: ../php-views/intergrated_admin.php");
+      exit();
+    }
 
 
 
